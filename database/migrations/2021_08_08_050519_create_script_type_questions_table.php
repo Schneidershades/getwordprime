@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateScriptQuestionsTable extends Migration
+class CreateScriptTypeQuestionsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,7 +13,7 @@ class CreateScriptQuestionsTable extends Migration
      */
     public function up()
     {
-        Schema::create('script_questions', function (Blueprint $table) {
+        Schema::create('script_type_questions', function (Blueprint $table) {
             $table->id();
             $table->foreignId('script_type_id')->nullable()->constrained();
             $table->string('question');
@@ -28,6 +28,6 @@ class CreateScriptQuestionsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('script_questions');
+        Schema::dropIfExists('script_type_questions');
     }
 }

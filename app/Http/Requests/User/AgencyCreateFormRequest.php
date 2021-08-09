@@ -14,7 +14,6 @@ use Illuminate\Foundation\Http\FormRequest;
  * )
  */
 
-
 class AgencyCreateFormRequest extends FormRequest
 {
     /**
@@ -24,7 +23,7 @@ class AgencyCreateFormRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**

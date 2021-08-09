@@ -10,7 +10,7 @@ class ScriptController extends Controller
 {
     public function index()
     {
-        //
+        $this->showAll(auth()->user()->scripts);
     }
 
     public function store(Request $request)

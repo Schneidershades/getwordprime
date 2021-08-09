@@ -11,6 +11,10 @@ use App\Http\Resources\User\UserCollection;
 use Spatie\Permission\Traits\HasRoles;
 use Tymon\JWTAuth\Contracts\JWTSubject;
 use App\Notifications\Auth\PasswordResetNotification;
+use App\Models\Agency;
+use App\Models\Campaign;
+use App\Models\Script;
+use App\Models\Suggestion;
 
 class User extends Authenticatable implements MustVerifyEmail, JWTSubject 
 {
@@ -71,5 +75,28 @@ class User extends Authenticatable implements MustVerifyEmail, JWTSubject
         $this->notify(new PasswordResetNotification($token));
     }
 
-    
+    public function agencies()
+    {
+        return $this->hasMany(Agency::class);
+    }
+
+    public function campaigns()
+    {
+        return $this->hasMany(Campaign::class);
+    }
+
+    public function scripts()
+    {
+        return $this->hasMany(Script::class);
+    }
+
+    public function suggestions()
+    {
+        return $this->hasMany(Suggesstion::class);
+    }
+
+    public function resellers()
+    {
+        return $this->hasMany(User::class, 'parent_id');
+    }
 }

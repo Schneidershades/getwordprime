@@ -10,7 +10,7 @@ class ScriptFavoriteController extends Controller
 {
     public function index()
     {
-        //
+        $this->showAll(auth()->user()->scriptFavorites);
     }
 
     public function store(Request $request)
