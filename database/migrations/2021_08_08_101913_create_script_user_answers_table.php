@@ -15,7 +15,7 @@ class CreateScriptUserAnswersTable extends Migration
     {
         Schema::create('script_user_answers', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('script_question_id')->nullable()->constrained();
+            $table->foreignId('script_type_question_id')->nullable()->constrained();
             $table->foreignId('user_id')->nullable()->constrained();
             $table->string('answers');
             $table->timestamps();
