@@ -4,7 +4,7 @@ namespace App\Http\Resources\Script;
 
 use Illuminate\Http\Resources\Json\JsonResource;
 
-class ScriptTypeQuestionResource extends JsonResource
+class ScriptUserAnswerResource extends JsonResource
 {
     /**
      * Transform the resource into an array.
@@ -15,7 +15,7 @@ class ScriptTypeQuestionResource extends JsonResource
     public function toArray($request)
     {
         return [
-            'question' => $this->question,
+            'answer' => $this->answer,
         ];
     }
 }

@@ -14,6 +14,10 @@ class ScriptTypeResource extends JsonResource
      */
     public function toArray($request)
     {
-        return parent::toArray($request);
+        return [
+            'name' => $this->name,
+            'icon' => $this->icon,
+            'description' => $this->description,
+        ];
     }
 }

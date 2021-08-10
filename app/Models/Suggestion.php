@@ -19,4 +19,9 @@ class Suggestion extends Model
     {
         return $this->belongsTo(User::class);
     }
+
+    public function children()
+    {
+        return $this->hasMany(Suggestion::class, 'parent_id');
+    }
 }

@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Http\Resources\Tutorial;
+namespace App\Http\Resources\Script;
 
 use Illuminate\Http\Resources\Json\ResourceCollection;
 
-class TutorialCollection extends ResourceCollection
+class ScriptUserAnswerCollection extends ResourceCollection
 {
     /**
      * Transform the resource collection into an array.
@@ -15,7 +15,7 @@ class TutorialCollection extends ResourceCollection
     public function toArray($request)
     {
         return [
-            'data' => TutorialResource::collection($this->collection),
+            'data' => ScriptUserAnswerResource::collection($this->collection),
         ];
     }
 }

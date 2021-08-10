@@ -14,6 +14,8 @@ class UserScriptFavoriteCollection extends ResourceCollection
      */
     public function toArray($request)
     {
-        return parent::toArray($request);
+        return [
+            'data' => UserScriptFavoriteResource::collection($this->collection),
+        ];
     }
 }
