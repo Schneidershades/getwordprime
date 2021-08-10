@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Http\Resources\Script;
+namespace App\Http\Resources\User;
 
 use Illuminate\Http\Resources\Json\ResourceCollection;
 
-class ScriptFavoriteCollection extends ResourceCollection
+class UserScriptFavoriteCollection extends ResourceCollection
 {
     /**
      * Transform the resource collection into an array.
@@ -14,8 +14,6 @@ class ScriptFavoriteCollection extends ResourceCollection
      */
     public function toArray($request)
     {
-        return [
-            'data' => ScriptFavoriteResource::collection($this->collection),
-        ];
+        return parent::toArray($request);
     }
 }

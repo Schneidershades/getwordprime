@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Http\Resources\Script;
+namespace App\Http\Resources\Suggestion;
 
 use Illuminate\Http\Resources\Json\JsonResource;
 
-class ScriptFavoriteResource extends JsonResource
+class SuggestionResource extends JsonResource
 {
     /**
      * Transform the resource into an array.

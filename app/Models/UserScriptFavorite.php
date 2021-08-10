@@ -6,10 +6,15 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use App\Models\User;
 use App\Models\Script;
+use App\Http\Resources\User\UserScriptFavoriteResource;
+use App\Http\Resources\User\UserScriptFavoriteCollection;
 
 class UserScriptFavorite extends Model
 {
     use HasFactory;
+
+    public $oneItem = UserScriptFavoriteResource::class;
+    public $allItems = UserScriptFavoriteCollection::class;
 
     public function user()
     {
