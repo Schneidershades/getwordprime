@@ -13,4 +13,9 @@ class AgencyCampaign extends Model
 
     public $oneItem = AgencyCampaignResource::class;
     public $allItems = AgencyCampaignCollection::class;
+
+    public function campaign()
+    {
+        
+    }
 }

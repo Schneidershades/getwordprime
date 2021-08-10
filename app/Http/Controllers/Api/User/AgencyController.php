@@ -11,10 +11,10 @@ class AgencyController extends Controller
     /**
     * @OA\Get(
     *      path="/api/v1/agencies",
-    *      operationId="userAgencies",
+    *      operationId="allAgencies",
     *      tags={"agencies"},
-    *      summary="Get All User Agencies",
-    *      description="Get All User Agencies",
+    *      summary="Get all agencies",
+    *      description="Get all agencies",
     *      @OA\Response(
     *          response=200,
     *          description="Successful signin",
@@ -47,8 +47,8 @@ class AgencyController extends Controller
     *      path="/api/v1/agencies",
     *      operationId="postAgencies",
     *      tags={"agency"},
-    *      summary="Post New Agencies",
-    *      description="Post New Agencies",
+    *      summary="Post new agencies",
+    *      description="Post new agencies",
     *      @OA\RequestBody(
     *          required=true,
     *          @OA\JsonContent(ref="#/components/schemas/AgencyCreateFormRequest")

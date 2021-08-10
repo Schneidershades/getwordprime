@@ -15,7 +15,7 @@ class CreateAgencyCampaignsTable extends Migration
     {
         Schema::create('agency_campaigns', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('user_id')->nullable()->constrained();
+            $table->foreignId('agency_id')->nullable()->constrained();
             $table->foreignId('campaign_id')->nullable()->constrained();
             $table->timestamps();
         });
