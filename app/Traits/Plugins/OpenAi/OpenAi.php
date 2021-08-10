@@ -2,7 +2,7 @@
 
 namespace App\Traits\Plugins\OpenAi;
 
-class Openai{
+class OpenAi{
 
     private function secret_key(){
         return $secret_key = 'Bearer ******YOUR-KEY-HERE********';
