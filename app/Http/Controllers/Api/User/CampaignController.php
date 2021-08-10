@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Api\User;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Models\Campaign;
 
 class CampaignController extends Controller
 {
@@ -12,24 +13,24 @@ class CampaignController extends Controller
         $this->showAll(auth()->user()->campaigns);
     }
 
-    public function store(Request $request)
+    public function store(CampaignCreateFormRequest $request)
     {
         return $this->showOne(auth()->user()->campaigns()->create($request->all()));
     }
 
-    public function show($id)
+    public function show(Campaign $campaign)
     {
-        return $this->showOne(auth()->user()->campaigns()->where('id', $id)->first());
+        return $this->showOne($campaign);
     }
 
-    public function update()
+    public function update(CampaignUpdateFormRequest $request, Campaign $campaign)
     {
-        
+        return $this->showOne($campaign->update($request->validated()));
     }
 
-    public function delete($id)
+    public function destroy(Campaign $campaign)
     {
-        Campaign::find($id)->delete();
-        return $this->showMessage('model deleted');
+        $campaign->delete();
+        return $this->showMessage('deleted');
     }
 }

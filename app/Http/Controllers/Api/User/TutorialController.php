@@ -10,11 +10,11 @@ class TutorialController extends Controller
 {
     public function index()
     {
-        //
+        return $this->showAll(Tutorial::all());
     }
 
-    public function show($id)
+    public function show(Tutorial $tutorials)
     {
-        //
+        return $this->showOne($tutorials);
     }
 }

@@ -10,26 +10,16 @@ class SuggestionController extends Controller
 {
     public function index()
     {
-        //
+        return $this->showAll(Suggestion::all());
     }
 
-    public function store(Request $request)
+    public function store(SuggestionCreateFormRequest $request)
     {
-        //
+        return $this->showOne(auth()->user()->suggesions()->create($request->validated()));
     }
 
-    public function show($id)
+    public function show(Suggestion $suggestion)
     {
-        //
-    }
-
-    public function update(Request $request, $id)
-    {
-        //
-    }
-
-    public function destroy($id)
-    {
-        //
+        return $this->showOne($suggesion);
     }
 }

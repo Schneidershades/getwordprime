@@ -483,6 +483,118 @@
                     "first_name"
                 ],
                 "type": "object"
+            },
+            "AgencyCreateFormRequest": {
+                "title": "Agency Create Form Request Fields",
+                "description": "Agency Create request body data",
+                "required": [
+                    "name"
+                ],
+                "type": "object"
+            },
+            "AgencyUpdateFormRequest": {
+                "title": "Agency Update Form Request Fields",
+                "description": "Agency Update request body data",
+                "required": [
+                    "name"
+                ],
+                "type": "object"
+            },
+            "CampaignCreateFormRequest": {
+                "title": "Campaign Create Form Request Fields",
+                "description": "Campaign Create request body data",
+                "required": [
+                    "name"
+                ],
+                "type": "object"
+            },
+            "CampaignUpdateFormRequest": {
+                "title": "Campaign Update Form Request Fields",
+                "description": "Campaign Update request body data",
+                "required": [
+                    "name"
+                ],
+                "type": "object"
+            },
+            "ScriptCreateFormRequest": {
+                "title": "Script Create Form Request Fields",
+                "description": "Script Create request body data",
+                "required": [
+                    "name"
+                ],
+                "type": "object"
+            },
+            "ScriptFavoriteCreateFormRequest": {
+                "title": "Script Favorite Create Form Request Fields",
+                "description": "Script Favorite Create request body data",
+                "required": [
+                    "name"
+                ],
+                "type": "object"
+            },
+            "ScriptFavoriteUpdateFormRequest": {
+                "title": "Script Favorite Update Form Request Fields",
+                "description": "Script Favorite Update request body data",
+                "required": [
+                    "name"
+                ],
+                "type": "object"
+            },
+            "ScriptQuestionCreateFormRequest": {
+                "title": "Script Question Create Form Request Fields",
+                "description": "Script Question Create request body data",
+                "required": [
+                    "name"
+                ],
+                "type": "object"
+            },
+            "ScriptQuestionUpdateFormRequest": {
+                "title": "Script Question Update Form Request Fields",
+                "description": "Script Question Update request body data",
+                "required": [
+                    "name"
+                ],
+                "type": "object"
+            },
+            "ScriptTypeCreateFormRequest": {
+                "title": "Script Type Create Form Request Fields",
+                "description": "Script Type Create request body data",
+                "required": [
+                    "name"
+                ],
+                "type": "object"
+            },
+            "ScriptTypeUpdateFormRequest": {
+                "title": "Script Type Update Form Request Fields",
+                "description": "Script Type Update request body data",
+                "required": [
+                    "name"
+                ],
+                "type": "object"
+            },
+            "ScriptUpdateFormRequest": {
+                "title": "Script Update Form Request Fields",
+                "description": "Script Update request body data",
+                "required": [
+                    "name"
+                ],
+                "type": "object"
+            },
+            "ScriptUserAnswerCreateFormRequest": {
+                "title": "Script User Answer Create Form Request Fields",
+                "description": "Script User Answer Create request body data",
+                "required": [
+                    "name"
+                ],
+                "type": "object"
+            },
+            "ScriptUserAnswerUpdateFormRequest": {
+                "title": "Script User Answer Update Form Request Fields",
+                "description": "Script User Answer Update request body data",
+                "required": [
+                    "name"
+                ],
+                "type": "object"
             }
         },
         "securitySchemes": {

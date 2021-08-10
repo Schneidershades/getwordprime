@@ -13,23 +13,24 @@ class ScriptController extends Controller
         $this->showAll(auth()->user()->scripts);
     }
 
-    public function store(Request $request)
+    public function store(ScriptCreateFormRequest $request)
     {
-        //
+        return $this->showOne(auth()->user()->scripts()->create($request->validated()));
     }
 
-    public function show($id)
+    public function show(Script $script)
     {
-        //
+        return $this->showOne($script);
     }
 
-    public function update(Request $request, $id)
+    public function update(ScriptUpdateFormRequest $request, Script $script)
     {
-        //
+        return $this->showOne($script->update($request->validated()));
     }
 
-    public function destroy($id)
+    public function destroy(Script $script)
     {
-        //
+        $script->delete();
+        return $this->showMessage('deleted');
     }
 }

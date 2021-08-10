@@ -10,26 +10,18 @@ class ScriptFavoriteController extends Controller
 {
     public function index()
     {
-        $this->showAll(auth()->user()->scriptFavorites);
+        $this->showAll(auth()->user()->scripts);
     }
 
-    public function store(Request $request)
+    public function store(ScriptCreateFormRequest $request)
     {
-        //
-    }
-
-    public function show($id)
-    {
-        //
-    }
-
-    public function update(Request $request, $id)
-    {
-        //
+        return $this->showOne(auth()->user()->scripts()->create($request->validated()));
     }
 
     public function destroy($id)
     {
-        //
+        $script =  Script::findOrFail($id);
+        $script->delete();
+        return $this->showMessage('deleted');
     }
 }
