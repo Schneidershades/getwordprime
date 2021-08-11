@@ -15,6 +15,17 @@ use Illuminate\Foundation\Http\FormRequest;
 class CampaignCreateFormRequest extends FormRequest
 {
     /**
+     * @OA\Property(
+     *      title="campaign name",
+     *      description="name of the campaign",
+     *      example="Info Limited"
+     * )
+     *
+     * @var string
+     */
+    private $name;
+
+    /**
      * Determine if the user is authorized to make this request.
      *
      * @return bool
@@ -32,7 +43,7 @@ class CampaignCreateFormRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            'name' => 'required|string',
         ];
     }
 }

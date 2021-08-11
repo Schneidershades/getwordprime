@@ -7,25 +7,36 @@ use Illuminate\Foundation\Http\FormRequest;
 /**
 /**
  * @OA\Schema(
- *      title="Agency Create Form Request Fields",
- *      description="Agency Create request body data",
+ *      title="Suggession Create Form Request Fields",
+ *      description="Suggession Create request body data",
  *      type="object",
  *      required={"name"}
  * )
  */
 
-class AgencyCreateFormRequest extends FormRequest
+class SuggestionCreateFormRequest extends FormRequest
 {
     /**
      * @OA\Property(
-     *      title="agency name",
-     *      description="name of the agency",
+     *      title="user Initial related suggestion",
+     *      description="Initial related suggestion of the user",
+     *      example="1"
+     * )
+     *
+     * @var int
+     */
+    private $parent_id;
+
+    /**
+     * @OA\Property(
+     *      title="user suggestion",
+     *      description="suggestion of the user",
      *      example="Info Limited"
      * )
      *
      * @var string
      */
-    private $name;
+    private $message;
 
     /**
      * Determine if the user is authorized to make this request.
@@ -34,7 +45,7 @@ class AgencyCreateFormRequest extends FormRequest
      */
     public function authorize()
     {
-        return true;
+        return false;
     }
 
     /**
@@ -46,6 +57,7 @@ class AgencyCreateFormRequest extends FormRequest
     {
         return [
             'name' => 'required|string',
+            'parent_id' => 'required|int',
         ];
     }
 }

@@ -17,6 +17,29 @@ use Illuminate\Foundation\Http\FormRequest;
 class ScriptUserAnswerCreateFormRequest extends FormRequest
 {
     /**
+     * @OA\Property(
+     *      title="script type answer",
+     *      description="answer of the script type",
+     *      example="Info Limited"
+     * )
+     *
+     * @var string
+     */
+    private $answer;
+
+    /**
+     * @OA\Property(
+     *      title="user script_type question id",
+     *      description="Initial related script_type question of the id",
+     *      example="1"
+     * )
+     *
+     * @var int
+     */
+    private $script_type_question_id;
+    
+
+    /**
      * Determine if the user is authorized to make this request.
      *
      * @return bool
@@ -34,7 +57,8 @@ class ScriptUserAnswerCreateFormRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            'answer' => 'required|string',
+            'script_type_question_id' => 'required|int',
         ];
     }
 }

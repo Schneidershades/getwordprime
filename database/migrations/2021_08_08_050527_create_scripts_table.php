@@ -16,7 +16,8 @@ class CreateScriptsTable extends Migration
         Schema::create('scripts', function (Blueprint $table) {
             $table->id();
             $table->foreignId('user_id')->nullable()->constrained();
-            $table->foreignId('script_type_id')->nullable()->constrained('script_types');
+            $table->foreignId('script_type_id')->nullable()->constrained();
+            $table->foreignId('campaign_id')->nullable()->constrained();
             $table->text('content');
             $table->timestamps();
         });

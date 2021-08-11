@@ -17,6 +17,18 @@ use Illuminate\Foundation\Http\FormRequest;
 class ScriptFavoriteCreateFormRequest extends FormRequest
 {
     /**
+     * @OA\Property(
+     *      title="script id",
+     *      description="Initial related script of the id",
+     *      example="1"
+     * )
+     *
+     * @var int
+     */
+    private $script_type_id;
+    
+
+    /**
      * Determine if the user is authorized to make this request.
      *
      * @return bool
@@ -34,7 +46,7 @@ class ScriptFavoriteCreateFormRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            'script_id' => 'required|int',
         ];
     }
 }

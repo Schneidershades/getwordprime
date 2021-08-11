@@ -16,6 +16,40 @@ use Illuminate\Foundation\Http\FormRequest;
 class ScriptTypeCreateFormRequest extends FormRequest
 {
     /**
+     * @OA\Property(
+     *      title="script type name",
+     *      description="name of the script type",
+     *      example="Info Limited"
+     * )
+     *
+     * @var string
+     */
+    private $name;
+
+    /**
+     * @OA\Property(
+     *      title="script type icon",
+     *      description="icon of the script type",
+     *      example="icon link"
+     * )
+     *
+     * @var string
+     */
+    private $icon;
+
+    /**
+     * @OA\Property(
+     *      title="script type description",
+     *      description="description of the script type",
+     *      example="This is"
+     * )
+     *
+     * @var string
+     */
+    private $description;
+    
+
+    /**
      * Determine if the user is authorized to make this request.
      *
      * @return bool
@@ -33,7 +67,9 @@ class ScriptTypeCreateFormRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            'name' => 'required|string',
+            'icon' => 'required|string',
+            'description' => 'required|string',
         ];
     }
 }

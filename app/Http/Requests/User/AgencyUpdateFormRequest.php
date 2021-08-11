@@ -15,6 +15,17 @@ use Illuminate\Foundation\Http\FormRequest;
 class AgencyUpdateFormRequest extends FormRequest
 {
     /**
+     * @OA\Property(
+     *      title="agency name",
+     *      description="name of the agency",
+     *      example="Info Limited"
+     * )
+     *
+     * @var string
+     */
+    private $name;
+
+    /**
      * Determine if the user is authorized to make this request.
      *
      * @return bool
@@ -32,7 +43,7 @@ class AgencyUpdateFormRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            'name' => 'required|string',
         ];
     }
 }
