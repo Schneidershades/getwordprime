@@ -129,8 +129,8 @@ class ScriptController extends Controller
      /**
     * @OA\PUT(
     *      path="/api/v1/scripts/{id}",
-    *      operationId="updateScript,
-    *      tags={"artisan"},
+    *      operationId="updateScript",
+    *      tags={"script"},
     *      summary="Update an script",
     *      description="Update an script",
     *      
@@ -177,8 +177,8 @@ class ScriptController extends Controller
      /**
     * @OA\Delete(
     *      path="/api/v1/scripts/{id}",
-    *      operationId="deleteScript,
-    *      tags={"artisan"},
+    *      operationId="deleteScript",
+    *      tags={"script"},
     *      summary="Delete an script",
     *      description="Delete an script",
     *      

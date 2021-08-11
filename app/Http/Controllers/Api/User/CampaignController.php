@@ -126,8 +126,8 @@ class CampaignController extends Controller
     /**
     * @OA\PUT(
     *      path="/api/v1/campaigns/{id}",
-    *      operationId="updateCampaign,
-    *      tags={"artisan"},
+    *      operationId="updateCampaign",
+    *      tags={"campaign"},
     *      summary="Update an campaign",
     *      description="Update an campaign",
     *      
@@ -175,7 +175,7 @@ class CampaignController extends Controller
     * @OA\Delete(
     *      path="/api/v1/campaigns/{id}",
     *      operationId="deleteAgency",
-    *      tags={"artisan"},
+    *      tags={"campaign"},
     *      summary="Delete an campaign",
     *      description="Delete an campaign",
     *      

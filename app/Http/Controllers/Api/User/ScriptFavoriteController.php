@@ -83,8 +83,8 @@ class ScriptFavoriteController extends Controller
      /**
     * @OA\Delete(
     *      path="/api/v1/script-favorite/{id}",
-    *      operationId="deleteReseller,
-    *      tags={"artisan"},
+    *      operationId="deleteReseller",
+    *      tags={"script"},
     *      summary="Delete an script favorite",
     *      description="Delete an script favorite",
     *      

@@ -128,8 +128,8 @@ class ResellerController extends Controller
     /**
     * @OA\PUT(
     *      path="/api/v1/reseller/{id}",
-    *      operationId="updateReseller,
-    *      tags={"artisan"},
+    *      operationId="updateReseller",
+    *      tags={"reseller"},
     *      summary="Update an reseller",
     *      description="Update an reseller",
     *      
@@ -176,8 +176,8 @@ class ResellerController extends Controller
      /**
     * @OA\Delete(
     *      path="/api/v1/resellers/{id}",
-    *      operationId="deleteReseller,
-    *      tags={"artisan"},
+    *      operationId="deleteReseller",
+    *      tags={"reseller"},
     *      summary="Delete an reseller",
     *      description="Delete an reseller",
     *      

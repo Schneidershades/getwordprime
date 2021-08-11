@@ -5,6 +5,8 @@ namespace App\Http\Controllers\Api\User;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Agency;
+use App\Http\Controllers\Api\User\AgencyCreateFormRequest;
+use App\Http\Controllers\Api\User\AgencyUpdateFormRequest;
 
 class AgencyController extends Controller
 {
@@ -12,7 +14,7 @@ class AgencyController extends Controller
     * @OA\Get(
     *      path="/api/v1/agencies",
     *      operationId="allAgencies",
-    *      tags={"agencies"},
+    *      tags={"agency"},
     *      summary="Get all agencies",
     *      description="Get all agencies",
     *      @OA\Response(
@@ -124,26 +126,27 @@ class AgencyController extends Controller
     {
         return $this->showOne(Agency::findOrFail($id));
     }
+
     /**
-    * @OA\PUT(
+    * @OA\Put(
     *      path="/api/v1/agencies/{id}",
-    *      operationId="updateAgency",
-    *      tags={"artisan"},
+    *      operationId="AgencyUpdate",
+    *      tags={"agency"},
     *      summary="Update an agency",
     *      description="Update an agency",
     *      
      *      @OA\Parameter(
      *          name="id",
-     *          description="Agency ID",
+     *          description="agency ID",
      *          required=true,
      *          in="path",
      *          @OA\Schema(
      *              type="integer"
      *          )
-     *      ),
+     *     ),
     *      @OA\RequestBody(
     *          required=true,
-    *          @OA\JsonContent(ref="#/components/schemas/AgencyUpdateFormRequest")
+    *          @OA\JsonContent(ref="#/components/schemas/AgencyCreateFormRequest")
     *      ),
     *      @OA\Response(
     *          response=200,
@@ -167,6 +170,7 @@ class AgencyController extends Controller
     *      security={ {"bearerAuth": {}} },
     * )
     */
+    
     public function update(AgencyUpdateFormRequest $request, Agency $agency)
     {
         return $this->showOne($agency->update($request->validated()));
@@ -176,7 +180,7 @@ class AgencyController extends Controller
     * @OA\Delete(
     *      path="/api/v1/agencies/{id}",
     *      operationId="deleteAgency",
-    *      tags={"artisan"},
+    *      tags={"agency"},
     *      summary="Delete an agency",
     *      description="Delete an agency",
     *      
