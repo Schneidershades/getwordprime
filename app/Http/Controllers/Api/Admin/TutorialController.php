@@ -1,0 +1,221 @@
+<?php
+
+namespace App\Http\Controllers\Api\Admin;
+
+use App\Http\Controllers\Controller;
+use Illuminate\Http\Request;
+use App\Models\Tutorial;
+
+class TutorialController extends Controller
+{
+    /**
+    * @OA\Get(
+    *      path="/api/v1/tutorials",
+    *      operationId="allTutorials",
+    *      tags={"tutorial"},
+    *      summary="Get all tutorials",
+    *      description="Get all tutorials",
+    *      @OA\Response(
+    *          response=200,
+    *          description="Successful signin",
+    *          @OA\MediaType(
+    *             mediaType="application/json",
+    *         ),
+    *       ),
+    *      @OA\Response(
+    *          response=400,
+    *          description="Bad Request"
+    *      ),
+    *      @OA\Response(
+    *          response=401,
+    *          description="unauthenticated",
+    *      ),
+    *      @OA\Response(
+    *          response=403,
+    *          description="Forbidden"
+    *      ),
+    *      security={ {"bearerAuth": {}} },
+    * )
+    */
+    public function index()
+    {
+        $this->showAll(auth()->user()->tutorials);
+    }
+
+    /**
+    * @OA\Post(
+    *      path="/api/v1/tutorials",
+    *      operationId="postAgencies",
+    *      tags={"tutorial"},
+    *      summary="Post new tutorials",
+    *      description="Post new tutorials",
+    *      @OA\RequestBody(
+    *          required=true,
+    *          @OA\JsonContent(ref="#/components/schemas/TutorialCreateFormRequest")
+    *      ),
+    *      @OA\Response(
+    *          response=200,
+    *          description="Successful signin",
+    *          @OA\MediaType(
+    *             mediaType="application/json",
+    *         ),
+    *       ),
+    *      @OA\Response(
+    *          response=400,
+    *          description="Bad Request"
+    *      ),
+    *      @OA\Response(
+    *          response=401,
+    *          description="unauthenticated",
+    *      ),
+    *      @OA\Response(
+    *          response=403,
+    *          description="Forbidden"
+    *      ),
+    *      security={ {"bearerAuth": {}} },
+    * )
+    */
+    public function store(Request $request)
+    {
+        return $this->showOne(auth()->user()->tutorials()->create($request->validated()));
+    }
+
+    /**
+    * @OA\Get(
+    *      path="/api/v1/tutorials/{id}",
+    *      operationId="showTutorial",
+    *      tags={"tutorial"},
+    *      summary="Show an tutorial",
+    *      description="Show an tutorial",
+    *      
+     *      @OA\Parameter(
+     *          name="id",
+     *          description="Tutorial ID",
+     *          required=true,
+     *          in="path",
+     *          @OA\Schema(
+     *              type="integer"
+     *          )
+     *      ),
+     *      
+    *      @OA\Response(
+    *          response=200,
+    *          description="Successful signin",
+    *          @OA\MediaType(
+    *             mediaType="application/json",
+    *         ),
+    *       ),
+    *      @OA\Response(
+    *          response=400,
+    *          description="Bad Request"
+    *      ),
+    *      @OA\Response(
+    *          response=401,
+    *          description="unauthenticated",
+    *      ),
+    *      @OA\Response(
+    *          response=403,
+    *          description="Forbidden"
+    *      ),
+    *      security={ {"bearerAuth": {}} },
+    * )
+    */
+    public function show(Tutorial $tutorial)
+    {
+        return $this->showOne(Tutorial::findOrFail($id));
+    }
+
+    /**
+    * @OA\Put(
+    *      path="/api/v1/tutorials/{id}",
+    *      operationId="TutorialUpdate",
+    *      tags={"tutorial"},
+    *      summary="Update an tutorial",
+    *      description="Update an tutorial",
+    *      
+     *      @OA\Parameter(
+     *          name="id",
+     *          description="tutorial ID",
+     *          required=true,
+     *          in="path",
+     *          @OA\Schema(
+     *              type="integer"
+     *          )
+     *     ),
+    *      @OA\RequestBody(
+    *          required=true,
+    *          @OA\JsonContent(ref="#/components/schemas/TutorialCreateFormRequest")
+    *      ),
+    *      @OA\Response(
+    *          response=200,
+    *          description="Successful signin",
+    *          @OA\MediaType(
+    *             mediaType="application/json",
+    *         ),
+    *       ),
+    *      @OA\Response(
+    *          response=400,
+    *          description="Bad Request"
+    *      ),
+    *      @OA\Response(
+    *          response=401,
+    *          description="unauthenticated",
+    *      ),
+    *      @OA\Response(
+    *          response=403,
+    *          description="Forbidden"
+    *      ),
+    *      security={ {"bearerAuth": {}} },
+    * )
+    */
+    
+    public function update(TutorialUpdateFormRequest $request, Tutorial $tutorial)
+    {
+        return $this->showOne($tutorial->update($request->validated()));
+    }
+
+     /**
+    * @OA\Delete(
+    *      path="/api/v1/tutorials/{id}",
+    *      operationId="deleteTutorial",
+    *      tags={"tutorial"},
+    *      summary="Delete an tutorial",
+    *      description="Delete an tutorial",
+    *      
+     *      @OA\Parameter(
+     *          name="id",
+     *          description="Tutorial ID",
+     *          required=true,
+     *          in="path",
+     *          @OA\Schema(
+     *              type="integer"
+     *          )
+     *      ),
+    *      @OA\Response(
+    *          response=200,
+    *          description="Successful signin",
+    *          @OA\MediaType(
+    *             mediaType="application/json",
+    *         ),
+    *       ),
+    *      @OA\Response(
+    *          response=400,
+    *          description="Bad Request"
+    *      ),
+    *      @OA\Response(
+    *          response=401,
+    *          description="unauthenticated",
+    *      ),
+    *      @OA\Response(
+    *          response=403,
+    *          description="Forbidden"
+    *      ),
+    *      security={ {"bearerAuth": {}} },
+    * )
+    */
+    public function destroy(Tutorial $tutorial)
+    {
+        $tutorial->delete();
+        return $this->showMessage('deleted');
+    }
+}
