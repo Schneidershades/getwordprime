@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateScriptTypeOpenaiAttributesTable extends Migration
+class CreateAttributesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,10 +13,11 @@ class CreateScriptTypeOpenaiAttributesTable extends Migration
      */
     public function up()
     {
-        Schema::create('script_type_openai_attributes', function (Blueprint $table) {
+        Schema::create('attributes', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('script_type_id')->nullable()->constrained();
-            $table->foreignId('openai_attribute_id')->nullable()->constrained();
+            $table->text('type');
+            $table->text('name');
+            $table->integer('default_value')->default(0);
             $table->timestamps();
         });
     }
@@ -28,6 +29,6 @@ class CreateScriptTypeOpenaiAttributesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('script_type_openai_attributes');
+        Schema::dropIfExists('attributes');
     }
 }

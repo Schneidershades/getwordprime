@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Requests\User;
+namespace App\Http\Requests\Admin;
 
 use Illuminate\Foundation\Http\FormRequest;
 /**
@@ -13,7 +13,7 @@ use Illuminate\Foundation\Http\FormRequest;
  * )
  */
 
-class ScriptQuestionCreateFormRequest extends FormRequest
+class ScriptTypeQuestionCreateFormRequest extends FormRequest
 {
     /**
      * @OA\Property(

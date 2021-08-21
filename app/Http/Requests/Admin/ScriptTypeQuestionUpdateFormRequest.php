@@ -1,20 +1,20 @@
 <?php
 
-namespace App\Http\Requests\User;
+namespace App\Http\Requests\Admin;
 
 use Illuminate\Foundation\Http\FormRequest;
 
 /**
 /**
  * @OA\Schema(
- *      title="Script Question Update Form Request Fields",
- *      description="Script Question Update request body data",
+ *      title="Script Type Question Update Form Request Fields",
+ *      description="Script Type Question Update request body data",
  *      type="object",
  *      required={"name"}
  * )
  */
 
-class ScriptQuestionUpdateFormRequest extends FormRequest
+class ScriptTypeQuestionUpdateFormRequest extends FormRequest
 {
     /**
      * @OA\Property(

@@ -10,9 +10,9 @@ class ScriptTypeQuestionController extends Controller
 {
     /**
     * @OA\Get(
-    *      path="/api/v1/roles",
-    *      operationId="allRoles",
-    *      tags={"role"},
+    *      path="/api/v1/admin/script-type-questions",
+    *      operationId="allScriptTypeQuestions",
+    *      tags={"admin"},
     *      summary="Get all roles",
     *      description="Get all roles",
     *      @OA\Response(
@@ -44,14 +44,14 @@ class ScriptTypeQuestionController extends Controller
 
     /**
     * @OA\Post(
-    *      path="/api/v1/roles",
-    *      operationId="postAgencies",
-    *      tags={"role"},
+    *      path="/api/v1/admin/script-type-questions",
+    *      operationId="postScriptTypeQuestions",
+    *      tags={"admin"},
     *      summary="Post new roles",
     *      description="Post new roles",
     *      @OA\RequestBody(
     *          required=true,
-    *          @OA\JsonContent(ref="#/components/schemas/RoleCreateFormRequest")
+    *          @OA\JsonContent(ref="#/components/schemas/ScriptTypeQuestionCreateFormRequest")
     *      ),
     *      @OA\Response(
     *          response=200,
@@ -82,9 +82,9 @@ class ScriptTypeQuestionController extends Controller
 
     /**
     * @OA\Get(
-    *      path="/api/v1/roles/{id}",
-    *      operationId="showRole",
-    *      tags={"role"},
+    *      path="/api/v1/admin/script-type-questions/{id}",
+    *      operationId="showScriptTypeQuestions",
+    *      tags={"admin"},
     *      summary="Show an role",
     *      description="Show an role",
     *      
@@ -127,9 +127,9 @@ class ScriptTypeQuestionController extends Controller
 
     /**
     * @OA\Put(
-    *      path="/api/v1/roles/{id}",
-    *      operationId="RoleUpdate",
-    *      tags={"role"},
+    *      path="/api/v1/admin/script-type-questions/{id}",
+    *      operationId="adminScriptTypeQuestions",
+    *      tags={"admin"},
     *      summary="Update an role",
     *      description="Update an role",
     *      
@@ -144,7 +144,7 @@ class ScriptTypeQuestionController extends Controller
      *     ),
     *      @OA\RequestBody(
     *          required=true,
-    *          @OA\JsonContent(ref="#/components/schemas/RoleCreateFormRequest")
+    *          @OA\JsonContent(ref="#/components/schemas/ScriptTypeQuestionUpdateFormRequest")
     *      ),
     *      @OA\Response(
     *          response=200,
@@ -176,8 +176,8 @@ class ScriptTypeQuestionController extends Controller
 
      /**
     * @OA\Delete(
-    *      path="/api/v1/roles/{id}",
-    *      operationId="deleteRole",
+    *      path="/api/v1/admin/script-type-questions/{id}",
+    *      operationId="deleteScriptTypeQuestions",
     *      tags={"role"},
     *      summary="Delete an role",
     *      description="Delete an role",

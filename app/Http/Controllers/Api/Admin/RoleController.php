@@ -10,7 +10,7 @@ class RoleController extends Controller
 {
     /**
     * @OA\Get(
-    *      path="/api/v1/roles",
+    *      path="/api/v1/admin/roles",
     *      operationId="allRoles",
     *      tags={"Admin Role"},
     *      summary="Get all roles",
@@ -44,11 +44,11 @@ class RoleController extends Controller
 
     /**
     * @OA\Post(
-    *      path="/api/v1/roles",
+    *      path="/api/v1/admin/roles",
     *      operationId="postRole",
     *      tags={"Admin Role"},
-    *      summary="Post new roles",
-    *      description="Post new roles",
+    *      summary="Post roles",
+    *      description="Post roles",
     *      @OA\RequestBody(
     *          required=true,
     *          @OA\JsonContent(ref="#/components/schemas/RoleCreateFormRequest")
@@ -82,11 +82,11 @@ class RoleController extends Controller
 
     /**
     * @OA\Get(
-    *      path="/api/v1/roles/{id}",
+    *      path="/api/v1/admin/roles/{id}",
     *      operationId="showRole",
     *      tags={"Admin Role"},
-    *      summary="Show an role",
-    *      description="Show an role",
+    *      summary="Show role",
+    *      description="Show role",
     *      
      *      @OA\Parameter(
      *          name="id",
@@ -127,11 +127,11 @@ class RoleController extends Controller
 
     /**
     * @OA\Put(
-    *      path="/api/v1/roles/{id}",
+    *      path="/api/v1/admin/roles/{id}",
     *      operationId="RoleUpdate",
     *      tags={"Admin Role"},
-    *      summary="Update an role",
-    *      description="Update an role",
+    *      summary="Update role",
+    *      description="Update role",
     *      
      *      @OA\Parameter(
      *          name="id",
@@ -176,11 +176,11 @@ class RoleController extends Controller
 
      /**
     * @OA\Delete(
-    *      path="/api/v1/roles/{id}",
+    *      path="/api/v1/admin/roles/{id}",
     *      operationId="deleteRole",
     *      tags={"Admin Role"},
-    *      summary="Delete an role",
-    *      description="Delete an role",
+    *      summary="Delete role",
+    *      description="Delete role",
     *      
      *      @OA\Parameter(
      *          name="id",
