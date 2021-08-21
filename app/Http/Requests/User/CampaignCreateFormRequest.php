@@ -18,7 +18,7 @@ class CampaignCreateFormRequest extends FormRequest
      * @OA\Property(
      *      title="campaign name",
      *      description="name of the campaign",
-     *      example="Info Limited"
+     *      example="Movie Campaigns"
      * )
      *
      * @var string

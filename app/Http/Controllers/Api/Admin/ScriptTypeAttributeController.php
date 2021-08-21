@@ -4,17 +4,16 @@ namespace App\Http\Controllers\Api\Admin;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use App\Models\ScriptType;
 
-class ScriptTypeController extends Controller
+class ScriptTypeAttributeController extends Controller
 {
     /**
     * @OA\Get(
-    *      path="/api/v1/admin/script-type",
-    *      operationId="allScriptTypeQuestions",
+    *      path="/api/v1/admin/script-type-attributes",
+    *      operationId="allScriptTypeAttributes",
     *      tags={"Admin"},
-    *      summary="Get all roles",
-    *      description="Get all roles",
+    *      summary="Get script-type-attributes",
+    *      description="Get script-type-attributes",
     *      @OA\Response(
     *          response=200,
     *          description="Successful signin",
@@ -39,19 +38,19 @@ class ScriptTypeController extends Controller
     */
     public function index()
     {
-        $this->showAll(ScriptType::all());
+        $this->showAll(auth()->user()->roles);
     }
 
     /**
     * @OA\Post(
-    *      path="/api/v1/script-type",
-    *      operationId="postScriptType",
+    *      path="/api/v1/admin/script-type-attributes",
+    *      operationId="postScriptTypeAttributes",
     *      tags={"Admin"},
-    *      summary="Post script type",
-    *      description="Post script type",
+    *      summary="Post script-type-attributes",
+    *      description="Post script-type-attributes",
     *      @OA\RequestBody(
     *          required=true,
-    *          @OA\JsonContent(ref="#/components/schemas/ScriptTypeCreateFormRequest")
+    *          @OA\JsonContent(ref="#/components/schemas/ScriptTypeAttributeCreateFormRequest")
     *      ),
     *      @OA\Response(
     *          response=200,
@@ -77,25 +76,27 @@ class ScriptTypeController extends Controller
     */
     public function store(Request $request)
     {
-        return $this->showOne(ScriptType::create($request->validated()));
+        return $this->showOne(auth()->user()->roles()->create($request->validated()));
     }
 
     /**
     * @OA\Get(
-    *      path="/api/v1/admin/script-type/{id}",
-    *      operationId="showScriptType",
+    *      path="/api/v1/admin/script-type-attributes/{id}",
+    *      operationId="showScriptTypeAttributes",
     *      tags={"Admin"},
-    *      summary="Show script type",
-    *      description="Show script type",
-    *      @OA\Parameter(
-    *          name="id",
-    *          description="Script Type ID",
-    *          required=true,
-    *          in="path",
-    *          @OA\Schema(
-    *              type="integer"
-    *          )
-    *      ),
+    *      summary="Show script-type-attributes",
+    *      description="Show script-type-attributes",
+    *      
+     *      @OA\Parameter(
+     *          name="id",
+     *          description="ScriptTypeAttribute ID",
+     *          required=true,
+     *          in="path",
+     *          @OA\Schema(
+     *              type="integer"
+     *          )
+     *      ),
+     *      
     *      @OA\Response(
     *          response=200,
     *          description="Successful signin",
@@ -118,23 +119,22 @@ class ScriptTypeController extends Controller
     *      security={ {"bearerAuth": {}} },
     * )
     */
-    public function show(ScriptType $scriptType)
+    public function show(ScriptTypeAttribute $role)
     {
-        return $this->showOne(ScriptType::findOrFail($id));
+        return $this->showOne(ScriptTypeAttribute::findOrFail($id));
     }
 
-    
     /**
     * @OA\Put(
-    *      path="/api/v1/admin/script-type/{id}",
-    *      operationId="updateScriptType",
+    *      path="/api/v1/admin/script-type-attributes/{id}",
+    *      operationId="adminScriptTypeAttributes",
     *      tags={"Admin"},
-    *      summary="Update script-type",
-    *      description="Update script-type",
+    *      summary="Update script-type-attributes",
+    *      description="Update script-type-attributes",
     *      
      *      @OA\Parameter(
      *          name="id",
-     *          description="script-type ID",
+     *          description="role ID",
      *          required=true,
      *          in="path",
      *          @OA\Schema(
@@ -143,7 +143,7 @@ class ScriptTypeController extends Controller
      *     ),
     *      @OA\RequestBody(
     *          required=true,
-    *          @OA\JsonContent(ref="#/components/schemas/ScriptTypeUpdateFormRequest")
+    *          @OA\JsonContent(ref="#/components/schemas/ScriptTypeAttributeUpdateFormRequest")
     *      ),
     *      @OA\Response(
     *          response=200,
@@ -167,18 +167,19 @@ class ScriptTypeController extends Controller
     *      security={ {"bearerAuth": {}} },
     * )
     */
-    public function update(ScriptTypeUpdateFormRequest $request, ScriptType $scriptType)
+    
+    public function update(ScriptTypeAttributeUpdateFormRequest $request, ScriptTypeAttribute $role)
     {
-        return $this->showOne($scriptType->update($request->validated()));
+        return $this->showOne($role->update($request->validated()));
     }
 
      /**
     * @OA\Delete(
-    *      path="/api/v1/admin/script-type/{id}",
-    *      operationId="deleteScriptType",
+    *      path="/api/v1/admin/script-type-attributes/{id}",
+    *      operationId="deleteScriptTypeAttributes",
     *      tags={"Admin"},
-    *      summary="Delete script-type",
-    *      description="Delete script-type",
+    *      summary="Delete script-type-attributes",
+    *      description="Delete script-type-attributes",
     *      
      *      @OA\Parameter(
      *          name="id",
@@ -211,9 +212,9 @@ class ScriptTypeController extends Controller
     *      security={ {"bearerAuth": {}} },
     * )
     */
-    public function destroy(ScriptType $scriptType)
+    public function destroy(ScriptTypeAttribute $role)
     {
-        $scriptType->delete();
+        $role->delete();
         return $this->showMessage('deleted');
     }
 }

@@ -7,14 +7,15 @@ use Illuminate\Foundation\Http\FormRequest;
 /**
 /**
  * @OA\Schema(
- *      title="Role Create Form Request Fields",
- *      description="Role Create request body data",
+ *      title="User Create Form Request Fields",
+ *      description="User Create request body data",
  *      type="object",
  *      required={"name"}
  * )
  */
 
-class RoleCreateFormRequest extends FormRequest
+
+class UserCreateFormRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -23,7 +24,7 @@ class RoleCreateFormRequest extends FormRequest
      */
     public function authorize()
     {
-        return true;
+        return false;
     }
 
     /**

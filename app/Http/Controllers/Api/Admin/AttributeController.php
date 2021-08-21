@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Api\Admin;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Models\Attribute;
 
 class AttributeController extends Controller
 {
@@ -11,7 +12,7 @@ class AttributeController extends Controller
     * @OA\Get(
     *      path="/api/v1/admin/attributes",
     *      operationId="allAttributes",
-    *      tags={"Admin Attributes"},
+    *      tags={"Admin"},
     *      summary="Get Attributes",
     *      description="Get Attributes",
     *      @OA\Response(
@@ -45,7 +46,7 @@ class AttributeController extends Controller
     * @OA\Post(
     *      path="/api/v1/admin/script-type",
     *      operationId="postAttributes",
-    *      tags={"Admin Script Type"},
+    *      tags={"Admin"},
     *      summary="Post attributes",
     *      description="Post attributes",
     *      @OA\RequestBody(
@@ -76,14 +77,14 @@ class AttributeController extends Controller
     */
     public function store(Request $request)
     {
-        return $this->showOne(auth()->user()->script)->create($request->validated());
+        return $this->showOne(Attribute::create($request->validated()));
     }
 
     /**
     * @OA\Get(
     *      path="/api/v1/admin/attributes/{id}",
     *      operationId="showAttributes",
-    *      tags={"Admin Script Type"},
+    *      tags={"Admin"},
     *      summary="Show attribute",
     *      description="Show attribute",
     *      
@@ -128,7 +129,7 @@ class AttributeController extends Controller
     * @OA\Put(
     *      path="/api/v1/admin/attributes/{id}",
     *      operationId="updateAttributes",
-    *      tags={"Admin Script Type"},
+    *      tags={"Admin"},
     *      summary="Update attribute",
     *      description="Update attribute",
     *      
@@ -177,7 +178,7 @@ class AttributeController extends Controller
     * @OA\Delete(
     *      path="/api/v1/admin/attributes/{id}",
     *      operationId="deleteAttributes",
-    *      tags={"Admin Script Type"},
+    *      tags={"Admin"},
     *      summary="Delete attribute",
     *      description="Delete attribute",
     *      

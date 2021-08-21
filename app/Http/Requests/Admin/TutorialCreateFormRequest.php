@@ -17,6 +17,39 @@ use Illuminate\Foundation\Http\FormRequest;
 class TutorialCreateFormRequest extends FormRequest
 {
     /**
+     * @OA\Property(
+     *      title="Tutorial title",
+     *      description="title of the script type",
+     *      example="How to"
+     * )
+     *
+     * @var string
+     */
+    private $title;
+
+    /**
+     * @OA\Property(
+     *      title="Tutorial description",
+     *      description="description of the Tutorial",
+     *      example="This is"
+     * )
+     *
+     * @var string
+     */
+    private $description;
+
+    /**
+     * @OA\Property(
+     *      title="Tutorial link URL",
+     *      description="URL of the tutorial",
+     *      example="https://www.youtube.com/watch?v=syJHxlJWGrk"
+     * )
+     *
+     * @var string
+     */
+    private $link;
+    
+    /**
      * Determine if the user is authorized to make this request.
      *
      * @return bool
@@ -34,7 +67,9 @@ class TutorialCreateFormRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            'title' => 'required|string',
+            'link' => 'required|string',
+            'description' => 'required|string',
         ];
     }
 }

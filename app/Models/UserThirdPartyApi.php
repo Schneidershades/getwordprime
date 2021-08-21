@@ -4,14 +4,14 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use App\Models\ScriptType;
+use App\Models\User;
 
-class ScriptTypeOpenaiAttributes extends Model
+class UserThirdPartyApi extends Model
 {
     use HasFactory;
 
-    public function scriptType()
+    public function user()
     {
-        return $this->belongsTo(ScriptType::class);
+        return $this->belongsTo(User::class);
     }
 }

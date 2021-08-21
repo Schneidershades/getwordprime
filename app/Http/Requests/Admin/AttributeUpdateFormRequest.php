@@ -18,14 +18,36 @@ class AttributeUpdateFormRequest extends FormRequest
 {
     /**
      * @OA\Property(
+     *      title="attribute type",
+     *      description="name of the attribute",
+     *      example="openai"
+     * )
+     *
+     * @var string
+     */
+    private $type;
+
+    /**
+     * @OA\Property(
      *      title="attribute name",
      *      description="name of the attribute",
-     *      example="Info Limited"
+     *      example="temperature"
      * )
      *
      * @var string
      */
     private $name;
+
+    /**
+     * @OA\Property(
+     *      title="attribute value",
+     *      description="value of the attribute",
+     *      example="0.1"
+     * )
+     *
+     * @var int
+     */
+    private $default_value;
 
     /**
      * Determine if the user is authorized to make this request.
@@ -45,7 +67,9 @@ class AttributeUpdateFormRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            'type' => 'required|string',
+            'name' => 'required|string',
+            'default_value' => 'required|numeric',
         ];
     }
 }

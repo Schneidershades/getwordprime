@@ -12,7 +12,7 @@ class ScriptTypeQuestionController extends Controller
     * @OA\Get(
     *      path="/api/v1/admin/script-type-questions",
     *      operationId="allScriptTypeQuestions",
-    *      tags={"admin"},
+    *      tags={"Admin"},
     *      summary="Get all roles",
     *      description="Get all roles",
     *      @OA\Response(
@@ -46,7 +46,7 @@ class ScriptTypeQuestionController extends Controller
     * @OA\Post(
     *      path="/api/v1/admin/script-type-questions",
     *      operationId="postScriptTypeQuestions",
-    *      tags={"admin"},
+    *      tags={"Admin"},
     *      summary="Post new roles",
     *      description="Post new roles",
     *      @OA\RequestBody(
@@ -84,7 +84,7 @@ class ScriptTypeQuestionController extends Controller
     * @OA\Get(
     *      path="/api/v1/admin/script-type-questions/{id}",
     *      operationId="showScriptTypeQuestions",
-    *      tags={"admin"},
+    *      tags={"Admin"},
     *      summary="Show an role",
     *      description="Show an role",
     *      
@@ -129,7 +129,7 @@ class ScriptTypeQuestionController extends Controller
     * @OA\Put(
     *      path="/api/v1/admin/script-type-questions/{id}",
     *      operationId="adminScriptTypeQuestions",
-    *      tags={"admin"},
+    *      tags={"Admin"},
     *      summary="Update an role",
     *      description="Update an role",
     *      
@@ -178,13 +178,13 @@ class ScriptTypeQuestionController extends Controller
     * @OA\Delete(
     *      path="/api/v1/admin/script-type-questions/{id}",
     *      operationId="deleteScriptTypeQuestions",
-    *      tags={"role"},
-    *      summary="Delete an role",
-    *      description="Delete an role",
+    *      tags={"Admin"},
+    *      summary="Delete script-type",
+    *      description="Delete script-type",
     *      
      *      @OA\Parameter(
      *          name="id",
-     *          description="Role ID",
+     *          description="script-type ID",
      *          required=true,
      *          in="path",
      *          @OA\Schema(

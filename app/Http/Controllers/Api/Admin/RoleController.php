@@ -12,7 +12,7 @@ class RoleController extends Controller
     * @OA\Get(
     *      path="/api/v1/admin/roles",
     *      operationId="allRoles",
-    *      tags={"Admin Role"},
+    *      tags={"Admin"},
     *      summary="Get all roles",
     *      description="Get all roles",
     *      @OA\Response(
@@ -46,7 +46,7 @@ class RoleController extends Controller
     * @OA\Post(
     *      path="/api/v1/admin/roles",
     *      operationId="postRole",
-    *      tags={"Admin Role"},
+    *      tags={"Admin"},
     *      summary="Post roles",
     *      description="Post roles",
     *      @OA\RequestBody(
@@ -84,7 +84,7 @@ class RoleController extends Controller
     * @OA\Get(
     *      path="/api/v1/admin/roles/{id}",
     *      operationId="showRole",
-    *      tags={"Admin Role"},
+    *      tags={"Admin"},
     *      summary="Show role",
     *      description="Show role",
     *      
@@ -129,7 +129,7 @@ class RoleController extends Controller
     * @OA\Put(
     *      path="/api/v1/admin/roles/{id}",
     *      operationId="RoleUpdate",
-    *      tags={"Admin Role"},
+    *      tags={"Admin"},
     *      summary="Update role",
     *      description="Update role",
     *      
@@ -178,7 +178,7 @@ class RoleController extends Controller
     * @OA\Delete(
     *      path="/api/v1/admin/roles/{id}",
     *      operationId="deleteRole",
-    *      tags={"Admin Role"},
+    *      tags={"Admin"},
     *      summary="Delete role",
     *      description="Delete role",
     *      

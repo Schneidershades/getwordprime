@@ -16,7 +16,7 @@
         "/api/v1/admin/attributes": {
             "get": {
                 "tags": [
-                    "Admin Attributes"
+                    "Admin"
                 ],
                 "summary": "Get Attributes",
                 "description": "Get Attributes",
@@ -48,7 +48,7 @@
         "/api/v1/admin/script-type": {
             "get": {
                 "tags": [
-                    "admin"
+                    "Admin"
                 ],
                 "summary": "Get all roles",
                 "description": "Get all roles",
@@ -78,7 +78,7 @@
             },
             "post": {
                 "tags": [
-                    "Admin Script Type"
+                    "Admin"
                 ],
                 "summary": "Post attributes",
                 "description": "Post attributes",
@@ -120,7 +120,7 @@
         "/api/v1/admin/attributes/{id}": {
             "get": {
                 "tags": [
-                    "Admin Script Type"
+                    "Admin"
                 ],
                 "summary": "Show attribute",
                 "description": "Show attribute",
@@ -161,7 +161,7 @@
             },
             "put": {
                 "tags": [
-                    "Admin Script Type"
+                    "Admin"
                 ],
                 "summary": "Update attribute",
                 "description": "Update attribute",
@@ -212,7 +212,7 @@
             },
             "delete": {
                 "tags": [
-                    "Admin Script Type"
+                    "Admin"
                 ],
                 "summary": "Delete attribute",
                 "description": "Delete attribute",
@@ -255,7 +255,7 @@
         "/api/v1/admin/roles": {
             "get": {
                 "tags": [
-                    "Admin Role"
+                    "Admin"
                 ],
                 "summary": "Get all roles",
                 "description": "Get all roles",
@@ -285,7 +285,7 @@
             },
             "post": {
                 "tags": [
-                    "Admin Role"
+                    "Admin"
                 ],
                 "summary": "Post roles",
                 "description": "Post roles",
@@ -327,7 +327,7 @@
         "/api/v1/admin/roles/{id}": {
             "get": {
                 "tags": [
-                    "Admin Role"
+                    "Admin"
                 ],
                 "summary": "Show role",
                 "description": "Show role",
@@ -368,7 +368,7 @@
             },
             "put": {
                 "tags": [
-                    "Admin Role"
+                    "Admin"
                 ],
                 "summary": "Update role",
                 "description": "Update role",
@@ -419,7 +419,7 @@
             },
             "delete": {
                 "tags": [
-                    "Admin Role"
+                    "Admin"
                 ],
                 "summary": "Delete role",
                 "description": "Delete role",
@@ -459,10 +459,217 @@
                 ]
             }
         },
+        "/api/v1/admin/script-type-attributes": {
+            "get": {
+                "tags": [
+                    "Admin"
+                ],
+                "summary": "Get script-type-attributes",
+                "description": "Get script-type-attributes",
+                "operationId": "allScriptTypeAttributes",
+                "responses": {
+                    "200": {
+                        "description": "Successful signin",
+                        "content": {
+                            "application/json": {}
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    },
+                    "401": {
+                        "description": "unauthenticated"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            },
+            "post": {
+                "tags": [
+                    "Admin"
+                ],
+                "summary": "Post script-type-attributes",
+                "description": "Post script-type-attributes",
+                "operationId": "postScriptTypeAttributes",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/ScriptTypeAttributeCreateFormRequest"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Successful signin",
+                        "content": {
+                            "application/json": {}
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    },
+                    "401": {
+                        "description": "unauthenticated"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        },
+        "/api/v1/admin/script-type-attributes/{id}": {
+            "get": {
+                "tags": [
+                    "Admin"
+                ],
+                "summary": "Show script-type-attributes",
+                "description": "Show script-type-attributes",
+                "operationId": "showScriptTypeAttributes",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "ScriptTypeAttribute ID",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful signin",
+                        "content": {
+                            "application/json": {}
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    },
+                    "401": {
+                        "description": "unauthenticated"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            },
+            "put": {
+                "tags": [
+                    "Admin"
+                ],
+                "summary": "Update script-type-attributes",
+                "description": "Update script-type-attributes",
+                "operationId": "adminScriptTypeAttributes",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "role ID",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/ScriptTypeAttributeUpdateFormRequest"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Successful signin",
+                        "content": {
+                            "application/json": {}
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    },
+                    "401": {
+                        "description": "unauthenticated"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            },
+            "delete": {
+                "tags": [
+                    "Admin"
+                ],
+                "summary": "Delete script-type-attributes",
+                "description": "Delete script-type-attributes",
+                "operationId": "deleteScriptTypeAttributes",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "script-type ID",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful signin",
+                        "content": {
+                            "application/json": {}
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    },
+                    "401": {
+                        "description": "unauthenticated"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        },
         "/api/v1/script-type": {
             "post": {
                 "tags": [
-                    "Admin Script Type"
+                    "Admin"
                 ],
                 "summary": "Post script type",
                 "description": "Post script type",
@@ -504,7 +711,7 @@
         "/api/v1/admin/script-type/{id}": {
             "get": {
                 "tags": [
-                    "Admin Script Type"
+                    "Admin"
                 ],
                 "summary": "Show script type",
                 "description": "Show script type",
@@ -545,7 +752,7 @@
             },
             "put": {
                 "tags": [
-                    "Admin Script Type"
+                    "Admin"
                 ],
                 "summary": "Update script-type",
                 "description": "Update script-type",
@@ -596,7 +803,7 @@
             },
             "delete": {
                 "tags": [
-                    "Admin Script Type"
+                    "Admin"
                 ],
                 "summary": "Delete script-type",
                 "description": "Delete script-type",
@@ -639,7 +846,7 @@
         "/api/v1/admin/script-type-questions": {
             "get": {
                 "tags": [
-                    "admin"
+                    "Admin"
                 ],
                 "summary": "Get all roles",
                 "description": "Get all roles",
@@ -669,7 +876,7 @@
             },
             "post": {
                 "tags": [
-                    "admin"
+                    "Admin"
                 ],
                 "summary": "Post new roles",
                 "description": "Post new roles",
@@ -711,7 +918,7 @@
         "/api/v1/admin/script-type-questions/{id}": {
             "get": {
                 "tags": [
-                    "admin"
+                    "Admin"
                 ],
                 "summary": "Show an role",
                 "description": "Show an role",
@@ -752,7 +959,7 @@
             },
             "put": {
                 "tags": [
-                    "admin"
+                    "Admin"
                 ],
                 "summary": "Update an role",
                 "description": "Update an role",
@@ -803,16 +1010,16 @@
             },
             "delete": {
                 "tags": [
-                    "role"
+                    "Admin"
                 ],
-                "summary": "Delete an role",
-                "description": "Delete an role",
+                "summary": "Delete script-type",
+                "description": "Delete script-type",
                 "operationId": "deleteScriptTypeQuestions",
                 "parameters": [
                     {
                         "name": "id",
                         "in": "path",
-                        "description": "Role ID",
+                        "description": "script-type ID",
                         "required": true,
                         "schema": {
                             "type": "integer"
@@ -846,7 +1053,7 @@
         "/api/v1/admin/admin/suggestion": {
             "get": {
                 "tags": [
-                    "admin"
+                    "Admin"
                 ],
                 "summary": "Get suggestions",
                 "description": "Get suggestions",
@@ -878,11 +1085,11 @@
         "/api/v1/admin/admin/suggestions": {
             "post": {
                 "tags": [
-                    "tutorial"
+                    "Admin"
                 ],
                 "summary": "Post suggestions",
                 "description": "Post suggestions",
-                "operationId": "postAgencies",
+                "operationId": "postSuggestion",
                 "requestBody": {
                     "required": true,
                     "content": {
@@ -920,7 +1127,7 @@
         "/api/v1/admin/suggestions/{id}": {
             "get": {
                 "tags": [
-                    "tutorial"
+                    "Admin"
                 ],
                 "summary": "Show suggestion",
                 "description": "Show suggestion",
@@ -963,7 +1170,7 @@
         "/api/v1/tutorials": {
             "get": {
                 "tags": [
-                    "tutorial"
+                    "Admin"
                 ],
                 "summary": "Get all tutorials",
                 "description": "Get all tutorials",
@@ -993,7 +1200,7 @@
             },
             "post": {
                 "tags": [
-                    "tutorial"
+                    "Admin"
                 ],
                 "summary": "Post new tutorials",
                 "description": "Post new tutorials",
@@ -1035,7 +1242,7 @@
         "/api/v1/tutorials/{id}": {
             "get": {
                 "tags": [
-                    "tutorial"
+                    "Admin"
                 ],
                 "summary": "Show an tutorial",
                 "description": "Show an tutorial",
@@ -1076,7 +1283,7 @@
             },
             "put": {
                 "tags": [
-                    "tutorial"
+                    "Admin"
                 ],
                 "summary": "Update an tutorial",
                 "description": "Update an tutorial",
@@ -1127,7 +1334,7 @@
             },
             "delete": {
                 "tags": [
-                    "tutorial"
+                    "Admin"
                 ],
                 "summary": "Delete an tutorial",
                 "description": "Delete an tutorial",
@@ -1137,6 +1344,213 @@
                         "name": "id",
                         "in": "path",
                         "description": "Tutorial ID",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful signin",
+                        "content": {
+                            "application/json": {}
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    },
+                    "401": {
+                        "description": "unauthenticated"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        },
+        "/api/v1/admin/users": {
+            "get": {
+                "tags": [
+                    "Admin"
+                ],
+                "summary": "Get all users",
+                "description": "Get all users",
+                "operationId": "allUsers",
+                "responses": {
+                    "200": {
+                        "description": "Successful signin",
+                        "content": {
+                            "application/json": {}
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    },
+                    "401": {
+                        "description": "unauthenticated"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            },
+            "post": {
+                "tags": [
+                    "Admin"
+                ],
+                "summary": "Post users",
+                "description": "Post users",
+                "operationId": "postUser",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/UserCreateFormRequest"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Successful signin",
+                        "content": {
+                            "application/json": {}
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    },
+                    "401": {
+                        "description": "unauthenticated"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        },
+        "/api/v1/admin/users/{id}": {
+            "get": {
+                "tags": [
+                    "Admin"
+                ],
+                "summary": "Show user",
+                "description": "Show user",
+                "operationId": "showUser",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "User ID",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful signin",
+                        "content": {
+                            "application/json": {}
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    },
+                    "401": {
+                        "description": "unauthenticated"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            },
+            "put": {
+                "tags": [
+                    "Admin"
+                ],
+                "summary": "Update user",
+                "description": "Update user",
+                "operationId": "UserUpdate",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "user ID",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/UserCreateFormRequest"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Successful signin",
+                        "content": {
+                            "application/json": {}
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    },
+                    "401": {
+                        "description": "unauthenticated"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            },
+            "delete": {
+                "tags": [
+                    "Admin"
+                ],
+                "summary": "Delete user",
+                "description": "Delete user",
+                "operationId": "deleteUser",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "User ID",
                         "required": true,
                         "schema": {
                             "type": "integer"
@@ -2478,11 +2892,23 @@
                     "name"
                 ],
                 "properties": {
+                    "type": {
+                        "title": "attribute type",
+                        "description": "name of the attribute",
+                        "type": "string",
+                        "example": "openai"
+                    },
                     "name": {
                         "title": "attribute name",
                         "description": "name of the attribute",
                         "type": "string",
-                        "example": "Info Limited"
+                        "example": "temperature"
+                    },
+                    "default_value": {
+                        "title": "attribute value",
+                        "description": "value of the attribute",
+                        "type": "integer",
+                        "example": "0.1"
                     }
                 },
                 "type": "object"
@@ -2494,11 +2920,23 @@
                     "name"
                 ],
                 "properties": {
+                    "type": {
+                        "title": "attribute type",
+                        "description": "name of the attribute",
+                        "type": "string",
+                        "example": "openai"
+                    },
                     "name": {
                         "title": "attribute name",
                         "description": "name of the attribute",
                         "type": "string",
-                        "example": "Info Limited"
+                        "example": "temperature"
+                    },
+                    "default_value": {
+                        "title": "attribute value",
+                        "description": "value of the attribute",
+                        "type": "integer",
+                        "example": "0.1"
                     }
                 },
                 "type": "object"
@@ -2517,6 +2955,50 @@
                 "required": [
                     "name"
                 ],
+                "type": "object"
+            },
+            "ScriptTypeAttributeCreateFormRequest": {
+                "title": "Script Attribute Create Form Request Fields",
+                "description": "Script Attribute Create request body data",
+                "required": [
+                    "name"
+                ],
+                "properties": {
+                    "attribute_id": {
+                        "title": "user attribute id",
+                        "description": "Initial related attribute of the id",
+                        "type": "integer",
+                        "example": "1"
+                    },
+                    "script_type_id": {
+                        "title": "user script_type id",
+                        "description": "Initial related script_type of the id",
+                        "type": "integer",
+                        "example": "1"
+                    }
+                },
+                "type": "object"
+            },
+            "ScriptTypeAttributeUpdateFormRequest": {
+                "title": "Script Type Attribute Update Form Request Fields",
+                "description": "Script Type Attribute Update request body data",
+                "required": [
+                    "name"
+                ],
+                "properties": {
+                    "attribute_id": {
+                        "title": "user attribute id",
+                        "description": "Initial related attribute of the id",
+                        "type": "integer",
+                        "example": "1"
+                    },
+                    "script_type_id": {
+                        "title": "user script_type id",
+                        "description": "Initial related script_type of the id",
+                        "type": "integer",
+                        "example": "1"
+                    }
+                },
                 "type": "object"
             },
             "ScriptTypeCreateFormRequest": {
@@ -2619,12 +3101,54 @@
                 },
                 "type": "object"
             },
+            "SuggestionCreateFormRequest": {
+                "title": "Suggession Create Form Request Fields",
+                "description": "Suggession Create request body data",
+                "required": [
+                    "name"
+                ],
+                "properties": {
+                    "parent_id": {
+                        "title": "user Initial related suggestion",
+                        "description": "Initial related suggestion of the user",
+                        "type": "integer",
+                        "example": "1"
+                    },
+                    "message": {
+                        "title": "user suggestion",
+                        "description": "suggestion of the user",
+                        "type": "string",
+                        "example": "Info Limited"
+                    }
+                },
+                "type": "object"
+            },
             "TutorialCreateFormRequest": {
                 "title": "Tutorial Create Form Request Fields",
                 "description": "Tutorial Create request body data",
                 "required": [
                     "name"
                 ],
+                "properties": {
+                    "title": {
+                        "title": "Tutorial title",
+                        "description": "title of the script type",
+                        "type": "string",
+                        "example": "How to"
+                    },
+                    "description": {
+                        "title": "Tutorial description",
+                        "description": "description of the Tutorial",
+                        "type": "string",
+                        "example": "This is"
+                    },
+                    "link": {
+                        "title": "Tutorial link URL",
+                        "description": "URL of the tutorial",
+                        "type": "string",
+                        "example": "https://www.youtube.com/watch?v=syJHxlJWGrk"
+                    }
+                },
                 "type": "object"
             },
             "TutorialUpdateFormRequest": {
@@ -2632,6 +3156,50 @@
                 "description": "Tutorial Update request body data",
                 "required": [
                     "name"
+                ],
+                "properties": {
+                    "title": {
+                        "title": "Tutorial title",
+                        "description": "title of the script type",
+                        "type": "string",
+                        "example": "How to"
+                    },
+                    "description": {
+                        "title": "Tutorial description",
+                        "description": "description of the Tutorial",
+                        "type": "string",
+                        "example": "This is"
+                    },
+                    "link": {
+                        "title": "Tutorial link URL",
+                        "description": "URL of the tutorial",
+                        "type": "string",
+                        "example": "https://www.youtube.com/watch?v=syJHxlJWGrk"
+                    }
+                },
+                "type": "object"
+            },
+            "UserCreateFormRequest": {
+                "title": "User Create Form Request Fields",
+                "description": "User Create request body data",
+                "required": [
+                    "name"
+                ],
+                "type": "object"
+            },
+            "UserUpdateFormRequest": {
+                "title": "User Update Form Request Fields",
+                "description": "User Update request body data",
+                "required": [
+                    "name"
+                ],
+                "type": "object"
+            },
+            "AuthUpdateFormRequest": {
+                "title": "User Update Form Request Fields",
+                "description": "User Update request body data",
+                "required": [
+                    "first_name"
                 ],
                 "type": "object"
             },
@@ -2741,14 +3309,6 @@
                 },
                 "type": "object"
             },
-            "UserUpdateFormRequest": {
-                "title": "User Update Form Request Fields",
-                "description": "User Update request body data",
-                "required": [
-                    "first_name"
-                ],
-                "type": "object"
-            },
             "AgencyCreateFormRequest": {
                 "title": "Agency Create Form Request Fields",
                 "description": "Agency Create request body data",
@@ -2761,6 +3321,12 @@
                         "description": "name of the agency",
                         "type": "string",
                         "example": "Info Limited"
+                    },
+                    "email": {
+                        "title": "agency email",
+                        "description": "email of the agency",
+                        "type": "string",
+                        "example": "info@client.com"
                     }
                 },
                 "type": "object"
@@ -2777,6 +3343,12 @@
                         "description": "name of the agency",
                         "type": "string",
                         "example": "Info Limited"
+                    },
+                    "email": {
+                        "title": "agency email",
+                        "description": "email of the agency",
+                        "type": "string",
+                        "example": "info@client.com"
                     }
                 },
                 "type": "object"
@@ -2792,7 +3364,7 @@
                         "title": "campaign name",
                         "description": "name of the campaign",
                         "type": "string",
-                        "example": "Info Limited"
+                        "example": "Movie Campaigns"
                     }
                 },
                 "type": "object"
@@ -2808,7 +3380,7 @@
                         "title": "campaign name",
                         "description": "name of the campaign",
                         "type": "string",
-                        "example": "Info Limited"
+                        "example": "Paste content"
                     }
                 },
                 "type": "object"
@@ -2997,28 +3569,6 @@
                         "description": "Initial related script_type question of the id",
                         "type": "integer",
                         "example": "1"
-                    }
-                },
-                "type": "object"
-            },
-            "SuggestionCreateFormRequest": {
-                "title": "Suggession Create Form Request Fields",
-                "description": "Suggession Create request body data",
-                "required": [
-                    "name"
-                ],
-                "properties": {
-                    "parent_id": {
-                        "title": "user Initial related suggestion",
-                        "description": "Initial related suggestion of the user",
-                        "type": "integer",
-                        "example": "1"
-                    },
-                    "message": {
-                        "title": "user suggestion",
-                        "description": "suggestion of the user",
-                        "type": "string",
-                        "example": "Info Limited"
                     }
                 },
                 "type": "object"

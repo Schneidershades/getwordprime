@@ -12,7 +12,7 @@ class TutorialController extends Controller
     * @OA\Get(
     *      path="/api/v1/tutorials",
     *      operationId="allTutorials",
-    *      tags={"tutorial"},
+    *      tags={"Admin"},
     *      summary="Get all tutorials",
     *      description="Get all tutorials",
     *      @OA\Response(
@@ -46,7 +46,7 @@ class TutorialController extends Controller
     * @OA\Post(
     *      path="/api/v1/tutorials",
     *      operationId="postAgencies",
-    *      tags={"tutorial"},
+    *      tags={"Admin"},
     *      summary="Post new tutorials",
     *      description="Post new tutorials",
     *      @OA\RequestBody(
@@ -84,7 +84,7 @@ class TutorialController extends Controller
     * @OA\Get(
     *      path="/api/v1/tutorials/{id}",
     *      operationId="showTutorial",
-    *      tags={"tutorial"},
+    *      tags={"Admin"},
     *      summary="Show an tutorial",
     *      description="Show an tutorial",
     *      
@@ -129,7 +129,7 @@ class TutorialController extends Controller
     * @OA\Put(
     *      path="/api/v1/tutorials/{id}",
     *      operationId="TutorialUpdate",
-    *      tags={"tutorial"},
+    *      tags={"Admin"},
     *      summary="Update an tutorial",
     *      description="Update an tutorial",
     *      
@@ -178,7 +178,7 @@ class TutorialController extends Controller
     * @OA\Delete(
     *      path="/api/v1/tutorials/{id}",
     *      operationId="deleteTutorial",
-    *      tags={"tutorial"},
+    *      tags={"Admin"},
     *      summary="Delete an tutorial",
     *      description="Delete an tutorial",
     *      

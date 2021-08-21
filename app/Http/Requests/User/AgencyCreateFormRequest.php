@@ -27,6 +27,18 @@ class AgencyCreateFormRequest extends FormRequest
      */
     private $name;
 
+
+    /**
+     * @OA\Property(
+     *      title="agency email",
+     *      description="email of the agency",
+     *      example="info@client.com"
+     * )
+     *
+     * @var string
+     */
+    private $email;
+
     /**
      * Determine if the user is authorized to make this request.
      *
@@ -46,6 +58,7 @@ class AgencyCreateFormRequest extends FormRequest
     {
         return [
             'name' => 'required|string',
+            'email' => 'required|email',
         ];
     }
 }

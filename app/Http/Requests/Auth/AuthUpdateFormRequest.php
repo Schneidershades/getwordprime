@@ -14,7 +14,7 @@ use Illuminate\Foundation\Http\FormRequest;
  * )
  */
 
-class UserUpdateFormRequest extends FormRequest
+class AuthUpdateFormRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.

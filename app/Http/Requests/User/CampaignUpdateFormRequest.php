@@ -20,7 +20,7 @@ class CampaignUpdateFormRequest extends FormRequest
      * @OA\Property(
      *      title="campaign name",
      *      description="name of the campaign",
-     *      example="Info Limited"
+     *      example="Paste content"
      * )
      *
      * @var string

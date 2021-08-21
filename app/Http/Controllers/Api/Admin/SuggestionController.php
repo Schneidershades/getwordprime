@@ -12,7 +12,7 @@ class SuggestionController extends Controller
     * @OA\Get(
     *      path="/api/v1/admin/admin/suggestion",
     *      operationId="allSuggestion",
-    *      tags={"admin"},
+    *      tags={"Admin"},
     *      summary="Get suggestions",
     *      description="Get suggestions",
     *      @OA\Response(
@@ -45,8 +45,8 @@ class SuggestionController extends Controller
     /**
     * @OA\Post(
     *      path="/api/v1/admin/admin/suggestions",
-    *      operationId="postAgencies",
-    *      tags={"tutorial"},
+    *      operationId="postSuggestion",
+    *      tags={"Admin"},
     *      summary="Post suggestions",
     *      description="Post suggestions",
     *      @OA\RequestBody(
@@ -84,7 +84,7 @@ class SuggestionController extends Controller
     * @OA\Get(
     *      path="/api/v1/admin/suggestions/{id}",
     *      operationId="showAdminSuggestion",
-    *      tags={"tutorial"},
+    *      tags={"Admin"},
     *      summary="Show suggestion",
     *      description="Show suggestion",
     *      
