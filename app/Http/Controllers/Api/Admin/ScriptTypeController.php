@@ -11,10 +11,10 @@ class ScriptTypeController extends Controller
     /**
     * @OA\Get(
     *      path="/api/v1/admin/script-type",
-    *      operationId="allScriptTypeQuestions",
+    *      operationId="allScriptTypes",
     *      tags={"Admin"},
-    *      summary="Get all roles",
-    *      description="Get all roles",
+    *      summary="Get Script-type",
+    *      description="Get script-type",
     *      @OA\Response(
     *          response=200,
     *          description="Successful signin",
@@ -44,7 +44,7 @@ class ScriptTypeController extends Controller
 
     /**
     * @OA\Post(
-    *      path="/api/v1/script-type",
+    *      path="/api/v1/admin/script-type",
     *      operationId="postScriptType",
     *      tags={"Admin"},
     *      summary="Post script type",

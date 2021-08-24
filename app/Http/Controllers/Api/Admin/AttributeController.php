@@ -44,7 +44,7 @@ class AttributeController extends Controller
 
     /**
     * @OA\Post(
-    *      path="/api/v1/admin/script-type",
+    *      path="/api/v1/admin/attributes",
     *      operationId="postAttributes",
     *      tags={"Admin"},
     *      summary="Post attributes",

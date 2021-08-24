@@ -43,38 +43,6 @@
                         "bearerAuth": []
                     }
                 ]
-            }
-        },
-        "/api/v1/admin/script-type": {
-            "get": {
-                "tags": [
-                    "Admin"
-                ],
-                "summary": "Get all roles",
-                "description": "Get all roles",
-                "operationId": "allScriptTypeQuestions",
-                "responses": {
-                    "200": {
-                        "description": "Successful signin",
-                        "content": {
-                            "application/json": {}
-                        }
-                    },
-                    "400": {
-                        "description": "Bad Request"
-                    },
-                    "401": {
-                        "description": "unauthenticated"
-                    },
-                    "403": {
-                        "description": "Forbidden"
-                    }
-                },
-                "security": [
-                    {
-                        "bearerAuth": []
-                    }
-                ]
             },
             "post": {
                 "tags": [
@@ -666,7 +634,37 @@
                 ]
             }
         },
-        "/api/v1/script-type": {
+        "/api/v1/admin/script-type": {
+            "get": {
+                "tags": [
+                    "Admin"
+                ],
+                "summary": "Get Script-type",
+                "description": "Get script-type",
+                "operationId": "allScriptTypes",
+                "responses": {
+                    "200": {
+                        "description": "Successful signin",
+                        "content": {
+                            "application/json": {}
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    },
+                    "401": {
+                        "description": "unauthenticated"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            },
             "post": {
                 "tags": [
                     "Admin"
