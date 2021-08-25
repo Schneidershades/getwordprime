@@ -6,7 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Http\Requests\Auth\UserRegistrationFormRequest;
 use App\Http\Requests\Auth\UserLoginFormRequest;
-use App\Http\Requests\Auth\UserUpdateFormRequest;
+use App\Http\Requests\Auth\AuthUpdateFormRequest;
 use App\Models\User;
 
 class UserController extends Controller
@@ -47,9 +47,7 @@ class UserController extends Controller
     {
         $user = User::create($request->validated());
 
-        return $user;
-
-        // $user->sendEmailVerificationNotification();
+        $user->sendEmailVerificationNotification();
 
         if(!$token = auth()->attempt($request->only(['email', 'password']))){
             return $this->errorResponse('unauthenticated', 401);
