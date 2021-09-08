@@ -124,7 +124,7 @@ class AgencyController extends Controller
     */
     public function show(Agency $agency)
     {
-        return $this->showOne(Agency::findOrFail($id));
+        return $this->showOne(Agency::findOrFail($agency));
     }
 
     /**

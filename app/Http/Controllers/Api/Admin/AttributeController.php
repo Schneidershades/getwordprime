@@ -39,7 +39,7 @@ class AttributeController extends Controller
     */
     public function index()
     {
-        $this->showAll(Attributes::all());
+        $this->showAll(Attribute::all());
     }
 
     /**
@@ -122,7 +122,7 @@ class AttributeController extends Controller
     */
     public function show(Attribute $attribute)
     {
-        return $this->showOne(Attribute::findOrFail($id));
+        return $this->showOne($attribute);
     }
 
     /**
@@ -213,7 +213,7 @@ class AttributeController extends Controller
     *      security={ {"bearerAuth": {}} },
     * )
     */
-    public function destroy(Attributes $attribute)
+    public function destroy(Attribute $attribute)
     {
         $attribute->delete();
         return $this->showMessage('deleted');
