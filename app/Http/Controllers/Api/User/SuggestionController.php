@@ -2,9 +2,10 @@
 
 namespace App\Http\Controllers\Api\User;
 
-use App\Http\Controllers\Controller;
-use Illuminate\Http\Request;
 use App\Models\Suggestion;
+use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
+use App\Http\Requests\Admin\SuggestionCreateFormRequest;
 
 class SuggestionController extends Controller
 {
@@ -15,11 +16,11 @@ class SuggestionController extends Controller
 
     public function store(SuggestionCreateFormRequest $request)
     {
-        return $this->showOne(auth()->user()->suggesions()->create($request->validated()));
+        return $this->showOne(auth()->user()->suggestions->create($request->validated()));
     }
 
     public function show(Suggestion $suggestion)
     {
-        return $this->showOne($suggesion);
+        return $this->showOne($suggestion);
     }
 }

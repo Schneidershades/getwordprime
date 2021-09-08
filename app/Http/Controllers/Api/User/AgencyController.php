@@ -41,7 +41,7 @@ class AgencyController extends Controller
     */
     public function index()
     {
-        $this->showAll(auth()->user()->agencies);
+        return $this->showAll(auth()->user()->agencies);
     }
 
     /**

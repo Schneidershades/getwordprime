@@ -18,5 +18,13 @@ Route::prefix('v1')->group(function () {
 		Route::get('/email/verify/{id}/{hash}', 'VerificationController@verify')->name('verification.verify');
 	});
 
+	Route::group(['namespace' => 'Api\User'], function(){
+		Route::resource('agencies', AgencyController::class);
+		Route::resource('campaigns', CampaignController::class);
+		Route::resource('reseller', ResellerController::class);
+		Route::resource('scripts', ScriptController::class);
+		Route::resource('tutorials', TutorialController::class);
+	});
+
 });
 
