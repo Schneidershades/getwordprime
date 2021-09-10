@@ -2,11 +2,11 @@
 
 namespace App\Http\Controllers\Api\User;
 
-use App\Http\Controllers\Controller;
-use Illuminate\Http\Request;
 use App\Models\Agency;
-use App\Http\Controllers\Api\User\AgencyCreateFormRequest;
-use App\Http\Controllers\Api\User\AgencyUpdateFormRequest;
+use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
+use App\Http\Requests\User\AgencyCreateFormRequest;
+use App\Http\Requests\User\AgencyUpdateFormRequest;
 
 class AgencyController extends Controller
 {
@@ -77,7 +77,7 @@ class AgencyController extends Controller
     *      security={ {"bearerAuth": {}} },
     * )
     */
-    public function store(Request $request)
+    public function store(AgencyCreateFormRequest $request)
     {
         return $this->showOne(auth()->user()->agencies()->create($request->validated()));
     }
@@ -122,9 +122,9 @@ class AgencyController extends Controller
     *      security={ {"bearerAuth": {}} },
     * )
     */
-    public function show(Agency $agency)
+    public function show($id)
     {
-        return $this->showOne(Agency::findOrFail($agency));
+        return $this->showOne(Agency::findOrFail($id));
     }
 
     /**
@@ -171,9 +171,10 @@ class AgencyController extends Controller
     * )
     */
     
-    public function update(AgencyUpdateFormRequest $request, Agency $agency)
+    public function update(AgencyUpdateFormRequest $request, $id)
     {
-        return $this->showOne($agency->update($request->validated()));
+        auth()->user()->agencies->where('id', $id)->first()->update($request->validated());
+        return $this->showOne(auth()->user()->agencies->where('id', $id)->first());
     }
 
      /**

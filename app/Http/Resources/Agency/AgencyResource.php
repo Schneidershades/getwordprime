@@ -15,9 +15,8 @@ class AgencyResource extends JsonResource
     public function toArray($request)
     {
         return [
-            'title' => $this->title,
-            'description' => $this->description,
-            'link' => $this->link,
+            'name' => $this->name,
+            'email' => $this->email,
         ];
     }
 }

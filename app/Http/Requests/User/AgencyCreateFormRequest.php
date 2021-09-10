@@ -58,7 +58,7 @@ class AgencyCreateFormRequest extends FormRequest
     {
         return [
             'name' => 'required|string',
-            'email' => 'required|email',
+            'email' => 'required|string|email|max:255|unique:agencies,email',
         ];
     }
 }

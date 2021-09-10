@@ -78,7 +78,7 @@ class User extends Authenticatable implements MustVerifyEmail, JWTSubject
 
     public function agencies()
     {
-        return $this->hasMany(Agency::class);
+        return $this->hasMany(Agency::class, 'user_id');
     }
 
     public function campaigns()

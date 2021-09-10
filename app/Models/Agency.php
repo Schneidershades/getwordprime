@@ -13,6 +13,11 @@ class Agency extends Model
 {
     use HasFactory;
 
+    protected $fillable = [
+        'name',
+        'email'
+    ];
+
     public $oneItem = AgencyResource::class;
     public $allItems = AgencyCollection::class;
 
