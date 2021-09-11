@@ -2,9 +2,10 @@
 
 namespace App\Http\Controllers\Api\Admin;
 
-use App\Http\Controllers\Controller;
-use Illuminate\Http\Request;
 use App\Models\Attribute;
+use App\Http\Controllers\Controller;
+use App\Http\Requests\Admin\AttributeCreateFormRequest;
+use App\Http\Requests\Admin\AttributeUpdateFormRequest;
 
 class AttributeController extends Controller
 {
@@ -75,7 +76,7 @@ class AttributeController extends Controller
     *      security={ {"bearerAuth": {}} },
     * )
     */
-    public function store(Request $request)
+    public function store(AttributeCreateFormRequest $request)
     {
         return $this->showOne(Attribute::create($request->validated()));
     }
@@ -169,7 +170,7 @@ class AttributeController extends Controller
     * )
     */
     
-    public function update(AttributesUpdateFormRequest $request, Attribute $attribute)
+    public function update(AttributeUpdateFormRequest $request, Attribute $attribute)
     {
         return $this->showOne($attribute->update($request->validated()));
     }
