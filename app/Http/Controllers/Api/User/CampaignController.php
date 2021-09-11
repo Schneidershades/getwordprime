@@ -2,19 +2,20 @@
 
 namespace App\Http\Controllers\Api\User;
 
-use App\Http\Controllers\Controller;
-use Illuminate\Http\Request;
 use App\Models\Campaign;
+use App\Http\Controllers\Controller;
+use App\Http\Requests\User\CampaignCreateFormRequest;
+use App\Http\Requests\User\CampaignUpdateFormRequest;
 
 class CampaignController extends Controller
 {
     /**
     * @OA\Get(
     *      path="/api/v1/campaigns",
-    *      operationId="allAgencies",
+    *      operationId="allCampaign",
     *      tags={"campaign"},
-    *      summary="Get all campaigns",
-    *      description="Get all campaigns",
+    *      summary="allCampaign",
+    *      description="allCampaign",
     *      @OA\Response(
     *          response=200,
     *          description="Successful signin",
@@ -39,7 +40,7 @@ class CampaignController extends Controller
     */
     public function index()
     {
-        $this->showAll(auth()->user()->campaigns);
+        return $this->showAll(auth()->user()->campaigns);
     }
 
     /**
@@ -77,7 +78,7 @@ class CampaignController extends Controller
     */
     public function store(CampaignCreateFormRequest $request)
     {
-        return $this->showOne(auth()->user()->campaigns()->create($request->all()));
+        return $this->showOne(auth()->user()->campaigns()->create($request->validated()));
     }
     /**
     * @OA\Get(
@@ -121,7 +122,7 @@ class CampaignController extends Controller
     */
     public function show(Campaign $campaign)
     {
-        return $this->showOne($campaign);
+        return $this->showOne(auth()->user()->campaigns->where('id', $campaign->id)->first());
     }
     /**
     * @OA\PUT(
@@ -168,7 +169,8 @@ class CampaignController extends Controller
     */
     public function update(CampaignUpdateFormRequest $request, Campaign $campaign)
     {
-        return $this->showOne($campaign->update($request->validated()));
+        auth()->user()->campaigns->where('id', $campaign->id)->first()->update($request->validated());
+        return $this->showOne(auth()->user()->campaigns->where('id', $campaign->id)->first());
     }
 
      /**

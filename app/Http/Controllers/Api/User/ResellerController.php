@@ -41,7 +41,7 @@ class ResellerController extends Controller
     */
     public function index()
     {
-        $this->showAll(auth()->user()->resellers);
+        return $this->showAll(auth()->user()->resellers);
     }
     /**
     * @OA\Post(
@@ -78,7 +78,7 @@ class ResellerController extends Controller
     */
     public function store(ResellerCreateFormRequest $request)
     {
-        return $this->showOne(auth()->user()->resellers()->create($request->all()));
+        return $this->showOne(auth()->user()->resellers()->create($request->validated()));
     }
 
     /**
@@ -124,7 +124,7 @@ class ResellerController extends Controller
 
     public function show(User $user)
     {
-        return $this->showOne($user);
+        return $this->showOne(auth()->user()->reseller->where('id', $user->id)->first());
     }
 
     /**
@@ -172,7 +172,8 @@ class ResellerController extends Controller
     */
     public function update(ResellerUpdateFormRequest $request, User $user)
     {
-        return $this->showOne($user->update($request->validated()));
+        auth()->user()->reseller->where('id', $user->id)->first()->update($request->validated());
+        return $this->showOne(auth()->user()->reseller->where('id', $user->id)->first());
     }
 
      /**

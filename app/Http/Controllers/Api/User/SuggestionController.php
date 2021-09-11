@@ -9,6 +9,7 @@ use App\Http\Requests\Admin\SuggestionCreateFormRequest;
 
 class SuggestionController extends Controller
 {
+    
     public function index()
     {
         return $this->showAll(Suggestion::all());
@@ -18,7 +19,7 @@ class SuggestionController extends Controller
     {
         return $this->showOne(auth()->user()->suggestions->create($request->validated()));
     }
-
+    
     public function show(Suggestion $suggestion)
     {
         return $this->showOne($suggestion);

@@ -3,7 +3,6 @@
 namespace App\Http\Controllers\Api\User;
 
 use App\Models\Agency;
-use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\User\AgencyCreateFormRequest;
 use App\Http\Requests\User\AgencyUpdateFormRequest;
@@ -124,7 +123,7 @@ class AgencyController extends Controller
     */
     public function show($id)
     {
-        return $this->showOne(Agency::findOrFail($id));
+        return $this->showOne(auth()->user()->agencies->where('id', $id)->first());
     }
 
     /**
