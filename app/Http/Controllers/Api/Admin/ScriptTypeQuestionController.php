@@ -39,7 +39,7 @@ class ScriptTypeQuestionController extends Controller
     */
     public function index()
     {
-        $this->showAll(auth()->user()->roles);
+        $this->showAll(ScriptTypeQuestion::all());
     }
 
     /**
@@ -77,7 +77,7 @@ class ScriptTypeQuestionController extends Controller
     */
     public function store(Request $request)
     {
-        return $this->showOne(auth()->user()->roles()->create($request->validated()));
+        return $this->showOne(ScriptTypeQuestion::create($request->validated()));
     }
 
     /**
@@ -120,9 +120,9 @@ class ScriptTypeQuestionController extends Controller
     *      security={ {"bearerAuth": {}} },
     * )
     */
-    public function show(Role $role)
+    public function show(ScriptTypeQuestion $id)
     {
-        return $this->showOne(Role::findOrFail($id));
+        return $this->showOne(ScriptTypeQuestion::findOrFail($id));
     }
 
     /**
@@ -169,9 +169,9 @@ class ScriptTypeQuestionController extends Controller
     * )
     */
     
-    public function update(RoleUpdateFormRequest $request, Role $role)
+    public function update(ScriptTypeQuestionFormRequest $request, ScriptTypeQuestion $scriptTypeQuestion)
     {
-        return $this->showOne($role->update($request->validated()));
+        return $this->showOne($scriptTypeQuestion->update($request->validated()));
     }
 
      /**
@@ -213,7 +213,7 @@ class ScriptTypeQuestionController extends Controller
     *      security={ {"bearerAuth": {}} },
     * )
     */
-    public function destroy(Role $role)
+    public function destroy(ScriptTypeQuestion $role)
     {
         $role->delete();
         return $this->showMessage('deleted');

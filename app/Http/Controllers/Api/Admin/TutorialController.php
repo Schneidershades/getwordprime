@@ -2,9 +2,10 @@
 
 namespace App\Http\Controllers\Api\Admin;
 
-use App\Http\Controllers\Controller;
-use Illuminate\Http\Request;
 use App\Models\Tutorial;
+use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
+use App\Http\Requests\Admin\TutorialUpdateFormRequest;
 
 class TutorialController extends Controller
 {
@@ -39,7 +40,7 @@ class TutorialController extends Controller
     */
     public function index()
     {
-        $this->showAll(auth()->user()->tutorials);
+        $this->showAll(Tutorial::all());
     }
 
     /**
@@ -77,7 +78,7 @@ class TutorialController extends Controller
     */
     public function store(Request $request)
     {
-        return $this->showOne(auth()->user()->tutorials()->create($request->validated()));
+        return $this->showOne(Tutorial::create($request->validated()));
     }
 
     /**
@@ -122,7 +123,7 @@ class TutorialController extends Controller
     */
     public function show(Tutorial $tutorial)
     {
-        return $this->showOne(Tutorial::findOrFail($id));
+        return $this->showOne(Tutorial::findOrFail($tutorial));
     }
 
     /**

@@ -2,9 +2,10 @@
 
 namespace App\Http\Controllers\Api\Admin;
 
-use App\Http\Controllers\Controller;
-use Illuminate\Http\Request;
 use App\Models\User;
+use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
+use App\Http\Requests\Admin\UserUpdateFormRequest;
 
 class UserController extends Controller
 {
@@ -77,7 +78,7 @@ class UserController extends Controller
     */
     public function store(Request $request)
     {
-        return $this->showOne(auth()->user()->users()->create($request->validated()));
+        return $this->showOne(User::create($request->validated()));
     }
 
     /**

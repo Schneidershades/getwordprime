@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers\Api\Admin;
 
+use App\Models\ScriptTypeAttribute;
 use App\Http\Controllers\Controller;
-use Illuminate\Http\Request;
+use App\Http\Requests\Admin\ScriptTypeAttributeCreateFormRequest;
+use App\Http\Requests\Admin\ScriptTypeAttributeUpdateFormRequest;
 
 class ScriptTypeAttributeController extends Controller
 {
@@ -74,9 +76,9 @@ class ScriptTypeAttributeController extends Controller
     *      security={ {"bearerAuth": {}} },
     * )
     */
-    public function store(Request $request)
+    public function store(ScriptTypeAttributeCreateFormRequest $request)
     {
-        return $this->showOne(auth()->user()->roles()->create($request->validated()));
+        return $this->showOne(ScriptTypeAttribute::create($request->validated()));
     }
 
     /**
