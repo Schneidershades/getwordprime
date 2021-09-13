@@ -16,7 +16,6 @@ class ScriptTypeQuestionResource extends JsonResource
     {
         return [
             'id' => $this->id,
-            'name' => $this->name,
             'question' => $this->question,
         ];
     }
