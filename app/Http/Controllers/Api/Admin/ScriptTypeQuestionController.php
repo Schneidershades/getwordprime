@@ -213,9 +213,9 @@ class ScriptTypeQuestionController extends Controller
     *      security={ {"bearerAuth": {}} },
     * )
     */
-    public function destroy(ScriptTypeQuestion $role)
+    public function destroy(ScriptTypeQuestion $scriptTypeQuestion)
     {
-        $role->delete();
+        $scriptTypeQuestion->delete();
         return $this->showMessage('deleted');
     }
 }

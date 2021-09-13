@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use App\Models\ScriptType;
 
-class ScriptTypeOpenaiAttributes extends Model
+class ScriptTypeAttribute extends Model
 {
     use HasFactory;
 

@@ -66,8 +66,8 @@ class PermissionSeeder extends Seeder
     {
         if( $role->name == 'Admin') {
             $user = User::Create([
-                'name'                          => 'Schneider',
-                'email'                         => 'buskoms@yahoo.com',
+                'name'                          => 'Manuel',
+                'email'                         => 'user@convertscript.com',
                 'password'                      => 'password',
                 'role'                          => $role->name,
             ]);
