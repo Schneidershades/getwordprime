@@ -15,44 +15,44 @@ class ScriptTypeTableSeeder extends Seeder
     public function run()
     {
 
-        ScriptType::Create([
+        ScriptType::create([
             'name'             => 'Blog Subject Lines',
             'icon'             => '---',
             'description'      => 'Eye-catching blog headlines that make visitors click',
         ]);
 
-        ScriptType::Create([
+        ScriptType::create([
             'name'             => 'Product Promotion Email',
             'icon'             => '---',
             'description'      => 'Get your users to see value in your product/offer and beg you to take their money',
         ]);
 
-        ScriptType::Create([
+        ScriptType::create([
             'name'             => 'Affiliate Promotion Email',
             'icon'             => '---',
             'description'      => 'Make your audience go crazy while you rake in huge commissions',
         ]);
 
-        ScriptType::Create([
+        ScriptType::create([
             'name'             => 'Discount Offer Email',
             'icon'             => '---',
             'description'      => 'Hot offers and create FOMO and drive conversion',
         ]);
 
-        ScriptType::Create([
+        ScriptType::create([
             'name'             => 'Product Launch Email',
             'icon'             => '---',
             'description'      => 'Launch your product and with hot early bird emails',
         ]);
 
-        ScriptType::Create([
+        ScriptType::create([
             'name'             => 'B2B Cold Email',
             'icon'             => '---',
             'description'      => 'Make your audience go crazy while you rake in huge commissions',
         ]);
 
 
-        ScriptType::Create([
+        ScriptType::create([
             'name'             => 'Email Subject Line Blog Subject Lines',
             'icon'             => '---',
             'description'      => 'Write a high-converting subject line for your email',
