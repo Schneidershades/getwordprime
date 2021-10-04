@@ -32,8 +32,6 @@ class ScriptTypeTableSeeder extends Seeder
             'description'      => 'Get your users to see value in your product/offer and beg you to take their money',
         ]);
 
-
-
         ScriptType::Create([
             'name'             => 'Affiliate Promotion Email',
             'icon'             => '---',
@@ -51,8 +49,6 @@ class ScriptTypeTableSeeder extends Seeder
             'icon'             => '---',
             'description'      => 'Launch your product and with hot early bird emails',
         ]);
-
-
 
         ScriptType::Create([
             'name'             => 'B2B Cold Email',

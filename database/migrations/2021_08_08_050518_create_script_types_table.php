@@ -15,7 +15,7 @@ class CreateScriptTypesTable extends Migration
     {
         Schema::create('script_types', function (Blueprint $table) {
             $table->id();
-            $table->string('name')->unique();
+            $table->string('name');
             $table->text('icon')->nullable();
             $table->text('description');
             $table->timestamps();
