@@ -14,37 +14,37 @@ class AttributeTableSeeder extends Seeder
      */
     public function run()
     {
-        Attribute::Create([
+        Attribute::create([
             'name'             => 'max_tokens',
             'type'         => 'open-api',
         ]);
 
-        Attribute::Create([
+        Attribute::create([
             'name'             => 'temperature',
             'type'         => 'open-api',
         ]);
 
-        Attribute::Create([
+        Attribute::create([
             'name'             => 'top_p',
             'type'         => 'open-api',
         ]);
 
-        Attribute::Create([
+        Attribute::create([
             'name'             => 'presence_penalty',
             'type'         => 'open-api',
         ]);
 
-        Attribute::Create([
+        Attribute::create([
             'name'             => 'frequency_penalty',
             'type'         => 'open-api',
         ]);
 
-        Attribute::Create([
+        Attribute::create([
             'name'             => 'documents',
             'type'         => 'open-api',
         ]);
 
-        Attribute::Create([
+        Attribute::create([
             'name'             => 'query',
             'type'         => 'open-api',
         ]);

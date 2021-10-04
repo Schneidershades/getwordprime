@@ -14,51 +14,51 @@ class ScriptTypeAttributeTableSeeder extends Seeder
      */
     public function run()
     {
-        ScriptTypeAttribute::Create([
+        ScriptTypeAttribute::create([
             'script_type_id'       => '1',
             'attribute_id'         => '1',
             'value'                => '0',
         ]);
 
-        ScriptTypeAttribute::Create([
+        ScriptTypeAttribute::create([
             'script_type_id'       => 1,
             'attribute_id'         => 2,
             'value'                => 0,
         ]);
 
 
-        ScriptTypeAttribute::Create([
+        ScriptTypeAttribute::create([
             'script_type_id'       => 1,
             'attribute_id'         => 2,
             'value'                => 0.7,
         ]);
 
 
-        ScriptTypeAttribute::Create([
+        ScriptTypeAttribute::create([
             'script_type_id'       => 1,
             'attribute_id'         => 3,
             'value'                => 1,
         ]);
 
-        ScriptTypeAttribute::Create([
+        ScriptTypeAttribute::create([
             'script_type_id'       => 1,
             'attribute_id'         => 4,
             'value'                => 0.75,
         ]);
 
-        ScriptTypeAttribute::Create([
+        ScriptTypeAttribute::create([
             'script_type_id'       => 1,
             'attribute_id'         => 5,
             'value'                => 0.75,
         ]);
 
-        ScriptTypeAttribute::Create([
+        ScriptTypeAttribute::create([
             'script_type_id'       => 1,
             'attribute_id'         => 5,
             'value'                => 1,
         ]);
 
-        ScriptTypeAttribute::Create([
+        ScriptTypeAttribute::create([
             'script_type_id'       => 1,
             'attribute_id'         => 5,
             'value'                => false,
