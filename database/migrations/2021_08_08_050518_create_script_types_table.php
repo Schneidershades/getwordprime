@@ -18,7 +18,6 @@ class CreateScriptTypesTable extends Migration
             $table->string('name')->unique();
             $table->text('icon')->nullable();
             $table->text('description');
-            $table->string('slug')->unique();
             $table->timestamps();
         });
     }
