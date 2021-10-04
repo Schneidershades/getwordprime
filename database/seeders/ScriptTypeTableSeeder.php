@@ -14,11 +14,6 @@ class ScriptTypeTableSeeder extends Seeder
      */
     public function run()
     {
-        ScriptType::Create([
-            'name'             => 'Email Subject Line Blog Subject Lines',
-            'icon'             => '---',
-            'description'      => 'Write a high-converting subject line for your email',
-        ]);
 
         ScriptType::Create([
             'name'             => 'Blog Subject Lines',
@@ -54,6 +49,13 @@ class ScriptTypeTableSeeder extends Seeder
             'name'             => 'B2B Cold Email',
             'icon'             => '---',
             'description'      => 'Make your audience go crazy while you rake in huge commissions',
+        ]);
+
+
+        ScriptType::Create([
+            'name'             => 'Email Subject Line Blog Subject Lines',
+            'icon'             => '---',
+            'description'      => 'Write a high-converting subject line for your email',
         ]);
 
     }
