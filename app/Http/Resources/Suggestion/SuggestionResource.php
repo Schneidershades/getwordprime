@@ -19,6 +19,8 @@ class SuggestionResource extends JsonResource
             'status' => $this->status,
             'user' => $this->user,
             'parent' => $this->parent,
+            'created_at' => $this->created_at,
+            'updated_at' => $this->updated_at,
         ];
     }
 }

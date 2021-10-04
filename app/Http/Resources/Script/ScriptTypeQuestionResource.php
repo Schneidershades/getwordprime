@@ -17,6 +17,8 @@ class ScriptTypeQuestionResource extends JsonResource
         return [
             'id' => $this->id,
             'question' => $this->question,
+            'created_at' => $this->created_at,
+            'updated_at' => $this->updated_at,
         ];
     }
 }

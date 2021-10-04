@@ -17,6 +17,8 @@ class ScriptUserAnswerResource extends JsonResource
         return [
             'id' => $this->id,
             'answer' => $this->answer,
+            'created_at' => $this->created_at,
+            'updated_at' => $this->updated_at,
         ];
     }
 }

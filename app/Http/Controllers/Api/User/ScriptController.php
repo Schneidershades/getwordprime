@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Api\User;
 
 use App\Models\Script;
 use App\Http\Controllers\Controller;
+use App\Traits\Plugins\OpenAi\OpenAi;
 use App\Http\Requests\User\ScriptCreateFormRequest;
 use App\Http\Requests\User\ScriptUpdateFormRequest;
 
@@ -124,7 +125,10 @@ class ScriptController extends Controller
 
     public function show(Script $script)
     {
-        return $this->showOne(auth()->user()->scripts->where('id', $script->id)->first());
+        $openai = new OpenAi();
+        return $openai->request("ada", "This is a test", 5);
+        
+        // return $this->showOne(auth()->user()->scripts->where('id', $script->id)->first());
     }
 
      /**

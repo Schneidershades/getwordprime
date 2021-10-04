@@ -1165,7 +1165,7 @@
                 ]
             }
         },
-        "/api/v1/tutorials": {
+        "/api/v1/admin/tutorials": {
             "get": {
                 "tags": [
                     "Admin"
@@ -1237,7 +1237,7 @@
                 ]
             }
         },
-        "/api/v1/tutorials/{id}": {
+        "/api/v1/admin/tutorials/{id}": {
             "get": {
                 "tags": [
                     "Admin"
@@ -2145,9 +2145,9 @@
                 "tags": [
                     "campaign"
                 ],
-                "summary": "Get all campaigns",
-                "description": "Get all campaigns",
-                "operationId": "allAgencies",
+                "summary": "allCampaign",
+                "description": "allCampaign",
+                "operationId": "allCampaign",
                 "responses": {
                     "200": {
                         "description": "Successful signin",
@@ -2879,6 +2879,156 @@
                     }
                 ]
             }
+        },
+        "/api/v1/suggestions": {
+            "get": {
+                "tags": [
+                    "script"
+                ],
+                "summary": "allSuggestions",
+                "description": "allSuggestions",
+                "operationId": "allSuggestions",
+                "responses": {
+                    "200": {
+                        "description": "Successful signin",
+                        "content": {
+                            "application/json": {}
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    },
+                    "401": {
+                        "description": "unauthenticated"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        },
+        "/api/v1/suggestions/{id}": {
+            "get": {
+                "tags": [
+                    "script"
+                ],
+                "summary": "showSuggestions",
+                "description": "showSuggestions",
+                "operationId": "showSuggestions",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Suggesstion ID",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful signin",
+                        "content": {
+                            "application/json": {}
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    },
+                    "401": {
+                        "description": "unauthenticated"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        },
+        "/api/v1/tutorials": {
+            "get": {
+                "tags": [
+                    "script"
+                ],
+                "summary": "allTutorials",
+                "description": "allTutorials",
+                "operationId": "allTutorials",
+                "responses": {
+                    "200": {
+                        "description": "Successful signin",
+                        "content": {
+                            "application/json": {}
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    },
+                    "401": {
+                        "description": "unauthenticated"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        },
+        "/api/v1/tutorials/{id}": {
+            "get": {
+                "tags": [
+                    "script"
+                ],
+                "summary": "showTutorials",
+                "description": "showTutorials",
+                "operationId": "showTutorials",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Tutorials ID",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful signin",
+                        "content": {
+                            "application/json": {}
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    },
+                    "401": {
+                        "description": "unauthenticated"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
         }
     },
     "components": {
@@ -3262,7 +3412,7 @@
                         "title": "User email",
                         "description": "Email of the user",
                         "type": "string",
-                        "example": "info@convertscript.com"
+                        "example": "user@convertscript.com"
                     },
                     "password": {
                         "title": "User password",

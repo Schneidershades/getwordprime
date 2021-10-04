@@ -17,7 +17,7 @@ class CreateScriptTypeAttributesTable extends Migration
             $table->id();
             $table->foreignId('script_type_id')->nullable()->constrained();
             $table->foreignId('attribute_id')->nullable()->constrained();
-            $table->integer('value')->nullable();
+            $table->string('value')->nullable();
             $table->timestamps();
         });
     }
