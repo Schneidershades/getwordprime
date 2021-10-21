@@ -2,10 +2,16 @@
 
 namespace App\Traits\Plugins\OpenAi;
 
-class OpenAi{
-
+class OpenAi
+{
     private function secret_key(){
-        return $secret_key = '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';
+        return $secret_key = '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';
+    }
+
+    public function getEngines()
+    {
+        $response = $this->sendRequest("https://api.openai.com/v1/engines", 'GET', []);
+        dd($response);
     }
 
     public function request($engine, $prompt, $max_tokens){ 
@@ -21,35 +27,8 @@ class OpenAi{
             "stream" => false,
         ];
 
-        $postfields = json_encode($request_body);
-        $curl = curl_init();
-        curl_setopt_array($curl, [
-            CURLOPT_URL => "https://api.openai.com/v1/engines/" . $engine . "/completions",
-            CURLOPT_RETURNTRANSFER => true,
-            CURLOPT_FOLLOWLOCATION => true,
-            CURLOPT_ENCODING => "",
-            CURLOPT_MAXREDIRS => 10,
-            CURLOPT_TIMEOUT => 30,
-            CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
-            CURLOPT_CUSTOMREQUEST => "POST",
-            CURLOPT_POSTFIELDS => $postfields,
-            CURLOPT_HTTPHEADER => [
-                'Content-Type: application/json',
-                'Authorization: ' . $this->secret_key()
-            ],
-        ]);
-
-        $response = curl_exec($curl);
-        $err = curl_error($curl);
-
-        curl_close($curl);
-
-        if ($err) {
-            echo "Error #:" . $err;
-        } else {
-            echo $response;
-        }
-
+        $response = $this->sendRequest("https://api.openai.com/v1/engines/" . $engine . "/completions", 'POST', json_encode($request_body));
+        dd($response);
     }
 
     public function search($engine, $documents, $query){ 
@@ -64,34 +43,48 @@ class OpenAi{
             "query" => $query
         ];
 
-        $postfields = json_encode($request_body);
+
+        $response = $this->sendRequest("https://api.openai.com/v1/engines/" . $engine . "/search", 'POST', json_encode($request_body));
+        dd($response);
+    }
+
+    private function sendRequest($url, $requestType, $postfields=[])
+    {
         $curl = curl_init();
         curl_setopt_array($curl, [
-            CURLOPT_URL => "https://api.openai.com/v1/engines/" . $engine . "/search",
+            CURLOPT_URL => $url,
             CURLOPT_RETURNTRANSFER => true,
             CURLOPT_FOLLOWLOCATION => true,
             CURLOPT_ENCODING => "",
             CURLOPT_MAXREDIRS => 10,
             CURLOPT_TIMEOUT => 30,
             CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
-            CURLOPT_CUSTOMREQUEST => "POST",
+            CURLOPT_CUSTOMREQUEST => $requestType,
             CURLOPT_POSTFIELDS => $postfields,
             CURLOPT_HTTPHEADER => [
                 'Content-Type: application/json',
-                'Authorization: ' . $this->secret_key()
+                'Authorization: Bearer ' . $this->secret_key()
             ],
         ]);
 
         $response = curl_exec($curl);
-        $err = curl_error($curl);
+        return json_decode($response);
+    }
 
-        curl_close($curl);
+    public function queryRequest($model){ 
 
-        if ($err) {
-            echo "Error #:" . $err;
-        } else {
-            echo $response;
-        }
+        $request_body = [
+            "prompt" => $prompt,
+            "max_tokens" => $max_tokens,
+            "temperature" => $temperature,
+            "top_p" => 1,
+            "presence_penalty" => 0.75,
+            "frequency_penalty"=> 0.75,
+            "best_of"=> 1,
+            "stream" => false,
+        ];
 
+        $response = $this->sendRequest("https://api.openai.com/v1/engines/" . $engine . "/completions", 'POST', json_encode($request_body));
+        dd($response);
     }
 }

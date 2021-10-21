@@ -40,7 +40,7 @@ class UserController extends Controller
     */
     public function index()
     {
-        $this->showAll(auth()->user()->users);
+        $this->showAll(User::latest()->get());
     }
 
     /**
@@ -123,7 +123,7 @@ class UserController extends Controller
     */
     public function show(User $user)
     {
-        return $this->showOne(User::findOrFail($id));
+        return $this->showOne(User::findOrFail($user));
     }
 
     /**
@@ -172,7 +172,8 @@ class UserController extends Controller
     
     public function update(UserUpdateFormRequest $request, User $user)
     {
-        return $this->showOne($user->update($request->validated()));
+        $user->update($request->validated());
+        return $this->showOne($user);
     }
 
      /**

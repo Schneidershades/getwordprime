@@ -26,5 +26,6 @@ Route::prefix('v1')->group(function () {
 		Route::resource('tutorials', TutorialController::class);
 	});
 
+	Route::resource('script-test', Api\User\ScriptTestingController::class);
 });
 

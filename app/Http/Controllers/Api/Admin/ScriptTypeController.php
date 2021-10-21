@@ -40,7 +40,7 @@ class ScriptTypeController extends Controller
     */
     public function index()
     {
-        $this->showAll(ScriptType::all());
+        $this->showAll(ScriptType::latest()->get());
     }
 
     /**
@@ -121,10 +121,9 @@ class ScriptTypeController extends Controller
     */
     public function show(ScriptType $scriptType)
     {
-        return $this->showOne(ScriptType::findOrFail($id));
+        return $this->showOne($scriptType);
     }
 
-    
     /**
     * @OA\Put(
     *      path="/api/v1/admin/script-type/{id}",
@@ -170,7 +169,8 @@ class ScriptTypeController extends Controller
     */
     public function update(ScriptTypeUpdateFormRequest $request, ScriptType $scriptType)
     {
-        return $this->showOne($scriptType->update($request->validated()));
+        $scriptType->update($request->validated());
+        return $this->showOne($scriptType);
     }
 
      /**

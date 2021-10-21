@@ -39,7 +39,7 @@ class ScriptTypeQuestionController extends Controller
     */
     public function index()
     {
-        $this->showAll(ScriptTypeQuestion::all());
+        $this->showAll(ScriptTypeQuestion::latest()->get());
     }
 
     /**
@@ -171,7 +171,8 @@ class ScriptTypeQuestionController extends Controller
     
     public function update(ScriptTypeQuestionFormRequest $request, ScriptTypeQuestion $scriptTypeQuestion)
     {
-        return $this->showOne($scriptTypeQuestion->update($request->validated()));
+        $scriptTypeQuestion->update($request->validated());
+        return $this->showOne($scriptTypeQuestion);
     }
 
      /**

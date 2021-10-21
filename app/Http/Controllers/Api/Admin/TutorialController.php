@@ -40,7 +40,7 @@ class TutorialController extends Controller
     */
     public function index()
     {
-        $this->showAll(Tutorial::all());
+        $this->showAll(Tutorial::latest()->get());
     }
 
     /**
@@ -172,7 +172,8 @@ class TutorialController extends Controller
     
     public function update(TutorialUpdateFormRequest $request, Tutorial $tutorial)
     {
-        return $this->showOne($tutorial->update($request->validated()));
+        $tutorial->update($request->validated());
+        return $this->showOne($tutorial);
     }
 
      /**

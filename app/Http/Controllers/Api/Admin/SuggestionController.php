@@ -39,7 +39,7 @@ class SuggestionController extends Controller
     */
     public function index()
     {
-        return $this->showAll(Suggestion::all());
+        return $this->showAll(Suggestion::latest()->get());
     }
 
     /**
@@ -77,7 +77,7 @@ class SuggestionController extends Controller
     */
     public function store(SuggestionCreateFormRequest $request)
     {
-        return $this->showOne(auth()->user()->suggesions()->create($request->validated()));
+        return $this->showOne(Suggestion::create($request->validated()));
     }
 
     /**
@@ -122,6 +122,6 @@ class SuggestionController extends Controller
     */
     public function show(Suggestion $suggestion)
     {
-        return $this->showOne($suggesion);
+        return $this->showOne($suggestion);
     }
 }

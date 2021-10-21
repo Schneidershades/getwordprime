@@ -40,7 +40,7 @@ class ScriptTypeAttributeController extends Controller
     */
     public function index()
     {
-        $this->showAll(auth()->user()->roles);
+        $this->showAll(ScriptTypeAttribute::latest()->get());
     }
 
     /**
@@ -121,9 +121,9 @@ class ScriptTypeAttributeController extends Controller
     *      security={ {"bearerAuth": {}} },
     * )
     */
-    public function show(ScriptTypeAttribute $role)
+    public function show(ScriptTypeAttribute $scriptTypeAttribute)
     {
-        return $this->showOne(ScriptTypeAttribute::findOrFail($id));
+        return $this->showOne(ScriptTypeAttribute::findOrFail($scriptTypeAttribute));
     }
 
     /**
@@ -170,9 +170,10 @@ class ScriptTypeAttributeController extends Controller
     * )
     */
     
-    public function update(ScriptTypeAttributeUpdateFormRequest $request, ScriptTypeAttribute $role)
+    public function update(ScriptTypeAttributeUpdateFormRequest $request, ScriptTypeAttribute $scriptTypeAttribute)
     {
-        return $this->showOne($role->update($request->validated()));
+        $scriptTypeAttribute->update($request->validated());
+        return $this->showOne($scriptTypeAttribute);
     }
 
      /**
@@ -214,9 +215,9 @@ class ScriptTypeAttributeController extends Controller
     *      security={ {"bearerAuth": {}} },
     * )
     */
-    public function destroy(ScriptTypeAttribute $role)
+    public function destroy(ScriptTypeAttribute $scriptTypeAttribute)
     {
-        $role->delete();
+        $scriptTypeAttribute->delete();
         return $this->showMessage('deleted');
     }
 }

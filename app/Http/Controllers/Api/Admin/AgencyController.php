@@ -2,20 +2,20 @@
 
 namespace App\Http\Controllers\Api\Admin;
 
-use App\Models\Attribute;
+use App\Models\Agency;
 use App\Http\Controllers\Controller;
-use App\Http\Requests\Admin\AttributeCreateFormRequest;
-use App\Http\Requests\Admin\AttributeUpdateFormRequest;
+use App\Http\Requests\User\AgencyCreateFormRequest;
+use App\Http\Requests\User\AgencyUpdateFormRequest;
 
-class AttributeController extends Controller
+class AgencyController extends Controller
 {
     /**
     * @OA\Get(
-    *      path="/api/v1/admin/attributes",
-    *      operationId="allAttributes",
+    *      path="/api/v1/admin/agencies",
+    *      operationId="allAgencys",
     *      tags={"Admin"},
-    *      summary="Get Attributes",
-    *      description="Get Attributes",
+    *      summary="Get Agencys",
+    *      description="Get Agencys",
     *      @OA\Response(
     *          response=200,
     *          description="Successful signin",
@@ -40,19 +40,19 @@ class AttributeController extends Controller
     */
     public function index()
     {
-        $this->showAll(Attribute::latest()->get());
+        $this->showAll(Agency::latest()->get());
     }
 
     /**
     * @OA\Post(
-    *      path="/api/v1/admin/attributes",
-    *      operationId="postAttributes",
+    *      path="/api/v1/admin/agencies",
+    *      operationId="postAgencys",
     *      tags={"Admin"},
-    *      summary="Post attributes",
-    *      description="Post attributes",
+    *      summary="Post agencies",
+    *      description="Post agencies",
     *      @OA\RequestBody(
     *          required=true,
-    *          @OA\JsonContent(ref="#/components/schemas/AttributeCreateFormRequest")
+    *          @OA\JsonContent(ref="#/components/schemas/AgencyCreateFormRequest")
     *      ),
     *      @OA\Response(
     *          response=200,
@@ -76,22 +76,22 @@ class AttributeController extends Controller
     *      security={ {"bearerAuth": {}} },
     * )
     */
-    public function store(AttributeCreateFormRequest $request)
+    public function store(AgencyCreateFormRequest $request)
     {
-        return $this->showOne(Attribute::create($request->validated()));
+        return $this->showOne(Agency::create($request->validated()));
     }
 
     /**
     * @OA\Get(
-    *      path="/api/v1/admin/attributes/{id}",
-    *      operationId="showAttributes",
+    *      path="/api/v1/admin/agencies/{id}",
+    *      operationId="showAgencys",
     *      tags={"Admin"},
-    *      summary="Show attribute",
-    *      description="Show attribute",
+    *      summary="Show agency",
+    *      description="Show agency",
     *      
      *      @OA\Parameter(
      *          name="id",
-     *          description="Attributes ID",
+     *          description="Agencys ID",
      *          required=true,
      *          in="path",
      *          @OA\Schema(
@@ -121,22 +121,22 @@ class AttributeController extends Controller
     *      security={ {"bearerAuth": {}} },
     * )
     */
-    public function show(Attribute $attribute)
+    public function show(Agency $agency)
     {
-        return $this->showOne($attribute);
+        return $this->showOne($agency);
     }
 
     /**
     * @OA\Put(
-    *      path="/api/v1/admin/attributes/{id}",
-    *      operationId="updateAttributes",
+    *      path="/api/v1/admin/agencies/{id}",
+    *      operationId="updateAgencys",
     *      tags={"Admin"},
-    *      summary="Update attribute",
-    *      description="Update attribute",
+    *      summary="Update agency",
+    *      description="Update agency",
     *      
      *      @OA\Parameter(
      *          name="id",
-     *          description="attribute ID",
+     *          description="agency ID",
      *          required=true,
      *          in="path",
      *          @OA\Schema(
@@ -145,7 +145,7 @@ class AttributeController extends Controller
      *     ),
     *      @OA\RequestBody(
     *          required=true,
-    *          @OA\JsonContent(ref="#/components/schemas/AttributeUpdateFormRequest")
+    *          @OA\JsonContent(ref="#/components/schemas/AgencyUpdateFormRequest")
     *      ),
     *      @OA\Response(
     *          response=200,
@@ -170,23 +170,23 @@ class AttributeController extends Controller
     * )
     */
     
-    public function update(AttributeUpdateFormRequest $request, Attribute $attribute)
+    public function update(AgencyUpdateFormRequest $request, Agency $agency)
     {
-        $attribute->update($request->validated());
-        return $this->showOne($attribute);
+        $agency->update($request->validated());
+        return $this->showOne($agency);
     }
 
      /**
     * @OA\Delete(
-    *      path="/api/v1/admin/attributes/{id}",
-    *      operationId="deleteAttributes",
+    *      path="/api/v1/admin/agencies/{id}",
+    *      operationId="deleteAgencys",
     *      tags={"Admin"},
-    *      summary="Delete attribute",
-    *      description="Delete attribute",
+    *      summary="Delete agency",
+    *      description="Delete agency",
     *      
      *      @OA\Parameter(
      *          name="id",
-     *          description="Attributes ID",
+     *          description="Agencys ID",
      *          required=true,
      *          in="path",
      *          @OA\Schema(
@@ -215,9 +215,9 @@ class AttributeController extends Controller
     *      security={ {"bearerAuth": {}} },
     * )
     */
-    public function destroy(Attribute $attribute)
+    public function destroy(Agency $agency)
     {
-        $attribute->delete();
+        $agency->delete();
         return $this->showMessage('deleted');
     }
 }
