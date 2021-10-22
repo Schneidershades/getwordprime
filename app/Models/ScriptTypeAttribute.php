@@ -10,6 +10,9 @@ class ScriptTypeAttribute extends Model
 {
     use HasFactory;
 
+    public $oneItem = ScriptTypeAttributeResource::class;
+    public $allItems = ScriptTypeAttributeCollection::class;
+
     public function scriptType()
     {
         return $this->belongsTo(ScriptType::class);
