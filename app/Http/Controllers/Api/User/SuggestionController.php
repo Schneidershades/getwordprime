@@ -43,6 +43,39 @@ class SuggestionController extends Controller
         return $this->showAll(Suggestion::all());
     }
 
+    /**
+    * @OA\Post(
+    *      path="/api/v1/suggestions",
+    *      operationId="postSuggestion",
+    *      tags={"User"},
+    *      summary="postSuggestions",
+    *      description="postSuggestions",
+    *      @OA\RequestBody(
+    *          required=true,
+    *          @OA\JsonContent(ref="#/components/schemas/SuggestionCreateFormRequest")
+    *      ),
+    *      @OA\Response(
+    *          response=200,
+    *          description="Successful signin",
+    *          @OA\MediaType(
+    *             mediaType="application/json",
+    *         ),
+    *       ),
+    *      @OA\Response(
+    *          response=400,
+    *          description="Bad Request"
+    *      ),
+    *      @OA\Response(
+    *          response=401,
+    *          description="unauthenticated",
+    *      ),
+    *      @OA\Response(
+    *          response=403,
+    *          description="Forbidden"
+    *      ),
+    *      security={ {"bearerAuth": {}} },
+    * )
+    */
     public function store(SuggestionCreateFormRequest $request)
     {
         return $this->showOne(auth()->user()->suggestions->create($request->validated()));

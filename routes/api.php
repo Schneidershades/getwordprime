@@ -33,12 +33,11 @@ Route::prefix('v1')->group(function () {
 		Route::resource('campaigns', CampaignController::class, array("as"=>"adminCampaigns"));
 		Route::resource('reseller', ResellerController::class, array("as"=>"adminResellers"));
 		Route::resource('scripts', ScriptController::class, array("as"=>"adminScripts"));
-		Route::resource('tutorials', TutorialController::class, array("as"=>"adminTutorials"));
 		Route::resource('roles', RoleController::class, array("as"=>"adminRoles"));
-		Route::resource('script-type-attributes', ScriptTypeAttributeController::class, array("as"=>"adminRoles"));
+		Route::resource('script-type-attributes', ScriptTypeAttributeController::class, array("as"=>"adminScriptTypeAttribute"));
 		Route::resource('script-type', ScriptTypeController::class, array("as"=>"adminScriptType"));
 		Route::resource('script-type-questions', ScriptTypeQuestionController::class, array("as"=>"adminScriptTypeQuestion"));
-		Route::resource('suggestion', SuggestionController::class, array("as"=>"adminSuggestions"));
+		Route::resource('suggestions', SuggestionController::class, array("as"=>"adminSuggestions"));
 		Route::resource('tutorials', TutorialController::class, array("as"=>"adminTutorials"));
 		Route::resource('users', UserController::class, array("as"=>"adminUsers"));
 	});

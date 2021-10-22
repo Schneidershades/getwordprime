@@ -2,9 +2,11 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
-use Illuminate\Database\Eloquent\Model;
 use App\Models\ScriptType;
+use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
+use App\Http\Resources\Script\ScriptTypeAttributeResource;
+use App\Http\Resources\Script\ScriptTypeAttributeCollection;
 
 class ScriptTypeAttribute extends Model
 {

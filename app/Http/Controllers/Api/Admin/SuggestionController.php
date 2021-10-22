@@ -10,8 +10,8 @@ class SuggestionController extends Controller
 {
     /**
     * @OA\Get(
-    *      path="/api/v1/admin/admin/suggestion",
-    *      operationId="allSuggestion",
+    *      path="/api/v1/admin/suggestions",
+    *      operationId="allAdminSuggestion",
     *      tags={"Admin"},
     *      summary="Get suggestions",
     *      description="Get suggestions",
@@ -44,11 +44,11 @@ class SuggestionController extends Controller
 
     /**
     * @OA\Post(
-    *      path="/api/v1/admin/admin/suggestions",
-    *      operationId="postSuggestion",
+    *      path="/api/v1/admin/suggestions",
+    *      operationId="postAdminSuggestion",
     *      tags={"Admin"},
-    *      summary="Post suggestions",
-    *      description="Post suggestions",
+    *      summary="PostAdminSuggestions",
+    *      description="postAdminSuggestions",
     *      @OA\RequestBody(
     *          required=true,
     *          @OA\JsonContent(ref="#/components/schemas/SuggestionCreateFormRequest")
@@ -83,10 +83,10 @@ class SuggestionController extends Controller
     /**
     * @OA\Get(
     *      path="/api/v1/admin/suggestions/{id}",
-    *      operationId="showAdminSuggestion",
+    *      operationId="showAdminSuggestions",
     *      tags={"Admin"},
-    *      summary="Show suggestion",
-    *      description="Show suggestion",
+    *      summary="showAdminsuggestion",
+    *      description="showAdminsuggestion",
     *      
      *      @OA\Parameter(
      *          name="id",

@@ -1255,14 +1255,14 @@
                 ]
             }
         },
-        "/api/v1/admin/admin/suggestion": {
+        "/api/v1/admin/suggestions": {
             "get": {
                 "tags": [
                     "Admin"
                 ],
                 "summary": "Get suggestions",
                 "description": "Get suggestions",
-                "operationId": "allSuggestion",
+                "operationId": "allAdminSuggestion",
                 "responses": {
                     "200": {
                         "description": "Successful signin",
@@ -1285,16 +1285,14 @@
                         "bearerAuth": []
                     }
                 ]
-            }
-        },
-        "/api/v1/admin/admin/suggestions": {
+            },
             "post": {
                 "tags": [
                     "Admin"
                 ],
-                "summary": "Post suggestions",
-                "description": "Post suggestions",
-                "operationId": "postSuggestion",
+                "summary": "PostAdminSuggestions",
+                "description": "postAdminSuggestions",
+                "operationId": "postAdminSuggestion",
                 "requestBody": {
                     "required": true,
                     "content": {
@@ -1334,9 +1332,9 @@
                 "tags": [
                     "Admin"
                 ],
-                "summary": "Show suggestion",
-                "description": "Show suggestion",
-                "operationId": "showAdminSuggestion",
+                "summary": "showAdminsuggestion",
+                "description": "showAdminsuggestion",
+                "operationId": "showAdminSuggestions",
                 "parameters": [
                     {
                         "name": "id",
@@ -3095,6 +3093,46 @@
                 "summary": "allSuggestions",
                 "description": "allSuggestions",
                 "operationId": "allSuggestions",
+                "responses": {
+                    "200": {
+                        "description": "Successful signin",
+                        "content": {
+                            "application/json": {}
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    },
+                    "401": {
+                        "description": "unauthenticated"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            },
+            "post": {
+                "tags": [
+                    "User"
+                ],
+                "summary": "postSuggestions",
+                "description": "postSuggestions",
+                "operationId": "postSuggestion",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/SuggestionCreateFormRequest"
+                            }
+                        }
+                    }
+                },
                 "responses": {
                     "200": {
                         "description": "Successful signin",
