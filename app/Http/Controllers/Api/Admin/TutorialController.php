@@ -40,7 +40,7 @@ class TutorialController extends Controller
     */
     public function index()
     {
-        $this->showAll(Tutorial::latest()->get());
+        return $this->showAll(Tutorial::latest()->get());
     }
 
     /**

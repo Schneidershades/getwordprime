@@ -19,6 +19,7 @@ class CreateScriptTypesTable extends Migration
             $table->text('icon')->nullable();
             $table->text('description');
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 

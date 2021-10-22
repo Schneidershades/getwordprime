@@ -40,6 +40,16 @@ class AttributeTableSeeder extends Seeder
         ]);
 
         Attribute::create([
+            'name'             => 'best_of',
+            'type'         => 'open-api',
+        ]);
+
+        Attribute::create([
+            'name'             => 'stream',
+            'type'         => 'open-api',
+        ]);
+
+        Attribute::create([
             'name'             => 'documents',
             'type'         => 'open-api',
         ]);

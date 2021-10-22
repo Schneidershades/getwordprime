@@ -40,7 +40,7 @@ class AttributeController extends Controller
     */
     public function index()
     {
-        $this->showAll(Attribute::latest()->get());
+        return $this->showAll(Attribute::latest()->get());
     }
 
     /**

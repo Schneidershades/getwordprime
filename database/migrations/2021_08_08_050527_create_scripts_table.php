@@ -20,6 +20,7 @@ class CreateScriptsTable extends Migration
             $table->foreignId('campaign_id')->nullable()->constrained();
             $table->text('content');
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 

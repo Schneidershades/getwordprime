@@ -40,7 +40,7 @@ class RoleController extends Controller
     */
     public function index()
     {
-        $this->showAll(Role::all());
+        return $this->showAll(Role::all());
     }
 
     /**

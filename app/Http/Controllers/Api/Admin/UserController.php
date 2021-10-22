@@ -40,7 +40,7 @@ class UserController extends Controller
     */
     public function index()
     {
-        $this->showAll(User::latest()->get());
+        return $this->showAll(User::latest()->get());
     }
 
     /**

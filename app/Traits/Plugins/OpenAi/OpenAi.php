@@ -71,20 +71,40 @@ class OpenAi
         return json_decode($response);
     }
 
-    public function queryRequest($model){ 
+    public function queryRequest($model, $prompt, $engine)
+    { 
 
         $request_body = [
             "prompt" => $prompt,
-            "max_tokens" => $max_tokens,
-            "temperature" => $temperature,
-            "top_p" => 1,
-            "presence_penalty" => 0.75,
-            "frequency_penalty"=> 0.75,
-            "best_of"=> 1,
-            "stream" => false,
+            "max_tokens" => $model->max_tokens,
+            "temperature" => $model->temperature,
+            "top_p" => $model->top_p,
+            "presence_penalty" => $model->presence_penalty,
+            "frequency_penalty"=> $model->frequency_penalty,
+            "best_of"=> $model->best_of,
+            "stream" => $model->stream,
         ];
 
         $response = $this->sendRequest("https://api.openai.com/v1/engines/" . $engine . "/completions", 'POST', json_encode($request_body));
+        
+        dd($response);
+    }
+
+    public function searchRequest($model, $prompt, $engine)
+    { 
+        $request_body = [
+            "prompt" => $prompt,
+            "max_tokens" => $model->max_tokens,
+            "temperature" => $model->temperature,
+            "top_p" => $model->top_p,
+            "presence_penalty" => $model->presence_penalty,
+            "frequency_penalty"=> $model->frequency_penalty,
+            "documents" => $model->documents,
+            "query" => $model->query
+        ];
+
+        $response = $this->sendRequest("https://api.openai.com/v1/engines/" . $engine . "/search", 'POST', json_encode($request_body));
+
         dd($response);
     }
 }

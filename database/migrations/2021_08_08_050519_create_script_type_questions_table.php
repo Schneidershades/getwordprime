@@ -18,6 +18,7 @@ class CreateScriptTypeQuestionsTable extends Migration
             $table->foreignId('script_type_id')->nullable()->constrained();
             $table->string('question');
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 

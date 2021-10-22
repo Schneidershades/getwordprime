@@ -40,7 +40,7 @@ class ScriptTypeController extends Controller
     */
     public function index()
     {
-        $this->showAll(ScriptType::latest()->get());
+        return $this->showAll(ScriptType::latest()->get());
     }
 
     /**

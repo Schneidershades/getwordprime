@@ -39,7 +39,7 @@ class ScriptTypeQuestionController extends Controller
     */
     public function index()
     {
-        $this->showAll(ScriptTypeQuestion::latest()->get());
+        return $this->showAll(ScriptTypeQuestion::latest()->get());
     }
 
     /**

@@ -19,6 +19,7 @@ class CreateScriptUserAnswersTable extends Migration
             $table->foreignId('user_id')->nullable()->constrained();
             $table->string('answers');
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 

@@ -40,7 +40,7 @@ class AgencyController extends Controller
     */
     public function index()
     {
-        $this->showAll(Agency::latest()->get());
+        return $this->showAll(Agency::latest()->get());
     }
 
     /**
