@@ -18,4 +18,30 @@ class ScriptCollection extends ResourceCollection
             'data' => ScriptResource::collection($this->collection),
         ];
     }
+
+    public static function originalAttribute($index)
+    {
+        $attribute = [
+            'id' => 'id',
+            'user_id' => 'user_id',
+            'script_type_id' => 'script_type_id',
+            'campaign_id' => 'campaign_id',
+            'content' => 'content',
+        ];
+
+        return isset($attribute[$index]) ? $attribute[$index] : null;
+    }
+
+     public static function transformedAttribute($index)
+    {
+        $attribute = [
+            'id' => 'id',
+            'user_id' => 'user_id',
+            'script_type_id' => 'script_type_id',
+            'campaign_id' => 'campaign_id',
+            'content' => 'content',
+        ];
+
+        return isset($attribute[$index]) ? $attribute[$index] : null;
+    }
 }
