@@ -1,20 +1,22 @@
 <?php
 
-namespace App\Http\Controllers\Api\Admin;
+namespace App\Http\Controllers\Api\User;
 
+use App\Models\ScriptTypePrompt;
 use App\Http\Controllers\Controller;
-use Illuminate\Http\Request;
-use App\Models\ScriptTypeQuestion;
+use App\Models\ScriptTypeUserPromptAnswer;
+use App\Http\Requests\User\ScriptTypeUserPromptAnswerCreateFormRequest;
+use App\Http\Requests\User\ScriptTypeUserPromptAnswerUpdateFormRequest;
 
-class ScriptTypeQuestionController extends Controller
+class ScriptTypeUserPromptAnswerController extends Controller
 {
     /**
     * @OA\Get(
-    *      path="/api/v1/admin/script-type-questions",
-    *      operationId="allScriptTypeQuestions",
-    *      tags={"Admin"},
-    *      summary="Get all roles",
-    *      description="Get all roles",
+    *      path="/api/v1/admin/script-type-user-prompt-answers",
+    *      operationId="allScriptTypeUserPromptAnswer",
+    *      tags={"User"},
+    *      summary="Get all answers",
+    *      description="Get all answers",
     *      @OA\Response(
     *          response=200,
     *          description="Successful signin",
@@ -39,19 +41,19 @@ class ScriptTypeQuestionController extends Controller
     */
     public function index()
     {
-        return $this->showAll(ScriptTypeQuestion::latest()->get());
+        return $this->showAll(ScriptTypeUserPromptAnswer::latest()->get());
     }
 
     /**
     * @OA\Post(
-    *      path="/api/v1/admin/script-type-questions",
-    *      operationId="postScriptTypeQuestions",
-    *      tags={"Admin"},
-    *      summary="Post new roles",
-    *      description="Post new roles",
+    *      path="/api/v1/admin/script-type-user-prompt-answers",
+    *      operationId="postScriptTypeUserPromptAnswer",
+    *      tags={"User"},
+    *      summary="Post new answers",
+    *      description="Post new answers",
     *      @OA\RequestBody(
     *          required=true,
-    *          @OA\JsonContent(ref="#/components/schemas/ScriptTypeQuestionCreateFormRequest")
+    *          @OA\JsonContent(ref="#/components/schemas/ScriptTypeUserPromptAnswerCreateFormRequest")
     *      ),
     *      @OA\Response(
     *          response=200,
@@ -75,22 +77,22 @@ class ScriptTypeQuestionController extends Controller
     *      security={ {"bearerAuth": {}} },
     * )
     */
-    public function store(Request $request)
+    public function store(ScriptTypeUserPromptAnswerCreateFormRequest $request)
     {
-        return $this->showOne(ScriptTypeQuestion::create($request->validated()));
+        return $this->showOne(ScriptTypePrompt::create($request->validated()));
     }
 
     /**
     * @OA\Get(
-    *      path="/api/v1/admin/script-type-questions/{id}",
-    *      operationId="showScriptTypeQuestions",
-    *      tags={"Admin"},
-    *      summary="Show an role",
-    *      description="Show an role",
+    *      path="/api/v1/admin/script-type-user-prompt-answers/{id}",
+    *      operationId="showScriptTypeUserPromptAnswer",
+    *      tags={"User"},
+    *      summary="Show an answer",
+    *      description="Show an answer",
     *      
      *      @OA\Parameter(
      *          name="id",
-     *          description="Role ID",
+     *          description="Script type prompt ID",
      *          required=true,
      *          in="path",
      *          @OA\Schema(
@@ -120,22 +122,22 @@ class ScriptTypeQuestionController extends Controller
     *      security={ {"bearerAuth": {}} },
     * )
     */
-    public function show(ScriptTypeQuestion $id)
+    public function show(ScriptTypePrompt $id)
     {
-        return $this->showOne(ScriptTypeQuestion::findOrFail($id));
+        return $this->showOne(ScriptTypePrompt::findOrFail($id));
     }
 
     /**
     * @OA\Put(
-    *      path="/api/v1/admin/script-type-questions/{id}",
-    *      operationId="adminScriptTypeQuestions",
-    *      tags={"Admin"},
-    *      summary="Update an role",
-    *      description="Update an role",
+    *      path="/api/v1/admin/script-type-user-prompt-answers/{id}",
+    *      operationId="adminScriptTypeUserPromptAnswer",
+    *      tags={"User"},
+    *      summary="Update an answer",
+    *      description="Update an answer",
     *      
      *      @OA\Parameter(
      *          name="id",
-     *          description="role ID",
+     *          description="Script type prompt ID",
      *          required=true,
      *          in="path",
      *          @OA\Schema(
@@ -144,7 +146,7 @@ class ScriptTypeQuestionController extends Controller
      *     ),
     *      @OA\RequestBody(
     *          required=true,
-    *          @OA\JsonContent(ref="#/components/schemas/ScriptTypeQuestionUpdateFormRequest")
+    *          @OA\JsonContent(ref="#/components/schemas/ScriptTypeUserPromptAnswerUpdateFormRequest")
     *      ),
     *      @OA\Response(
     *          response=200,
@@ -169,7 +171,7 @@ class ScriptTypeQuestionController extends Controller
     * )
     */
     
-    public function update(ScriptTypeQuestionFormRequest $request, ScriptTypeQuestion $scriptTypeQuestion)
+    public function update(ScriptTypeUserPromptAnswerUpdateFormRequest $request, ScriptTypeUserPromptAnswer $scriptTypeQuestion)
     {
         $scriptTypeQuestion->update($request->validated());
         return $this->showOne($scriptTypeQuestion);
@@ -177,15 +179,15 @@ class ScriptTypeQuestionController extends Controller
 
      /**
     * @OA\Delete(
-    *      path="/api/v1/admin/script-type-questions/{id}",
-    *      operationId="deleteScriptTypeQuestions",
-    *      tags={"Admin"},
-    *      summary="Delete script-type",
-    *      description="Delete script-type",
+    *      path="/api/v1/admin/script-type-user-prompt-answers/{id}",
+    *      operationId="deleteScriptTypeUserPromptAnswer",
+    *      tags={"User"},
+    *      summary="Delete script-type-user-prompt-answers",
+    *      description="Delete script-type-user-prompt-answers",
     *      
      *      @OA\Parameter(
      *          name="id",
-     *          description="script-type ID",
+     *          description="script-type-user-prompt-answers ID",
      *          required=true,
      *          in="path",
      *          @OA\Schema(
@@ -214,7 +216,7 @@ class ScriptTypeQuestionController extends Controller
     *      security={ {"bearerAuth": {}} },
     * )
     */
-    public function destroy(ScriptTypeQuestion $scriptTypeQuestion)
+    public function destroy(ScriptTypePrompt $scriptTypeQuestion)
     {
         $scriptTypeQuestion->delete();
         return $this->showMessage('deleted');

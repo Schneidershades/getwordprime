@@ -3,18 +3,17 @@
 namespace App\Http\Requests\Admin;
 
 use Illuminate\Foundation\Http\FormRequest;
-
 /**
 /**
  * @OA\Schema(
- *      title="Script Type Question Update Form Request Fields",
- *      description="Script Type Question Update request body data",
+ *      title="Script Type Prompt Create Form Request Fields",
+ *      description="Script Type Prompt Create request body data",
  *      type="object",
  *      required={"name"}
  * )
  */
 
-class ScriptTypeQuestionUpdateFormRequest extends FormRequest
+class ScriptTypePromptCreateFormRequest extends FormRequest
 {
     /**
      * @OA\Property(

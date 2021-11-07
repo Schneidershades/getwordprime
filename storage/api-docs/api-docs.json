@@ -1048,14 +1048,14 @@
                 ]
             }
         },
-        "/api/v1/admin/script-type-questions": {
+        "/api/v1/admin/script-type-prompts": {
             "get": {
                 "tags": [
                     "Admin"
                 ],
                 "summary": "Get all roles",
                 "description": "Get all roles",
-                "operationId": "allScriptTypeQuestions",
+                "operationId": "allScriptTypePrompts",
                 "responses": {
                     "200": {
                         "description": "Successful signin",
@@ -1083,15 +1083,15 @@
                 "tags": [
                     "Admin"
                 ],
-                "summary": "Post new roles",
-                "description": "Post new roles",
-                "operationId": "postScriptTypeQuestions",
+                "summary": "Post script-type-prompts",
+                "description": "Post script-type-prompts",
+                "operationId": "postScriptTypePrompts",
                 "requestBody": {
                     "required": true,
                     "content": {
                         "application/json": {
                             "schema": {
-                                "$ref": "#/components/schemas/ScriptTypeQuestionCreateFormRequest"
+                                "$ref": "#/components/schemas/ScriptTypePromptCreateFormRequest"
                             }
                         }
                     }
@@ -1120,19 +1120,19 @@
                 ]
             }
         },
-        "/api/v1/admin/script-type-questions/{id}": {
+        "/api/v1/admin/script-type-prompts/{id}": {
             "get": {
                 "tags": [
                     "Admin"
                 ],
-                "summary": "Show an role",
-                "description": "Show an role",
-                "operationId": "showScriptTypeQuestions",
+                "summary": "Show a script-type-prompt",
+                "description": "Show a script-type-prompt",
+                "operationId": "showScriptTypePrompts",
                 "parameters": [
                     {
                         "name": "id",
                         "in": "path",
-                        "description": "Role ID",
+                        "description": "script-type-prompt ID",
                         "required": true,
                         "schema": {
                             "type": "integer"
@@ -1166,14 +1166,14 @@
                 "tags": [
                     "Admin"
                 ],
-                "summary": "Update an role",
-                "description": "Update an role",
-                "operationId": "adminScriptTypeQuestions",
+                "summary": "Update a script-type-prompt",
+                "description": "Update a script-type-prompt",
+                "operationId": "adminScriptTypePrompts",
                 "parameters": [
                     {
                         "name": "id",
                         "in": "path",
-                        "description": "role ID",
+                        "description": "script-type-prompt ID",
                         "required": true,
                         "schema": {
                             "type": "integer"
@@ -1185,7 +1185,7 @@
                     "content": {
                         "application/json": {
                             "schema": {
-                                "$ref": "#/components/schemas/ScriptTypeQuestionUpdateFormRequest"
+                                "$ref": "#/components/schemas/ScriptTypePromptUpdateFormRequest"
                             }
                         }
                     }
@@ -1215,16 +1215,16 @@
             },
             "delete": {
                 "tags": [
-                    "Admin"
+                    "User"
                 ],
-                "summary": "Delete script-type",
-                "description": "Delete script-type",
-                "operationId": "deleteScriptTypeQuestions",
+                "summary": "Delete script-type-prompts",
+                "description": "Delete script-type-prompts",
+                "operationId": "deleteScriptTypePrompt",
                 "parameters": [
                     {
                         "name": "id",
                         "in": "path",
-                        "description": "script-type ID",
+                        "description": "script-type-prompts ID",
                         "required": true,
                         "schema": {
                             "type": "integer"
@@ -3085,6 +3085,213 @@
                 ]
             }
         },
+        "/api/v1/admin/script-type-user-prompt-answers": {
+            "get": {
+                "tags": [
+                    "User"
+                ],
+                "summary": "Get all answers",
+                "description": "Get all answers",
+                "operationId": "allScriptTypeUserPromptAnswer",
+                "responses": {
+                    "200": {
+                        "description": "Successful signin",
+                        "content": {
+                            "application/json": {}
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    },
+                    "401": {
+                        "description": "unauthenticated"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            },
+            "post": {
+                "tags": [
+                    "User"
+                ],
+                "summary": "Post new answers",
+                "description": "Post new answers",
+                "operationId": "postScriptTypeUserPromptAnswer",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/ScriptTypeUserPromptAnswerCreateFormRequest"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Successful signin",
+                        "content": {
+                            "application/json": {}
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    },
+                    "401": {
+                        "description": "unauthenticated"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        },
+        "/api/v1/admin/script-type-user-prompt-answers/{id}": {
+            "get": {
+                "tags": [
+                    "User"
+                ],
+                "summary": "Show an answer",
+                "description": "Show an answer",
+                "operationId": "showScriptTypeUserPromptAnswer",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Script type prompt ID",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful signin",
+                        "content": {
+                            "application/json": {}
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    },
+                    "401": {
+                        "description": "unauthenticated"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            },
+            "put": {
+                "tags": [
+                    "User"
+                ],
+                "summary": "Update an answer",
+                "description": "Update an answer",
+                "operationId": "adminScriptTypeUserPromptAnswer",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Script type prompt ID",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/ScriptTypeUserPromptAnswerUpdateFormRequest"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Successful signin",
+                        "content": {
+                            "application/json": {}
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    },
+                    "401": {
+                        "description": "unauthenticated"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            },
+            "delete": {
+                "tags": [
+                    "User"
+                ],
+                "summary": "Delete script-type-user-prompt-answers",
+                "description": "Delete script-type-user-prompt-answers",
+                "operationId": "deleteScriptTypeUserPromptAnswer",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "script-type-user-prompt-answers ID",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful signin",
+                        "content": {
+                            "application/json": {}
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    },
+                    "401": {
+                        "description": "unauthenticated"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        },
         "/api/v1/suggestions": {
             "get": {
                 "tags": [
@@ -3422,9 +3629,9 @@
                 },
                 "type": "object"
             },
-            "ScriptTypeQuestionCreateFormRequest": {
-                "title": "Script Question Create Form Request Fields",
-                "description": "Script Question Create request body data",
+            "ScriptTypePromptCreateFormRequest": {
+                "title": "Script Type Prompt Create Form Request Fields",
+                "description": "Script Type Prompt Create request body data",
                 "required": [
                     "name"
                 ],
@@ -3444,7 +3651,7 @@
                 },
                 "type": "object"
             },
-            "ScriptTypeQuestionUpdateFormRequest": {
+            "ScriptTypePromptUpdateFormRequest": {
                 "title": "Script Type Question Update Form Request Fields",
                 "description": "Script Type Question Update request body data",
                 "required": [
@@ -3888,6 +4095,50 @@
                     "script_type_id": {
                         "title": "script id",
                         "description": "Initial related script of the id",
+                        "type": "integer",
+                        "example": "1"
+                    }
+                },
+                "type": "object"
+            },
+            "ScriptTypeUserPromptAnswerCreateFormRequest": {
+                "title": "Script Type User Prompt Answer Create Form Request Fields",
+                "description": "Script Type User Prompt Answer Create request body data",
+                "required": [
+                    "name"
+                ],
+                "properties": {
+                    "answer": {
+                        "title": "script type answer",
+                        "description": "answer of the script type",
+                        "type": "string",
+                        "example": "Info Limited"
+                    },
+                    "script_type_prompt_id": {
+                        "title": "script_type_prompt_id",
+                        "description": "Initial related script_type_prompt of the id",
+                        "type": "integer",
+                        "example": "1"
+                    }
+                },
+                "type": "object"
+            },
+            "ScriptTypeUserPromptAnswerUpdateFormRequest": {
+                "title": "Script Type User Prompt Answer Update Form Request Fields",
+                "description": "Script Type User Prompt Answer Update request body data",
+                "required": [
+                    "name"
+                ],
+                "properties": {
+                    "answer": {
+                        "title": "script type answer",
+                        "description": "answer of the script type",
+                        "type": "string",
+                        "example": "Info Limited"
+                    },
+                    "script_type_prompt_id": {
+                        "title": "script_type_prompt_id",
+                        "description": "Initial related script_type_prompt of the id",
                         "type": "integer",
                         "example": "1"
                     }

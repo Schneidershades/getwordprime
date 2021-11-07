@@ -25,6 +25,7 @@ Route::prefix('v1')->group(function () {
 		Route::resource('scripts', ScriptController::class);
 		Route::resource('tutorials', TutorialController::class);
 		Route::resource('suggestion', SuggestionController::class);
+		Route::resource('script-type-user-prompt-answers', ScriptTypeUserPromptAnswerController::class);
 	});
 
 	Route::group(['prefix' => 'admin', 'middleware' => 'auth:api', 'namespace' => 'Api\Admin'], function(){
