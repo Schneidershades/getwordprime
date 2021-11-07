@@ -69,7 +69,7 @@ class TutorialUpdateFormRequest extends FormRequest
         return [
             'title' => 'required|string',
             'link' => 'required|string',
-            'description' => 'required|string',
+            'description' => 'nullable',
         ];
     }
 }
