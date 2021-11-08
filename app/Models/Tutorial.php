@@ -10,6 +10,7 @@ use App\Http\Resources\Tutorial\TutorialCollection;
 class Tutorial extends Model
 {
     use HasFactory;
+    protected $guarded = [];
 
     public $oneItem = TutorialResource::class;
     public $allItems = TutorialCollection::class;

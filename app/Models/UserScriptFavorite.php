@@ -12,6 +12,7 @@ use App\Http\Resources\User\UserScriptFavoriteCollection;
 class UserScriptFavorite extends Model
 {
     use HasFactory;
+    protected $guarded = [];
 
     public $oneItem = UserScriptFavoriteResource::class;
     public $allItems = UserScriptFavoriteCollection::class;

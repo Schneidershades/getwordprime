@@ -10,6 +10,7 @@ use App\Http\Resources\Script\ScriptTypeCollection;
 class ScriptType extends Model
 {
     use HasFactory;
+    protected $guarded = [];
 
     public $oneItem = ScriptTypeResource::class;
     public $allItems = ScriptTypeCollection::class;

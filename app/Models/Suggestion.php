@@ -11,6 +11,7 @@ use App\Http\Resources\Suggestion\SuggestionCollection;
 class Suggestion extends Model
 {
     use HasFactory;
+    protected $guarded = [];
 
     public $oneItem = SuggestionResource::class;
     public $allItems = SuggestionCollection::class;

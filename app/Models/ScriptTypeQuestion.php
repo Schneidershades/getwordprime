@@ -11,6 +11,7 @@ use App\Models\ScriptType;
 class ScriptTypeQuestion extends Model
 {
     use HasFactory;
+    protected $guarded = [];
 
     public $oneItem = ScriptTypeQuestionResource::class;
     public $allItems = ScriptTypeQuestionCollection::class;

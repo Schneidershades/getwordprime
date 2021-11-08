@@ -12,6 +12,7 @@ use App\Http\Resources\Script\ScriptTypeUserPromptAnswerCollection;
 class ScriptTypeUserPromptAnswer extends Model
 {
     use HasFactory;
+    protected $guarded = [];
 
     public $oneItem = ScriptTypeUserPromptAnswerResource::class;
     public $allItems = ScriptTypeUserPromptAnswerCollection::class;

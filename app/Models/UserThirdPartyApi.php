@@ -9,6 +9,7 @@ use App\Models\User;
 class UserThirdPartyApi extends Model
 {
     use HasFactory;
+    protected $guarded = [];
 
     public function user()
     {

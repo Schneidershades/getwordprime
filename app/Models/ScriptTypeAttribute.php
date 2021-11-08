@@ -11,6 +11,7 @@ use App\Http\Resources\Script\ScriptTypeAttributeCollection;
 class ScriptTypeAttribute extends Model
 {
     use HasFactory;
+    protected $guarded = [];
 
     public $oneItem = ScriptTypeAttributeResource::class;
     public $allItems = ScriptTypeAttributeCollection::class;

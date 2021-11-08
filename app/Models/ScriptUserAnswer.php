@@ -11,6 +11,7 @@ use App\Http\Resources\Script\ScriptUserAnswerCollection;
 class ScriptUserAnswer extends Model
 {
     use HasFactory;
+    protected $guarded = [];
 
     public $oneItem = ScriptUserAnswerResource::class;
     public $allItems = ScriptUserAnswerCollection::class;

@@ -10,6 +10,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 class Attribute extends Model
 {
     use HasFactory;
+    protected $guarded = [];
 
     public $oneItem = AttributeResource::class;
     public $allItems = AttributeCollection::class;

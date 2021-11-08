@@ -8,6 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class ScriptTypePrompt extends Model
 {
     use HasFactory;
+    protected $guarded = [];
 
     public $oneItem = ScriptTypePromptResource::class;
     public $allItems = ScriptTypePromptCollection::class;

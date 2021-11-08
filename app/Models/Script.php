@@ -12,6 +12,8 @@ class Script extends Model
 {
     use HasFactory;
 
+    protected $guarded = [];
+    
     public $oneItem = ScriptResource::class;
     public $allItems = ScriptCollection::class;
 

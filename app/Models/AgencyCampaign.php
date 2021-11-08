@@ -10,6 +10,7 @@ use App\Http\Resources\Agency\AgencyCampaignCollection;
 class AgencyCampaign extends Model
 {
     use HasFactory;
+    protected $guarded = [];
 
     public $oneItem = AgencyCampaignResource::class;
     public $allItems = AgencyCampaignCollection::class;

@@ -21,6 +21,8 @@ class User extends Authenticatable implements MustVerifyEmail, JWTSubject
     use HasFactory, Notifiable, HasRoles;
 
     protected $guard_name = 'api';
+    
+    protected $guarded = [];
 
     public $oneItem = UserResource::class;
     public $allItems = UserCollection::class;

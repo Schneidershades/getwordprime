@@ -12,9 +12,7 @@ class Campaign extends Model
 {
     use HasFactory;
 
-    protected $fillable = [
-        'name',
-    ];
+    protected $guarded = [];
 
     public $oneItem = CampaignResource::class;
     public $allItems = CampaignCollection::class;
