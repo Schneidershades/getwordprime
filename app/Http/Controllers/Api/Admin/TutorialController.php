@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Api\Admin;
 use App\Models\Tutorial;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Http\Requests\Admin\TutorialCreateFormRequest;
 use App\Http\Requests\Admin\TutorialUpdateFormRequest;
 
 class TutorialController extends Controller
@@ -76,7 +77,7 @@ class TutorialController extends Controller
     *      security={ {"bearerAuth": {}} },
     * )
     */
-    public function store(Request $request)
+    public function store(TutorialCreateFormRequest $request)
     {
         return $this->showOne(Tutorial::create($request->validated()));
     }
