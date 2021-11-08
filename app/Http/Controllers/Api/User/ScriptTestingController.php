@@ -12,6 +12,7 @@ class ScriptTestingController extends Controller
     {
         $openai =  new OpenAi();
         // $openai->getEngines();
-        dd($openai->request("ada", "This is a test", 5));
+        dd($openai->request("davinci-instruct-beta", "This is a test", 60));
+        // dd($openai->request("ada", "This is a test", 60));
     }
 }

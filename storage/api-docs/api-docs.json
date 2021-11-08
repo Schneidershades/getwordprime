@@ -2761,7 +2761,7 @@
                 ]
             }
         },
-        "/api/v1/script": {
+        "/api/v1/scripts": {
             "get": {
                 "tags": [
                     "script"
@@ -2791,9 +2791,7 @@
                         "bearerAuth": []
                     }
                 ]
-            }
-        },
-        "/api/v1/scripts": {
+            },
             "post": {
                 "tags": [
                     "script"

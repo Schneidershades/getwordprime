@@ -7,12 +7,13 @@ use App\Http\Controllers\Controller;
 use App\Traits\Plugins\OpenAi\OpenAi;
 use App\Http\Requests\User\ScriptCreateFormRequest;
 use App\Http\Requests\User\ScriptUpdateFormRequest;
+use App\Models\ScriptType;
 
 class ScriptController extends Controller
 {
     /**
     * @OA\Get(
-    *      path="/api/v1/script",
+    *      path="/api/v1/scripts",
     *      operationId="allScripts",
     *      tags={"script"},
     *      summary="Get all script",
@@ -41,7 +42,7 @@ class ScriptController extends Controller
     */
     public function index()
     {
-        $this->showAll(auth()->user()->scripts);
+        return $this->showAll(auth()->user()->scripts);
     }
 
     /**
@@ -79,7 +80,8 @@ class ScriptController extends Controller
     */
     public function store(ScriptCreateFormRequest $request)
     {
-        return $this->showOne(auth()->user()->scripts()->create($request->validated()));
+        $findScriptType = ScriptType::find($request['script_type_id']);
+        // return $this->showOne(auth()->user()->scripts()->create($request->validated()));
     }
 
     /**
@@ -125,10 +127,10 @@ class ScriptController extends Controller
 
     public function show(Script $script)
     {
-        $openai = new OpenAi();
-        return $openai->request("ada", "This is a test", 5);
+        // $openai = new OpenAi();
+        // return $openai->request("ada", "This is a test", 5);
         
-        // return $this->showOne(auth()->user()->scripts->where('id', $script->id)->first());
+        return $this->showOne(auth()->user()->scripts->where('id', $script->id)->first());
     }
 
      /**

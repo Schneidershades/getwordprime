@@ -14,13 +14,49 @@ class OpenAi
         dd($response);
     }
 
-    public function request($engine, $prompt, $max_tokens){ 
+    // [
+    //     "engine" => "davinci-instruct-beta", 
+    //     "prompt" => "Write a creative ad for the following product to run on Facebook:
+    // """"""
+    // Airee is a line of skin-care products for young women with delicate skin. The ingredients are all-natural.
+    // """"""
+    // This is the ad I wrote for Facebook aimed at teenage girls:
+    // """"""", 
+    //     "temperature" => 0.5, 
+    //     "max_tokens" => 60, 
+    //     "top_p" => 1, 
+    //     "frequency_penalty" => 0, 
+    //     "presence_penalty" => 0, 
+    //     "stop" => [
+    //         """""""" 
+    //     ] 
+    // ]; 
 
+    public function ads($engine, $prompt, $max_tokens)
+    { 
+        $request_body = [
+            "engine" => "davinci-instruct-beta", 
+            "prompt" => $prompt,
+            "max_tokens" => $max_tokens,
+            "temperature" => 0.7,
+            "top_p" => 1.0,
+            "presence_penalty" => 0.75,
+            "frequency_penalty"=> 0.75,
+            "best_of"=> 1,
+            "stream" => false,
+        ];
+
+        $response = $this->sendRequest("https://api.openai.com/v1/engines/" . $engine . "/completions", 'POST', json_encode($request_body));
+        dd($response);
+    }
+
+    public function request($engine, $prompt, $max_tokens)
+    { 
         $request_body = [
             "prompt" => $prompt,
             "max_tokens" => $max_tokens,
             "temperature" => 0.7,
-            "top_p" => 1,
+            "top_p" => 1.0,
             "presence_penalty" => 0.75,
             "frequency_penalty"=> 0.75,
             "best_of"=> 1,
