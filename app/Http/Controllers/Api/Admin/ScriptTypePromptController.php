@@ -181,7 +181,7 @@ class ScriptTypePromptController extends Controller
     * @OA\Delete(
     *      path="/api/v1/admin/script-type-prompts/{id}",
     *      operationId="deleteScriptTypePrompt",
-    *      tags={"User"},
+    *      tags={"Admin"},
     *      summary="Delete script-type-prompts",
     *      description="Delete script-type-prompts",
     *      

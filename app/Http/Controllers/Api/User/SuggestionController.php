@@ -13,7 +13,7 @@ class SuggestionController extends Controller
     * @OA\Get(
     *      path="/api/v1/suggestions",
     *      operationId="allSuggestions",
-    *      tags={"script"},
+    *      tags={"user"},
     *      summary="allSuggestions",
     *      description="allSuggestions",
     *      @OA\Response(
@@ -47,7 +47,7 @@ class SuggestionController extends Controller
     * @OA\Post(
     *      path="/api/v1/suggestions",
     *      operationId="postSuggestion",
-    *      tags={"User"},
+    *      tags={"user"},
     *      summary="postSuggestions",
     *      description="postSuggestions",
     *      @OA\RequestBody(
@@ -85,7 +85,7 @@ class SuggestionController extends Controller
     * @OA\Get(
     *      path="/api/v1/suggestions/{id}",
     *      operationId="showSuggestions",
-    *      tags={"script"},
+    *      tags={"user"},
     *      summary="showSuggestions",
     *      description="showSuggestions",
     *      

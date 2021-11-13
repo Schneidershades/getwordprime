@@ -13,7 +13,7 @@ class CampaignController extends Controller
     * @OA\Get(
     *      path="/api/v1/campaigns",
     *      operationId="allCampaign",
-    *      tags={"campaign"},
+    *      tags={"user"},
     *      summary="allCampaign",
     *      description="allCampaign",
     *      @OA\Response(
@@ -47,7 +47,7 @@ class CampaignController extends Controller
     * @OA\Post(
     *      path="/api/v1/campaigns",
     *      operationId="postCampaigns",
-    *      tags={"campaign"},
+    *      tags={"user"},
     *      summary="Post new campaigns",
     *      description="Post new campaigns",
     *      @OA\RequestBody(
@@ -84,7 +84,7 @@ class CampaignController extends Controller
     * @OA\Get(
     *      path="/api/v1/campaigns/{id}",
     *      operationId="showCampaign",
-    *      tags={"campaign"},
+    *      tags={"user"},
     *      summary="Show an campaign",
     *      description="Show an campaign",
     *      
@@ -128,7 +128,7 @@ class CampaignController extends Controller
     * @OA\PUT(
     *      path="/api/v1/campaigns/{id}",
     *      operationId="updateCampaign",
-    *      tags={"campaign"},
+    *      tags={"user"},
     *      summary="Update an campaign",
     *      description="Update an campaign",
     *      
@@ -177,7 +177,7 @@ class CampaignController extends Controller
     * @OA\Delete(
     *      path="/api/v1/campaigns/{id}",
     *      operationId="deleteAgency",
-    *      tags={"campaign"},
+    *      tags={"user"},
     *      summary="Delete an campaign",
     *      description="Delete an campaign",
     *      

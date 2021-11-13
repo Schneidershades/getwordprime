@@ -13,7 +13,7 @@ class AgencyController extends Controller
     * @OA\Get(
     *      path="/api/v1/agencies",
     *      operationId="allAgencies",
-    *      tags={"agency"},
+    *      tags={"user"},
     *      summary="Get all agencies",
     *      description="Get all agencies",
     *      @OA\Response(
@@ -47,7 +47,7 @@ class AgencyController extends Controller
     * @OA\Post(
     *      path="/api/v1/agencies",
     *      operationId="postAgencies",
-    *      tags={"agency"},
+    *      tags={"user"},
     *      summary="Post new agencies",
     *      description="Post new agencies",
     *      @OA\RequestBody(
@@ -85,7 +85,7 @@ class AgencyController extends Controller
     * @OA\Get(
     *      path="/api/v1/agencies/{id}",
     *      operationId="showAgency",
-    *      tags={"agency"},
+    *      tags={"user"},
     *      summary="Show an agency",
     *      description="Show an agency",
     *      
@@ -130,7 +130,7 @@ class AgencyController extends Controller
     * @OA\Put(
     *      path="/api/v1/agencies/{id}",
     *      operationId="AgencyUpdate",
-    *      tags={"agency"},
+    *      tags={"user"},
     *      summary="Update an agency",
     *      description="Update an agency",
     *      
@@ -180,7 +180,7 @@ class AgencyController extends Controller
     * @OA\Delete(
     *      path="/api/v1/agencies/{id}",
     *      operationId="deleteAgency",
-    *      tags={"agency"},
+    *      tags={"user"},
     *      summary="Delete an agency",
     *      description="Delete an agency",
     *      

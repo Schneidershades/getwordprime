@@ -11,7 +11,7 @@ class TutorialController extends Controller
     * @OA\Get(
     *      path="/api/v1/tutorials",
     *      operationId="allTutorials",
-    *      tags={"script"},
+    *      tags={"user"},
     *      summary="allTutorials",
     *      description="allTutorials",
     *      @OA\Response(
@@ -45,7 +45,7 @@ class TutorialController extends Controller
     * @OA\Get(
     *      path="/api/v1/tutorials/{id}",
     *      operationId="showTutorials",
-    *      tags={"script"},
+    *      tags={"user"},
     *      summary="showTutorials",
     *      description="showTutorials",
     *      

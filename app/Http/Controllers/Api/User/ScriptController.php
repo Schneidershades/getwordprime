@@ -15,7 +15,7 @@ class ScriptController extends Controller
     * @OA\Get(
     *      path="/api/v1/scripts",
     *      operationId="allScripts",
-    *      tags={"script"},
+    *      tags={"user"},
     *      summary="Get all script",
     *      description="Get all script",
     *      @OA\Response(
@@ -49,7 +49,7 @@ class ScriptController extends Controller
     * @OA\Post(
     *      path="/api/v1/scripts",
     *      operationId="postScripts",
-    *      tags={"script"},
+    *      tags={"user"},
     *      summary="Post new script",
     *      description="Post new script",
     *      @OA\RequestBody(
@@ -88,7 +88,7 @@ class ScriptController extends Controller
     * @OA\Get(
     *      path="/api/v1/scripts/{id}",
     *      operationId="showScript",
-    *      tags={"script"},
+    *      tags={"user"},
     *      summary="Show an script",
     *      description="Show an script",
     *      
@@ -137,7 +137,7 @@ class ScriptController extends Controller
     * @OA\PUT(
     *      path="/api/v1/scripts/{id}",
     *      operationId="updateScript",
-    *      tags={"script"},
+    *      tags={"user"},
     *      summary="Update an script",
     *      description="Update an script",
     *      
@@ -186,7 +186,7 @@ class ScriptController extends Controller
     * @OA\Delete(
     *      path="/api/v1/scripts/{id}",
     *      operationId="deleteScript",
-    *      tags={"script"},
+    *      tags={"user"},
     *      summary="Delete an script",
     *      description="Delete an script",
     *      

@@ -13,7 +13,7 @@ class ScriptFavoriteController extends Controller
     * @OA\Get(
     *      path="/api/v1/script-favorite",
     *      operationId="allScriptFavorites",
-    *      tags={"script"},
+    *      tags={"user"},
     *      summary="Get all script favorite",
     *      description="Get all script favorite",
     *      @OA\Response(
@@ -85,7 +85,7 @@ class ScriptFavoriteController extends Controller
     * @OA\Delete(
     *      path="/api/v1/script-favorite/{id}",
     *      operationId="deleteReseller",
-    *      tags={"script"},
+    *      tags={"user"},
     *      summary="Delete an script favorite",
     *      description="Delete an script favorite",
     *      

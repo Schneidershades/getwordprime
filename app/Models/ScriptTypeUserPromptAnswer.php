@@ -22,7 +22,7 @@ class ScriptTypeUserPromptAnswer extends Model
         return $this->belongsTo(User::class);
     }
 
-    public function scriptType()
+    public function scriptTypePrompt()
     {
         return $this->belongsTo(ScriptTypePrompt::class);
     }

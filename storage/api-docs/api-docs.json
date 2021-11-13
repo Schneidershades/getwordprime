@@ -427,6 +427,38 @@
                 ]
             }
         },
+        "/api/v1/admin/dashboard": {
+            "get": {
+                "tags": [
+                    "admin"
+                ],
+                "summary": "adminDashboard",
+                "description": "adminDashboard",
+                "operationId": "adminDashboard",
+                "responses": {
+                    "200": {
+                        "description": "Successful signin",
+                        "content": {
+                            "application/json": {}
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    },
+                    "401": {
+                        "description": "unauthenticated"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        },
         "/api/v1/admin/roles": {
             "get": {
                 "tags": [
@@ -1215,7 +1247,7 @@
             },
             "delete": {
                 "tags": [
-                    "User"
+                    "Admin"
                 ],
                 "summary": "Delete script-type-prompts",
                 "description": "Delete script-type-prompts",
@@ -2141,7 +2173,7 @@
         "/api/v1/agencies": {
             "get": {
                 "tags": [
-                    "agency"
+                    "user"
                 ],
                 "summary": "Get all agencies",
                 "description": "Get all agencies",
@@ -2171,7 +2203,7 @@
             },
             "post": {
                 "tags": [
-                    "agency"
+                    "user"
                 ],
                 "summary": "Post new agencies",
                 "description": "Post new agencies",
@@ -2213,7 +2245,7 @@
         "/api/v1/agencies/{id}": {
             "get": {
                 "tags": [
-                    "agency"
+                    "user"
                 ],
                 "summary": "Show an agency",
                 "description": "Show an agency",
@@ -2254,7 +2286,7 @@
             },
             "put": {
                 "tags": [
-                    "agency"
+                    "user"
                 ],
                 "summary": "Update an agency",
                 "description": "Update an agency",
@@ -2305,7 +2337,7 @@
             },
             "delete": {
                 "tags": [
-                    "agency"
+                    "user"
                 ],
                 "summary": "Delete an agency",
                 "description": "Delete an agency",
@@ -2348,7 +2380,7 @@
         "/api/v1/campaigns": {
             "get": {
                 "tags": [
-                    "campaign"
+                    "user"
                 ],
                 "summary": "allCampaign",
                 "description": "allCampaign",
@@ -2378,7 +2410,7 @@
             },
             "post": {
                 "tags": [
-                    "campaign"
+                    "user"
                 ],
                 "summary": "Post new campaigns",
                 "description": "Post new campaigns",
@@ -2420,7 +2452,7 @@
         "/api/v1/campaigns/{id}": {
             "get": {
                 "tags": [
-                    "campaign"
+                    "user"
                 ],
                 "summary": "Show an campaign",
                 "description": "Show an campaign",
@@ -2461,7 +2493,7 @@
             },
             "put": {
                 "tags": [
-                    "campaign"
+                    "user"
                 ],
                 "summary": "Update an campaign",
                 "description": "Update an campaign",
@@ -2512,7 +2544,7 @@
             },
             "delete": {
                 "tags": [
-                    "campaign"
+                    "user"
                 ],
                 "summary": "Delete an campaign",
                 "description": "Delete an campaign",
@@ -2552,10 +2584,42 @@
                 ]
             }
         },
+        "/api/v1/user/dashboard": {
+            "get": {
+                "tags": [
+                    "user"
+                ],
+                "summary": "userDashboard",
+                "description": "userDashboard",
+                "operationId": "userDashboard",
+                "responses": {
+                    "200": {
+                        "description": "Successful signin",
+                        "content": {
+                            "application/json": {}
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    },
+                    "401": {
+                        "description": "unauthenticated"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        },
         "/api/v1/reseller": {
             "get": {
                 "tags": [
-                    "reseller"
+                    "user"
                 ],
                 "summary": "Get all reseller",
                 "description": "Get all reseller",
@@ -2585,7 +2649,7 @@
             },
             "post": {
                 "tags": [
-                    "reseller"
+                    "user"
                 ],
                 "summary": "Post new reseller",
                 "description": "Post new reseller",
@@ -2627,7 +2691,7 @@
         "/api/v1/reseller/{id}": {
             "get": {
                 "tags": [
-                    "reseller"
+                    "user"
                 ],
                 "summary": "Show an reseller",
                 "description": "Show an reseller",
@@ -2668,7 +2732,7 @@
             },
             "put": {
                 "tags": [
-                    "reseller"
+                    "user"
                 ],
                 "summary": "Update an reseller",
                 "description": "Update an reseller",
@@ -2721,7 +2785,7 @@
         "/api/v1/resellers/{id}": {
             "delete": {
                 "tags": [
-                    "reseller"
+                    "user"
                 ],
                 "summary": "Delete an reseller",
                 "description": "Delete an reseller",
@@ -2764,7 +2828,7 @@
         "/api/v1/scripts": {
             "get": {
                 "tags": [
-                    "script"
+                    "user"
                 ],
                 "summary": "Get all script",
                 "description": "Get all script",
@@ -2794,7 +2858,7 @@
             },
             "post": {
                 "tags": [
-                    "script"
+                    "user"
                 ],
                 "summary": "Post new script",
                 "description": "Post new script",
@@ -2836,7 +2900,7 @@
         "/api/v1/scripts/{id}": {
             "get": {
                 "tags": [
-                    "script"
+                    "user"
                 ],
                 "summary": "Show an script",
                 "description": "Show an script",
@@ -2877,7 +2941,7 @@
             },
             "put": {
                 "tags": [
-                    "script"
+                    "user"
                 ],
                 "summary": "Update an script",
                 "description": "Update an script",
@@ -2928,7 +2992,7 @@
             },
             "delete": {
                 "tags": [
-                    "script"
+                    "user"
                 ],
                 "summary": "Delete an script",
                 "description": "Delete an script",
@@ -2971,7 +3035,7 @@
         "/api/v1/script-favorite": {
             "get": {
                 "tags": [
-                    "script"
+                    "user"
                 ],
                 "summary": "Get all script favorite",
                 "description": "Get all script favorite",
@@ -3043,7 +3107,7 @@
         "/api/v1/script-favorite/{id}": {
             "delete": {
                 "tags": [
-                    "script"
+                    "user"
                 ],
                 "summary": "Delete an script favorite",
                 "description": "Delete an script favorite",
@@ -3083,10 +3147,10 @@
                 ]
             }
         },
-        "/api/v1/admin/script-type-user-prompt-answers": {
+        "/api/v1/script-type-user-prompt-answers": {
             "get": {
                 "tags": [
-                    "User"
+                    "user"
                 ],
                 "summary": "Get all answers",
                 "description": "Get all answers",
@@ -3116,7 +3180,7 @@
             },
             "post": {
                 "tags": [
-                    "User"
+                    "user"
                 ],
                 "summary": "Post new answers",
                 "description": "Post new answers",
@@ -3155,10 +3219,10 @@
                 ]
             }
         },
-        "/api/v1/admin/script-type-user-prompt-answers/{id}": {
+        "/api/v1/script-type-user-prompt-answers/{id}": {
             "get": {
                 "tags": [
-                    "User"
+                    "user"
                 ],
                 "summary": "Show an answer",
                 "description": "Show an answer",
@@ -3199,7 +3263,7 @@
             },
             "put": {
                 "tags": [
-                    "User"
+                    "user"
                 ],
                 "summary": "Update an answer",
                 "description": "Update an answer",
@@ -3250,7 +3314,7 @@
             },
             "delete": {
                 "tags": [
-                    "User"
+                    "user"
                 ],
                 "summary": "Delete script-type-user-prompt-answers",
                 "description": "Delete script-type-user-prompt-answers",
@@ -3293,7 +3357,7 @@
         "/api/v1/suggestions": {
             "get": {
                 "tags": [
-                    "script"
+                    "user"
                 ],
                 "summary": "allSuggestions",
                 "description": "allSuggestions",
@@ -3323,7 +3387,7 @@
             },
             "post": {
                 "tags": [
-                    "User"
+                    "user"
                 ],
                 "summary": "postSuggestions",
                 "description": "postSuggestions",
@@ -3365,7 +3429,7 @@
         "/api/v1/suggestions/{id}": {
             "get": {
                 "tags": [
-                    "script"
+                    "user"
                 ],
                 "summary": "showSuggestions",
                 "description": "showSuggestions",
@@ -3408,7 +3472,7 @@
         "/api/v1/tutorials": {
             "get": {
                 "tags": [
-                    "script"
+                    "user"
                 ],
                 "summary": "allTutorials",
                 "description": "allTutorials",
@@ -3440,7 +3504,7 @@
         "/api/v1/tutorials/{id}": {
             "get": {
                 "tags": [
-                    "script"
+                    "user"
                 ],
                 "summary": "showTutorials",
                 "description": "showTutorials",

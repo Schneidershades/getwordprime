@@ -14,7 +14,7 @@ class ResellerController extends Controller
     * @OA\Get(
     *      path="/api/v1/reseller",
     *      operationId="allResellers",
-    *      tags={"reseller"},
+    *      tags={"user"},
     *      summary="Get all reseller",
     *      description="Get all reseller",
     *      @OA\Response(
@@ -47,7 +47,7 @@ class ResellerController extends Controller
     * @OA\Post(
     *      path="/api/v1/reseller",
     *      operationId="postResellers",
-    *      tags={"reseller"},
+    *      tags={"user"},
     *      summary="Post new reseller",
     *      description="Post new reseller",
     *      @OA\RequestBody(
@@ -85,7 +85,7 @@ class ResellerController extends Controller
     * @OA\Get(
     *      path="/api/v1/reseller/{id}",
     *      operationId="showReseller",
-    *      tags={"reseller"},
+    *      tags={"user"},
     *      summary="Show an reseller",
     *      description="Show an reseller",
     *      
@@ -131,7 +131,7 @@ class ResellerController extends Controller
     * @OA\PUT(
     *      path="/api/v1/reseller/{id}",
     *      operationId="updateReseller",
-    *      tags={"reseller"},
+    *      tags={"user"},
     *      summary="Update an reseller",
     *      description="Update an reseller",
     *      
@@ -180,7 +180,7 @@ class ResellerController extends Controller
     * @OA\Delete(
     *      path="/api/v1/resellers/{id}",
     *      operationId="deleteReseller",
-    *      tags={"reseller"},
+    *      tags={"user"},
     *      summary="Delete an reseller",
     *      description="Delete an reseller",
     *      

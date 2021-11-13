@@ -25,6 +25,7 @@ Route::prefix('v1')->group(function () {
 		Route::resource('scripts', ScriptController::class);
 		Route::resource('tutorials', TutorialController::class);
 		Route::resource('suggestion', SuggestionController::class);
+		Route::resource('dashboard', DashboardController::class);
 		Route::resource('script-type-user-prompt-answers', ScriptTypeUserPromptAnswerController::class);
 	});
 
@@ -41,6 +42,8 @@ Route::prefix('v1')->group(function () {
 		Route::resource('suggestions', SuggestionController::class, array("as"=>"adminSuggestions"));
 		Route::resource('tutorials', TutorialController::class, array("as"=>"adminTutorials"));
 		Route::resource('users', UserController::class, array("as"=>"adminUsers"));
+		Route::resource('script-type-prompts', ScriptTypePromptController::class, array("as"=>"adminScriptTypePrompts"));
+		Route::resource('dashboard', DashboardController::class, array("as"=>"adminDashboard"));
 	});
 
 	Route::resource('script-test', Api\User\ScriptTestingController::class);

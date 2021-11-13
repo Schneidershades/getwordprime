@@ -16,9 +16,8 @@ class ScriptTypePromptResource extends JsonResource
     {
         return [
             'id' => $this->id,
-            'script_type_id' => $this->script_type_id,
-            'attribute_id' => $this->attribute_id,
-            'value' => $this->value,
+            'scriptType' => $this->scriptType->name,
+            'question' => $this->question,
             'created_at' => $this->created_at,
             'updated_at' => $this->updated_at,
         ];

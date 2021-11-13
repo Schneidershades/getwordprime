@@ -12,9 +12,9 @@ class ScriptTypeUserPromptAnswerController extends Controller
 {
     /**
     * @OA\Get(
-    *      path="/api/v1/admin/script-type-user-prompt-answers",
+    *      path="/api/v1/script-type-user-prompt-answers",
     *      operationId="allScriptTypeUserPromptAnswer",
-    *      tags={"User"},
+    *      tags={"user"},
     *      summary="Get all answers",
     *      description="Get all answers",
     *      @OA\Response(
@@ -46,9 +46,9 @@ class ScriptTypeUserPromptAnswerController extends Controller
 
     /**
     * @OA\Post(
-    *      path="/api/v1/admin/script-type-user-prompt-answers",
+    *      path="/api/v1/script-type-user-prompt-answers",
     *      operationId="postScriptTypeUserPromptAnswer",
-    *      tags={"User"},
+    *      tags={"user"},
     *      summary="Post new answers",
     *      description="Post new answers",
     *      @OA\RequestBody(
@@ -84,9 +84,9 @@ class ScriptTypeUserPromptAnswerController extends Controller
 
     /**
     * @OA\Get(
-    *      path="/api/v1/admin/script-type-user-prompt-answers/{id}",
+    *      path="/api/v1/script-type-user-prompt-answers/{id}",
     *      operationId="showScriptTypeUserPromptAnswer",
-    *      tags={"User"},
+    *      tags={"user"},
     *      summary="Show an answer",
     *      description="Show an answer",
     *      
@@ -129,9 +129,9 @@ class ScriptTypeUserPromptAnswerController extends Controller
 
     /**
     * @OA\Put(
-    *      path="/api/v1/admin/script-type-user-prompt-answers/{id}",
+    *      path="/api/v1/script-type-user-prompt-answers/{id}",
     *      operationId="adminScriptTypeUserPromptAnswer",
-    *      tags={"User"},
+    *      tags={"user"},
     *      summary="Update an answer",
     *      description="Update an answer",
     *      
@@ -179,9 +179,9 @@ class ScriptTypeUserPromptAnswerController extends Controller
 
      /**
     * @OA\Delete(
-    *      path="/api/v1/admin/script-type-user-prompt-answers/{id}",
+    *      path="/api/v1/script-type-user-prompt-answers/{id}",
     *      operationId="deleteScriptTypeUserPromptAnswer",
-    *      tags={"User"},
+    *      tags={"user"},
     *      summary="Delete script-type-user-prompt-answers",
     *      description="Delete script-type-user-prompt-answers",
     *      
