@@ -4,12 +4,12 @@ namespace App\Http\Resources\Script;
 
 use Illuminate\Http\Resources\Json\ResourceCollection;
 
-class ScriptTypeUserPromptAnswerCollection extends ResourceCollection
+class UserScriptTypePresetCollection extends ResourceCollection
 {
     public function toArray($request)
     {
         return [
-            'data' => ScriptTypeUserPromptAnswerResource::collection($this->collection),
+            'data' => UserScriptTypePresetResource::collection($this->collection),
         ];
     }
 

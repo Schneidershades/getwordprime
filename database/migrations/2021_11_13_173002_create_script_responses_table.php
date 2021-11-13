@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateScriptTypePromptsTable extends Migration
+class CreateScriptResponsesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,11 @@ class CreateScriptTypePromptsTable extends Migration
      */
     public function up()
     {
-        Schema::create('script_type_prompts', function (Blueprint $table) {
+        Schema::create('script_responses', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('script_type_id')->nullable()->constrained();
-            $table->string('question');
+            $table->foreignId('script_id')->nullable()->constrained();
+            $table->text('responses')->nullable()->constrained();
             $table->timestamps();
-            $table->softDeletes();
         });
     }
 
@@ -29,6 +28,6 @@ class CreateScriptTypePromptsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('script_type_prompts');
+        Schema::dropIfExists('script_responses');
     }
 }

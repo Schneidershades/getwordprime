@@ -4,18 +4,15 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use App\Models\User;
-use App\Models\Script;
-use App\Http\Resources\User\UserScriptFavoriteResource;
-use App\Http\Resources\User\UserScriptFavoriteCollection;
 
-class UserScriptFavorite extends Model
+class UserFavoriteScriptResponse extends Model
 {
     use HasFactory;
+    
     protected $guarded = [];
 
-    public $oneItem = UserScriptFavoriteResource::class;
-    public $allItems = UserScriptFavoriteCollection::class;
+    public $oneItem = UserFavoriteScriptResponseResource::class;
+    public $allItems = UserFavoriteScriptResponseCollection::class;
 
     public function user()
     {

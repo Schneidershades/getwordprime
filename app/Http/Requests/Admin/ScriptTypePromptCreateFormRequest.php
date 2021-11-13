@@ -13,7 +13,7 @@ use Illuminate\Foundation\Http\FormRequest;
  * )
  */
 
-class ScriptTypePromptCreateFormRequest extends FormRequest
+class ScriptTypePresetCreateFormRequest extends FormRequest
 {
     /**
      * @OA\Property(

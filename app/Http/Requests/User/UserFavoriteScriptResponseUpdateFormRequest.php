@@ -7,14 +7,15 @@ use Illuminate\Foundation\Http\FormRequest;
 /**
 /**
  * @OA\Schema(
- *      title="Script Favorite Create Form Request Fields",
- *      description="Script Favorite Create request body data",
+ *      title="Script Favorite Update Form Request Fields",
+ *      description="Script Favorite Update request body data",
  *      type="object",
  *      required={"name"}
  * )
  */
 
-class ScriptFavoriteCreateFormRequest extends FormRequest
+
+class UserFavoriteScriptResponseUpdateFormRequest extends FormRequest
 {
     /**
      * @OA\Property(

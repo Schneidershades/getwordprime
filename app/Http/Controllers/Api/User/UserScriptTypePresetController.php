@@ -2,17 +2,16 @@
 
 namespace App\Http\Controllers\Api\User;
 
-use App\Models\ScriptTypePrompt;
 use App\Http\Controllers\Controller;
-use App\Models\ScriptTypeUserPromptAnswer;
-use App\Http\Requests\User\ScriptTypeUserPromptAnswerCreateFormRequest;
-use App\Http\Requests\User\ScriptTypeUserPromptAnswerUpdateFormRequest;
+use App\Models\UserScriptTypePreset;
+use App\Http\Requests\User\UserScriptTypePresetCreateFormRequest;
+use App\Http\Requests\User\UserScriptTypePresetUpdateFormRequest;
 
-class ScriptTypeUserPromptAnswerController extends Controller
+class UserScriptTypePresetController extends Controller
 {
     /**
     * @OA\Get(
-    *      path="/api/v1/script-type-user-prompt-answers",
+    *      path="/api/v1/user-script-type-presets",
     *      operationId="allScriptTypeUserPromptAnswer",
     *      tags={"user"},
     *      summary="Get all answers",
@@ -41,19 +40,19 @@ class ScriptTypeUserPromptAnswerController extends Controller
     */
     public function index()
     {
-        return $this->showAll(ScriptTypeUserPromptAnswer::latest()->get());
+        return $this->showAll(UserScriptTypePreset::latest()->get());
     }
 
     /**
     * @OA\Post(
-    *      path="/api/v1/script-type-user-prompt-answers",
+    *      path="/api/v1/user-script-type-presets",
     *      operationId="postScriptTypeUserPromptAnswer",
     *      tags={"user"},
     *      summary="Post new answers",
     *      description="Post new answers",
     *      @OA\RequestBody(
     *          required=true,
-    *          @OA\JsonContent(ref="#/components/schemas/ScriptTypeUserPromptAnswerCreateFormRequest")
+    *          @OA\JsonContent(ref="#/components/schemas/UserScriptTypePresetCreateFormRequest")
     *      ),
     *      @OA\Response(
     *          response=200,
@@ -77,14 +76,14 @@ class ScriptTypeUserPromptAnswerController extends Controller
     *      security={ {"bearerAuth": {}} },
     * )
     */
-    public function store(ScriptTypeUserPromptAnswerCreateFormRequest $request)
+    public function store(UserScriptTypePresetCreateFormRequest $request)
     {
-        return $this->showOne(ScriptTypePrompt::create($request->validated()));
+        return $this->showOne(UserScriptTypePreset::create($request->validated()));
     }
 
     /**
     * @OA\Get(
-    *      path="/api/v1/script-type-user-prompt-answers/{id}",
+    *      path="/api/v1/user-script-type-presets/{id}",
     *      operationId="showScriptTypeUserPromptAnswer",
     *      tags={"user"},
     *      summary="Show an answer",
@@ -122,14 +121,14 @@ class ScriptTypeUserPromptAnswerController extends Controller
     *      security={ {"bearerAuth": {}} },
     * )
     */
-    public function show(ScriptTypePrompt $id)
+    public function show(UserScriptTypePreset $id)
     {
-        return $this->showOne(ScriptTypePrompt::findOrFail($id));
+        return $this->showOne(UserScriptTypePreset::findOrFail($id));
     }
 
     /**
     * @OA\Put(
-    *      path="/api/v1/script-type-user-prompt-answers/{id}",
+    *      path="/api/v1/user-script-type-presets/{id}",
     *      operationId="adminScriptTypeUserPromptAnswer",
     *      tags={"user"},
     *      summary="Update an answer",
@@ -146,7 +145,7 @@ class ScriptTypeUserPromptAnswerController extends Controller
      *     ),
     *      @OA\RequestBody(
     *          required=true,
-    *          @OA\JsonContent(ref="#/components/schemas/ScriptTypeUserPromptAnswerUpdateFormRequest")
+    *          @OA\JsonContent(ref="#/components/schemas/UserScriptTypePresetUpdateFormRequest")
     *      ),
     *      @OA\Response(
     *          response=200,
@@ -171,15 +170,15 @@ class ScriptTypeUserPromptAnswerController extends Controller
     * )
     */
     
-    public function update(ScriptTypeUserPromptAnswerUpdateFormRequest $request, ScriptTypeUserPromptAnswer $scriptTypeQuestion)
+    public function update(UserScriptTypePresetUpdateFormRequest $request, UserScriptTypePreset $userScriptTypePreset)
     {
-        $scriptTypeQuestion->update($request->validated());
-        return $this->showOne($scriptTypeQuestion);
+        $userScriptTypePreset->update($request->validated());
+        return $this->showOne($userScriptTypePreset);
     }
 
      /**
     * @OA\Delete(
-    *      path="/api/v1/script-type-user-prompt-answers/{id}",
+    *      path="/api/v1/user-script-type-presets/{id}",
     *      operationId="deleteScriptTypeUserPromptAnswer",
     *      tags={"user"},
     *      summary="Delete script-type-user-prompt-answers",
@@ -216,7 +215,7 @@ class ScriptTypeUserPromptAnswerController extends Controller
     *      security={ {"bearerAuth": {}} },
     * )
     */
-    public function destroy(ScriptTypePrompt $scriptTypeQuestion)
+    public function destroy(UserScriptTypePreset $scriptTypeQuestion)
     {
         $scriptTypeQuestion->delete();
         return $this->showMessage('deleted');

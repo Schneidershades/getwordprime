@@ -4,7 +4,7 @@ namespace App\Http\Resources\Script;
 
 use Illuminate\Http\Resources\Json\JsonResource;
 
-class ScriptTypeUserPromptAnswerResource extends JsonResource
+class UserScriptTypePresetResource extends JsonResource
 {
     public function toArray($request)
     {

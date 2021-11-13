@@ -2,16 +2,16 @@
 
 namespace App\Http\Controllers\Api\Admin;
 
-use App\Models\ScriptTypePrompt;
 use App\Http\Controllers\Controller;
-use App\Http\Requests\Admin\ScriptTypePromptCreateFormRequest;
-use App\Http\Requests\Admin\ScriptTypePromptUpdateFormRequest;
+use App\Http\Requests\Admin\ScriptTypePresetCreateFormRequest;
+use App\Http\Requests\Admin\ScriptTypePresetUpdateFormRequest;
+use App\Models\ScriptTypePreset;
 
-class ScriptTypePromptController extends Controller
+class ScriptTypePresetController extends Controller
 {
     /**
     * @OA\Get(
-    *      path="/api/v1/admin/script-type-prompts",
+    *      path="/api/v1/admin/script-type-presets",
     *      operationId="allScriptTypePrompts",
     *      tags={"Admin"},
     *      summary="Get all roles",
@@ -40,12 +40,12 @@ class ScriptTypePromptController extends Controller
     */
     public function index()
     {
-        return $this->showAll(ScriptTypePrompt::latest()->get());
+        return $this->showAll(ScriptTypePreset::latest()->get());
     }
 
     /**
     * @OA\Post(
-    *      path="/api/v1/admin/script-type-prompts",
+    *      path="/api/v1/admin/script-type-presets",
     *      operationId="postScriptTypePrompts",
     *      tags={"Admin"},
     *      summary="Post script-type-prompts",
@@ -76,14 +76,14 @@ class ScriptTypePromptController extends Controller
     *      security={ {"bearerAuth": {}} },
     * )
     */
-    public function store(ScriptTypePromptCreateFormRequest $request)
+    public function store(ScriptTypePresetCreateFormRequest $request)
     {
-        return $this->showOne(ScriptTypePrompt::create($request->validated()));
+        return $this->showOne(ScriptTypePreset::create($request->validated()));
     }
 
     /**
     * @OA\Get(
-    *      path="/api/v1/admin/script-type-prompts/{id}",
+    *      path="/api/v1/admin/script-type-presets/{id}",
     *      operationId="showScriptTypePrompts",
     *      tags={"Admin"},
     *      summary="Show a script-type-prompt",
@@ -121,14 +121,14 @@ class ScriptTypePromptController extends Controller
     *      security={ {"bearerAuth": {}} },
     * )
     */
-    public function show(ScriptTypePrompt $id)
+    public function show(ScriptTypePreset $id)
     {
-        return $this->showOne(ScriptTypePrompt::findOrFail($id));
+        return $this->showOne(ScriptTypePreset::findOrFail($id));
     }
 
     /**
     * @OA\Put(
-    *      path="/api/v1/admin/script-type-prompts/{id}",
+    *      path="/api/v1/admin/script-type-presets/{id}",
     *      operationId="adminScriptTypePrompts",
     *      tags={"Admin"},
     *      summary="Update a script-type-prompt",
@@ -170,16 +170,16 @@ class ScriptTypePromptController extends Controller
     * )
     */
     
-    public function update(ScriptTypePromptUpdateFormRequest $request, ScriptTypePrompt $scriptTypeQuestion)
+    public function update(ScriptTypePresetUpdateFormRequest $request, ScriptTypePreset $scriptTypePreset)
     {
-        $scriptTypeQuestion->update($request->validated());
-        return $this->showOne($scriptTypeQuestion);
+        $scriptTypePreset->update($request->validated());
+        return $this->showOne($scriptTypePreset);
     }
 
     
      /**
     * @OA\Delete(
-    *      path="/api/v1/admin/script-type-prompts/{id}",
+    *      path="/api/v1/admin/script-type-presets/{id}",
     *      operationId="deleteScriptTypePrompt",
     *      tags={"Admin"},
     *      summary="Delete script-type-prompts",
@@ -216,9 +216,9 @@ class ScriptTypePromptController extends Controller
     *      security={ {"bearerAuth": {}} },
     * )
     */
-    public function destroy(ScriptTypePrompt $scriptTypeQuestion)
+    public function destroy(ScriptTypePreset $scriptTypePreset)
     {
-        $scriptTypeQuestion->delete();
+        $scriptTypePreset->delete();
         return $this->showMessage('deleted');
     }
 }

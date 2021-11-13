@@ -3,15 +3,15 @@
 namespace App\Http\Controllers\Api\User;
 
 use App\Models\Script;
-use App\Models\ScriptFavorite;
+use App\Models\UserFavoriteScriptResponse;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\User\ScriptCreateFormRequest;
 
-class ScriptFavoriteController extends Controller
+class UserFavoriteScriptResponseController extends Controller
 {
     /**
     * @OA\Get(
-    *      path="/api/v1/script-favorite",
+    *      path="/api/v1/user-favorite-script-response",
     *      operationId="allScriptFavorites",
     *      tags={"user"},
     *      summary="Get all script favorite",
@@ -45,7 +45,7 @@ class ScriptFavoriteController extends Controller
 
     /**
     * @OA\Post(
-    *      path="/api/v1/script-favorite",
+    *      path="/api/v1/user-favorite-script-response",
     *      operationId="postScriptFavorite",
     *      tags={"reseller"},
     *      summary="Post script favorite",
@@ -76,14 +76,14 @@ class ScriptFavoriteController extends Controller
     *      security={ {"bearerAuth": {}} },
     * )
     */
-    public function store(ScriptCreateFormRequest $request)
+    public function store(UserFavoriteScriptResponseCreateFormRequest $request)
     {
         return $this->showOne(auth()->user()->scripts()->create($request->validated()));
     }
 
      /**
     * @OA\Delete(
-    *      path="/api/v1/script-favorite/{id}",
+    *      path="/api/v1/user-favorite-script-response/{id}",
     *      operationId="deleteReseller",
     *      tags={"user"},
     *      summary="Delete an script favorite",

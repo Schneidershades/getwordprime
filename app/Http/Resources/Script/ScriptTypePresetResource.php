@@ -4,7 +4,7 @@ namespace App\Http\Resources\Script;
 
 use Illuminate\Http\Resources\Json\JsonResource;
 
-class ScriptTypePromptResource extends JsonResource
+class ScriptTypePresetResource extends JsonResource
 {
     /**
      * Transform the resource into an array.

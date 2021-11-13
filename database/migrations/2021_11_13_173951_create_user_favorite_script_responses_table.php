@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateScriptTypeUserPromptAnswersTable extends Migration
+class CreateUserFavoriteScriptResponsesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,10 @@ class CreateScriptTypeUserPromptAnswersTable extends Migration
      */
     public function up()
     {
-        Schema::create('script_type_user_prompt_answers', function (Blueprint $table) {
+        Schema::create('user_favorite_script_responses', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('script_type_prompt_id')->nullable()->constrained();
-            $table->foreignId('script_id')->nullable()->constrained();
             $table->foreignId('user_id')->nullable()->constrained();
-            $table->string('answers');
+            $table->foreignId('script_id')->nullable()->constrained();
             $table->timestamps();
             $table->softDeletes();
         });
@@ -31,6 +29,6 @@ class CreateScriptTypeUserPromptAnswersTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('script_type_user_prompt_answers');
+        Schema::dropIfExists('user_favorite_script_responses');
     }
 }

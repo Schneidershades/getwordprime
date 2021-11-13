@@ -4,18 +4,18 @@ namespace App\Http\Resources\Script;
 
 use Illuminate\Http\Resources\Json\ResourceCollection;
 
-class ScriptTypeQuestionCollection extends ResourceCollection
+class ScriptTypePresetCollection extends ResourceCollection
 {
     /**
      * Transform the resource collection into an array.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @return array
+     * @return array|\Illuminate\Contracts\Support\Arrayable|\JsonSerializable
      */
     public function toArray($request)
     {
         return [
-            'data' => ScriptTypeQuestionResource::collection($this->collection),
+            'data' => ScriptTypePresetResource::collection($this->collection),
         ];
     }
 
@@ -23,8 +23,9 @@ class ScriptTypeQuestionCollection extends ResourceCollection
     {
         $attribute = [
             'id' => 'id',
-            'script_type_id' => 'script_type_id',
-            'question' => 'question',
+            'name' => 'name',
+            'icon' => 'icon',
+            'description' => 'description',
         ];
 
         return isset($attribute[$index]) ? $attribute[$index] : null;
@@ -34,8 +35,9 @@ class ScriptTypeQuestionCollection extends ResourceCollection
     {
         $attribute = [
             'id' => 'id',
-            'script_type_id' => 'script_type_id',
-            'question' => 'question',
+            'name' => 'name',
+            'icon' => 'icon',
+            'description' => 'description',
         ];
 
         return isset($attribute[$index]) ? $attribute[$index] : null;

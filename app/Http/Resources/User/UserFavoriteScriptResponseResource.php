@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Http\Resources\Script;
+namespace App\Http\Resources\User;
 
 use Illuminate\Http\Resources\Json\JsonResource;
 
-class ScriptTypeQuestionResource extends JsonResource
+class UserFavoriteScriptResponseResource extends JsonResource
 {
     /**
      * Transform the resource into an array.
@@ -16,9 +16,7 @@ class ScriptTypeQuestionResource extends JsonResource
     {
         return [
             'id' => $this->id,
-            'question' => $this->question,
-            'created_at' => $this->created_at,
-            'updated_at' => $this->updated_at,
+            'scripts' => $this->scripts,
         ];
     }
 }

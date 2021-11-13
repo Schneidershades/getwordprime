@@ -14,7 +14,7 @@ use Illuminate\Foundation\Http\FormRequest;
  * )
  */
 
-class ScriptTypePromptUpdateFormRequest extends FormRequest
+class ScriptTypePresetUpdateFormRequest extends FormRequest
 {
     /**
      * @OA\Property(

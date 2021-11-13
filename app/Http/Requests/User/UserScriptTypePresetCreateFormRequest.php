@@ -7,15 +7,15 @@ use Illuminate\Foundation\Http\FormRequest;
 /**
 /**
  * @OA\Schema(
- *      title="Script Type User Prompt Answer Update Form Request Fields",
- *      description="Script Type User Prompt Answer Update request body data",
+ *      title="User Preset Answer Create Form Request Fields",
+ *      description="User Preset Answer Create request body data",
  *      type="object",
  *      required={"name"}
  * )
  */
 
 
-class ScriptTypeUserPromptAnswerUpdateFormRequest extends FormRequest
+class UserScriptTypePresetCreateFormRequest extends FormRequest
 {
     /**
      * @OA\Property(
@@ -58,8 +58,8 @@ class ScriptTypeUserPromptAnswerUpdateFormRequest extends FormRequest
     public function rules()
     {
         return [
-            'question' => 'required|string',
-            'script_type_id' => 'required|int',
+            'answer' => 'required|string',
+            'script_type_preset_id' => 'required|int',
         ];
     }
 }
