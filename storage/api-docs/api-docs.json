@@ -1080,7 +1080,7 @@
                 ]
             }
         },
-        "/api/v1/admin/script-type-prompts": {
+        "/api/v1/admin/script-type-presets": {
             "get": {
                 "tags": [
                     "Admin"
@@ -1123,7 +1123,7 @@
                     "content": {
                         "application/json": {
                             "schema": {
-                                "$ref": "#/components/schemas/ScriptTypePromptCreateFormRequest"
+                                "$ref": "#/components/schemas/ScriptTypePresetCreateFormRequest"
                             }
                         }
                     }
@@ -1152,7 +1152,7 @@
                 ]
             }
         },
-        "/api/v1/admin/script-type-prompts/{id}": {
+        "/api/v1/admin/script-type-presets/{id}": {
             "get": {
                 "tags": [
                     "Admin"
@@ -1217,7 +1217,7 @@
                     "content": {
                         "application/json": {
                             "schema": {
-                                "$ref": "#/components/schemas/ScriptTypePromptUpdateFormRequest"
+                                "$ref": "#/components/schemas/ScriptTypePresetUpdateFormRequest"
                             }
                         }
                     }
@@ -3032,328 +3032,6 @@
                 ]
             }
         },
-        "/api/v1/script-favorite": {
-            "get": {
-                "tags": [
-                    "user"
-                ],
-                "summary": "Get all script favorite",
-                "description": "Get all script favorite",
-                "operationId": "allScriptFavorites",
-                "responses": {
-                    "200": {
-                        "description": "Successful signin",
-                        "content": {
-                            "application/json": {}
-                        }
-                    },
-                    "400": {
-                        "description": "Bad Request"
-                    },
-                    "401": {
-                        "description": "unauthenticated"
-                    },
-                    "403": {
-                        "description": "Forbidden"
-                    }
-                },
-                "security": [
-                    {
-                        "bearerAuth": []
-                    }
-                ]
-            },
-            "post": {
-                "tags": [
-                    "reseller"
-                ],
-                "summary": "Post script favorite",
-                "description": "Post script favorite",
-                "operationId": "postScriptFavorite",
-                "requestBody": {
-                    "required": true,
-                    "content": {
-                        "application/json": {
-                            "schema": {
-                                "$ref": "#/components/schemas/ScriptFavoriteCreateFormRequest"
-                            }
-                        }
-                    }
-                },
-                "responses": {
-                    "200": {
-                        "description": "Successful signin",
-                        "content": {
-                            "application/json": {}
-                        }
-                    },
-                    "400": {
-                        "description": "Bad Request"
-                    },
-                    "401": {
-                        "description": "unauthenticated"
-                    },
-                    "403": {
-                        "description": "Forbidden"
-                    }
-                },
-                "security": [
-                    {
-                        "bearerAuth": []
-                    }
-                ]
-            }
-        },
-        "/api/v1/script-favorite/{id}": {
-            "delete": {
-                "tags": [
-                    "user"
-                ],
-                "summary": "Delete an script favorite",
-                "description": "Delete an script favorite",
-                "operationId": "deleteReseller",
-                "parameters": [
-                    {
-                        "name": "id",
-                        "in": "path",
-                        "description": "Script favorite ID",
-                        "required": true,
-                        "schema": {
-                            "type": "integer"
-                        }
-                    }
-                ],
-                "responses": {
-                    "200": {
-                        "description": "Successful signin",
-                        "content": {
-                            "application/json": {}
-                        }
-                    },
-                    "400": {
-                        "description": "Bad Request"
-                    },
-                    "401": {
-                        "description": "unauthenticated"
-                    },
-                    "403": {
-                        "description": "Forbidden"
-                    }
-                },
-                "security": [
-                    {
-                        "bearerAuth": []
-                    }
-                ]
-            }
-        },
-        "/api/v1/script-type-user-prompt-answers": {
-            "get": {
-                "tags": [
-                    "user"
-                ],
-                "summary": "Get all answers",
-                "description": "Get all answers",
-                "operationId": "allScriptTypeUserPromptAnswer",
-                "responses": {
-                    "200": {
-                        "description": "Successful signin",
-                        "content": {
-                            "application/json": {}
-                        }
-                    },
-                    "400": {
-                        "description": "Bad Request"
-                    },
-                    "401": {
-                        "description": "unauthenticated"
-                    },
-                    "403": {
-                        "description": "Forbidden"
-                    }
-                },
-                "security": [
-                    {
-                        "bearerAuth": []
-                    }
-                ]
-            },
-            "post": {
-                "tags": [
-                    "user"
-                ],
-                "summary": "Post new answers",
-                "description": "Post new answers",
-                "operationId": "postScriptTypeUserPromptAnswer",
-                "requestBody": {
-                    "required": true,
-                    "content": {
-                        "application/json": {
-                            "schema": {
-                                "$ref": "#/components/schemas/ScriptTypeUserPromptAnswerCreateFormRequest"
-                            }
-                        }
-                    }
-                },
-                "responses": {
-                    "200": {
-                        "description": "Successful signin",
-                        "content": {
-                            "application/json": {}
-                        }
-                    },
-                    "400": {
-                        "description": "Bad Request"
-                    },
-                    "401": {
-                        "description": "unauthenticated"
-                    },
-                    "403": {
-                        "description": "Forbidden"
-                    }
-                },
-                "security": [
-                    {
-                        "bearerAuth": []
-                    }
-                ]
-            }
-        },
-        "/api/v1/script-type-user-prompt-answers/{id}": {
-            "get": {
-                "tags": [
-                    "user"
-                ],
-                "summary": "Show an answer",
-                "description": "Show an answer",
-                "operationId": "showScriptTypeUserPromptAnswer",
-                "parameters": [
-                    {
-                        "name": "id",
-                        "in": "path",
-                        "description": "Script type prompt ID",
-                        "required": true,
-                        "schema": {
-                            "type": "integer"
-                        }
-                    }
-                ],
-                "responses": {
-                    "200": {
-                        "description": "Successful signin",
-                        "content": {
-                            "application/json": {}
-                        }
-                    },
-                    "400": {
-                        "description": "Bad Request"
-                    },
-                    "401": {
-                        "description": "unauthenticated"
-                    },
-                    "403": {
-                        "description": "Forbidden"
-                    }
-                },
-                "security": [
-                    {
-                        "bearerAuth": []
-                    }
-                ]
-            },
-            "put": {
-                "tags": [
-                    "user"
-                ],
-                "summary": "Update an answer",
-                "description": "Update an answer",
-                "operationId": "adminScriptTypeUserPromptAnswer",
-                "parameters": [
-                    {
-                        "name": "id",
-                        "in": "path",
-                        "description": "Script type prompt ID",
-                        "required": true,
-                        "schema": {
-                            "type": "integer"
-                        }
-                    }
-                ],
-                "requestBody": {
-                    "required": true,
-                    "content": {
-                        "application/json": {
-                            "schema": {
-                                "$ref": "#/components/schemas/ScriptTypeUserPromptAnswerUpdateFormRequest"
-                            }
-                        }
-                    }
-                },
-                "responses": {
-                    "200": {
-                        "description": "Successful signin",
-                        "content": {
-                            "application/json": {}
-                        }
-                    },
-                    "400": {
-                        "description": "Bad Request"
-                    },
-                    "401": {
-                        "description": "unauthenticated"
-                    },
-                    "403": {
-                        "description": "Forbidden"
-                    }
-                },
-                "security": [
-                    {
-                        "bearerAuth": []
-                    }
-                ]
-            },
-            "delete": {
-                "tags": [
-                    "user"
-                ],
-                "summary": "Delete script-type-user-prompt-answers",
-                "description": "Delete script-type-user-prompt-answers",
-                "operationId": "deleteScriptTypeUserPromptAnswer",
-                "parameters": [
-                    {
-                        "name": "id",
-                        "in": "path",
-                        "description": "script-type-user-prompt-answers ID",
-                        "required": true,
-                        "schema": {
-                            "type": "integer"
-                        }
-                    }
-                ],
-                "responses": {
-                    "200": {
-                        "description": "Successful signin",
-                        "content": {
-                            "application/json": {}
-                        }
-                    },
-                    "400": {
-                        "description": "Bad Request"
-                    },
-                    "401": {
-                        "description": "unauthenticated"
-                    },
-                    "403": {
-                        "description": "Forbidden"
-                    }
-                },
-                "security": [
-                    {
-                        "bearerAuth": []
-                    }
-                ]
-            }
-        },
         "/api/v1/suggestions": {
             "get": {
                 "tags": [
@@ -3543,6 +3221,328 @@
                     }
                 ]
             }
+        },
+        "/api/v1/user-favorite-script-response": {
+            "get": {
+                "tags": [
+                    "user"
+                ],
+                "summary": "Get all script favorite",
+                "description": "Get all script favorite",
+                "operationId": "allScriptFavorites",
+                "responses": {
+                    "200": {
+                        "description": "Successful signin",
+                        "content": {
+                            "application/json": {}
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    },
+                    "401": {
+                        "description": "unauthenticated"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            },
+            "post": {
+                "tags": [
+                    "reseller"
+                ],
+                "summary": "Post script favorite",
+                "description": "Post script favorite",
+                "operationId": "postScriptFavorite",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/UserFavoriteScriptResponseCreateFormRequest"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Successful signin",
+                        "content": {
+                            "application/json": {}
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    },
+                    "401": {
+                        "description": "unauthenticated"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        },
+        "/api/v1/user-favorite-script-response/{id}": {
+            "delete": {
+                "tags": [
+                    "user"
+                ],
+                "summary": "Delete an script favorite",
+                "description": "Delete an script favorite",
+                "operationId": "deleteReseller",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Script favorite ID",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful signin",
+                        "content": {
+                            "application/json": {}
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    },
+                    "401": {
+                        "description": "unauthenticated"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        },
+        "/api/v1/user-script-type-presets": {
+            "get": {
+                "tags": [
+                    "user"
+                ],
+                "summary": "Get all answers",
+                "description": "Get all answers",
+                "operationId": "allScriptTypeUserPromptAnswer",
+                "responses": {
+                    "200": {
+                        "description": "Successful signin",
+                        "content": {
+                            "application/json": {}
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    },
+                    "401": {
+                        "description": "unauthenticated"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            },
+            "post": {
+                "tags": [
+                    "user"
+                ],
+                "summary": "Post new answers",
+                "description": "Post new answers",
+                "operationId": "postScriptTypeUserPromptAnswer",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/UserScriptTypePresetCreateFormRequest"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Successful signin",
+                        "content": {
+                            "application/json": {}
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    },
+                    "401": {
+                        "description": "unauthenticated"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        },
+        "/api/v1/user-script-type-presets/{id}": {
+            "get": {
+                "tags": [
+                    "user"
+                ],
+                "summary": "Show an answer",
+                "description": "Show an answer",
+                "operationId": "showScriptTypeUserPromptAnswer",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Script type prompt ID",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful signin",
+                        "content": {
+                            "application/json": {}
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    },
+                    "401": {
+                        "description": "unauthenticated"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            },
+            "put": {
+                "tags": [
+                    "user"
+                ],
+                "summary": "Update an answer",
+                "description": "Update an answer",
+                "operationId": "adminScriptTypeUserPromptAnswer",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Script type prompt ID",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/UserScriptTypePresetUpdateFormRequest"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Successful signin",
+                        "content": {
+                            "application/json": {}
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    },
+                    "401": {
+                        "description": "unauthenticated"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            },
+            "delete": {
+                "tags": [
+                    "user"
+                ],
+                "summary": "Delete script-type-user-prompt-answers",
+                "description": "Delete script-type-user-prompt-answers",
+                "operationId": "deleteScriptTypeUserPromptAnswer",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "script-type-user-prompt-answers ID",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful signin",
+                        "content": {
+                            "application/json": {}
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    },
+                    "401": {
+                        "description": "unauthenticated"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
         }
     },
     "components": {
@@ -3691,7 +3691,7 @@
                 },
                 "type": "object"
             },
-            "ScriptTypePromptCreateFormRequest": {
+            "ScriptTypePresetCreateFormRequest": {
                 "title": "Script Type Prompt Create Form Request Fields",
                 "description": "Script Type Prompt Create request body data",
                 "required": [
@@ -3713,7 +3713,7 @@
                 },
                 "type": "object"
             },
-            "ScriptTypePromptUpdateFormRequest": {
+            "ScriptTypePresetUpdateFormRequest": {
                 "title": "Script Type Question Update Form Request Fields",
                 "description": "Script Type Question Update request body data",
                 "required": [
@@ -4131,82 +4131,6 @@
                 },
                 "type": "object"
             },
-            "ScriptFavoriteCreateFormRequest": {
-                "title": "Script Favorite Create Form Request Fields",
-                "description": "Script Favorite Create request body data",
-                "required": [
-                    "name"
-                ],
-                "properties": {
-                    "script_type_id": {
-                        "title": "script id",
-                        "description": "Initial related script of the id",
-                        "type": "integer",
-                        "example": "1"
-                    }
-                },
-                "type": "object"
-            },
-            "ScriptFavoriteUpdateFormRequest": {
-                "title": "Script Favorite Update Form Request Fields",
-                "description": "Script Favorite Update request body data",
-                "required": [
-                    "name"
-                ],
-                "properties": {
-                    "script_type_id": {
-                        "title": "script id",
-                        "description": "Initial related script of the id",
-                        "type": "integer",
-                        "example": "1"
-                    }
-                },
-                "type": "object"
-            },
-            "ScriptTypeUserPromptAnswerCreateFormRequest": {
-                "title": "Script Type User Prompt Answer Create Form Request Fields",
-                "description": "Script Type User Prompt Answer Create request body data",
-                "required": [
-                    "name"
-                ],
-                "properties": {
-                    "answer": {
-                        "title": "script type answer",
-                        "description": "answer of the script type",
-                        "type": "string",
-                        "example": "Info Limited"
-                    },
-                    "script_type_prompt_id": {
-                        "title": "script_type_prompt_id",
-                        "description": "Initial related script_type_prompt of the id",
-                        "type": "integer",
-                        "example": "1"
-                    }
-                },
-                "type": "object"
-            },
-            "ScriptTypeUserPromptAnswerUpdateFormRequest": {
-                "title": "Script Type User Prompt Answer Update Form Request Fields",
-                "description": "Script Type User Prompt Answer Update request body data",
-                "required": [
-                    "name"
-                ],
-                "properties": {
-                    "answer": {
-                        "title": "script type answer",
-                        "description": "answer of the script type",
-                        "type": "string",
-                        "example": "Info Limited"
-                    },
-                    "script_type_prompt_id": {
-                        "title": "script_type_prompt_id",
-                        "description": "Initial related script_type_prompt of the id",
-                        "type": "integer",
-                        "example": "1"
-                    }
-                },
-                "type": "object"
-            },
             "ScriptUpdateFormRequest": {
                 "title": "Script Update Form Request Fields",
                 "description": "Script Update request body data",
@@ -4235,31 +4159,41 @@
                 },
                 "type": "object"
             },
-            "ScriptUserAnswerCreateFormRequest": {
-                "title": "Script User Answer Create Form Request Fields",
-                "description": "Script User Answer Create request body data",
+            "UserFavoriteScriptResponseCreateFormRequest": {
+                "title": "Script Favorite Create Form Request Fields",
+                "description": "Script Favorite Create request body data",
                 "required": [
                     "name"
                 ],
                 "properties": {
-                    "answer": {
-                        "title": "script type answer",
-                        "description": "answer of the script type",
-                        "type": "string",
-                        "example": "Info Limited"
-                    },
-                    "script_type_question_id": {
-                        "title": "user script_type question id",
-                        "description": "Initial related script_type question of the id",
+                    "script_type_id": {
+                        "title": "script id",
+                        "description": "Initial related script of the id",
                         "type": "integer",
                         "example": "1"
                     }
                 },
                 "type": "object"
             },
-            "ScriptUserAnswerUpdateFormRequest": {
-                "title": "Script User Answer Update Form Request Fields",
-                "description": "Script User Answer Update request body data",
+            "UserFavoriteScriptResponseUpdateFormRequest": {
+                "title": "Script Favorite Update Form Request Fields",
+                "description": "Script Favorite Update request body data",
+                "required": [
+                    "name"
+                ],
+                "properties": {
+                    "script_type_id": {
+                        "title": "script id",
+                        "description": "Initial related script of the id",
+                        "type": "integer",
+                        "example": "1"
+                    }
+                },
+                "type": "object"
+            },
+            "UserScriptTypePresetCreateFormRequest": {
+                "title": "User Preset Answer Create Form Request Fields",
+                "description": "User Preset Answer Create request body data",
                 "required": [
                     "name"
                 ],
@@ -4270,9 +4204,31 @@
                         "type": "string",
                         "example": "Info Limited"
                     },
-                    "script_type_question_id": {
-                        "title": "user script_type question id",
-                        "description": "Initial related script_type question of the id",
+                    "script_type_prompt_id": {
+                        "title": "script_type_prompt_id",
+                        "description": "Initial related script_type_prompt of the id",
+                        "type": "integer",
+                        "example": "1"
+                    }
+                },
+                "type": "object"
+            },
+            "UserScriptTypePresetUpdateFormRequest": {
+                "title": "User Preset Answer Update Form Request Fields",
+                "description": "User Preset Answer Update request body data",
+                "required": [
+                    "name"
+                ],
+                "properties": {
+                    "answer": {
+                        "title": "script type answer",
+                        "description": "answer of the script type",
+                        "type": "string",
+                        "example": "Info Limited"
+                    },
+                    "script_type_prompt_id": {
+                        "title": "script_type_prompt_id",
+                        "description": "Initial related script_type_prompt of the id",
                         "type": "integer",
                         "example": "1"
                     }

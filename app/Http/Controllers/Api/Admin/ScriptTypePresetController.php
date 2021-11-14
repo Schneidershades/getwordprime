@@ -52,7 +52,7 @@ class ScriptTypePresetController extends Controller
     *      description="Post script-type-prompts",
     *      @OA\RequestBody(
     *          required=true,
-    *          @OA\JsonContent(ref="#/components/schemas/ScriptTypePromptCreateFormRequest")
+    *          @OA\JsonContent(ref="#/components/schemas/ScriptTypePresetCreateFormRequest")
     *      ),
     *      @OA\Response(
     *          response=200,
@@ -145,7 +145,7 @@ class ScriptTypePresetController extends Controller
      *     ),
     *      @OA\RequestBody(
     *          required=true,
-    *          @OA\JsonContent(ref="#/components/schemas/ScriptTypePromptUpdateFormRequest")
+    *          @OA\JsonContent(ref="#/components/schemas/ScriptTypePresetUpdateFormRequest")
     *      ),
     *      @OA\Response(
     *          response=200,

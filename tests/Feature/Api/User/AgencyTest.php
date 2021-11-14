@@ -10,6 +10,8 @@ class AgencyTest extends TestCase
 {
     public function test_show_all_agencies()
     {
-        
+        $response = $this->get('/');
+
+        $response->assertStatus(200);
     }
 }

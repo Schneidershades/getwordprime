@@ -3,9 +3,10 @@
 namespace App\Http\Controllers\Api\User;
 
 use App\Models\Script;
-use App\Models\UserFavoriteScriptResponse;
 use App\Http\Controllers\Controller;
+use App\Models\UserFavoriteScriptResponse;
 use App\Http\Requests\User\ScriptCreateFormRequest;
+use App\Http\Requests\User\UserFavoriteScriptResponseCreateFormRequest;
 
 class UserFavoriteScriptResponseController extends Controller
 {
@@ -52,7 +53,7 @@ class UserFavoriteScriptResponseController extends Controller
     *      description="Post script favorite",
     *      @OA\RequestBody(
     *          required=true,
-    *          @OA\JsonContent(ref="#/components/schemas/ScriptFavoriteCreateFormRequest")
+    *          @OA\JsonContent(ref="#/components/schemas/UserFavoriteScriptResponseCreateFormRequest")
     *      ),
     *      @OA\Response(
     *          response=200,

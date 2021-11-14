@@ -5,7 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class OpenaiAttributes extends Model
+class OpenaiAttribute extends Model
 {
     use HasFactory;
     protected $guarded = [];

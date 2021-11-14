@@ -26,7 +26,7 @@ Route::prefix('v1')->group(function () {
 		Route::resource('tutorials', TutorialController::class);
 		Route::resource('suggestion', SuggestionController::class);
 		Route::resource('dashboard', DashboardController::class);
-		Route::resource('script-type-user-prompt-answers', ScriptTypeUserPromptAnswerController::class);
+		Route::resource('user-script-type-preset', UserScriptTypePresetController::class);
 	});
 
 	Route::group(['prefix' => 'admin', 'middleware' => 'auth:api', 'namespace' => 'Api\Admin'], function(){
@@ -38,11 +38,10 @@ Route::prefix('v1')->group(function () {
 		Route::resource('roles', RoleController::class, array("as"=>"adminRoles"));
 		Route::resource('script-type-attributes', ScriptTypeAttributeController::class, array("as"=>"adminScriptTypeAttribute"));
 		Route::resource('script-type', ScriptTypeController::class, array("as"=>"adminScriptType"));
-		Route::resource('script-type-questions', ScriptTypeQuestionController::class, array("as"=>"adminScriptTypeQuestion"));
 		Route::resource('suggestions', SuggestionController::class, array("as"=>"adminSuggestions"));
 		Route::resource('tutorials', TutorialController::class, array("as"=>"adminTutorials"));
 		Route::resource('users', UserController::class, array("as"=>"adminUsers"));
-		Route::resource('script-type-prompts', ScriptTypePromptController::class, array("as"=>"adminScriptTypePrompts"));
+		Route::resource('script-type-presets', ScriptTypePresetController::class, array("as"=>"adminScriptTypePrompts"));
 		Route::resource('dashboard', DashboardController::class, array("as"=>"adminDashboard"));
 	});
 
