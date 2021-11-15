@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateScriptResponsesTable extends Migration
+class CreateUserPlansTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,10 +13,10 @@ class CreateScriptResponsesTable extends Migration
      */
     public function up()
     {
-        Schema::create('script_responses', function (Blueprint $table) {
+        Schema::create('user_plans', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('script_id')->nullable()->constrained();
-            $table->text('responses')->nullable()->constrained();
+            $table->foreignId('user_id')->nullable()->constrained();
+            $table->foreignId('plan_id')->nullable()->constrained();
             $table->timestamps();
             $table->softDeletes();
         });
@@ -29,6 +29,6 @@ class CreateScriptResponsesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('script_responses');
+        Schema::dropIfExists('user_plans');
     }
 }

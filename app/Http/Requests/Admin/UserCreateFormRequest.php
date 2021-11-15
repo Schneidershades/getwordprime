@@ -17,6 +17,39 @@ use Illuminate\Foundation\Http\FormRequest;
 
 class UserCreateFormRequest extends FormRequest
 {
+     /**
+     * @OA\Property(
+     *      title="User Name",
+     *      description="name of the user",
+     *      example="Schneider"
+     * )
+     *
+     * @var string
+     */
+    public $name;
+
+    /**
+     * @OA\Property(
+     *      title="User Role",
+     *      description="User/Admin",
+     *      example="User"
+     * )
+     *
+     * @var string
+     */
+    public $role;
+
+    /**
+     * @OA\Property(
+     *      title="User email",
+     *      description="Email of the user",
+     *      example="info@convertscript.com"
+     * )
+     *
+     * @var string
+     */
+    public $email;
+    
     /**
      * Determine if the user is authorized to make this request.
      *
@@ -24,7 +57,7 @@ class UserCreateFormRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
