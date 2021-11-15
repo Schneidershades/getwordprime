@@ -27,6 +27,7 @@ Route::prefix('v1')->group(function () {
 		Route::resource('suggestion', SuggestionController::class);
 		Route::resource('dashboard', DashboardController::class);
 		Route::resource('user-script-type-preset', UserScriptTypePresetController::class);
+		Route::resource('platform-integrations', PlatformIntegrationController::class);
 	});
 
 	Route::group([ 'prefix' => 'share', 'namespace' => 'Api\Share'], function(){
@@ -47,6 +48,9 @@ Route::prefix('v1')->group(function () {
 		Route::resource('tutorials', TutorialController::class, array("as"=>"adminTutorials"));
 		Route::resource('users', UserController::class, array("as"=>"adminUsers"));
 		Route::resource('script-type-presets', ScriptTypePresetController::class, array("as"=>"adminScriptTypePrompts"));
+		Route::resource('transactions', TransactionController::class, array("as"=>"adminTransactions"));
+		Route::resource('bonuses', BonusController::class, array("as"=>"adminBonuses"));
+		Route::resource('third-party-platforms', ThirdPartyPlatformController::class, array("as"=>"adminThirdPartyPlatforms"));
 		Route::resource('dashboard', DashboardController::class, array("as"=>"adminDashboard"));
 	});
 

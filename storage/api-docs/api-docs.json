@@ -427,6 +427,213 @@
                 ]
             }
         },
+        "/api/v1/admin/bonuses": {
+            "get": {
+                "tags": [
+                    "Admin"
+                ],
+                "summary": "Get all bonuses",
+                "description": "Get all bonuses",
+                "operationId": "allBonuss",
+                "responses": {
+                    "200": {
+                        "description": "Successful signin",
+                        "content": {
+                            "application/json": {}
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    },
+                    "401": {
+                        "description": "unauthenticated"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            },
+            "post": {
+                "tags": [
+                    "Admin"
+                ],
+                "summary": "Post new bonuses",
+                "description": "Post new bonuses",
+                "operationId": "postBonuss",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/BonusStoreFormRequest"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Successful signin",
+                        "content": {
+                            "application/json": {}
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    },
+                    "401": {
+                        "description": "unauthenticated"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        },
+        "/api/v1/admin/bonuses/{id}": {
+            "get": {
+                "tags": [
+                    "Admin"
+                ],
+                "summary": "Show an bonus",
+                "description": "Show an bonus",
+                "operationId": "showBonus",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Bonus ID",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful signin",
+                        "content": {
+                            "application/json": {}
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    },
+                    "401": {
+                        "description": "unauthenticated"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            },
+            "put": {
+                "tags": [
+                    "Admin"
+                ],
+                "summary": "Update an bonus",
+                "description": "Update an bonus",
+                "operationId": "BonusUpdate",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "bonus ID",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/BonusUpdateFormRequest"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Successful signin",
+                        "content": {
+                            "application/json": {}
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    },
+                    "401": {
+                        "description": "unauthenticated"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            },
+            "delete": {
+                "tags": [
+                    "Admin"
+                ],
+                "summary": "Delete an bonus",
+                "description": "Delete an bonus",
+                "operationId": "deleteBonus",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Bonus ID",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful signin",
+                        "content": {
+                            "application/json": {}
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    },
+                    "401": {
+                        "description": "unauthenticated"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        },
         "/api/v1/admin/dashboard": {
             "get": {
                 "tags": [
@@ -1579,6 +1786,215 @@
                         "name": "id",
                         "in": "path",
                         "description": "suggestion ID",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful signin",
+                        "content": {
+                            "application/json": {}
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    },
+                    "401": {
+                        "description": "unauthenticated"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        },
+        "/api/v1/third-party-platforms": {
+            "get": {
+                "tags": [
+                    "user"
+                ],
+                "summary": "Get all thirdPartyPlatformes",
+                "description": "Get all thirdPartyPlatformes",
+                "operationId": "allThirdPartyPlatforms",
+                "responses": {
+                    "200": {
+                        "description": "Successful signin",
+                        "content": {
+                            "application/json": {}
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    },
+                    "401": {
+                        "description": "unauthenticated"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        },
+        "/api/v1/admin/third-party-platforms": {
+            "post": {
+                "tags": [
+                    "user"
+                ],
+                "summary": "Post new thirdPartyPlatformes",
+                "description": "Post new thirdPartyPlatformes",
+                "operationId": "postThirdPartyPlatforms",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/ThirdPartyPlatformStoreFormRequest"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Successful signin",
+                        "content": {
+                            "application/json": {}
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    },
+                    "401": {
+                        "description": "unauthenticated"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        },
+        "/api/v1/admin/third-party-platforms/{id}": {
+            "get": {
+                "tags": [
+                    "user"
+                ],
+                "summary": "Show an thirdPartyPlatform",
+                "description": "Show an thirdPartyPlatform",
+                "operationId": "showThirdPartyPlatform",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "ThirdPartyPlatform ID",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful signin",
+                        "content": {
+                            "application/json": {}
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    },
+                    "401": {
+                        "description": "unauthenticated"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            },
+            "put": {
+                "tags": [
+                    "user"
+                ],
+                "summary": "Update an thirdPartyPlatform",
+                "description": "Update an thirdPartyPlatform",
+                "operationId": "ThirdPartyPlatformUpdate",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "thirdPartyPlatform ID",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/ThirdPartyPlatformUpdateFormRequest"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Successful signin",
+                        "content": {
+                            "application/json": {}
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    },
+                    "401": {
+                        "description": "unauthenticated"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            },
+            "delete": {
+                "tags": [
+                    "user"
+                ],
+                "summary": "Delete an thirdPartyPlatform",
+                "description": "Delete an thirdPartyPlatform",
+                "operationId": "deleteThirdPartyPlatform",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "ThirdPartyPlatform ID",
                         "required": true,
                         "schema": {
                             "type": "integer"
@@ -2930,6 +3346,213 @@
                 ]
             }
         },
+        "/api/v1/admin/platform-integrations": {
+            "get": {
+                "tags": [
+                    "Admin"
+                ],
+                "summary": "Get all bonuses",
+                "description": "Get all bonuses",
+                "operationId": "allPlatformIntegrations",
+                "responses": {
+                    "200": {
+                        "description": "Successful signin",
+                        "content": {
+                            "application/json": {}
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    },
+                    "401": {
+                        "description": "unauthenticated"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            },
+            "post": {
+                "tags": [
+                    "Admin"
+                ],
+                "summary": "Post new bonuses",
+                "description": "Post new bonuses",
+                "operationId": "postPlatformIntegrations",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/PlatformIntegrationStoreFormRequest"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Successful signin",
+                        "content": {
+                            "application/json": {}
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    },
+                    "401": {
+                        "description": "unauthenticated"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        },
+        "/api/v1/admin/platform-integrations/{id}": {
+            "get": {
+                "tags": [
+                    "Admin"
+                ],
+                "summary": "Show an bonus",
+                "description": "Show an bonus",
+                "operationId": "showPlatformIntegration",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "PlatformIntegration ID",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful signin",
+                        "content": {
+                            "application/json": {}
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    },
+                    "401": {
+                        "description": "unauthenticated"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            },
+            "put": {
+                "tags": [
+                    "Admin"
+                ],
+                "summary": "Update an bonus",
+                "description": "Update an bonus",
+                "operationId": "PlatformIntegrationUpdate",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "bonus ID",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/PlatformIntegrationUpdateFormRequest"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Successful signin",
+                        "content": {
+                            "application/json": {}
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    },
+                    "401": {
+                        "description": "unauthenticated"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            },
+            "delete": {
+                "tags": [
+                    "Admin"
+                ],
+                "summary": "Delete an bonus",
+                "description": "Delete an bonus",
+                "operationId": "deletePlatformIntegration",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "PlatformIntegration ID",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful signin",
+                        "content": {
+                            "application/json": {}
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    },
+                    "401": {
+                        "description": "unauthenticated"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        },
         "/api/v1/reseller": {
             "get": {
                 "tags": [
@@ -4124,6 +4747,22 @@
                 },
                 "type": "object"
             },
+            "BonusStoreFormRequest": {
+                "title": "Bonus Store Form Request Fields",
+                "description": "Bonus Store request body data",
+                "required": [
+                    "name"
+                ],
+                "type": "object"
+            },
+            "BonusUpdateFormRequest": {
+                "title": "Bonus Update Form Request Fields",
+                "description": "Bonus Update request body data",
+                "required": [
+                    "name"
+                ],
+                "type": "object"
+            },
             "PlanStoreFormRequest": {
                 "title": "Plan Store Form Request Fields",
                 "description": "Role Store request body data",
@@ -4350,6 +4989,22 @@
                 },
                 "type": "object"
             },
+            "ThirdPartyPlatformStoreFormRequest": {
+                "title": "ThirdPartyPlatform Store Form Request Fields",
+                "description": "ThirdPartyPlatform Store request body data",
+                "required": [
+                    "name"
+                ],
+                "type": "object"
+            },
+            "ThirdPartyPlatformUpdateFormRequest": {
+                "title": "ThirdPartyPlatform Update Form Request Fields",
+                "description": "ThirdPartyPlatform Update request body data",
+                "required": [
+                    "name"
+                ],
+                "type": "object"
+            },
             "TutorialCreateFormRequest": {
                 "title": "Tutorial Create Form Request Fields",
                 "description": "Tutorial Create request body data",
@@ -4430,6 +5085,18 @@
                         "description": "Email of the user",
                         "type": "string",
                         "example": "info@convertscript.com"
+                    },
+                    "plans": {
+                        "type": "array",
+                        "items": {
+                            "properties": {
+                                "plan_id": {
+                                    "type": "int",
+                                    "example": "1"
+                                }
+                            },
+                            "type": "object"
+                        }
                     }
                 },
                 "type": "object"
@@ -4650,6 +5317,22 @@
                         "example": "Paste content"
                     }
                 },
+                "type": "object"
+            },
+            "PlatformIntegrationStoreFormRequest": {
+                "title": "PlatformIntegration Store Form Request Fields",
+                "description": "PlatformIntegration Store request body data",
+                "required": [
+                    "name"
+                ],
+                "type": "object"
+            },
+            "PlatformIntegrationUpdateFormRequest": {
+                "title": "PlatformIntegration Update Form Request Fields",
+                "description": "PlatformIntegration Update request body data",
+                "required": [
+                    "name"
+                ],
                 "type": "object"
             },
             "ResellerCreateFormRequest": {

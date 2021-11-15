@@ -4,7 +4,19 @@ namespace App\Http\Requests\Admin;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class PlatformIntegrationStoreFormRequest extends FormRequest
+
+/**
+ * @OA\Schema(
+ *      title="Bonus Update Form Request Fields",
+ *      description="Bonus Update request body data",
+ *      type="object",
+ *      required={"name"}
+ * )
+ */
+
+ 
+
+class BonusUpdateFormRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -13,7 +25,7 @@ class PlatformIntegrationStoreFormRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**

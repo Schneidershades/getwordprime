@@ -24,5 +24,6 @@ class DatabaseSeeder extends Seeder
         $this->call(PlansTableSeeder::class);
         $this->call(ThirdPartyPlatformsTableSeeder::class);
         $this->call(PlatformIntegrationTableSeeder::class);
+        $this->call(TransactionTableSeeder::class);
     }
 }

@@ -31,7 +31,7 @@ class Transaction extends Model
         parent::boot();
 
         static::creating(function ($order) {
-            $order->receipt_number = 'XR-'. substr(str_shuffle("0123456789"), 0, 6);
+            $order->transaction_id = 'XR-'. substr(str_shuffle("0123456789"), 0, 6);
         });
     }
 }

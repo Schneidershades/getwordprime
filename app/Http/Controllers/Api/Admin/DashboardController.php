@@ -3,8 +3,9 @@
 namespace App\Http\Controllers\Api\Admin;
 
 use App\Models\Script;
-use App\Models\Campaign;
 use App\Http\Controllers\Controller;
+use App\Models\Transaction;
+use App\Models\User;
 
 class DashboardController extends Controller
 {
@@ -41,8 +42,8 @@ class DashboardController extends Controller
     public function index()
     {
         $data = [
-            'campaigns' => Campaign::all()->count(),
-            'scripts' => Script::all()->count(),
+            'user' => User::all()->count(),
+            'transactions' => Transaction::all()->count(),
             'published' => Script::all()->count(),
         ];
 

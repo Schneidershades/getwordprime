@@ -1,19 +1,21 @@
 <?php
 
-namespace App\Http\Requests\User;
+namespace App\Http\Requests\Admin;
 
 use Illuminate\Foundation\Http\FormRequest;
 
+
 /**
  * @OA\Schema(
- *      title="PlatformIntegration Update Form Request Fields",
- *      description="PlatformIntegration Update request body data",
+ *      title="ThirdPartyPlatform Store Form Request Fields",
+ *      description="ThirdPartyPlatform Store request body data",
  *      type="object",
  *      required={"name"}
  * )
  */
 
-class PlatformIntegrationUpdateFormRequest extends FormRequest
+
+class ThirdPartyPlatformStoreFormRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -22,7 +24,7 @@ class PlatformIntegrationUpdateFormRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**

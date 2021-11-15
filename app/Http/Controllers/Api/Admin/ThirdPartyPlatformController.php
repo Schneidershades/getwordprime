@@ -2,20 +2,21 @@
 
 namespace App\Http\Controllers\Api\Admin;
 
-use App\Models\User;
-use Illuminate\Http\Request;
-use App\Http\Controllers\Controller;
-use App\Http\Requests\Admin\UserUpdateFormRequest;
 
-class UserController extends Controller
+use App\Models\ThirdPartyPlatform;
+use App\Http\Controllers\Controller;
+use App\Http\Requests\Admin\ThirdPartyPlatformStoreFormRequest;
+use App\Http\Requests\Admin\ThirdPartyPlatformUpdateFormRequest;
+
+class ThirdPartyPlatformController extends Controller
 {
     /**
     * @OA\Get(
-    *      path="/api/v1/admin/users",
-    *      operationId="allUsers",
-    *      tags={"Admin"},
-    *      summary="Get all users",
-    *      description="Get all users",
+    *      path="/api/v1/third-party-platforms",
+    *      operationId="allThirdPartyPlatforms",
+    *      tags={"user"},
+    *      summary="Get all thirdPartyPlatformes",
+    *      description="Get all thirdPartyPlatformes",
     *      @OA\Response(
     *          response=200,
     *          description="Successful signin",
@@ -40,19 +41,19 @@ class UserController extends Controller
     */
     public function index()
     {
-        return $this->showAll(User::latest()->get());
+        return $this->showAll(ThirdPartyPlatform::all());
     }
 
     /**
     * @OA\Post(
-    *      path="/api/v1/admin/users",
-    *      operationId="postUser",
-    *      tags={"Admin"},
-    *      summary="Post users",
-    *      description="Post users",
+    *      path="/api/v1/admin/third-party-platforms",
+    *      operationId="postThirdPartyPlatforms",
+    *      tags={"user"},
+    *      summary="Post new thirdPartyPlatformes",
+    *      description="Post new thirdPartyPlatformes",
     *      @OA\RequestBody(
     *          required=true,
-    *          @OA\JsonContent(ref="#/components/schemas/UserCreateFormRequest")
+    *          @OA\JsonContent(ref="#/components/schemas/ThirdPartyPlatformStoreFormRequest")
     *      ),
     *      @OA\Response(
     *          response=200,
@@ -76,24 +77,22 @@ class UserController extends Controller
     *      security={ {"bearerAuth": {}} },
     * )
     */
-    public function store(Request $request)
+    public function store(ThirdPartyPlatformStoreFormRequest $request)
     {
-        $user = User::create($request->validated());
-
-        return $this->showOne($user);
+        return $this->showOne(ThirdPartyPlatform::create($request->validated()));
     }
 
     /**
     * @OA\Get(
-    *      path="/api/v1/admin/users/{id}",
-    *      operationId="showUser",
-    *      tags={"Admin"},
-    *      summary="Show user",
-    *      description="Show user",
+    *      path="/api/v1/admin/third-party-platforms/{id}",
+    *      operationId="showThirdPartyPlatform",
+    *      tags={"user"},
+    *      summary="Show an thirdPartyPlatform",
+    *      description="Show an thirdPartyPlatform",
     *      
      *      @OA\Parameter(
      *          name="id",
-     *          description="User ID",
+     *          description="ThirdPartyPlatform ID",
      *          required=true,
      *          in="path",
      *          @OA\Schema(
@@ -123,22 +122,22 @@ class UserController extends Controller
     *      security={ {"bearerAuth": {}} },
     * )
     */
-    public function show(User $user)
+    public function show($id)
     {
-        return $this->showOne(User::findOrFail($user->id));
+        return $this->showOne(ThirdPartyPlatform::find($id));
     }
 
     /**
     * @OA\Put(
-    *      path="/api/v1/admin/users/{id}",
-    *      operationId="UserUpdate",
-    *      tags={"Admin"},
-    *      summary="Update user",
-    *      description="Update user",
+    *      path="/api/v1/admin/third-party-platforms/{id}",
+    *      operationId="ThirdPartyPlatformUpdate",
+    *      tags={"user"},
+    *      summary="Update an thirdPartyPlatform",
+    *      description="Update an thirdPartyPlatform",
     *      
      *      @OA\Parameter(
      *          name="id",
-     *          description="user ID",
+     *          description="thirdPartyPlatform ID",
      *          required=true,
      *          in="path",
      *          @OA\Schema(
@@ -147,7 +146,7 @@ class UserController extends Controller
      *     ),
     *      @OA\RequestBody(
     *          required=true,
-    *          @OA\JsonContent(ref="#/components/schemas/UserCreateFormRequest")
+    *          @OA\JsonContent(ref="#/components/schemas/ThirdPartyPlatformUpdateFormRequest")
     *      ),
     *      @OA\Response(
     *          response=200,
@@ -172,23 +171,23 @@ class UserController extends Controller
     * )
     */
     
-    public function update(UserUpdateFormRequest $request, User $user)
+    public function update(ThirdPartyPlatformUpdateFormRequest $request, $id)
     {
-        $user->update($request->validated());
-        return $this->showOne($user);
+        ThirdPartyPlatform::find($id)->update($request->validated());
+        return $this->showOne(ThirdPartyPlatform::find($id));
     }
 
      /**
     * @OA\Delete(
-    *      path="/api/v1/admin/users/{id}",
-    *      operationId="deleteUser",
-    *      tags={"Admin"},
-    *      summary="Delete user",
-    *      description="Delete user",
+    *      path="/api/v1/admin/third-party-platforms/{id}",
+    *      operationId="deleteThirdPartyPlatform",
+    *      tags={"user"},
+    *      summary="Delete an thirdPartyPlatform",
+    *      description="Delete an thirdPartyPlatform",
     *      
      *      @OA\Parameter(
      *          name="id",
-     *          description="User ID",
+     *          description="ThirdPartyPlatform ID",
      *          required=true,
      *          in="path",
      *          @OA\Schema(
@@ -217,9 +216,9 @@ class UserController extends Controller
     *      security={ {"bearerAuth": {}} },
     * )
     */
-    public function destroy(User $user)
+    public function destroy(ThirdPartyPlatform $thirdPartyPlatform)
     {
-        $user->delete();
+        $thirdPartyPlatform->delete();
         return $this->showMessage('deleted');
     }
 }

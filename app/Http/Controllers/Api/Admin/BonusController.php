@@ -2,20 +2,20 @@
 
 namespace App\Http\Controllers\Api\Admin;
 
-use App\Models\User;
-use Illuminate\Http\Request;
+use App\Models\Bonus;
 use App\Http\Controllers\Controller;
-use App\Http\Requests\Admin\UserUpdateFormRequest;
+use App\Http\Requests\Admin\BonusStoreFormRequest;
+use App\Http\Requests\Admin\BonusUpdateFormRequest;
 
-class UserController extends Controller
+class BonusController extends Controller
 {
     /**
     * @OA\Get(
-    *      path="/api/v1/admin/users",
-    *      operationId="allUsers",
+    *      path="/api/v1/admin/bonuses",
+    *      operationId="allBonuss",
     *      tags={"Admin"},
-    *      summary="Get all users",
-    *      description="Get all users",
+    *      summary="Get all bonuses",
+    *      description="Get all bonuses",
     *      @OA\Response(
     *          response=200,
     *          description="Successful signin",
@@ -40,19 +40,19 @@ class UserController extends Controller
     */
     public function index()
     {
-        return $this->showAll(User::latest()->get());
+        return $this->showAll(Bonus::all());
     }
 
     /**
     * @OA\Post(
-    *      path="/api/v1/admin/users",
-    *      operationId="postUser",
+    *      path="/api/v1/admin/bonuses",
+    *      operationId="postBonuss",
     *      tags={"Admin"},
-    *      summary="Post users",
-    *      description="Post users",
+    *      summary="Post new bonuses",
+    *      description="Post new bonuses",
     *      @OA\RequestBody(
     *          required=true,
-    *          @OA\JsonContent(ref="#/components/schemas/UserCreateFormRequest")
+    *          @OA\JsonContent(ref="#/components/schemas/BonusStoreFormRequest")
     *      ),
     *      @OA\Response(
     *          response=200,
@@ -76,24 +76,22 @@ class UserController extends Controller
     *      security={ {"bearerAuth": {}} },
     * )
     */
-    public function store(Request $request)
+    public function store(BonusStoreFormRequest $request)
     {
-        $user = User::create($request->validated());
-
-        return $this->showOne($user);
+        return $this->showOne(Bonus::create($request->validated()));
     }
 
     /**
     * @OA\Get(
-    *      path="/api/v1/admin/users/{id}",
-    *      operationId="showUser",
+    *      path="/api/v1/admin/bonuses/{id}",
+    *      operationId="showBonus",
     *      tags={"Admin"},
-    *      summary="Show user",
-    *      description="Show user",
+    *      summary="Show an bonus",
+    *      description="Show an bonus",
     *      
      *      @OA\Parameter(
      *          name="id",
-     *          description="User ID",
+     *          description="Bonus ID",
      *          required=true,
      *          in="path",
      *          @OA\Schema(
@@ -123,22 +121,22 @@ class UserController extends Controller
     *      security={ {"bearerAuth": {}} },
     * )
     */
-    public function show(User $user)
+    public function show($id)
     {
-        return $this->showOne(User::findOrFail($user->id));
+        return $this->showOne(Bonus::find($id));
     }
 
     /**
     * @OA\Put(
-    *      path="/api/v1/admin/users/{id}",
-    *      operationId="UserUpdate",
+    *      path="/api/v1/admin/bonuses/{id}",
+    *      operationId="BonusUpdate",
     *      tags={"Admin"},
-    *      summary="Update user",
-    *      description="Update user",
+    *      summary="Update an bonus",
+    *      description="Update an bonus",
     *      
      *      @OA\Parameter(
      *          name="id",
-     *          description="user ID",
+     *          description="bonus ID",
      *          required=true,
      *          in="path",
      *          @OA\Schema(
@@ -147,7 +145,7 @@ class UserController extends Controller
      *     ),
     *      @OA\RequestBody(
     *          required=true,
-    *          @OA\JsonContent(ref="#/components/schemas/UserCreateFormRequest")
+    *          @OA\JsonContent(ref="#/components/schemas/BonusUpdateFormRequest")
     *      ),
     *      @OA\Response(
     *          response=200,
@@ -172,23 +170,23 @@ class UserController extends Controller
     * )
     */
     
-    public function update(UserUpdateFormRequest $request, User $user)
+    public function update(BonusUpdateFormRequest $request, $id)
     {
-        $user->update($request->validated());
-        return $this->showOne($user);
+        Bonus::find($id)->update($request->validated());
+        return $this->showOne(Bonus::find($id));
     }
 
      /**
     * @OA\Delete(
-    *      path="/api/v1/admin/users/{id}",
-    *      operationId="deleteUser",
+    *      path="/api/v1/admin/bonuses/{id}",
+    *      operationId="deleteBonus",
     *      tags={"Admin"},
-    *      summary="Delete user",
-    *      description="Delete user",
+    *      summary="Delete an bonus",
+    *      description="Delete an bonus",
     *      
      *      @OA\Parameter(
      *          name="id",
-     *          description="User ID",
+     *          description="Bonus ID",
      *          required=true,
      *          in="path",
      *          @OA\Schema(
@@ -217,9 +215,10 @@ class UserController extends Controller
     *      security={ {"bearerAuth": {}} },
     * )
     */
-    public function destroy(User $user)
+    public function destroy(Bonus $bonus)
     {
-        $user->delete();
+        $bonus->delete();
         return $this->showMessage('deleted');
     }
 }
+

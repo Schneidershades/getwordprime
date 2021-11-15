@@ -49,6 +49,17 @@ class UserCreateFormRequest extends FormRequest
      * @var string
      */
     public $email;
+
+    /**
+    *       @OA\Property(property="plans", type="object", type="array",
+    *            @OA\Items(
+    *                @OA\Property(property="plan_id", type="int", example="1"),
+    *            ),
+    *        ),
+    *    ),
+    */
+
+    public $plans;
     
     /**
      * Determine if the user is authorized to make this request.
@@ -68,7 +79,11 @@ class UserCreateFormRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            'name' => 'required|string|max:255',
+            'email' => 'required|string|email|max:255|unique:users',
+            'role' => 'required|string|max:255|in:Admin,User',
+            'plans' => 'required|array', 
+            'plans.*.plan_id' => 'required|int|exists:plans,id',
         ];
     }
 }

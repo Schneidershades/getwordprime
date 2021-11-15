@@ -4,6 +4,16 @@ namespace App\Http\Requests\User;
 
 use Illuminate\Foundation\Http\FormRequest;
 
+/**
+ * @OA\Schema(
+ *      title="PlatformIntegration Store Form Request Fields",
+ *      description="PlatformIntegration Store request body data",
+ *      type="object",
+ *      required={"name"}
+ * )
+ */
+
+
 class PlatformIntegrationStoreFormRequest extends FormRequest
 {
     /**
