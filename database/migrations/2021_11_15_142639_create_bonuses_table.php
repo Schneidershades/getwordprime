@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateThirdPartyPlatformsTable extends Migration
+class CreateBonusesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,12 @@ class CreateThirdPartyPlatformsTable extends Migration
      */
     public function up()
     {
-        Schema::create('third_party_platforms', function (Blueprint $table) {
+        Schema::create('bonuses', function (Blueprint $table) {
             $table->id();
-            $table->text('name')->nullable();
-            $table->boolean('activate')->default(true);
+            $table->string('name')->nullable();
+            $table->text('description')->nullable();
+            $table->text('url')->nullable();
             $table->timestamps();
-            $table->softDeletes();
         });
     }
 
@@ -29,6 +29,6 @@ class CreateThirdPartyPlatformsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('third_party_platforms');
+        Schema::dropIfExists('bonuses');
     }
 }

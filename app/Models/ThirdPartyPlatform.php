@@ -8,4 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class ThirdPartyPlatform extends Model
 {
     use HasFactory;
+
+    public $oneItem = ThirdPartyPlatformResource::class;
+    public $allItems = ThirdPartyPlatformCollection::class;
 }
