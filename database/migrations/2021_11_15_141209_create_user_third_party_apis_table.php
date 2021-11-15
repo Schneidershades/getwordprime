@@ -15,7 +15,7 @@ class CreateUserThirdPartyApisTable extends Migration
     {
         Schema::create('user_third_party_apis', function (Blueprint $table) {
             $table->id();
-            $table->text('platform_name');
+            $table->foreignId('platform_integration_id')->nullable()->constrained();
             $table->text('platform_keys');
             $table->foreignId('user_id')->nullable()->constrained();
             $table->timestamps();
