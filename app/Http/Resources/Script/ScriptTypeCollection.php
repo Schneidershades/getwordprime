@@ -6,12 +6,6 @@ use Illuminate\Http\Resources\Json\ResourceCollection;
 
 class ScriptTypeCollection extends ResourceCollection
 {
-    /**
-     * Transform the resource collection into an array.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return array
-     */
     public function toArray($request)
     {
         return [
@@ -26,6 +20,8 @@ class ScriptTypeCollection extends ResourceCollection
             'name' => 'name',
             'icon' => 'icon',
             'description' => 'description',
+            'usage' => 'usage',
+            'activate' => 'activate',
         ];
 
         return isset($attribute[$index]) ? $attribute[$index] : null;
@@ -38,6 +34,8 @@ class ScriptTypeCollection extends ResourceCollection
             'name' => 'name',
             'icon' => 'icon',
             'description' => 'description',
+            'usage' => 'usage',
+            'activate' => 'activate',
         ];
 
         return isset($attribute[$index]) ? $attribute[$index] : null;

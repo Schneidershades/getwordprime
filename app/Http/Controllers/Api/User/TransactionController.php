@@ -1,21 +1,21 @@
 <?php
 
-namespace App\Http\Controllers\Api\Admin;
+namespace App\Http\Controllers\Api\User;
 
-use App\Models\Plan;
+use App\Models\Transaction;
 use App\Http\Controllers\Controller;
-use App\Http\Requests\Admin\PlanStoreFormRequest;
-use App\Http\Requests\Admin\PlanUpdateFormRequest;
+use App\Http\Requests\User\TransactionStoreFormRequest;
+use App\Http\Requests\User\TransactionUpdateFormRequest;
 
-class PlanController extends Controller
+class TransactionController extends Controller
 {
     /**
     * @OA\Get(
-    *      path="/api/v1/admin/plans",
-    *      operationId="allPlans",
-    *      tags={"Admin"},
-    *      summary="Get all plans",
-    *      description="Get all plans",
+    *      path="/api/v1/transactions",
+    *      operationId="allUserTransactions",
+    *      tags={"user"},
+    *      summary="Get all transactions",
+    *      description="Get all transactions",
     *      @OA\Response(
     *          response=200,
     *          description="Successful signin",
@@ -40,19 +40,19 @@ class PlanController extends Controller
     */
     public function index()
     {
-        return $this->showAll(Plan::all());
+        return $this->showAll(auth()->user()->transactions);
     }
 
     /**
     * @OA\Post(
-    *      path="/api/v1/admin/plans",
-    *      operationId="postPlans",
-    *      tags={"Admin"},
-    *      summary="Post new plans",
-    *      description="Post new plans",
+    *      path="/api/v1/transactions",
+    *      operationId="postUserTransactions",
+    *      tags={"user"},
+    *      summary="Post new transactions",
+    *      description="Post new transactions",
     *      @OA\RequestBody(
     *          required=true,
-    *          @OA\JsonContent(ref="#/components/schemas/PlanStoreFormRequest")
+    *          @OA\JsonContent(ref="#/components/schemas/TransactionStoreFormRequest")
     *      ),
     *      @OA\Response(
     *          response=200,
@@ -76,22 +76,22 @@ class PlanController extends Controller
     *      security={ {"bearerAuth": {}} },
     * )
     */
-    public function store(PlanStoreFormRequest $request)
+    public function store(TransactionStoreFormRequest $request)
     {
-        return $this->showOne(Plan::create($request->validated()));
+        return $this->showOne(Transaction::create($request->validated()));
     }
 
     /**
     * @OA\Get(
-    *      path="/api/v1/admin/plans/{id}",
-    *      operationId="showPlan",
-    *      tags={"Admin"},
-    *      summary="Show an plan",
-    *      description="Show an plan",
+    *      path="/api/v1/transactions/{id}",
+    *      operationId="showUserTransaction",
+    *      tags={"user"},
+    *      summary="Show an transaction",
+    *      description="Show an transaction",
     *      
      *      @OA\Parameter(
      *          name="id",
-     *          description="Plan ID",
+     *          description="Transaction ID",
      *          required=true,
      *          in="path",
      *          @OA\Schema(
@@ -123,20 +123,20 @@ class PlanController extends Controller
     */
     public function show($id)
     {
-        return $this->showOne(Plan::find($id));
+        return $this->showOne(Transaction::find($id));
     }
 
     /**
     * @OA\Put(
-    *      path="/api/v1/admin/plans/{id}",
-    *      operationId="PlanUpdate",
-    *      tags={"Admin"},
-    *      summary="Update an plan",
-    *      description="Update an plan",
+    *      path="/api/v1/transactions/{id}",
+    *      operationId="TransactionUpdate",
+    *      tags={"user"},
+    *      summary="Update an transaction",
+    *      description="Update an transaction",
     *      
      *      @OA\Parameter(
      *          name="id",
-     *          description="plan ID",
+     *          description="transaction ID",
      *          required=true,
      *          in="path",
      *          @OA\Schema(
@@ -145,7 +145,7 @@ class PlanController extends Controller
      *     ),
     *      @OA\RequestBody(
     *          required=true,
-    *          @OA\JsonContent(ref="#/components/schemas/PlanUpdateFormRequest")
+    *          @OA\JsonContent(ref="#/components/schemas/TransactionUpdateFormRequest")
     *      ),
     *      @OA\Response(
     *          response=200,
@@ -170,23 +170,23 @@ class PlanController extends Controller
     * )
     */
     
-    public function update(PlanUpdateFormRequest $request, $id)
+    public function update(TransactionUpdateFormRequest $request, $id)
     {
-        Plan::find($id)->update($request->validated());
-        return $this->showOne(Plan::find($id));
+        Transaction::find($id)->update($request->validated());
+        return $this->showOne(Transaction::find($id));
     }
 
      /**
     * @OA\Delete(
-    *      path="/api/v1/admin/plans/{id}",
-    *      operationId="deletePlan",
-    *      tags={"Admin"},
-    *      summary="Delete an plan",
-    *      description="Delete an plan",
+    *      path="/api/v1/transactions/{id}",
+    *      operationId="deleteTransaction",
+    *      tags={"user"},
+    *      summary="Delete an transaction",
+    *      description="Delete an transaction",
     *      
      *      @OA\Parameter(
      *          name="id",
-     *          description="Plan ID",
+     *          description="Transaction ID",
      *          required=true,
      *          in="path",
      *          @OA\Schema(
@@ -215,9 +215,9 @@ class PlanController extends Controller
     *      security={ {"bearerAuth": {}} },
     * )
     */
-    public function destroy(Plan $plan)
+    public function destroy(Transaction $transaction)
     {
-        $plan->delete();
+        $transaction->delete();
         return $this->showMessage('deleted');
     }
 }

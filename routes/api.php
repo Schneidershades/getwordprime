@@ -29,7 +29,7 @@ Route::prefix('v1')->group(function () {
 		Route::resource('user-script-type-preset', UserScriptTypePresetController::class);
 	});
 
-	Route::group([ 'namespace' => 'Api\Share'], function(){
+	Route::group([ 'prefix' => 'share', 'namespace' => 'Api\Share'], function(){
 		Route::resource('plans', PlanController::class);
 	});
 
