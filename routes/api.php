@@ -29,7 +29,12 @@ Route::prefix('v1')->group(function () {
 		Route::resource('user-script-type-preset', UserScriptTypePresetController::class);
 	});
 
+	Route::group([ 'namespace' => 'Api\Share'], function(){
+		Route::resource('plans', PlanController::class);
+	});
+
 	Route::group(['prefix' => 'admin', 'middleware' => 'auth:api', 'namespace' => 'Api\Admin'], function(){
+		Route::resource('plans', AgencyController::class, array("as"=>"adminPlans"));
 		Route::resource('agencies', AgencyController::class, array("as"=>"adminAgencies"));
 		Route::resource('attributes', AttributeController::class, array("as"=>"adminAttributes"));
 		Route::resource('campaigns', CampaignController::class, array("as"=>"adminCampaigns"));

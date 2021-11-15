@@ -4,8 +4,41 @@ namespace App\Http\Requests\Admin;
 
 use Illuminate\Foundation\Http\FormRequest;
 
+
+/**
+ * @OA\Schema(
+ *      title="Plan Store Form Request Fields",
+ *      description="Role Store request body data",
+ *      type="object",
+ *      required={"name"}
+ * )
+ */
+
 class PlanStoreFormRequest extends FormRequest
 {
+
+    /**
+     * @OA\Property(
+     *      title="type",
+     *      description="name of the plan",
+     *      example="FE"
+     * )
+     *
+     * @var string
+     */
+    private $type;
+
+    /**
+     * @OA\Property(
+     *      title="plan name",
+     *      description="name of the plan",
+     *      example="FE"
+     * )
+     *
+     * @var string
+     */
+    private $name;
+
     /**
      * Determine if the user is authorized to make this request.
      *
@@ -13,7 +46,7 @@ class PlanStoreFormRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -24,7 +57,9 @@ class PlanStoreFormRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            'type' => 'required|string',
+            'name' => 'required|string',
+            'default_value' => 'required|numeric',
         ];
     }
 }

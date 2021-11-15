@@ -1,20 +1,19 @@
 <?php
 
-namespace App\Http\Controllers\Api\Admin;
+namespace App\Http\Controllers\Api\Share;
 
-use App\Models\Script;
-use App\Models\Campaign;
+use App\Models\Plan;
 use App\Http\Controllers\Controller;
 
-class DashboardController extends Controller
+class PlanController extends Controller
 {
-     /**
+    /**
     * @OA\Get(
-    *      path="/api/v1/admin/dashboard",
-    *      operationId="adminDashboard",
-    *      tags={"Admin"},
-    *      summary="adminDashboard",
-    *      description="adminDashboard",
+    *      path="/api/v1/share/plans",
+    *      operationId="allSharedPlans",
+    *      tags={"shared"},
+    *      summary="Get all plans",
+    *      description="Get all plans",
     *      @OA\Response(
     *          response=200,
     *          description="Successful signin",
@@ -37,15 +36,8 @@ class DashboardController extends Controller
     *      security={ {"bearerAuth": {}} },
     * )
     */
-
     public function index()
     {
-        $data = [
-            'campaigns' => Campaign::all()->count(),
-            'scripts' => Script::all()->count(),
-            'published' => Script::all()->count(),
-        ];
-
-        return $this->showMessage($data);
+        return $this->showAll(Plan::all());
     }
 }

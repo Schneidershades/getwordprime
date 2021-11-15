@@ -78,7 +78,9 @@ class UserController extends Controller
     */
     public function store(Request $request)
     {
-        return $this->showOne(User::create($request->validated()));
+        $user = User::create($request->validated());
+
+        return $this->showOne($user);
     }
 
     /**

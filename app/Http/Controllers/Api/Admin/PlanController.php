@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\Api\User;
+namespace App\Http\Controllers\Api\Admin;
 
 use App\Models\Plan;
 use App\Http\Controllers\Controller;
@@ -13,7 +13,7 @@ class PlanController extends Controller
     * @OA\Get(
     *      path="/api/v1/plans",
     *      operationId="allPlans",
-    *      tags={"user"},
+    *      tags={"Admin"},
     *      summary="Get all plans",
     *      description="Get all plans",
     *      @OA\Response(
@@ -47,12 +47,12 @@ class PlanController extends Controller
     * @OA\Post(
     *      path="/api/v1/plans",
     *      operationId="postPlans",
-    *      tags={"user"},
+    *      tags={"Admin"},
     *      summary="Post new plans",
     *      description="Post new plans",
     *      @OA\RequestBody(
     *          required=true,
-    *          @OA\JsonContent(ref="#/components/schemas/PlanCreateFormRequest")
+    *          @OA\JsonContent(ref="#/components/schemas/PlanStoreFormRequest")
     *      ),
     *      @OA\Response(
     *          response=200,
@@ -85,7 +85,7 @@ class PlanController extends Controller
     * @OA\Get(
     *      path="/api/v1/plans/{id}",
     *      operationId="showPlan",
-    *      tags={"user"},
+    *      tags={"Admin"},
     *      summary="Show an plan",
     *      description="Show an plan",
     *      
@@ -130,7 +130,7 @@ class PlanController extends Controller
     * @OA\Put(
     *      path="/api/v1/plans/{id}",
     *      operationId="PlanUpdate",
-    *      tags={"user"},
+    *      tags={"Admin"},
     *      summary="Update an plan",
     *      description="Update an plan",
     *      
@@ -145,7 +145,7 @@ class PlanController extends Controller
      *     ),
     *      @OA\RequestBody(
     *          required=true,
-    *          @OA\JsonContent(ref="#/components/schemas/PlanCreateFormRequest")
+    *          @OA\JsonContent(ref="#/components/schemas/PlanUpdateFormRequest")
     *      ),
     *      @OA\Response(
     *          response=200,
@@ -180,7 +180,7 @@ class PlanController extends Controller
     * @OA\Delete(
     *      path="/api/v1/plans/{id}",
     *      operationId="deletePlan",
-    *      tags={"user"},
+    *      tags={"Admin"},
     *      summary="Delete an plan",
     *      description="Delete an plan",
     *      

@@ -48,7 +48,7 @@ class UserFavoriteScriptResponseController extends Controller
     * @OA\Post(
     *      path="/api/v1/user-favorite-script-response",
     *      operationId="postScriptFavorite",
-    *      tags={"reseller"},
+    *      tags={"user"},
     *      summary="Post script favorite",
     *      description="Post script favorite",
     *      @OA\RequestBody(

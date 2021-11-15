@@ -430,11 +430,218 @@
         "/api/v1/admin/dashboard": {
             "get": {
                 "tags": [
-                    "admin"
+                    "Admin"
                 ],
                 "summary": "adminDashboard",
                 "description": "adminDashboard",
                 "operationId": "adminDashboard",
+                "responses": {
+                    "200": {
+                        "description": "Successful signin",
+                        "content": {
+                            "application/json": {}
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    },
+                    "401": {
+                        "description": "unauthenticated"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        },
+        "/api/v1/plans": {
+            "get": {
+                "tags": [
+                    "Admin"
+                ],
+                "summary": "Get all plans",
+                "description": "Get all plans",
+                "operationId": "allPlans",
+                "responses": {
+                    "200": {
+                        "description": "Successful signin",
+                        "content": {
+                            "application/json": {}
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    },
+                    "401": {
+                        "description": "unauthenticated"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            },
+            "post": {
+                "tags": [
+                    "Admin"
+                ],
+                "summary": "Post new plans",
+                "description": "Post new plans",
+                "operationId": "postPlans",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/PlanStoreFormRequest"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Successful signin",
+                        "content": {
+                            "application/json": {}
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    },
+                    "401": {
+                        "description": "unauthenticated"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        },
+        "/api/v1/plans/{id}": {
+            "get": {
+                "tags": [
+                    "Admin"
+                ],
+                "summary": "Show an plan",
+                "description": "Show an plan",
+                "operationId": "showPlan",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Plan ID",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful signin",
+                        "content": {
+                            "application/json": {}
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    },
+                    "401": {
+                        "description": "unauthenticated"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            },
+            "put": {
+                "tags": [
+                    "Admin"
+                ],
+                "summary": "Update an plan",
+                "description": "Update an plan",
+                "operationId": "PlanUpdate",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "plan ID",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/PlanUpdateFormRequest"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Successful signin",
+                        "content": {
+                            "application/json": {}
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    },
+                    "401": {
+                        "description": "unauthenticated"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            },
+            "delete": {
+                "tags": [
+                    "Admin"
+                ],
+                "summary": "Delete an plan",
+                "description": "Delete an plan",
+                "operationId": "deletePlan",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Plan ID",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
                 "responses": {
                     "200": {
                         "description": "Successful signin",
@@ -2170,6 +2377,38 @@
                 ]
             }
         },
+        "/api/v1/share/plans": {
+            "get": {
+                "tags": [
+                    "shared"
+                ],
+                "summary": "Get all plans",
+                "description": "Get all plans",
+                "operationId": "allSharedPlans",
+                "responses": {
+                    "200": {
+                        "description": "Successful signin",
+                        "content": {
+                            "application/json": {}
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    },
+                    "401": {
+                        "description": "unauthenticated"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        },
         "/api/v1/agencies": {
             "get": {
                 "tags": [
@@ -3255,7 +3494,7 @@
             },
             "post": {
                 "tags": [
-                    "reseller"
+                    "user"
                 ],
                 "summary": "Post script favorite",
                 "description": "Post script favorite",
@@ -3603,6 +3842,50 @@
                 },
                 "type": "object"
             },
+            "PlanStoreFormRequest": {
+                "title": "Plan Store Form Request Fields",
+                "description": "Role Store request body data",
+                "required": [
+                    "name"
+                ],
+                "properties": {
+                    "type": {
+                        "title": "type",
+                        "description": "name of the plan",
+                        "type": "string",
+                        "example": "FE"
+                    },
+                    "name": {
+                        "title": "plan name",
+                        "description": "name of the plan",
+                        "type": "string",
+                        "example": "FE"
+                    }
+                },
+                "type": "object"
+            },
+            "PlanUpdateFormRequest": {
+                "title": "Plan Update Form Request Fields",
+                "description": "Role Update request body data",
+                "required": [
+                    "name"
+                ],
+                "properties": {
+                    "type": {
+                        "title": "type",
+                        "description": "name of the plan",
+                        "type": "string",
+                        "example": "FE"
+                    },
+                    "name": {
+                        "title": "plan name",
+                        "description": "name of the plan",
+                        "type": "string",
+                        "example": "FE"
+                    }
+                },
+                "type": "object"
+            },
             "RoleCreateFormRequest": {
                 "title": "Role Create Form Request Fields",
                 "description": "Role Create request body data",
@@ -3865,12 +4148,6 @@
                         "description": "Email of the user",
                         "type": "string",
                         "example": "info@convertscript.com"
-                    },
-                    "password": {
-                        "title": "User password",
-                        "description": "Password of the user",
-                        "type": "string",
-                        "example": "password"
                     }
                 },
                 "type": "object"
@@ -3881,6 +4158,26 @@
                 "required": [
                     "name"
                 ],
+                "properties": {
+                    "name": {
+                        "title": "User Name",
+                        "description": "name of the user",
+                        "type": "string",
+                        "example": "Schneider"
+                    },
+                    "role": {
+                        "title": "User Role",
+                        "description": "User/Admin",
+                        "type": "string",
+                        "example": "User"
+                    },
+                    "email": {
+                        "title": "User email",
+                        "description": "Email of the user",
+                        "type": "string",
+                        "example": "info@convertscript.com"
+                    }
+                },
                 "type": "object"
             },
             "AuthUpdateFormRequest": {
