@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateUserThirdPartyApisTable extends Migration
+class CreateThirdPartyPlatformsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,12 @@ class CreateUserThirdPartyApisTable extends Migration
      */
     public function up()
     {
-        Schema::create('user_third_party_apis', function (Blueprint $table) {
+        Schema::create('third_party_platforms', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('platform_integration_id')->nullable()->constrained();
-            $table->text('platform_keys');
-            $table->foreignId('user_id')->nullable()->constrained();
+            $table->text('platform_name')->nullable();
+            $table->boolean('activate')->default(true);
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 
@@ -29,6 +29,6 @@ class CreateUserThirdPartyApisTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('user_third_party_apis');
+        Schema::dropIfExists('third_party_platforms');
     }
 }

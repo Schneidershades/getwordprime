@@ -22,5 +22,7 @@ class DatabaseSeeder extends Seeder
         $this->call(ScriptTypePresetTableSeeder::class);
         $this->call(UserScriptTypePresetSeeder::class);
         $this->call(PlansTableSeeder::class);
+        $this->call(ThirdPartyPlatformsTableSeeder::class);
+        $this->call(PlatformIntegrationTableSeeder::class);
     }
 }
