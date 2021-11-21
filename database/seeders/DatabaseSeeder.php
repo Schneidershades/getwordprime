@@ -26,5 +26,7 @@ class DatabaseSeeder extends Seeder
         $this->call(PlatformIntegrationTableSeeder::class);
         $this->call(TransactionTableSeeder::class);
         $this->call(BonusTableSeeder::class);
+        $this->call(PlansTableSeeder::class);
+        $this->call(AgencyTableSeeder::class);
     }
 }
