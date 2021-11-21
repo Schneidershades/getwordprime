@@ -5,7 +5,7 @@ namespace Database\Seeders;
 use App\Models\Bonus;
 use Illuminate\Database\Seeder;
 
-class BonuseTableSeeder extends Seeder
+class BonusTableSeeder extends Seeder
 {
     /**
      * Run the database seeds.
