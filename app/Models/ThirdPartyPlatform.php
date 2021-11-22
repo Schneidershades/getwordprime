@@ -12,5 +12,5 @@ class ThirdPartyPlatform extends Model
     use HasFactory;
 
     public $oneItem = ThirdPartyPlatformResource::class;
-    public $allItems = ThirdPartyPlatformgitCollection::class;
+    public $allItems = ThirdPartyPlatformCollection::class;
 }

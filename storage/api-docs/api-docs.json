@@ -3344,10 +3344,10 @@
                 ]
             }
         },
-        "/api/v1/admin/platform-integrations": {
+        "/api/v1/platform-integrations": {
             "get": {
                 "tags": [
-                    "User"
+                    "user"
                 ],
                 "summary": "Get all PlatformIntegrations",
                 "description": "Get all PlatformIntegrations",
@@ -3377,7 +3377,7 @@
             },
             "post": {
                 "tags": [
-                    "User"
+                    "user"
                 ],
                 "summary": "postPlatformIntegrations",
                 "description": "postPlatformIntegrations",
@@ -3416,10 +3416,10 @@
                 ]
             }
         },
-        "/api/v1/admin/platform-integrations/{id}": {
+        "/api/v1/platform-integrations/{id}": {
             "get": {
                 "tags": [
-                    "User"
+                    "user"
                 ],
                 "summary": "Show  PlatformIntegrations",
                 "description": "Show  PlatformIntegrations",
@@ -3460,7 +3460,7 @@
             },
             "put": {
                 "tags": [
-                    "User"
+                    "user"
                 ],
                 "summary": "Update PlatformIntegrations",
                 "description": "Update PlatformIntegrations",
@@ -3511,7 +3511,7 @@
             },
             "delete": {
                 "tags": [
-                    "User"
+                    "user"
                 ],
                 "summary": "Delete PlatformIntegrations",
                 "description": "Delete PlatformIntegrations",
