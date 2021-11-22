@@ -52,6 +52,7 @@ Route::prefix('v1')->group(function () {
 		Route::resource('bonuses', BonusController::class, array("as"=>"adminBonuses"));
 		Route::resource('third-party-platforms', ThirdPartyPlatformController::class, array("as"=>"adminThirdPartyPlatforms"));
 		Route::resource('dashboard', DashboardController::class, array("as"=>"adminDashboard"));
+		// Route::resource('platform-integrations', PlatformIntegrationController::class, array("as"=>"adminPlatformIntegration"));
 	});
 
 	Route::resource('script-test', Api\User\ScriptTestingController::class);

@@ -14,9 +14,9 @@ class PlatformIntegrationController extends Controller
     * @OA\Get(
     *      path="/api/v1/admin/platform-integrations",
     *      operationId="allPlatformIntegrations",
-    *      tags={"Admin"},
-    *      summary="Get all bonuses",
-    *      description="Get all bonuses",
+    *      tags={"User"},
+    *      summary="Get all PlatformIntegrations",
+    *      description="Get all PlatformIntegrations",
     *      @OA\Response(
     *          response=200,
     *          description="Successful signin",
@@ -48,9 +48,9 @@ class PlatformIntegrationController extends Controller
     * @OA\Post(
     *      path="/api/v1/admin/platform-integrations",
     *      operationId="postPlatformIntegrations",
-    *      tags={"Admin"},
-    *      summary="Post new bonuses",
-    *      description="Post new bonuses",
+    *      tags={"User"},
+    *      summary="postPlatformIntegrations",
+    *      description="postPlatformIntegrations",
     *      @OA\RequestBody(
     *          required=true,
     *          @OA\JsonContent(ref="#/components/schemas/PlatformIntegrationStoreFormRequest")
@@ -86,9 +86,9 @@ class PlatformIntegrationController extends Controller
     * @OA\Get(
     *      path="/api/v1/admin/platform-integrations/{id}",
     *      operationId="showPlatformIntegration",
-    *      tags={"Admin"},
-    *      summary="Show an bonus",
-    *      description="Show an bonus",
+    *      tags={"User"},
+    *      summary="Show  PlatformIntegrations",
+    *      description="Show  PlatformIntegrations",
     *      
      *      @OA\Parameter(
      *          name="id",
@@ -131,9 +131,9 @@ class PlatformIntegrationController extends Controller
     * @OA\Put(
     *      path="/api/v1/admin/platform-integrations/{id}",
     *      operationId="PlatformIntegrationUpdate",
-    *      tags={"Admin"},
-    *      summary="Update an bonus",
-    *      description="Update an bonus",
+    *      tags={"User"},
+    *      summary="Update PlatformIntegrations",
+    *      description="Update PlatformIntegrations",
     *      
      *      @OA\Parameter(
      *          name="id",
@@ -181,9 +181,9 @@ class PlatformIntegrationController extends Controller
     * @OA\Delete(
     *      path="/api/v1/admin/platform-integrations/{id}",
     *      operationId="deletePlatformIntegration",
-    *      tags={"Admin"},
-    *      summary="Delete an bonus",
-    *      description="Delete an bonus",
+    *      tags={"User"},
+    *      summary="Delete PlatformIntegrations",
+    *      description="Delete PlatformIntegrations",
     *      
      *      @OA\Parameter(
      *          name="id",

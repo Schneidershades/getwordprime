@@ -1816,10 +1816,10 @@
                 ]
             }
         },
-        "/api/v1/third-party-platforms": {
+        "/api/v1/admin/third-party-platforms": {
             "get": {
                 "tags": [
-                    "user"
+                    "Admin"
                 ],
                 "summary": "Get all thirdPartyPlatformes",
                 "description": "Get all thirdPartyPlatformes",
@@ -1846,12 +1846,10 @@
                         "bearerAuth": []
                     }
                 ]
-            }
-        },
-        "/api/v1/admin/third-party-platforms": {
+            },
             "post": {
                 "tags": [
-                    "user"
+                    "Admin"
                 ],
                 "summary": "Post new thirdPartyPlatformes",
                 "description": "Post new thirdPartyPlatformes",
@@ -1893,7 +1891,7 @@
         "/api/v1/admin/third-party-platforms/{id}": {
             "get": {
                 "tags": [
-                    "user"
+                    "Admin"
                 ],
                 "summary": "Show an thirdPartyPlatform",
                 "description": "Show an thirdPartyPlatform",
@@ -1934,7 +1932,7 @@
             },
             "put": {
                 "tags": [
-                    "user"
+                    "Admin"
                 ],
                 "summary": "Update an thirdPartyPlatform",
                 "description": "Update an thirdPartyPlatform",
@@ -1985,7 +1983,7 @@
             },
             "delete": {
                 "tags": [
-                    "user"
+                    "Admin"
                 ],
                 "summary": "Delete an thirdPartyPlatform",
                 "description": "Delete an thirdPartyPlatform",
@@ -3349,10 +3347,10 @@
         "/api/v1/admin/platform-integrations": {
             "get": {
                 "tags": [
-                    "Admin"
+                    "User"
                 ],
-                "summary": "Get all bonuses",
-                "description": "Get all bonuses",
+                "summary": "Get all PlatformIntegrations",
+                "description": "Get all PlatformIntegrations",
                 "operationId": "allPlatformIntegrations",
                 "responses": {
                     "200": {
@@ -3379,10 +3377,10 @@
             },
             "post": {
                 "tags": [
-                    "Admin"
+                    "User"
                 ],
-                "summary": "Post new bonuses",
-                "description": "Post new bonuses",
+                "summary": "postPlatformIntegrations",
+                "description": "postPlatformIntegrations",
                 "operationId": "postPlatformIntegrations",
                 "requestBody": {
                     "required": true,
@@ -3421,10 +3419,10 @@
         "/api/v1/admin/platform-integrations/{id}": {
             "get": {
                 "tags": [
-                    "Admin"
+                    "User"
                 ],
-                "summary": "Show an bonus",
-                "description": "Show an bonus",
+                "summary": "Show  PlatformIntegrations",
+                "description": "Show  PlatformIntegrations",
                 "operationId": "showPlatformIntegration",
                 "parameters": [
                     {
@@ -3462,10 +3460,10 @@
             },
             "put": {
                 "tags": [
-                    "Admin"
+                    "User"
                 ],
-                "summary": "Update an bonus",
-                "description": "Update an bonus",
+                "summary": "Update PlatformIntegrations",
+                "description": "Update PlatformIntegrations",
                 "operationId": "PlatformIntegrationUpdate",
                 "parameters": [
                     {
@@ -3513,10 +3511,10 @@
             },
             "delete": {
                 "tags": [
-                    "Admin"
+                    "User"
                 ],
-                "summary": "Delete an bonus",
-                "description": "Delete an bonus",
+                "summary": "Delete PlatformIntegrations",
+                "description": "Delete PlatformIntegrations",
                 "operationId": "deletePlatformIntegration",
                 "parameters": [
                     {

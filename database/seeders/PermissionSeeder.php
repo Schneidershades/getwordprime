@@ -44,7 +44,7 @@ class PermissionSeeder extends Seeder
                 }
 
                 if($role->name == 'User'){
-                    $this->command->info('Student granted permissions');
+                    $this->command->info('Admin granted permissions');
                 }
 
                 // if($role->name == 'Instructor'){
@@ -65,6 +65,19 @@ class PermissionSeeder extends Seeder
     private function createUser($role)
     {
         if( $role->name == 'Admin') {
+            $user = User::Create([
+                'name'                          => 'Admin',
+                'email'                         => 'admin@convertscript.com',
+                'password'                      => 'password',
+                'role'                          => $role->name,
+            ]);
+            $user->assignRole($role->name);
+            $this->command->info('Here is your admin details to login:');
+            $this->command->warn($user->email);
+            $this->command->warn('Password is "password"');
+        }
+
+        if( $role->name == 'User') {
             $user = User::Create([
                 'name'                          => 'Manuel',
                 'email'                         => 'user@convertscript.com',

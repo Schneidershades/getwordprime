@@ -12,9 +12,9 @@ class ThirdPartyPlatformController extends Controller
 {
     /**
     * @OA\Get(
-    *      path="/api/v1/third-party-platforms",
+    *      path="/api/v1/admin/third-party-platforms",
     *      operationId="allThirdPartyPlatforms",
-    *      tags={"user"},
+    *      tags={"Admin"},
     *      summary="Get all thirdPartyPlatformes",
     *      description="Get all thirdPartyPlatformes",
     *      @OA\Response(
@@ -48,7 +48,7 @@ class ThirdPartyPlatformController extends Controller
     * @OA\Post(
     *      path="/api/v1/admin/third-party-platforms",
     *      operationId="postThirdPartyPlatforms",
-    *      tags={"user"},
+    *      tags={"Admin"},
     *      summary="Post new thirdPartyPlatformes",
     *      description="Post new thirdPartyPlatformes",
     *      @OA\RequestBody(
@@ -86,7 +86,7 @@ class ThirdPartyPlatformController extends Controller
     * @OA\Get(
     *      path="/api/v1/admin/third-party-platforms/{id}",
     *      operationId="showThirdPartyPlatform",
-    *      tags={"user"},
+    *      tags={"Admin"},
     *      summary="Show an thirdPartyPlatform",
     *      description="Show an thirdPartyPlatform",
     *      
@@ -131,7 +131,7 @@ class ThirdPartyPlatformController extends Controller
     * @OA\Put(
     *      path="/api/v1/admin/third-party-platforms/{id}",
     *      operationId="ThirdPartyPlatformUpdate",
-    *      tags={"user"},
+    *      tags={"Admin"},
     *      summary="Update an thirdPartyPlatform",
     *      description="Update an thirdPartyPlatform",
     *      
@@ -181,7 +181,7 @@ class ThirdPartyPlatformController extends Controller
     * @OA\Delete(
     *      path="/api/v1/admin/third-party-platforms/{id}",
     *      operationId="deleteThirdPartyPlatform",
-    *      tags={"user"},
+    *      tags={"Admin"},
     *      summary="Delete an thirdPartyPlatform",
     *      description="Delete an thirdPartyPlatform",
     *      
