@@ -16,4 +16,26 @@ class ThirdPartyPlatformCollection extends ResourceCollection
     {
         return parent::toArray($request);
     }
+
+    public static function originalAttribute($index)
+    {
+        $attribute = [
+            'id' => 'id',
+            'name' => 'name',
+            'activate' => 'activate',
+        ];
+
+        return isset($attribute[$index]) ? $attribute[$index] : null;
+    }
+
+     public static function transformedAttribute($index)
+    {
+        $attribute = [
+            'id' => 'id',
+            'name' => 'name',
+            'activate' => 'activate',
+        ];
+
+        return isset($attribute[$index]) ? $attribute[$index] : null;
+    }
 }

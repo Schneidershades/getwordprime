@@ -12,9 +12,9 @@ class PlatformIntegrationController extends Controller
 {
     /**
     * @OA\Get(
-    *      path="/api/v1/admin/platform-integrations",
+    *      path="/api/v1/platform-integrations",
     *      operationId="allPlatformIntegrations",
-    *      tags={"User"},
+    *      tags={"user"},
     *      summary="Get all PlatformIntegrations",
     *      description="Get all PlatformIntegrations",
     *      @OA\Response(
@@ -46,9 +46,9 @@ class PlatformIntegrationController extends Controller
 
     /**
     * @OA\Post(
-    *      path="/api/v1/admin/platform-integrations",
+    *      path="/api/v1/platform-integrations",
     *      operationId="postPlatformIntegrations",
-    *      tags={"User"},
+    *      tags={"user"},
     *      summary="postPlatformIntegrations",
     *      description="postPlatformIntegrations",
     *      @OA\RequestBody(
@@ -84,9 +84,9 @@ class PlatformIntegrationController extends Controller
 
     /**
     * @OA\Get(
-    *      path="/api/v1/admin/platform-integrations/{id}",
+    *      path="/api/v1/platform-integrations/{id}",
     *      operationId="showPlatformIntegration",
-    *      tags={"User"},
+    *      tags={"user"},
     *      summary="Show  PlatformIntegrations",
     *      description="Show  PlatformIntegrations",
     *      
@@ -129,9 +129,9 @@ class PlatformIntegrationController extends Controller
 
     /**
     * @OA\Put(
-    *      path="/api/v1/admin/platform-integrations/{id}",
+    *      path="/api/v1/platform-integrations/{id}",
     *      operationId="PlatformIntegrationUpdate",
-    *      tags={"User"},
+    *      tags={"user"},
     *      summary="Update PlatformIntegrations",
     *      description="Update PlatformIntegrations",
     *      
@@ -179,9 +179,9 @@ class PlatformIntegrationController extends Controller
 
      /**
     * @OA\Delete(
-    *      path="/api/v1/admin/platform-integrations/{id}",
+    *      path="/api/v1/platform-integrations/{id}",
     *      operationId="deletePlatformIntegration",
-    *      tags={"User"},
+    *      tags={"user"},
     *      summary="Delete PlatformIntegrations",
     *      description="Delete PlatformIntegrations",
     *      

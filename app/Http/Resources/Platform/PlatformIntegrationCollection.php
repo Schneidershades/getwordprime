@@ -16,4 +16,30 @@ class PlatformIntegrationCollection extends ResourceCollection
     {
         return parent::toArray($request);
     }
+
+    public static function originalAttribute($index)
+    {
+        $attribute = [
+            'id' => 'id',
+            'platform_integration_id' => 'platform_integration_id',
+            'user_id' => 'user_id',
+            'platform_keys' => 'platform_keys',
+            'activate' => 'activate',
+        ];
+
+        return isset($attribute[$index]) ? $attribute[$index] : null;
+    }
+
+     public static function transformedAttribute($index)
+    {
+        $attribute = [
+            'id' => 'id',
+            'platform_integration_id' => 'platform_integration_id',
+            'user_id' => 'user_id',
+            'platform_keys' => 'platform_keys',
+            'activate' => 'activate',
+        ];
+
+        return isset($attribute[$index]) ? $attribute[$index] : null;
+    }
 }

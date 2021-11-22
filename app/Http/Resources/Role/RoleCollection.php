@@ -18,4 +18,26 @@ class RoleCollection extends ResourceCollection
             'data' => RoleResource::collection($this->collection),
         ];
     }
+
+
+
+    public static function originalAttribute($index)
+    {
+        $attribute = [
+            'id' => 'id',
+            'name' => 'name',
+        ];
+
+        return isset($attribute[$index]) ? $attribute[$index] : null;
+    }
+
+     public static function transformedAttribute($index)
+    {
+        $attribute = [
+            'id' => 'id',
+            'name' => 'name',
+        ];
+
+        return isset($attribute[$index]) ? $attribute[$index] : null;
+    }
 }

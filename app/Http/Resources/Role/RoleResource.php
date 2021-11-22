@@ -21,26 +21,4 @@ class RoleResource extends JsonResource
             'updated_at' => $this->updated_at,
         ];
     }
-
-
-
-    public static function originalAttribute($index)
-    {
-        $attribute = [
-            'id' => 'id',
-            'name' => 'name',
-        ];
-
-        return isset($attribute[$index]) ? $attribute[$index] : null;
-    }
-
-     public static function transformedAttribute($index)
-    {
-        $attribute = [
-            'id' => 'id',
-            'name' => 'name',
-        ];
-
-        return isset($attribute[$index]) ? $attribute[$index] : null;
-    }
 }
