@@ -10,6 +10,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 class Bonus extends Model
 {
     use HasFactory;
+    protected $guarded = [];
 
     public $oneItem = BonusResource::class;
     public $allItems = BonusCollection::class;

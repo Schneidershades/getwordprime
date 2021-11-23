@@ -2,6 +2,7 @@
 
 namespace App\Http\Resources\Transaction;
 
+use App\Http\Resources\User\UserNameResource;
 use Illuminate\Http\Resources\Json\JsonResource;
 
 class TransactionResource extends JsonResource
@@ -18,7 +19,7 @@ class TransactionResource extends JsonResource
             'id' => $this->id,
             'transactionId' => $this->transaction_id,
             'plan' => $this->plan->name,
-            'user' => $this->user->name,
+            'user' => new UserNameResource($this->user),
             'activate' => $this->activate ? true : false,
             'created_at' => $this->created_at,
             'updated_at' => $this->updated_at,

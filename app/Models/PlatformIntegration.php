@@ -10,6 +10,8 @@ use App\Http\Resources\Platform\PlatformIntegrationCollection;
 class PlatformIntegration extends Model
 {
     use HasFactory;
+
+    protected $guarded = [];
     
     public $oneItem = PlatformIntegrationResource::class;
     public $allItems = PlatformIntegrationCollection::class;

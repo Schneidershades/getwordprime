@@ -4751,6 +4751,26 @@
                 "required": [
                     "name"
                 ],
+                "properties": {
+                    "name": {
+                        "title": "name",
+                        "description": "name",
+                        "type": "string",
+                        "example": "name"
+                    },
+                    "description": {
+                        "title": "description",
+                        "description": "description ",
+                        "type": "string",
+                        "example": "description"
+                    },
+                    "url": {
+                        "title": "url",
+                        "description": "url",
+                        "type": "string",
+                        "example": "https://"
+                    }
+                },
                 "type": "object"
             },
             "BonusUpdateFormRequest": {
@@ -4759,6 +4779,26 @@
                 "required": [
                     "name"
                 ],
+                "properties": {
+                    "name": {
+                        "title": "name",
+                        "description": "name",
+                        "type": "string",
+                        "example": "name"
+                    },
+                    "description": {
+                        "title": "description",
+                        "description": "description ",
+                        "type": "string",
+                        "example": "description"
+                    },
+                    "url": {
+                        "title": "url",
+                        "description": "url",
+                        "type": "string",
+                        "example": "https://"
+                    }
+                },
                 "type": "object"
             },
             "PlanStoreFormRequest": {

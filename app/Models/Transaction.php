@@ -5,16 +5,18 @@ namespace App\Models;
 use App\Models\Plan;
 use App\Models\User;
 use Illuminate\Database\Eloquent\Model;
-use App\Http\Resources\Plan\PlanResource;
-use App\Http\Resources\Plan\PlanCollection;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use App\Http\Resources\Transaction\TransactionResource;
+use App\Http\Resources\Transaction\TransactionCollection;
 
 class Transaction extends Model
 {
     use HasFactory;
 
-    public $oneItem = PlanResource::class;
-    public $allItems = PlanCollection::class;
+    protected $guarded = [];
+
+    public $oneItem = TransactionResource::class;
+    public $allItems = TransactionCollection::class;
 
     public function user()
     {

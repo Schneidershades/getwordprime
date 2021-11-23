@@ -8,4 +8,6 @@ use Illuminate\Database\Eloquent\Model;
 class ScriptResponse extends Model
 {
     use HasFactory;
+    
+    protected $guarded = [];
 }

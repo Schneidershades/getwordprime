@@ -17,6 +17,42 @@ use Illuminate\Foundation\Http\FormRequest;
  
 class BonusStoreFormRequest extends FormRequest
 {
+
+    /**
+     * @OA\Property(
+     *      title="name",
+     *      description="name",
+     *      example="name"
+     * )
+     *
+     * @var string
+     */
+    private $name;
+
+    /**
+     * @OA\Property(
+     *      title="description",
+     *      description="description ",
+     *      example="description"
+     * )
+     *
+     * @var string
+     */
+    private $description;
+
+
+
+    /**
+     * @OA\Property(
+     *      title="url",
+     *      description="url",
+     *      example="https://"
+     * )
+     *
+     * @var string
+     */
+    private $url;
+
     /**
      * Determine if the user is authorized to make this request.
      *
@@ -35,7 +71,9 @@ class BonusStoreFormRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            'name' => 'required|string',
+            'description' => 'required|string',
+            'url' => 'required|url',
         ];
     }
 }

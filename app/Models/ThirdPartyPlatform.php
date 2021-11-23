@@ -11,6 +11,8 @@ class ThirdPartyPlatform extends Model
 {
     use HasFactory;
 
+    protected $guarded = [];
+
     public $oneItem = ThirdPartyPlatformResource::class;
     public $allItems = ThirdPartyPlatformCollection::class;
 }

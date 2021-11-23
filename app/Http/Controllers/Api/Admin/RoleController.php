@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Api\Admin;
 use App\Models\Role;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Http\Requests\Admin\RoleCreateFormRequest;
 use App\Http\Requests\Admin\RoleUpdateFormRequest;
 
 class RoleController extends Controller
@@ -76,7 +77,7 @@ class RoleController extends Controller
     *      security={ {"bearerAuth": {}} },
     * )
     */
-    public function store(Request $request)
+    public function store(RoleCreateFormRequest $request)
     {
         return $this->showOne(Role::create($request->validated()));
     }
