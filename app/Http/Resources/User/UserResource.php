@@ -20,9 +20,7 @@ class UserResource extends JsonResource
             'email' => $this->email,
             'role' => $this->role,
             'verified' => $this->email_verified_at ? true : false,
-            'permissions' => $this->getPermissionsViaRoles()->pluck('name')->map(function($permission){
-                return explode('_', $permission);
-            })->toArray(),
+            'permissions' => $this->getPermissionsViaRoles()->pluck('id')->toArray(),
         ];
     }
 }

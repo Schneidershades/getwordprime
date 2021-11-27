@@ -5,8 +5,8 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Spatie\Permission\Models\Permission as SpatiePermissions;
-use App\Http\Resources\Admin\Permission\PermissionResource;
-use App\Http\Resources\Admin\Permission\PermissionCollection;
+use App\Http\Resources\Permission\PermissionResource;
+use App\Http\Resources\Permission\PermissionCollection;
 
 class Permission extends SpatiePermissions
 {
