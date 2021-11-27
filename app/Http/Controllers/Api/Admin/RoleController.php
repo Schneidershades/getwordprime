@@ -79,7 +79,8 @@ class RoleController extends Controller
     */
     public function store(RoleCreateFormRequest $request)
     {
-        return $this->showOne(Role::create($request->validated()));
+        $roles = Role::create($request->validated());
+        return $this->showOne($roles);
     }
 
     /**

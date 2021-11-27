@@ -666,6 +666,38 @@
                 ]
             }
         },
+        "/api/v1/admin/permissions": {
+            "get": {
+                "tags": [
+                    "Admin"
+                ],
+                "summary": "Get all permissions",
+                "description": "Get all permissions",
+                "operationId": "allPermissions",
+                "responses": {
+                    "200": {
+                        "description": "Successful signin",
+                        "content": {
+                            "application/json": {}
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    },
+                    "401": {
+                        "description": "unauthenticated"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        },
         "/api/v1/admin/plans": {
             "get": {
                 "tags": [
@@ -4851,6 +4883,14 @@
                 "required": [
                     "name"
                 ],
+                "properties": {
+                    "name": {
+                        "title": "name",
+                        "description": "name",
+                        "type": "string",
+                        "example": "name"
+                    }
+                },
                 "type": "object"
             },
             "RoleUpdateFormRequest": {
@@ -4859,6 +4899,14 @@
                 "required": [
                     "name"
                 ],
+                "properties": {
+                    "name": {
+                        "title": "name",
+                        "description": "name",
+                        "type": "string",
+                        "example": "name"
+                    }
+                },
                 "type": "object"
             },
             "ScriptTypeAttributeCreateFormRequest": {
