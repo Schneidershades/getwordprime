@@ -58,7 +58,7 @@ class PlanUpdateFormRequest extends FormRequest
         return [
             'type' => 'required|string',
             'name' => 'required|string',
-            'default_value' => 'required|numeric',
+            'default_value' => 'nullable|numeric',
         ];
     }
 }
