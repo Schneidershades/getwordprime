@@ -41,7 +41,7 @@ class RoleController extends Controller
     */
     public function index()
     {
-        return $this->showAll(Role::all());
+        return $this->showAll(Role::with('permissions')->get());
     }
 
     /**
