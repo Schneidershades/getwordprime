@@ -42,7 +42,7 @@ trait ApiResponder
 
     protected function showOne(Model $instance, $code = 200)
     {
-        $transformer = $instance->oneItem = class_basename($instance);
+        $transformer = $instance->oneItem;
         $instance = $this->transformData($instance, $transformer);
         return $instance;
     }
