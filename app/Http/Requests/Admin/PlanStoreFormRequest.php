@@ -59,6 +59,7 @@ class PlanStoreFormRequest extends FormRequest
         return [
             'type' => 'required|string',
             'name' => 'required|string',
+            'default_value' => 'nullable|numeric',
         ];
     }
 }
