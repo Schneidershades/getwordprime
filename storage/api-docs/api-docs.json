@@ -698,6 +698,59 @@
                 ]
             }
         },
+        "/api/v1/admin/role/{id}": {
+            "put": {
+                "tags": [
+                    "Admin"
+                ],
+                "summary": "Update a Permission",
+                "description": "Update a Permission",
+                "operationId": "PlanPermission",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Permission ID",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/UpdatePermissionRequest"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Successful signin",
+                        "content": {
+                            "application/json": {}
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    },
+                    "401": {
+                        "description": "unauthenticated"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        },
         "/api/v1/admin/plans": {
             "get": {
                 "tags": [
@@ -3999,6 +4052,38 @@
                 ]
             }
         },
+        "/api/v1/script-type-presets": {
+            "get": {
+                "tags": [
+                    "user"
+                ],
+                "summary": "Get allScriptTypePresets",
+                "description": "Get allScriptTypePresets",
+                "operationId": "allScriptTypePresets",
+                "responses": {
+                    "200": {
+                        "description": "Successful signin",
+                        "content": {
+                            "application/json": {}
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    },
+                    "401": {
+                        "description": "unauthenticated"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        },
         "/api/v1/suggestions": {
             "get": {
                 "tags": [
@@ -5143,6 +5228,22 @@
                         "description": "URL of the tutorial",
                         "type": "string",
                         "example": "https://www.youtube.com/watch?v=syJHxlJWGrk"
+                    }
+                },
+                "type": "object"
+            },
+            "UpdatePermissionRequest": {
+                "title": "Tutorial Update Form Request Fields",
+                "description": "Tutorial Update request body data",
+                "required": [
+                    "name"
+                ],
+                "properties": {
+                    "permission": {
+                        "title": "permission",
+                        "description": "permission of the role",
+                        "type": "string",
+                        "example": "create_user"
                     }
                 },
                 "type": "object"

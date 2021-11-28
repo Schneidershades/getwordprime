@@ -30,14 +30,25 @@ class UserScriptTypePresetCreateFormRequest extends FormRequest
 
     /**
      * @OA\Property(
-     *      title="script_type_prompt_id",
-     *      description="Initial related script_type_prompt of the id",
+     *      title="script_type_preset_id",
+     *      description="Initial related script_type_preset_id of the id",
      *      example="1"
      * )
      *
      * @var int
      */
-    private $script_type_prompt_id;
+    private $script_type_preset_id;
+
+    /**
+     * @OA\Property(
+     *      title="script_id",
+     *      description="Initial related script_id of the id",
+     *      example="1"
+     * )
+     *
+     * @var int
+     */
+    private $script_id;
     
 
     /**
@@ -59,7 +70,8 @@ class UserScriptTypePresetCreateFormRequest extends FormRequest
     {
         return [
             'answer' => 'required|string',
-            'script_type_preset_id' => 'required|int',
+            'script_type_preset_id' => 'required|int|exists:scripts',
+            'script_id' => 'required|int|exists:scripts',
         ];
     }
 }

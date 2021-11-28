@@ -25,6 +25,7 @@ trait ApiResponder
             return $this->successResponse(['data' => $collection], $code);
         }
 
+
         $transformer = $collection->first()->allItems;
 
         $collection = $this->filterData($collection, $transformer);
@@ -41,7 +42,7 @@ trait ApiResponder
 
     protected function showOne(Model $instance, $code = 200)
     {
-        $transformer = $instance->oneItem;
+        $transformer = $instance->oneItem = class_basename($instance);
         $instance = $this->transformData($instance, $transformer);
         return $instance;
     }
