@@ -15,6 +15,21 @@ use Illuminate\Foundation\Http\FormRequest;
 
 class ScriptTypeCreateFormRequest extends FormRequest
 {
+
+    /**
+    *       @OA\Property(property="script_type_presets", type="object", type="array",
+    *            @OA\Items(
+    *                @OA\Property(property="script_type_id", type="int", example="1"),
+    *                @OA\Property(property="question", type="string", example="what is this?"),
+    *                @OA\Property(property="field_type", type="string", example="text"),
+    *                @OA\Property(property="label", type="string", example="Question 1"),
+    *                @OA\Property(property="placeholder", type="string", example="what is this?"),
+    *            ),
+    *        ),
+    *    ),
+    */    
+    public $script_type_presets; 
+
     /**
      * @OA\Property(
      *      title="script type name",
@@ -185,6 +200,13 @@ class ScriptTypeCreateFormRequest extends FormRequest
             'max_tokens' => 'nullable',
             'temperature' => 'nullable',
             'top_p' => 'nullable',
+
+            'script_type_presets' => 'array', 
+            'script_type_presets.*.script_type_id' => 'nullable|int|exists:script_types,id',
+            'script_type_presets.*.question' =>'nullable|string',
+            'script_type_presets.*.field_type' =>'nullable|string',
+            'script_type_presets.*.label' =>'nullable|string',
+            'script_type_presets.*.placeholder' =>'nullable|string',
         ];
     }
 }

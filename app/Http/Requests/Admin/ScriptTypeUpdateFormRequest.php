@@ -15,6 +15,21 @@ use Illuminate\Foundation\Http\FormRequest;
 
 class ScriptTypeUpdateFormRequest extends FormRequest
 {
+
+    /**
+    *       @OA\Property(property="script_type_presets", type="object", type="array",
+    *            @OA\Items(
+    *                @OA\Property(property="script_type_id", type="int", example="1"),
+    *                @OA\Property(property="question", type="string", example="what is this?"),
+    *                @OA\Property(property="field_type", type="string", example="text"),
+    *                @OA\Property(property="label", type="string", example="Question 1"),
+    *                @OA\Property(property="placeholder", type="string", example="what is this?"),
+    *            ),
+    *        ),
+    *    ),
+    */    
+    public $script_type_presets; 
+
     /**
      * @OA\Property(
      *      title="script type name",
@@ -173,18 +188,26 @@ class ScriptTypeUpdateFormRequest extends FormRequest
     public function rules()
     {
         return [
-            'name' => 'required|string',
-            'icon' => 'required|string',
-            'description' => 'required|string',
-            'presence_penalty' => 'nullable',
-            'frequency_penalty' => 'nullable',
-            'best_of' => 'nullable',
-            'stream' => 'nullable',
-            'documents' => 'nullable',
-            'query' => 'nullable',
-            'max_tokens' => 'nullable',
-            'temperature' => 'nullable',
-            'top_p' => 'nullable',
+
+            'name' => 'nullable|string',
+            'icon' => 'nullable|string',
+            'description' => 'nullable|string',
+            'presence_penalty' => 'required',
+            'frequency_penalty' => 'required',
+            'best_of' => 'required|numeric',
+            'stream' => 'required|numeric',
+            'documents' => 'required|numeric',
+            'query' => 'required|numeric',
+            'max_tokens' => 'required|numeric',
+            'temperature' => 'required|numeric',
+            'top_p' => 'required|numeric',
+
+            'script_type_presets' => 'array', 
+            'script_type_presets.*.script_type_id' => 'required|int|exists:script_types,id',
+            'script_type_presets.*.question' =>'required|string',
+            'script_type_presets.*.field_type' =>'required|string',
+            'script_type_presets.*.label' =>'required|string',
+            'script_type_presets.*.placeholder' =>'required|string',
         ];
     }
 }

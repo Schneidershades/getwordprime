@@ -4,8 +4,8 @@ namespace App\Http\Controllers\Api\Admin;
 
 use App\Models\ScriptType;
 use App\Http\Controllers\Controller;
-use App\Http\Requests\User\ScriptTypeCreateFormRequest;
-use App\Http\Requests\User\ScriptTypeUpdateFormRequest;
+use App\Http\Requests\Admin\ScriptTypeCreateFormRequest;
+use App\Http\Requests\Admin\ScriptTypeUpdateFormRequest;
 
 class ScriptTypeController extends Controller
 {
@@ -78,7 +78,13 @@ class ScriptTypeController extends Controller
     */
     public function store(ScriptTypeCreateFormRequest $request)
     {
-        return $this->showOne(ScriptType::create($request->validated()));
+        $scriptType = ScriptType::create($request->validated());
+        
+        foreach($request['script_type_presets'] as $preset){
+            $scriptType->preset()->create($preset);
+        }
+
+        return $this->showOne($scriptType);
     }
 
     /**
@@ -170,7 +176,12 @@ class ScriptTypeController extends Controller
     public function update(ScriptTypeUpdateFormRequest $request, ScriptType $scriptType)
     {
         $scriptType->update($request->validated());
-        return $this->showOne($scriptType);
+
+        foreach($request['script_type_presets'] as $preset){
+            $scriptType->preset()->create($preset);
+        }
+        
+        return $this->showMessage($scriptType);
     }
 
      /**
@@ -183,7 +194,7 @@ class ScriptTypeController extends Controller
     *      
      *      @OA\Parameter(
      *          name="id",
-     *          description="script-type ID",
+     *          description="script-typlateste ID",
      *          required=true,
      *          in="path",
      *          @OA\Schema(
