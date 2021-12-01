@@ -5073,17 +5073,33 @@
                     "name"
                 ],
                 "properties": {
-                    "question": {
-                        "title": "script type question",
-                        "description": "question of the script type",
-                        "type": "string",
-                        "example": "Info Limited"
-                    },
-                    "script_type_id": {
-                        "title": "user script_type id",
-                        "description": "Initial related script_type of the id",
-                        "type": "integer",
-                        "example": "1"
+                    "script_type_presets": {
+                        "type": "array",
+                        "items": {
+                            "properties": {
+                                "script_type_id": {
+                                    "type": "int",
+                                    "example": "1"
+                                },
+                                "question": {
+                                    "type": "string",
+                                    "example": "what is this?"
+                                },
+                                "field_type": {
+                                    "type": "string",
+                                    "example": "text"
+                                },
+                                "label": {
+                                    "type": "string",
+                                    "example": "Question 1"
+                                },
+                                "placeholder": {
+                                    "type": "string",
+                                    "example": "what is this?"
+                                }
+                            },
+                            "type": "object"
+                        }
                     }
                 },
                 "type": "object"
@@ -5695,9 +5711,15 @@
                         "type": "string",
                         "example": "Info Limited"
                     },
-                    "script_type_prompt_id": {
-                        "title": "script_type_prompt_id",
-                        "description": "Initial related script_type_prompt of the id",
+                    "script_type_preset_id": {
+                        "title": "script_type_preset_id",
+                        "description": "Initial related script_type_preset_id of the id",
+                        "type": "integer",
+                        "example": "1"
+                    },
+                    "script_id": {
+                        "title": "script_id",
+                        "description": "Initial related script_id of the id",
                         "type": "integer",
                         "example": "1"
                     }

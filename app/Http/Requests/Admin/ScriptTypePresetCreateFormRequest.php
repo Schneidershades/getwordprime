@@ -16,27 +16,18 @@ use Illuminate\Foundation\Http\FormRequest;
 class ScriptTypePresetCreateFormRequest extends FormRequest
 {
     /**
-     * @OA\Property(
-     *      title="script type question",
-     *      description="question of the script type",
-     *      example="Info Limited"
-     * )
-     *
-     * @var string
-     */
-    private $question;
-
-    /**
-     * @OA\Property(
-     *      title="user script_type id",
-     *      description="Initial related script_type of the id",
-     *      example="1"
-     * )
-     *
-     * @var int
-     */
-    private $script_type_id;
-    
+    *       @OA\Property(property="script_type_presets", type="object", type="array",
+    *            @OA\Items(
+    *                @OA\Property(property="script_type_id", type="int", example="1"),
+    *                @OA\Property(property="question", type="string", example="what is this?"),
+    *                @OA\Property(property="field_type", type="string", example="text"),
+    *                @OA\Property(property="label", type="string", example="Question 1"),
+    *                @OA\Property(property="placeholder", type="string", example="what is this?"),
+    *            ),
+    *        ),
+    *    ),
+    */    
+    public $script_type_presets;    
 
     /**
      * Determine if the user is authorized to make this request.
@@ -56,8 +47,12 @@ class ScriptTypePresetCreateFormRequest extends FormRequest
     public function rules()
     {
         return [
-            'question' => 'required|string',
-            'script_type_id' => 'required|int',
+            'script_type_presets' => 'array', 
+            'script_type_presets.*.script_type_id' => 'required|int|exists:script_types,id',
+            'script_type_presets.*.question' =>'required|string',
+            'script_type_presets.*.field_type' =>'required|string',
+            'script_type_presets.*.label' =>'required|string',
+            'script_type_presets.*.placeholder' =>'required|string',
         ];
     }
 }
