@@ -109,7 +109,7 @@ class TransactionController extends Controller
      *     ),
     *      @OA\RequestBody(
     *          required=true,
-    *          @OA\JsonContent(ref="#/components/schemas/ThirdPartyPlatformUpdateFormRequest")
+    *          @OA\JsonContent(ref="#/components/schemas/UpdateTransactionFormRequest")
     *      ),
     *      @OA\Response(
     *          response=200,
