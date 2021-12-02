@@ -1548,7 +1548,7 @@
                     {
                         "name": "id",
                         "in": "path",
-                        "description": "script-type ID",
+                        "description": "script-typlateste ID",
                         "required": true,
                         "schema": {
                             "type": "integer"
@@ -5045,6 +5045,34 @@
                     "name"
                 ],
                 "properties": {
+                    "script_type_presets": {
+                        "type": "array",
+                        "items": {
+                            "properties": {
+                                "script_type_id": {
+                                    "type": "int",
+                                    "example": "1"
+                                },
+                                "question": {
+                                    "type": "string",
+                                    "example": "what is this?"
+                                },
+                                "field_type": {
+                                    "type": "string",
+                                    "example": "text"
+                                },
+                                "label": {
+                                    "type": "string",
+                                    "example": "Question 1"
+                                },
+                                "placeholder": {
+                                    "type": "string",
+                                    "example": "what is this?"
+                                }
+                            },
+                            "type": "object"
+                        }
+                    },
                     "name": {
                         "title": "script type name",
                         "description": "name of the script type",
@@ -5062,6 +5090,60 @@
                         "description": "description of the script type",
                         "type": "string",
                         "example": "This is"
+                    },
+                    "presence_penalty": {
+                        "title": "script type presence_penalty",
+                        "description": "presence_penalty of the script type",
+                        "type": "string",
+                        "example": "1"
+                    },
+                    "frequency_penalty": {
+                        "title": "script type frequency_penalty",
+                        "description": "frequency_penalty of the script type",
+                        "type": "string",
+                        "example": "1"
+                    },
+                    "best_of": {
+                        "title": "script type best_of",
+                        "description": "best_of of the script type",
+                        "type": "string",
+                        "example": "1"
+                    },
+                    "stream": {
+                        "title": "script type stream",
+                        "description": "stream of the script type",
+                        "type": "string",
+                        "example": "1"
+                    },
+                    "documents": {
+                        "title": "script type documents",
+                        "description": "documents of the script type",
+                        "type": "string",
+                        "example": "1"
+                    },
+                    "query": {
+                        "title": "script type query",
+                        "description": "query of the script type",
+                        "type": "string",
+                        "example": "1"
+                    },
+                    "max_tokens": {
+                        "title": "script type max_tokens",
+                        "description": "max_tokens of the script type",
+                        "type": "string",
+                        "example": "1"
+                    },
+                    "temperature": {
+                        "title": "script type temperature",
+                        "description": "temperature of the script type",
+                        "type": "string",
+                        "example": "1"
+                    },
+                    "top_p": {
+                        "title": "script type top_p",
+                        "description": "top_p of the script type",
+                        "type": "string",
+                        "example": "1"
                     }
                 },
                 "type": "object"
@@ -5133,6 +5215,34 @@
                     "name"
                 ],
                 "properties": {
+                    "script_type_presets": {
+                        "type": "array",
+                        "items": {
+                            "properties": {
+                                "script_type_id": {
+                                    "type": "int",
+                                    "example": "1"
+                                },
+                                "question": {
+                                    "type": "string",
+                                    "example": "what is this?"
+                                },
+                                "field_type": {
+                                    "type": "string",
+                                    "example": "text"
+                                },
+                                "label": {
+                                    "type": "string",
+                                    "example": "Question 1"
+                                },
+                                "placeholder": {
+                                    "type": "string",
+                                    "example": "what is this?"
+                                }
+                            },
+                            "type": "object"
+                        }
+                    },
                     "name": {
                         "title": "script type name",
                         "description": "name of the script type",
@@ -5150,6 +5260,60 @@
                         "description": "description of the script type",
                         "type": "string",
                         "example": "This is"
+                    },
+                    "presence_penalty": {
+                        "title": "script type presence_penalty",
+                        "description": "presence_penalty of the script type",
+                        "type": "string",
+                        "example": "1"
+                    },
+                    "frequency_penalty": {
+                        "title": "script type frequency_penalty",
+                        "description": "frequency_penalty of the script type",
+                        "type": "string",
+                        "example": "1"
+                    },
+                    "best_of": {
+                        "title": "script type best_of",
+                        "description": "best_of of the script type",
+                        "type": "string",
+                        "example": "1"
+                    },
+                    "stream": {
+                        "title": "script type stream",
+                        "description": "stream of the script type",
+                        "type": "string",
+                        "example": "1"
+                    },
+                    "documents": {
+                        "title": "script type documents",
+                        "description": "documents of the script type",
+                        "type": "string",
+                        "example": "1"
+                    },
+                    "query": {
+                        "title": "script type query",
+                        "description": "query of the script type",
+                        "type": "string",
+                        "example": "1"
+                    },
+                    "max_tokens": {
+                        "title": "script type max_tokens",
+                        "description": "max_tokens of the script type",
+                        "type": "string",
+                        "example": "1"
+                    },
+                    "temperature": {
+                        "title": "script type temperature",
+                        "description": "temperature of the script type",
+                        "type": "string",
+                        "example": "1"
+                    },
+                    "top_p": {
+                        "title": "script type top_p",
+                        "description": "top_p of the script type",
+                        "type": "string",
+                        "example": "1"
                     }
                 },
                 "type": "object"
