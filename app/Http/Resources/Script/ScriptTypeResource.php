@@ -34,15 +34,3 @@ class ScriptTypeResource extends JsonResource
         ];
     }
 }
-
-
-$table->string('usage')->nullable();
-$table->string('presence_penalty')->nullable();
-$table->string('frequency_penalty')->nullable();
-$table->string('best_of')->nullable();
-$table->string('stream')->nullable();
-$table->string('documents')->nullable();
-$table->string('query')->nullable();
-$table->string('max_tokens')->nullable();
-$table->string('temperature')->nullable();
-$table->string('top_p')->nullable();
