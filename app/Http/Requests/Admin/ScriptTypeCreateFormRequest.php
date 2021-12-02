@@ -169,6 +169,19 @@ class ScriptTypeCreateFormRequest extends FormRequest
      * @var string
      */
     private $top_p;
+
+
+
+    /**
+     * @OA\Property(
+     *      title="script type engine",
+     *      description="engine of the script type",
+     *      example="1"
+     * )
+     *
+     * @var string
+     */
+    private $engine;
     
 
     /**
@@ -200,6 +213,7 @@ class ScriptTypeCreateFormRequest extends FormRequest
             'max_tokens' => 'nullable',
             'temperature' => 'nullable',
             'top_p' => 'nullable',
+            'engine' => 'nullable',
 
             'script_type_presets' => 'array', 
             'script_type_presets.*.script_type_id' => 'nullable|int|exists:script_types,id',

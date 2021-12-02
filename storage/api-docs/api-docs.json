@@ -2181,6 +2181,57 @@
                         "bearerAuth": []
                     }
                 ]
+            },
+            "put": {
+                "tags": [
+                    "Admin"
+                ],
+                "summary": "Update an transactionsUpdate",
+                "description": "Update an transactionsUpdate",
+                "operationId": "transactionsUpdate",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "transactionsUpdate ID",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/ThirdPartyPlatformUpdateFormRequest"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Successful signin",
+                        "content": {
+                            "application/json": {}
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    },
+                    "401": {
+                        "description": "unauthenticated"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
             }
         },
         "/api/v1/admin/tutorials": {
@@ -5424,6 +5475,22 @@
                         "description": "permission of the role",
                         "type": "string",
                         "example": "create_user"
+                    }
+                },
+                "type": "object"
+            },
+            "UpdateTransactionFormRequest": {
+                "title": "Transaction Update Form Request Fields",
+                "description": "Transaction Update request body data",
+                "required": [
+                    "name"
+                ],
+                "properties": {
+                    "status": {
+                        "title": "status",
+                        "description": "status of the transaction",
+                        "type": "string",
+                        "example": "status"
                     }
                 },
                 "type": "object"

@@ -169,6 +169,17 @@ class ScriptTypeUpdateFormRequest extends FormRequest
      * @var string
      */
     private $top_p;
+
+    /**
+     * @OA\Property(
+     *      title="script type engine",
+     *      description="engine of the script type",
+     *      example="1"
+     * )
+     *
+     * @var string
+     */
+    private $engine;
     
 
     /**
@@ -194,13 +205,14 @@ class ScriptTypeUpdateFormRequest extends FormRequest
             'description' => 'nullable|string',
             'presence_penalty' => 'required',
             'frequency_penalty' => 'required',
-            'best_of' => 'required|numeric',
-            'stream' => 'required|numeric',
-            'documents' => 'required|numeric',
-            'query' => 'required|numeric',
+            'best_of' => 'nullable|numeric',
+            'stream' => 'nullable|numeric',
+            'documents' => 'nullable|numeric',
+            'query' => 'nullable|numeric',
             'max_tokens' => 'required|numeric',
             'temperature' => 'required|numeric',
             'top_p' => 'required|numeric',
+            'engine' => 'required|nullable',
 
             'script_type_presets' => 'array', 
             'script_type_presets.*.script_type_id' => 'required|int|exists:script_types,id',

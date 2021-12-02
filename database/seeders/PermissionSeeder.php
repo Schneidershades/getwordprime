@@ -66,7 +66,8 @@ class PermissionSeeder extends Seeder
     {
         if( $role->name == 'Admin') {
             $user = User::Create([
-                'name'                          => 'Admin',
+                'first_name'                          => 'Admin',
+                'last_name'                          => 'Admin',
                 'email'                         => 'admin@convertscript.com',
                 'password'                      => 'password',
                 'role'                          => $role->name,
@@ -79,7 +80,8 @@ class PermissionSeeder extends Seeder
 
         if( $role->name == 'User') {
             $user = User::Create([
-                'name'                          => 'Manuel',
+                'first_name'                          => 'Manuel',
+                'last_name'                          => 'Manuel',
                 'email'                         => 'user@convertscript.com',
                 'password'                      => 'password',
                 'role'                          => $role->name,
