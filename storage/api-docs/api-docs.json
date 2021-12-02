@@ -5195,6 +5195,12 @@
                         "description": "top_p of the script type",
                         "type": "string",
                         "example": "1"
+                    },
+                    "engine": {
+                        "title": "script type engine",
+                        "description": "engine of the script type",
+                        "type": "string",
+                        "example": "1"
                     }
                 },
                 "type": "object"
@@ -5363,6 +5369,12 @@
                     "top_p": {
                         "title": "script type top_p",
                         "description": "top_p of the script type",
+                        "type": "string",
+                        "example": "1"
+                    },
+                    "engine": {
+                        "title": "script type engine",
+                        "description": "engine of the script type",
                         "type": "string",
                         "example": "1"
                     }
