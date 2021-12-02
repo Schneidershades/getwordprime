@@ -53,14 +53,14 @@ class AuthUpdateFormRequest extends FormRequest
 
     /**
      * @OA\Property(
-     *      title="User status",
-     *      description="status of the user",
-     *      example="info@convertscript.com"
+     *      title="User active",
+     *      description="active of the user",
+     *      example="true"
      * )
      *
-     * @var string
+     * @var boolean
      */
-    public $status;
+    public $active;
 
     /**
      * Determine if the user is authorized to make this request.
@@ -80,7 +80,9 @@ class AuthUpdateFormRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            'first_name' => 'nullable|string|max:255',
+            'last_name' => 'nullable|string|max:255',
+            'active' => 'required|boolean',
         ];
     }
 }
