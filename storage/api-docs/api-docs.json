@@ -2205,7 +2205,7 @@
                     "content": {
                         "application/json": {
                             "schema": {
-                                "$ref": "#/components/schemas/ThirdPartyPlatformUpdateFormRequest"
+                                "$ref": "#/components/schemas/UpdateTransactionFormRequest"
                             }
                         }
                     }
@@ -5581,6 +5581,32 @@
                 "required": [
                     "first_name"
                 ],
+                "properties": {
+                    "name": {
+                        "title": "User Name",
+                        "description": "name of the user",
+                        "type": "string",
+                        "example": "Schneider"
+                    },
+                    "role": {
+                        "title": "User Role",
+                        "description": "User/Admin",
+                        "type": "string",
+                        "example": "User"
+                    },
+                    "email": {
+                        "title": "User email",
+                        "description": "Email of the user",
+                        "type": "string",
+                        "example": "info@convertscript.com"
+                    },
+                    "active": {
+                        "title": "User active",
+                        "description": "active of the user",
+                        "type": "boolean",
+                        "example": "true"
+                    }
+                },
                 "type": "object"
             },
             "ForgotPasswordRequest": {

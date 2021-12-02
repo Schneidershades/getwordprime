@@ -20,23 +20,23 @@ class PlansTableSeeder extends Seeder
         ]);
 
         Plan::create([
-            'name'             => '0T01',
-            'type'         => '0T01',
+            'name'             => 'OTO1',
+            'type'         => 'OTO1',
         ]);
 
         Plan::create([
-            'name'             => '0T02',
-            'type'         => '0T02',
+            'name'             => 'OTO2',
+            'type'         => 'OTO2',
         ]);
 
         Plan::create([
-            'name'             => '0T03',
-            'type'         => '0T03',
+            'name'             => 'OTO3',
+            'type'         => 'OTO3',
         ]);
 
         Plan::create([
-            'name'             => '0T04',
-            'type'         => '0T04',
+            'name'             => 'OTO4',
+            'type'         => 'OTO4',
         ]);
     }
 }
