@@ -19,6 +19,7 @@ class CreateScriptTypesTable extends Migration
             $table->text('icon')->nullable();
             $table->text('description')->nullable();
             $table->string('usage')->nullable();
+            $table->string('engine')->nullable();
             $table->string('presence_penalty')->nullable();
             $table->string('frequency_penalty')->nullable();
             $table->string('best_of')->nullable();
