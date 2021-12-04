@@ -3,8 +3,8 @@
 namespace App\Http\Controllers\Api\Admin;
 
 use App\Models\User;
-use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Http\Requests\Admin\UserCreateFormRequest;
 use App\Http\Requests\Admin\UserUpdateFormRequest;
 
 class UserController extends Controller
@@ -76,9 +76,11 @@ class UserController extends Controller
     *      security={ {"bearerAuth": {}} },
     * )
     */
-    public function store(Request $request)
+    public function store(UserCreateFormRequest $request)
     {
         $user = User::create($request->validated());
+
+        $user->plans()->sync($request['plans']);
 
         return $this->showOne($user);
     }
@@ -147,7 +149,7 @@ class UserController extends Controller
      *     ),
     *      @OA\RequestBody(
     *          required=true,
-    *          @OA\JsonContent(ref="#/components/schemas/UserCreateFormRequest")
+    *          @OA\JsonContent(ref="#/components/schemas/UserUpdateFormRequest")
     *      ),
     *      @OA\Response(
     *          response=200,
@@ -175,6 +177,9 @@ class UserController extends Controller
     public function update(UserUpdateFormRequest $request, User $user)
     {
         $user->update($request->validated());
+
+        $user->plans()->sync($request['plans']);
+
         return $this->showOne($user);
     }
 

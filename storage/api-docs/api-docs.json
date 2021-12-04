@@ -2578,7 +2578,7 @@
                     "content": {
                         "application/json": {
                             "schema": {
-                                "$ref": "#/components/schemas/UserCreateFormRequest"
+                                "$ref": "#/components/schemas/UserUpdateFormRequest"
                             }
                         }
                     }
@@ -5091,39 +5091,11 @@
             },
             "ScriptTypeCreateFormRequest": {
                 "title": "Script Type Create Form Request Fields",
-                "description": "Script Type Create request body data",
+                "description": "Script Type Create form request body data",
                 "required": [
                     "name"
                 ],
                 "properties": {
-                    "script_type_presets": {
-                        "type": "array",
-                        "items": {
-                            "properties": {
-                                "script_type_id": {
-                                    "type": "int",
-                                    "example": "1"
-                                },
-                                "question": {
-                                    "type": "string",
-                                    "example": "what is this?"
-                                },
-                                "field_type": {
-                                    "type": "string",
-                                    "example": "text"
-                                },
-                                "label": {
-                                    "type": "string",
-                                    "example": "Question 1"
-                                },
-                                "placeholder": {
-                                    "type": "string",
-                                    "example": "what is this?"
-                                }
-                            },
-                            "type": "object"
-                        }
-                    },
                     "name": {
                         "title": "script type name",
                         "description": "name of the script type",
@@ -5201,6 +5173,34 @@
                         "description": "engine of the script type",
                         "type": "string",
                         "example": "1"
+                    },
+                    "script_type_presets": {
+                        "type": "array",
+                        "items": {
+                            "properties": {
+                                "script_type_id": {
+                                    "type": "int",
+                                    "example": "1"
+                                },
+                                "question": {
+                                    "type": "string",
+                                    "example": "what is this?"
+                                },
+                                "field_type": {
+                                    "type": "string",
+                                    "example": "text"
+                                },
+                                "label": {
+                                    "type": "string",
+                                    "example": "Question 1"
+                                },
+                                "placeholder": {
+                                    "type": "string",
+                                    "example": "what is this?"
+                                }
+                            },
+                            "type": "object"
+                        }
                     }
                 },
                 "type": "object"
@@ -5272,34 +5272,6 @@
                     "name"
                 ],
                 "properties": {
-                    "script_type_presets": {
-                        "type": "array",
-                        "items": {
-                            "properties": {
-                                "script_type_id": {
-                                    "type": "int",
-                                    "example": "1"
-                                },
-                                "question": {
-                                    "type": "string",
-                                    "example": "what is this?"
-                                },
-                                "field_type": {
-                                    "type": "string",
-                                    "example": "text"
-                                },
-                                "label": {
-                                    "type": "string",
-                                    "example": "Question 1"
-                                },
-                                "placeholder": {
-                                    "type": "string",
-                                    "example": "what is this?"
-                                }
-                            },
-                            "type": "object"
-                        }
-                    },
                     "name": {
                         "title": "script type name",
                         "description": "name of the script type",
@@ -5377,6 +5349,34 @@
                         "description": "engine of the script type",
                         "type": "string",
                         "example": "1"
+                    },
+                    "script_type_presets": {
+                        "type": "array",
+                        "items": {
+                            "properties": {
+                                "script_type_id": {
+                                    "type": "int",
+                                    "example": "1"
+                                },
+                                "question": {
+                                    "type": "string",
+                                    "example": "what is this?"
+                                },
+                                "field_type": {
+                                    "type": "string",
+                                    "example": "text"
+                                },
+                                "label": {
+                                    "type": "string",
+                                    "example": "Question 1"
+                                },
+                                "placeholder": {
+                                    "type": "string",
+                                    "example": "what is this?"
+                                }
+                            },
+                            "type": "object"
+                        }
                     }
                 },
                 "type": "object"
@@ -5514,9 +5514,15 @@
                     "name"
                 ],
                 "properties": {
-                    "name": {
-                        "title": "User Name",
-                        "description": "name of the user",
+                    "first_name": {
+                        "title": "First Name",
+                        "description": "first name of the user",
+                        "type": "string",
+                        "example": "Schneider"
+                    },
+                    "last_name": {
+                        "title": "Last Name",
+                        "description": "last name of the user",
                         "type": "string",
                         "example": "Schneider"
                     },
@@ -5554,9 +5560,15 @@
                     "name"
                 ],
                 "properties": {
-                    "name": {
-                        "title": "User Name",
-                        "description": "name of the user",
+                    "first_name": {
+                        "title": "First Name",
+                        "description": "first name of the user",
+                        "type": "string",
+                        "example": "Schneider"
+                    },
+                    "last_name": {
+                        "title": "Last Name",
+                        "description": "last name of the user",
                         "type": "string",
                         "example": "Schneider"
                     },

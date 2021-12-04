@@ -18,14 +18,25 @@ class UserUpdateFormRequest extends FormRequest
 {
     /**
      * @OA\Property(
-     *      title="User Name",
-     *      description="name of the user",
+     *      title="First Name",
+     *      description="first name of the user",
      *      example="Schneider"
      * )
      *
      * @var string
      */
-    public $name;
+    public $first_name;
+
+    /**
+     * @OA\Property(
+     *      title="Last Name",
+     *      description="last name of the user",
+     *      example="Schneider"
+     * )
+     *
+     * @var string
+     */
+    public $last_name;
 
     /**
      * @OA\Property(
@@ -67,7 +78,11 @@ class UserUpdateFormRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            'first_name' => 'string|max:255',
+            'last_name' => 'string|max:255',
+            'role' => 'string|max:255|in:Admin,User',
+            'plans' => 'array', 
+            'plans.*.plan_id' => 'int|exists:plans,id',
         ];
     }
 }

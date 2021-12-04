@@ -17,16 +17,29 @@ use Illuminate\Foundation\Http\FormRequest;
 
 class UserCreateFormRequest extends FormRequest
 {
-     /**
+    
+    /**
      * @OA\Property(
-     *      title="User Name",
-     *      description="name of the user",
+     *      title="First Name",
+     *      description="first name of the user",
      *      example="Schneider"
      * )
      *
      * @var string
      */
-    public $name;
+    public $first_name;
+
+    /**
+     * @OA\Property(
+     *      title="Last Name",
+     *      description="last name of the user",
+     *      example="Schneider"
+     * )
+     *
+     * @var string
+     */
+    public $last_name;
+
 
     /**
      * @OA\Property(
@@ -79,11 +92,12 @@ class UserCreateFormRequest extends FormRequest
     public function rules()
     {
         return [
-            'name' => 'required|string|max:255',
+            'first_name' => 'required|string|max:255',
+            'last_name' => 'required|string|max:255',
             'email' => 'required|string|email|max:255|unique:users',
             'role' => 'required|string|max:255|in:Admin,User',
-            'plans' => 'required|array', 
-            'plans.*.plan_id' => 'required|int|exists:plans,id',
+            'plans' => 'array', 
+            'plans.*.plan_id' => 'int|exists:plans,id',
         ];
     }
 }
