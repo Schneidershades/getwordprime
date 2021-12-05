@@ -17,6 +17,9 @@ class ScriptTypePresetResource extends JsonResource
         return [
             'id' => $this->id,
             'scriptType' => $this->scriptType->name,
+            'label' => $this->label,
+            'placeholder' => $this->placeholder,
+            'field_type' => $this->field_type,
             'question' => $this->question,
             'created_at' => $this->created_at,
             'updated_at' => $this->updated_at,

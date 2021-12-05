@@ -23,6 +23,7 @@ class ScriptTypeResource extends JsonResource
             'presence_penalty' => $this->presence_penalty,
             'frequency_penalty' => $this->frequency_penalty,
             'best_of' => $this->best_of,
+            'presets' => ScriptTypePresetResource::collection($this->presets),
             'stream' => $this->stream,
             'documents' => $this->documents,
             'query' => $this->query,
