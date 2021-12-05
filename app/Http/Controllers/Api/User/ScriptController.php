@@ -8,6 +8,7 @@ use App\Traits\Plugins\OpenAi\OpenAi;
 use App\Http\Requests\User\ScriptCreateFormRequest;
 use App\Http\Requests\User\ScriptUpdateFormRequest;
 use App\Models\ScriptType;
+use App\Models\UserScriptTypePreset;
 
 class ScriptController extends Controller
 {
@@ -81,6 +82,49 @@ class ScriptController extends Controller
     public function store(ScriptCreateFormRequest $request)
     {
         $findScriptType = ScriptType::find($request['script_type_id']);
+
+        $presets = $findScriptType->presets->pluck('id')->toArray();
+
+        $countPresets = $findScriptType->presets->count();
+
+        $userAnswers = UserScriptTypePreset::where('user_id', auth()->user()->id)->whereIn('script_type_preset_id', $presets)->get();
+
+        if($countPresets < $userAnswers->count()){
+            return $this->errorResponse('In other to generate a script kindly set all the answers in the script type questions', 422);
+        }
+
+        $submissionToOpenAi = "";
+
+        foreach($userAnswers as $answer){
+            $submissionToOpenAi .= $answer['answers']. " \n";
+            $submissionToOpenAi .= '""""""'. " \n";
+        }
+        
+        
+
+        return $submissionToOpenAi;
+
+
+
+
+        // [
+    //     "engine" => "davinci-instruct-beta", 
+    //     "prompt" => "Write a creative ad for the following product to run on Facebook:
+    // """"""
+    // Airee is a line of skin-care products for young women with delicate skin. The ingredients are all-natural.
+    // """"""
+    // This is the ad I wrote for Facebook aimed at teenage girls:
+    // """"""", 
+    //     "temperature" => 0.5, 
+    //     "max_tokens" => 60, 
+    //     "top_p" => 1, 
+    //     "frequency_penalty" => 0, 
+    //     "presence_penalty" => 0, 
+    //     "stop" => [
+    //         """""""" 
+    //     ] 
+    // ]; 
+
         // return $this->showOne(auth()->user()->scripts()->create($request->validated()));
     }
 

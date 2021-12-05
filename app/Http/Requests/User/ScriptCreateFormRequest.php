@@ -23,7 +23,7 @@ class ScriptCreateFormRequest extends FormRequest
      *
      * @var string
      */
-    private $content;
+    public $content;
 
     /**
      * @OA\Property(
@@ -34,7 +34,7 @@ class ScriptCreateFormRequest extends FormRequest
      *
      * @var int
      */
-    private $script_type_id;
+    public $script_type_id;
 
 
     /**
@@ -46,7 +46,7 @@ class ScriptCreateFormRequest extends FormRequest
      *
      * @var int
      */
-    private $campaign_id;
+    public $campaign_id;
     
 
     /**
