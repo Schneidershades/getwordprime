@@ -31,6 +31,27 @@ class OpenAi
     //         """""""" 
     //     ] 
     // ]; 
+    
+
+
+    public function ad($prompt, $scriptType)
+    { 
+        $request_body = [
+            "engine" => $scriptType->engine,
+            "prompt" => $prompt,
+            "max_tokens" => $scriptType->max_token,
+            "temperature" => $scriptType->temperature,
+            "top_p" => $scriptType->top_p,
+            "presence_penalty" => $scriptType->presence_penalty,
+            "frequency_penalty"=> $scriptType->frequency_penalty,
+            "best_of"=> $scriptType->best_of,
+            "stream" => $scriptType->stream,
+        ];
+
+        $response = $this->sendRequest("https://api.openai.com/v1/engines/" . $scriptType->engine . "/completions", 'POST', json_encode($request_body));
+        dd($response);
+    }
+
 
     public function ads($engine, $prompt, $max_tokens)
     { 

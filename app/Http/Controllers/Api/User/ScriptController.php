@@ -81,11 +81,11 @@ class ScriptController extends Controller
     */
     public function store(ScriptCreateFormRequest $request)
     {
-        $findScriptType = ScriptType::find($request['script_type_id']);
+        $scriptType = ScriptType::find($request['script_type_id']);
 
-        $presets = $findScriptType->presets->pluck('id')->toArray();
+        $presets = $scriptType->presets->pluck('id')->toArray();
 
-        $countPresets = $findScriptType->presets->count();
+        $countPresets = $scriptType->presets->count();
 
         $userAnswers = UserScriptTypePreset::where('user_id', auth()->user()->id)->whereIn('script_type_preset_id', $presets)->get();
 
@@ -99,10 +99,13 @@ class ScriptController extends Controller
             $submissionToOpenAi .= $answer['answers']. " \n";
             $submissionToOpenAi .= '""""""'. " \n";
         }
-        
+
+        // return $submissionToOpenAi;
+
+        $generate = (new OpenAi)->ad($submissionToOpenAi, $scriptType);
         
 
-        return $submissionToOpenAi;
+
 
 
 
