@@ -189,10 +189,24 @@ class ScriptTypeController extends Controller
     */
     public function update(ScriptTypeUpdateFormRequest $request, ScriptType $scriptType)
     {
-        $scriptType->update($request->validated());
-
+        $scriptType->update([
+            'name' => $request['name'],
+            'icon' => $request['icon'],
+            'description' => $request['description'],
+            'presence_penalty' => $request['presence_penalty'],
+            'frequency_penalty' => $request['frequency_penalty'],
+            'best_of' => $request['best_of'],
+            'stream' => $request['stream'],
+            'documents' => $request['documents'],
+            'query' => $request['query'],
+            'max_tokens' => $request['max_tokens'],
+            'temperature' => $request['temperature'],
+            'top_p' => $request['top_p'],
+            'engine' => $request['engine'],
+        ]);
+        
         foreach($request['script_type_presets'] as $preset){
-            $scriptType->preset()->create($preset);
+            $scriptType->presets()->create($preset);
         }
         
         return $this->showMessage($scriptType);

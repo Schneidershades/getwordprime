@@ -102,7 +102,7 @@ class ScriptController extends Controller
 
         // return $submissionToOpenAi;
 
-        $generate = (new OpenAi)->ad($submissionToOpenAi, $scriptType);
+        return $generate = (new OpenAi)->ad($submissionToOpenAi, $scriptType);
         
 
 
