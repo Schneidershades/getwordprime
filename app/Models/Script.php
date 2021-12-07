@@ -21,4 +21,9 @@ class Script extends Model
     {
         return $this->belongsTo(User::class);
     } 
+
+    public function scriptResponses()
+    {
+        return $this->hasMany(ScriptResponse::class);
+    }
 }

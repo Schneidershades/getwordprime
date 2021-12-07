@@ -115,12 +115,12 @@ class ScriptController extends Controller
             'model' => $request['model'],
         ]);
         
-        foreach($generate['choices'] as $choice){
+        foreach($generate->choices as $choice){
             ScriptResponse::create([
-                'text' => $choice['text'],
-                'index' => $choice['index'],
-                'logprobs' => $choice['logprobs'],
-                'finish_reason' => $choice['finish_reason'],
+                'text' => $choice->text,
+                'index' => $choice->index,
+                'logprobs' => $choice->logprobs,
+                'finish_reason' => $choice->finish_reason,
                 'script_id' => $script->id,
             ]);
         }
