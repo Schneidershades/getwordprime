@@ -189,6 +189,10 @@ class ScriptTypeController extends Controller
     */
     public function update(ScriptTypeUpdateFormRequest $request, ScriptType $scriptType)
     {
+        if($scriptType == null){
+            return $this->errorResponse('Script type id not found. please place the id on the url to process', 401);
+        }
+
         $scriptType->update([
             'name' => $request['name'],
             'icon' => $request['icon'],

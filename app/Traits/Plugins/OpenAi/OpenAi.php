@@ -37,17 +37,17 @@ class OpenAi
     public function ad($prompt, $scriptType)
     { 
         $request_body = [
-            "engine" => $scriptType->engine ? $scriptType->engine : 'davinci-instruct-beta',
+            "engine" => 'davinci-instruct-beta',
             "prompt" => $prompt,
-            "max_tokens" => $scriptType->max_token ? $scriptType->max_token : 60,
-            "temperature" => $scriptType->temperature ? $scriptType->max_token : 0,
-            "top_p" => $scriptType->top_p ? $scriptType->max_token : 1,
-            "presence_penalty" => $scriptType->presence_penalty ? $scriptType->max_token : 0 ,
-            "frequency_penalty"=> $scriptType->frequency_penalty ? $scriptType->max_token : 0,
+            "temperature" => 0.5, 
+            "max_tokens" => 60, 
+            "top_p" => 1, 
+            "frequency_penalty" => 0, 
+            "presence_penalty" => 0, 
             "stop" => ["\"\"\"\"\"\""] 
         ];
 
-        $response = $this->sendRequest("https://api.openai.com/v1/engines/" . $scriptType->engine . "/completions", 'POST', json_encode($request_body));
+        $response = $this->sendRequest("https://api.openai.com/v1/engines/" ."davinci-instruct-beta" . "/completions", 'POST', json_encode($request_body));
         return($response);
     }
 
