@@ -7,6 +7,7 @@ use App\Http\Controllers\Controller;
 use App\Traits\Plugins\OpenAi\OpenAi;
 use App\Http\Requests\User\ScriptCreateFormRequest;
 use App\Http\Requests\User\ScriptUpdateFormRequest;
+use App\Models\ScriptResponse;
 use App\Models\ScriptType;
 use App\Models\UserScriptTypePreset;
 
@@ -100,35 +101,31 @@ class ScriptController extends Controller
             $submissionToOpenAi .= '""""""'. " \n";
         }
 
-        // return $submissionToOpenAi;
+        $generate = (new OpenAi)->ad($submissionToOpenAi, $scriptType);
 
-        return $generate = (new OpenAi)->ad($submissionToOpenAi, $scriptType);
+        if($generate){
+
+        }
         
+        $script = Script::create([
+            'name' => $request['name'],
+            'content' => $request['name'],
+            'object' => $request['object'],
+            'created' => $request['created'],
+            'model' => $request['model'],
+        ]);
+        
+        foreach($generate['choices'] as $choice){
+            ScriptResponse::create([
+                'text' => $choice['text'],
+                'index' => $choice['index'],
+                'logprobs' => $choice['logprobs'],
+                'finish_reason' => $choice['finish_reason'],
+                'script_id' => $script->id,
+            ]);
+        }
 
-
-
-
-
-
-        // [
-    //     "engine" => "davinci-instruct-beta", 
-    //     "prompt" => "Write a creative ad for the following product to run on Facebook:
-    // """"""
-    // Airee is a line of skin-care products for young women with delicate skin. The ingredients are all-natural.
-    // """"""
-    // This is the ad I wrote for Facebook aimed at teenage girls:
-    // """"""", 
-    //     "temperature" => 0.5, 
-    //     "max_tokens" => 60, 
-    //     "top_p" => 1, 
-    //     "frequency_penalty" => 0, 
-    //     "presence_penalty" => 0, 
-    //     "stop" => [
-    //         """""""" 
-    //     ] 
-    // ]; 
-
-        // return $this->showOne(auth()->user()->scripts()->create($request->validated()));
+        return $this->showOne($script);
     }
 
     /**

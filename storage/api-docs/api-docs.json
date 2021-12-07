@@ -5498,11 +5498,11 @@
                     "name"
                 ],
                 "properties": {
-                    "status": {
-                        "title": "status",
-                        "description": "status of the transaction",
-                        "type": "string",
-                        "example": "status"
+                    "activate": {
+                        "title": "activate",
+                        "description": "activate of the transaction",
+                        "type": "boolean",
+                        "example": "true"
                     }
                 },
                 "type": "object"

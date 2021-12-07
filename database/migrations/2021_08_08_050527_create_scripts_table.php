@@ -19,11 +19,14 @@ class CreateScriptsTable extends Migration
             $table->foreignId('script_type_id')->nullable()->constrained();
             $table->foreignId('campaign_id')->nullable()->constrained();
             $table->text('content')->nullable();
+            $table->text('name')->nullable();
+            $table->string('object')->nullable();
+            $table->string('created')->nullable();
+            $table->string('model')->nullable();
             $table->timestamps();
             $table->softDeletes();
         });
     }
-    
     /**
      * Reverse the migrations.
      *

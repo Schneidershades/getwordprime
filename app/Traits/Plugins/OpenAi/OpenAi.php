@@ -37,7 +37,6 @@ class OpenAi
     public function ad($prompt, $scriptType)
     { 
         $request_body = [
-            "engine" => 'davinci-instruct-beta',
             "prompt" => $prompt,
             "temperature" => 0.5, 
             "max_tokens" => 60, 
