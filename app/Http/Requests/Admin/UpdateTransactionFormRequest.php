@@ -18,14 +18,14 @@ class UpdateTransactionFormRequest extends FormRequest
 {
     /**
      * @OA\Property(
-     *      title="status",
-     *      description="status of the transaction",
-     *      example="status"
+     *      title="activate",
+     *      description="activate of the transaction",
+     *      example="true"
      * )
      *
-     * @var string
+     * @var boolean
      */
-    private $status;
+    private $activate;
 
     /**
      * Determine if the user is authorized to make this request.
@@ -45,7 +45,7 @@ class UpdateTransactionFormRequest extends FormRequest
     public function rules()
     {
         return [
-            'status' => 'required|string',
+            'activate' => 'required|boolean',
         ];
     }
 }
