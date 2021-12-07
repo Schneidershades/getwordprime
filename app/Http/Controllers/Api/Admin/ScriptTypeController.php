@@ -210,6 +210,7 @@ class ScriptTypeController extends Controller
         ]);
         
         foreach($request['script_type_presets'] as $preset){
+            $scriptType->presets()->delete();
             $scriptType->presets()->create($preset);
         }
         
