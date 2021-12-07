@@ -21,6 +21,8 @@ class ScriptTypeResource extends JsonResource
             'description' => $this->description,
             'usage' => $this->usage,
             'presence_penalty' => $this->presence_penalty,
+            'temperature' => $this->temperature,
+            'engine' => $this->engine,
             'frequency_penalty' => $this->frequency_penalty,
             'best_of' => $this->best_of,
             'presets' => ScriptTypePresetResource::collection($this->presets),
