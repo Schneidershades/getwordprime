@@ -82,7 +82,7 @@ class ScriptController extends Controller
     */
     public function store(ScriptCreateFormRequest $request)
     {
-        dd($request->all());
+        // return ($request->all());
 
         $scriptType = ScriptType::find($request['script_type_id']);
 
@@ -111,13 +111,13 @@ class ScriptController extends Controller
         
         $script = Script::create([
             'name' => $request['name'],
-            'user_id' => $request['user_id'],
+            'user_id' => auth()->user()->id,
             'campaign_id' => $request['campaign_id'],
             'script_type_id' => $request['script_type_id'],
             'content' => $request['name'],
-            'object' => $request['object'],
-            'created' => $request['created'],
-            'model' => $request['model'],
+            'object' => $generate->object,
+            'created' => $generate->created,
+            'model' => $generate->model,
         ]);
         
         foreach($generate->choices as $choice){
