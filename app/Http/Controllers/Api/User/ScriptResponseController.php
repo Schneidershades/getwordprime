@@ -2,9 +2,10 @@
 
 namespace App\Http\Controllers\Api\User;
 
-use App\Http\Controllers\Controller;
-use App\Models\ScriptResponse;
 use Illuminate\Http\Request;
+use App\Models\ScriptResponse;
+use App\Http\Controllers\Controller;
+use App\Http\Requests\User\ScriptResponseUpdateFormRequest;
 
 class ScriptResponseController extends Controller
 {
