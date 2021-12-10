@@ -20,6 +20,7 @@ class CreateScriptResponsesTable extends Migration
             $table->string('index')->nullable();
             $table->string('logprobs')->nullable();
             $table->string('finish_reason')->nullable();
+            $table->boolean('active')->default(true);
             $table->timestamps();
             $table->softDeletes();
         });
