@@ -21,6 +21,11 @@ class ScriptTypePresetTableSeeder extends Seeder
 
         ScriptTypePreset::create([
             'script_type_id'       => 1,
+            'question'         => 'Description',
+        ]);
+
+        ScriptTypePreset::create([
+            'script_type_id'       => 1,
             'question'         => 'Who are your target audience',
         ]);
     }

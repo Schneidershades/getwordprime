@@ -4103,6 +4103,143 @@
                 ]
             }
         },
+        "/api/v1/script-responses/{id}": {
+            "get": {
+                "tags": [
+                    "user"
+                ],
+                "summary": "Show a showScriptResponses",
+                "description": "Show a showScriptResponses",
+                "operationId": "showScriptResponses",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Agency ID",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful signin",
+                        "content": {
+                            "application/json": {}
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    },
+                    "401": {
+                        "description": "unauthenticated"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            },
+            "delete": {
+                "tags": [
+                    "user"
+                ],
+                "summary": "Delete an script",
+                "description": "Delete an script",
+                "operationId": "deleteScript",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Script ID",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful signin",
+                        "content": {
+                            "application/json": {}
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    },
+                    "401": {
+                        "description": "unauthenticated"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        },
+        "/api/v1/scripts-responses/{id}": {
+            "put": {
+                "tags": [
+                    "user"
+                ],
+                "summary": "Update a updateScriptResponses",
+                "description": "Update a updateScriptResponses",
+                "operationId": "updateScriptResponses",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "updateScriptResponses ID",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/ScriptResponseUpdateFormRequest"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Successful signin",
+                        "content": {
+                            "application/json": {}
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    },
+                    "401": {
+                        "description": "unauthenticated"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        },
         "/api/v1/script-type-presets": {
             "get": {
                 "tags": [
@@ -5901,6 +6038,14 @@
                         "example": "1"
                     }
                 },
+                "type": "object"
+            },
+            "ScriptResponseUpdateFormRequest": {
+                "title": "Script Response Update Form Request Fields",
+                "description": "Script Response Update request body data",
+                "required": [
+                    "name"
+                ],
                 "type": "object"
             },
             "ScriptUpdateFormRequest": {

@@ -68,8 +68,8 @@ class ScriptCreateFormRequest extends FormRequest
     {
         return [
             'content' => 'required|string',
-            'script_type_id' => 'required|int',
-            'campaign_id' => 'required|int',
+            'script_type_id' => 'required|int|exists:script_types,id',
+            'campaign_id' => 'nullable|int|exists:campaigns,id',
         ];
     }
 }

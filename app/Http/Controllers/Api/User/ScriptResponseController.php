@@ -57,7 +57,7 @@ class ScriptResponseController extends Controller
 
      /**
     * @OA\PUT(
-    *      path="/api/v1/scripts/{id}",
+    *      path="/api/v1/scripts-responses/{id}",
     *      operationId="updateScriptResponses",
     *      tags={"user"},
     *      summary="Update a updateScriptResponses",

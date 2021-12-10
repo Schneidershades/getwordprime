@@ -19,7 +19,7 @@ class DashboardController extends Controller
     *          description="Successful signin",
     *          @OA\MediaType(
     *             mediaType="application/json",
-    *         ),$request
+    *         ),
     *       ),
     *      @OA\Response(
     *          response=400,
