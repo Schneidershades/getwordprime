@@ -31,5 +31,23 @@ class UserScriptTypePresetSeeder extends Seeder
             'user_id'         => 1,
             'answers'         => 'This is the ad I wrote for Facebook aimed at teenage girls:',
         ]);
+
+        UserScriptTypePreset::create([
+            'script_type_preset_id'       => 1,
+            'user_id'         => 2,
+            'answers'         => 'Write a creative ad for the following product to run on Facebook:',
+        ]);
+
+        UserScriptTypePreset::create([
+            'script_type_preset_id'       => 2,
+            'user_id'         => 2,
+            'answers'         => 'Airee is a line of skin-care products for young women with delicate skin. The ingredients are all-natural.',
+        ]);
+
+        UserScriptTypePreset::create([
+            'script_type_preset_id'       => 3,
+            'user_id'         => 2,
+            'answers'         => 'This is the ad I wrote for Facebook aimed at teenage girls:',
+        ]);
     }
 }
