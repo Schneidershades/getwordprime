@@ -2,11 +2,12 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
-use Illuminate\Database\Eloquent\Model;
 use App\Models\User;
+use App\Models\Script;
+use Illuminate\Database\Eloquent\Model;
 use App\Http\Resources\Campaign\CampaignResource;
 use App\Http\Resources\Campaign\CampaignCollection;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class Campaign extends Model
 {
@@ -20,5 +21,10 @@ class Campaign extends Model
     public function user()
     {
         return $this->belongsTo(User::class);
+    }
+
+    public function scripts()
+    {
+        return $this->belongsTo(Script::class);
     }
 }
