@@ -29,7 +29,7 @@ Route::prefix('v1')->group(function () {
 		Route::resource('user-script-type-presets', UserScriptTypePresetController::class);
 		Route::resource('script-type-presets', ScriptTypePresetController::class);
 		Route::resource('platform-integrations', PlatformIntegrationController::class);
-		Route::get('user/select/script-type/{id}', 'UserSelectScriptTypeController@show');
+		Route::get('user-select-script-type/{id}', 'UserSelectScriptTypeController@show');
 		
 	});
 

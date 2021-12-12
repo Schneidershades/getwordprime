@@ -10,7 +10,7 @@ class UserSelectScriptTypeController extends Controller
 {
     /**
     * @OA\Get(
-    *      path="/api/v1/user/select/script-type/{id}",
+    *      path="/api/v1/user-select-script-type/{id}",
     *      operationId="selectUserScriptType",
     *      tags={"user"},
     *      summary="select a user script type",

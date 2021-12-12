@@ -4990,6 +4990,49 @@
                     }
                 ]
             }
+        },
+        "/api/v1/user-select-script-type/{id}": {
+            "get": {
+                "tags": [
+                    "user"
+                ],
+                "summary": "select a user script type",
+                "description": "select a user script type",
+                "operationId": "selectUserScriptType",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "ScriptType ID",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful signin",
+                        "content": {
+                            "application/json": {}
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    },
+                    "401": {
+                        "description": "unauthenticated"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
         }
     },
     "components": {
