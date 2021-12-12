@@ -2,6 +2,7 @@
 
 namespace App\Http\Resources\User;
 
+use App\Http\Resources\Script\ScriptTypePresetResource;
 use Illuminate\Http\Resources\Json\JsonResource;
 
 class UserScriptTypePresetResource extends JsonResource
@@ -10,7 +11,7 @@ class UserScriptTypePresetResource extends JsonResource
     {
         return [
             'id' => $this->id,
-            'question' => $this->scriptTypePreset->question,
+            'question' => new ScriptTypePresetResource($this->scriptTypePreset) ,
             'answer' => $this->answers,
             'created_at' => $this->created_at,
             'updated_at' => $this->updated_at,

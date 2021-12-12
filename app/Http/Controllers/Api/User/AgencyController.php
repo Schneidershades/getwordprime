@@ -78,7 +78,9 @@ class AgencyController extends Controller
     */
     public function store(AgencyCreateFormRequest $request)
     {
-        return $this->showOne(auth()->user()->agencies()->create($request->validated()));
+        $agency = auth()->user()->agencies()->create($request->validated());
+
+        return $this->showOne($agency);
     }
 
     /**
@@ -173,7 +175,12 @@ class AgencyController extends Controller
     public function update(AgencyUpdateFormRequest $request, $id)
     {
         auth()->user()->agencies->where('id', $id)->first()->update($request->validated());
-        return $this->showOne(auth()->user()->agencies->where('id', $id)->first());
+
+        $agency = auth()->user()->agencies->where('id', $id)->first();
+
+        $agency->campaigns()->sync($request['campaigns']);
+
+        return $this->showOne($agency);
     }
 
      /**

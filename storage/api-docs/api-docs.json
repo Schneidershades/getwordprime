@@ -5882,6 +5882,18 @@
                         "description": "email of the agency",
                         "type": "string",
                         "example": "info@client.com"
+                    },
+                    "campaigns": {
+                        "type": "array",
+                        "items": {
+                            "properties": {
+                                "campaign_id": {
+                                    "type": "int",
+                                    "example": "1"
+                                }
+                            },
+                            "type": "object"
+                        }
                     }
                 },
                 "type": "object"
@@ -5904,6 +5916,18 @@
                         "description": "email of the agency",
                         "type": "string",
                         "example": "info@client.com"
+                    },
+                    "campaigns": {
+                        "type": "array",
+                        "items": {
+                            "properties": {
+                                "campaign_id": {
+                                    "type": "int",
+                                    "example": "1"
+                                }
+                            },
+                            "type": "object"
+                        }
                     }
                 },
                 "type": "object"

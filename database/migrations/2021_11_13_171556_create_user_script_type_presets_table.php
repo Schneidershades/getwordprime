@@ -18,7 +18,7 @@ class CreateUserScriptTypePresetsTable extends Migration
             $table->foreignId('script_type_preset_id')->nullable()->constrained();
             $table->foreignId('script_id')->nullable()->constrained();
             $table->foreignId('user_id')->nullable()->constrained();
-            $table->string('answers');
+            $table->string('answers')->nullable();
             $table->timestamps();
             $table->softDeletes();
         });

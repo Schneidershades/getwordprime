@@ -40,6 +40,17 @@ class AgencyCreateFormRequest extends FormRequest
     private $email;
 
     /**
+    *       @OA\Property(property="campaigns", type="object", type="array",
+    *            @OA\Items(
+    *                @OA\Property(property="campaign_id", type="int", example="1"),
+    *            ),
+    *        ),
+    *    ),
+    */
+
+    public $campaigns;
+
+    /**
      * Determine if the user is authorized to make this request.
      *
      * @return bool
@@ -59,6 +70,8 @@ class AgencyCreateFormRequest extends FormRequest
         return [
             'name' => 'required|string',
             'email' => 'required|string|email|max:255|unique:agencies,email',
+            'campaigns' => 'array', 
+            'campaigns.*.campaign_id' => 'int|exists:plans,id',
         ];
     }
 }

@@ -99,8 +99,10 @@ class ScriptController extends Controller
         $submissionToOpenAi = "";
 
         foreach($userAnswers as $answer){
-            $submissionToOpenAi .= $answer['answers']. " \n";
-            $submissionToOpenAi .= '""""""'. " \n";
+            if($answer['answers'] != null){
+                $submissionToOpenAi .= $answer['answers']. " \n";
+                $submissionToOpenAi .= '""""""'. " \n";
+            }
         }
 
         $generate = (new OpenAi)->ad($submissionToOpenAi, $scriptType);

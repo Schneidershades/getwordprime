@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use App\Models\User;
+use App\Models\Agency;
 use App\Models\Script;
 use Illuminate\Database\Eloquent\Model;
 use App\Http\Resources\Campaign\CampaignResource;
@@ -26,5 +27,10 @@ class Campaign extends Model
     public function scripts()
     {
         return $this->hasMany(Script::class);
+    }
+
+    public function agencies()
+    {
+    	return $this->belongsToMany(Agency::class, 'agency_campaigns');
     }
 }

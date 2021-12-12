@@ -20,6 +20,7 @@ class CreateUsersTable extends Migration
             $table->string('email')->unique();
             $table->string('role')->nullable();
             $table->foreignId('parent_id')->nullable()->constrained('users');
+            $table->foreignId('plan_id')->nullable()->constrained();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
             $table->boolean('active')->default(true);
