@@ -25,6 +25,6 @@ class Campaign extends Model
 
     public function scripts()
     {
-        return $this->belongsTo(Script::class);
+        return $this->hasMany(Script::class);
     }
 }
