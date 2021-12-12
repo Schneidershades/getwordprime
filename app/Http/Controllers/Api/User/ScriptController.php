@@ -82,15 +82,15 @@ class ScriptController extends Controller
     */
     public function store(ScriptCreateFormRequest $request)
     {
-        // return ($request->all());
-
         $scriptType = ScriptType::find($request['script_type_id']);
 
         $presets = $scriptType->presets->pluck('id')->toArray();
 
         $countPresets = $scriptType->presets->count();
 
-        $userAnswers = UserScriptTypePreset::where('user_id', auth()->user()->id)->whereIn('script_type_preset_id', $presets)->get();
+        $userAnswers = UserScriptTypePreset::where('user_id', auth()->user()->id)
+                            ->whereIn('script_type_preset_id', $presets)
+                            ->get();
 
         if($countPresets < $userAnswers->count()){
             return $this->errorResponse('In other to generate a script kindly set all the answers in the script type questions', 422);

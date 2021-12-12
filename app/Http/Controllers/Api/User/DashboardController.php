@@ -9,7 +9,7 @@ class DashboardController extends Controller
 
     /**
     * @OA\Get(
-    *      path="/api/v1/user/dashboard",
+    *      path="/api/v1/dashboard",
     *      operationId="userDashboard",
     *      tags={"user"},
     *      summary="userDashboard",
