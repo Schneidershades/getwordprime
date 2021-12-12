@@ -17,6 +17,7 @@ class CampaignResource extends JsonResource
         return [
             'id' => $this->id,
             'name' => $this->name,
+            'scripts_count' => $this->scripts->count(),
             'created_at' => $this->created_at,
             'updated_at' => $this->updated_at,
         ];

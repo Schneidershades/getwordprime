@@ -24,7 +24,7 @@ Route::prefix('v1')->group(function () {
 		Route::resource('reseller', ResellerController::class);
 		Route::resource('scripts', ScriptController::class);
 		Route::resource('tutorials', TutorialController::class);
-		Route::resource('suggestion', SuggestionController::class);
+		Route::resource('suggestions', SuggestionController::class);
 		Route::resource('dashboard', DashboardController::class);
 		Route::resource('user-script-type-presets', UserScriptTypePresetController::class);
 		Route::resource('script-type-presets', ScriptTypePresetController::class);
