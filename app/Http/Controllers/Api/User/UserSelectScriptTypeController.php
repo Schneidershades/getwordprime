@@ -53,32 +53,32 @@ class UserSelectScriptTypeController extends Controller
     {
         $scriptType = ScriptType::find($id);
 
-        $questions = $scriptType->presets->pluck('id')->toArray();
+        $scriptTypeQuestions = $scriptType->presets->pluck('id')->toArray();
 
-        $findUserPresets = UserScriptTypePreset::where('script_id', $scriptType->id)
-                ->where('user_id', auth()->user()->id)
-                ->whereIn('id', $questions)
+        $findUserPresets = UserScriptTypePreset::where('user_id', auth()->user()->id)
+                ->where('script_type_id', $scriptType->id)
+                ->whereIn('script_type_preset_id', $scriptTypeQuestions)
                 ->get();
 
-        $getExistingQuestions = $findUserPresets->pluck('id')->toArray();
+        $userExistingQuestions = $findUserPresets->pluck('script_type_preset_id')->toArray();
 
-        $questionDifferenceIds = array_diff($questions, $getExistingQuestions);
-        $questionAddIds = array_merge($questions, $getExistingQuestions);
+        $questionDifferenceIds = array_diff($scriptTypeQuestions, $userExistingQuestions);
+        $questionAddIds = array_unique(array_merge($scriptTypeQuestions, $userExistingQuestions));
 
-        foreach($questionDifferenceIds as $id)
+        foreach($questionDifferenceIds as $presetId)
         {
             UserScriptTypePreset::create([
-                'script_type_preset_id' => $id,
-                'script_id' => $scriptType->id,
+                'script_type_id' => $scriptType->id,
+                'script_type_preset_id' => $presetId,
                 'user_id' => auth()->user()->id,
             ]);
         }
 
-        $findAllUserPresets = UserScriptTypePreset::where('script_id', $scriptType->id)
-                ->where('user_id', auth()->user()->id)
-                ->whereIn('id', $questionAddIds)
-                ->get();
-        
+        $findAllUserPresets = UserScriptTypePreset::where('user_id', auth()->user()->id)
+                    ->where('script_type_id', $scriptType->id)
+                    ->whereIn('script_type_preset_id', $questionAddIds)
+                    ->get();
+
         return $this->showAll($findAllUserPresets);
         
     }

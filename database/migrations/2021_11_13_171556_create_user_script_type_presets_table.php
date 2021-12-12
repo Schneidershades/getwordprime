@@ -16,7 +16,7 @@ class CreateUserScriptTypePresetsTable extends Migration
         Schema::create('user_script_type_presets', function (Blueprint $table) {
             $table->id();
             $table->foreignId('script_type_preset_id')->nullable()->constrained();
-            $table->foreignId('script_id')->nullable()->constrained();
+            $table->foreignId('script_type_id')->nullable()->constrained();
             $table->foreignId('user_id')->nullable()->constrained();
             $table->string('answers')->nullable();
             $table->timestamps();
