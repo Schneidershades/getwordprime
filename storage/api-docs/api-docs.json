@@ -4240,6 +4240,81 @@
                 ]
             }
         },
+        "/api/v1/script-types": {
+            "get": {
+                "tags": [
+                    "user"
+                ],
+                "summary": "Get Script-type",
+                "description": "Get script-types",
+                "operationId": "allScriptTypes",
+                "responses": {
+                    "200": {
+                        "description": "Successful signin",
+                        "content": {
+                            "application/json": {}
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    },
+                    "401": {
+                        "description": "unauthenticated"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        },
+        "/api/v1/script-types/{id}": {
+            "get": {
+                "tags": [
+                    "user"
+                ],
+                "summary": "Show script type",
+                "description": "Show script type",
+                "operationId": "showScriptType",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Script Type ID",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful signin",
+                        "content": {
+                            "application/json": {}
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    },
+                    "401": {
+                        "description": "unauthenticated"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        },
         "/api/v1/script-type-presets": {
             "get": {
                 "tags": [
