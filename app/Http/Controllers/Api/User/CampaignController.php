@@ -122,7 +122,7 @@ class CampaignController extends Controller
     */
     public function show(Campaign $campaign)
     {
-        return $this->showOne(auth()->user()->campaigns->where('id', $campaign->id)->first());
+        return $this->showOne($campaign);
     }
     /**
     * @OA\PUT(
