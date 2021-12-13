@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Api\User;
 
 use App\Http\Controllers\Controller;
+use App\Models\Tutorial;
 
 class DashboardController extends Controller
 {
@@ -42,6 +43,7 @@ class DashboardController extends Controller
             'campaigns' => auth()->user()->campaigns->count(),
             'scripts' => auth()->user()->scripts->count(),
             'published' => auth()->user()->scripts->count(),
+            'video' => Tutorial::first(),
         ];
 
         return $this->showMessage($data);
