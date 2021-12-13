@@ -2,6 +2,7 @@
 
 namespace App\Http\Resources\Campaign;
 
+use App\Http\Resources\Script\ScriptResource;
 use Illuminate\Http\Resources\Json\JsonResource;
 
 class CampaignResource extends JsonResource
@@ -18,6 +19,7 @@ class CampaignResource extends JsonResource
             'id' => $this->id,
             'name' => $this->name,
             'scripts_count' => $this->scripts->count(),
+            'scripts' => ScriptResource::collection($this->scripts),
             'created_at' => $this->created_at,
             'updated_at' => $this->updated_at,
         ];
