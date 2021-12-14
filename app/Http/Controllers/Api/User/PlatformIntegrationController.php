@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers\Api\User;
 
-use Illuminate\Http\Request;
 use App\Models\PlatformIntegration;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\User\PlatformIntegrationStoreFormRequest;
