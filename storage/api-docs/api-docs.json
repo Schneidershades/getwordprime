@@ -4744,7 +4744,7 @@
                 ]
             }
         },
-        "/api/v1/user-favorite-script-response": {
+        "/api/v1/user-favorite-script-responses": {
             "get": {
                 "tags": [
                     "user"
@@ -4816,7 +4816,7 @@
                 ]
             }
         },
-        "/api/v1/user-favorite-script-response/{id}": {
+        "/api/v1/user-favorite-script-responses/{id}": {
             "delete": {
                 "tags": [
                     "user"
@@ -6128,6 +6128,18 @@
                         "description": "Password of the user",
                         "type": "string",
                         "example": "password"
+                    },
+                    "plans": {
+                        "type": "array",
+                        "items": {
+                            "properties": {
+                                "plan_id": {
+                                    "type": "int",
+                                    "example": "1"
+                                }
+                            },
+                            "type": "object"
+                        }
                     }
                 },
                 "type": "object"
@@ -6150,6 +6162,18 @@
                         "description": "Email of the user",
                         "type": "string",
                         "example": "info@convertscript.com"
+                    },
+                    "plans": {
+                        "type": "array",
+                        "items": {
+                            "properties": {
+                                "plan_id": {
+                                    "type": "int",
+                                    "example": "1"
+                                }
+                            },
+                            "type": "object"
+                        }
                     }
                 },
                 "type": "object"
