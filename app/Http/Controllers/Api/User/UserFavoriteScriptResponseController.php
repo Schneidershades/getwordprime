@@ -12,7 +12,7 @@ class UserFavoriteScriptResponseController extends Controller
 {
     /**
     * @OA\Get(
-    *      path="/api/v1/user-favorite-script-response",
+    *      path="/api/v1/user-favorite-script-responses",
     *      operationId="allScriptFavorites",
     *      tags={"user"},
     *      summary="Get all script favorite",
@@ -46,7 +46,7 @@ class UserFavoriteScriptResponseController extends Controller
 
     /**
     * @OA\Post(
-    *      path="/api/v1/user-favorite-script-response",
+    *      path="/api/v1/user-favorite-script-responses",
     *      operationId="postScriptFavorite",
     *      tags={"user"},
     *      summary="Post script favorite",
@@ -84,7 +84,7 @@ class UserFavoriteScriptResponseController extends Controller
 
      /**
     * @OA\Delete(
-    *      path="/api/v1/user-favorite-script-response/{id}",
+    *      path="/api/v1/user-favorite-script-responses/{id}",
     *      operationId="deleteReseller",
     *      tags={"user"},
     *      summary="Delete an script favorite",
