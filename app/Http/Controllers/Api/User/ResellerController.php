@@ -78,7 +78,9 @@ class ResellerController extends Controller
     */
     public function store(ResellerCreateFormRequest $request)
     {
-        return $this->showOne(auth()->user()->resellers()->create($request->validated()));
+        $user =  auth()->user()->resellers()->create($request->validated());
+        $user->plans()->sync($request['plans']);
+        return $this->showOne($user);
     }
 
     /**
@@ -173,7 +175,8 @@ class ResellerController extends Controller
     public function update(ResellerUpdateFormRequest $request, User $user)
     {
         auth()->user()->reseller->where('id', $user->id)->first()->update($request->validated());
-        return $this->showOne(auth()->user()->reseller->where('id', $user->id)->first());
+        $user->plans()->sync($request['plans']);
+        return $this->showOne($user);
     }
 
      /**

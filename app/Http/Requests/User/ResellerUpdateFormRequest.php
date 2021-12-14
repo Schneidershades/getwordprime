@@ -39,6 +39,17 @@ class ResellerUpdateFormRequest extends FormRequest
      */
     public $email;
 
+    /**
+    *       @OA\Property(property="plans", type="object", type="array",
+    *            @OA\Items(
+    *                @OA\Property(property="plan_id", type="int", example="1"),
+    *            ),
+    *        ),
+    *    ),
+    */
+
+    public $plans;
+
     
     /**
      * Determine if the user is authorized to make this request.
@@ -60,6 +71,8 @@ class ResellerUpdateFormRequest extends FormRequest
         return [
             'name' => 'required|string|max:255',
             'email' => 'required|string|email|max:255|unique:users',
+            'plans' => 'array', 
+            'plans.*.plan_id' => 'int|exists:plans,id',
         ];
     }
 }
