@@ -96,7 +96,7 @@ class User extends Authenticatable implements MustVerifyEmail, JWTSubject
 
     public function suggestions()
     {
-        return $this->hasMany(Suggesstion::class);
+        return $this->hasMany(Suggestion::class);
     }
 
     public function resellers()
@@ -107,5 +107,10 @@ class User extends Authenticatable implements MustVerifyEmail, JWTSubject
     public function plans()
     {
     	return $this->belongsToMany(Plan::class, 'user_plans');
+    }
+
+    public function platformIntegrations()
+    {
+        return $this->hasMany(PlatformIntegration::class);
     }
 }

@@ -79,7 +79,7 @@ class PlatformIntegrationController extends Controller
     */
     public function store(PlatformIntegrationStoreFormRequest $request)
     {
-        return $this->showOne(PlatformIntegration::create($request->validated()));
+        return $this->showOne(auth()->user()->platformIntegrations()->create($request->validated()));
     }
 
     /**
