@@ -18,6 +18,8 @@ class ScriptTypeResource extends JsonResource
             'id' => $this->id,
             'name' => $this->name,
             'icon' => $this->icon,
+            'prompt_1' => $this->prompt_1,
+            'prompt_2' => $this->prompt_2,
             'description' => $this->description,
             'usage' => $this->usage,
             'presence_penalty' => $this->presence_penalty,
