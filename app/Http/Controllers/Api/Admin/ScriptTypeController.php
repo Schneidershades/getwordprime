@@ -195,6 +195,8 @@ class ScriptTypeController extends Controller
 
         $scriptType->update([
             'name' => $request['name'],
+            'prompt_1' => $request['prompt_1'],
+            'prompt_2' => $request['prompt_2'],
             'icon' => $request['icon'],
             'description' => $request['description'],
             'presence_penalty' => $request['presence_penalty'],

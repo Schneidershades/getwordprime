@@ -16,12 +16,13 @@ class ScriptTypePresetTableSeeder extends Seeder
     {
         ScriptTypePreset::create([
             'script_type_id'       => 1,
+            'admin'             => true,
             'question'         => 'What is the name of the blog subject line you want to run an ads for',
         ]);
 
         ScriptTypePreset::create([
             'script_type_id'       => 1,
-            'question'         => 'Description',
+            'question'         => 'What is the name of the product or company?',
         ]);
 
         ScriptTypePreset::create([
@@ -30,3 +31,5 @@ class ScriptTypePresetTableSeeder extends Seeder
         ]);
     }
 }
+
+
