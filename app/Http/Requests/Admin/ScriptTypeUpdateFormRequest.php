@@ -33,6 +33,28 @@ class ScriptTypeUpdateFormRequest extends FormRequest
 
     /**
      * @OA\Property(
+     *      title="script type prompt 1",
+     *      description="prompt 1 of the script type",
+     *      example="This is a prompt 2"
+     * )
+     *
+     * @var string
+     */
+    public $prompt_1;
+
+    /**
+     * @OA\Property(
+     *      title="script type prompt 2",
+     *      description="prompt 2 of the script type",
+     *      example="This is a prompt 1"
+     * )
+     *
+     * @var string
+     */
+    public $prompt_2;
+
+    /**
+     * @OA\Property(
      *      title="script type icon",
      *      description="icon of the script type",
      *      example="icon link"
