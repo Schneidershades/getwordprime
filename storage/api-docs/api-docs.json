@@ -5357,6 +5357,18 @@
                         "type": "string",
                         "example": "Info Limited"
                     },
+                    "prompt_1": {
+                        "title": "script type prompt 1",
+                        "description": "prompt 1 of the script type",
+                        "type": "string",
+                        "example": "This is a prompt 2"
+                    },
+                    "prompt_2": {
+                        "title": "script type prompt 2",
+                        "description": "prompt 2 of the script type",
+                        "type": "string",
+                        "example": "This is a prompt 1"
+                    },
                     "icon": {
                         "title": "script type icon",
                         "description": "icon of the script type",
@@ -5532,6 +5544,18 @@
                         "description": "name of the script type",
                         "type": "string",
                         "example": "Info Limited"
+                    },
+                    "prompt_1": {
+                        "title": "script type prompt 1",
+                        "description": "prompt 1 of the script type",
+                        "type": "string",
+                        "example": "This is a prompt 2"
+                    },
+                    "prompt_2": {
+                        "title": "script type prompt 2",
+                        "description": "prompt 2 of the script type",
+                        "type": "string",
+                        "example": "This is a prompt 1"
                     },
                     "icon": {
                         "title": "script type icon",

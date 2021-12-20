@@ -81,6 +81,8 @@ class ScriptTypeController extends Controller
         $scriptType = ScriptType::create([
             'name' => $request['name'],
             'icon' => $request['icon'],
+            'prompt_1' => $request['prompt_1'],
+            'prompt_2' => $request['prompt_2'],
             'description' => $request['description'],
             'presence_penalty' => $request['presence_penalty'],
             'frequency_penalty' => $request['frequency_penalty'],
