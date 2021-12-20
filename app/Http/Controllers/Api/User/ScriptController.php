@@ -98,6 +98,11 @@ class ScriptController extends Controller
 
         $submissionToOpenAi = "";
 
+        $submissionToOpenAi .= $scriptType->prompt_1. " \n";
+        $submissionToOpenAi .= '""""""'. " \n";
+        $submissionToOpenAi .= $scriptType->prompt_2. " \n";
+        $submissionToOpenAi .= '""""""'. " \n";
+
         foreach($userAnswers as $answer){
             if($answer['answers'] != null){
                 $submissionToOpenAi .= $answer['answers']. " \n";
@@ -106,10 +111,6 @@ class ScriptController extends Controller
         }
 
         $generate = (new OpenAi)->ad($submissionToOpenAi, $scriptType);
-
-        if($generate){
-
-        }
         
         $script = Script::create([
             'name' => $request['name'],
