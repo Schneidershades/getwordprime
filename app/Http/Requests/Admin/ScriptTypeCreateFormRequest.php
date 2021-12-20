@@ -203,6 +203,8 @@ class ScriptTypeCreateFormRequest extends FormRequest
         return [
             'name' => 'required|string',
             'icon' => 'required|string',
+            'prompt_1' => 'required|string',
+            'prompt_2' => 'required|string',
             'description' => 'required|string',
             'presence_penalty' => 'nullable',
             'frequency_penalty' => 'nullable',
