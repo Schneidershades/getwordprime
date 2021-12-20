@@ -21,7 +21,6 @@ class CreateScriptTypesTable extends Migration
             $table->string('promt_1')->nullable();
             $table->string('promt_2')->nullable();
             $table->string('usage')->nullable();
-            $table->string('usage')->nullable();
             $table->string('engine')->nullable();
             $table->string('presence_penalty')->nullable();
             $table->string('frequency_penalty')->nullable();
