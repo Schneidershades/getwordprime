@@ -24,6 +24,7 @@ class UserResource extends JsonResource
             'verified' => $this->email_verified_at ? true : false,
             'permissions' => $this->getPermissionsViaRoles()->pluck('id')->toArray(),
             'active' => $this->active ? true : false,
+            'avatar' => $this->avatar != null ? $this->avatar->file_url : null,
             'created_at' => $this->created_at,
             'updated_at' => $this->updated_at,
         ];

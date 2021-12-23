@@ -224,7 +224,7 @@ class ScriptTypeCreateFormRequest extends FormRequest
     {
         return [
             'name' => 'required|string',
-            'icon' => 'required|string',
+            'icon' => 'required|file|max:2048',
             'prompt_1' => 'required|string',
             'prompt_2' => 'required|string',
             'description' => 'required|string',

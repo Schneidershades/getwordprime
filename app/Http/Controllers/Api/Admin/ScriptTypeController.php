@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Api\Admin;
 
+use App\Models\Media;
 use App\Models\ScriptType;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Admin\ScriptTypeCreateFormRequest;
@@ -78,7 +79,7 @@ class ScriptTypeController extends Controller
     */
     public function store(ScriptTypeCreateFormRequest $request)
     {
-        $scriptType = ScriptType::create([
+        $model = ScriptType::create([
             'name' => $request['name'],
             'icon' => $request['icon'],
             'prompt_1' => $request['prompt_1'],
@@ -97,12 +98,26 @@ class ScriptTypeController extends Controller
         ]);
         
         foreach($request['script_type_presets'] as $preset){
-            $scriptType->presets()->create($preset);
+            $model->presets()->create($preset);
         }
 
-        
+        if($request->has('icon')){
+            $image = $request['icon'];
+            if (gettype($image) != "integer") {
+                $path = $this->uploadImage($image, "icon");
+                $model->avatar()->create([
+                    'file_path' => $path,
+                ]);
+            } else {
+                $media = Media::where('id', $image)->first();
+                $media->update([
+                    'fileable_id' => $model->id,
+                    'fileable_type' => $model->getMorphClass(),
+                ]);
+            }
+        }
 
-        return $this->showOne($scriptType);
+        return $this->showOne($model);
     }
 
     /**
@@ -191,13 +206,13 @@ class ScriptTypeController extends Controller
     *      security={ {"bearerAuth": {}} },
     * )
     */
-    public function update(ScriptTypeUpdateFormRequest $request, ScriptType $scriptType)
+    public function update(ScriptTypeUpdateFormRequest $request, ScriptType $model)
     {
-        if($scriptType == null){
+        if($model == null){
             return $this->errorResponse('Script type id not found. please place the id on the url to process', 401);
         }
 
-        $scriptType->update([
+        $model->update([
             'name' => $request['name'],
             'prompt_1' => $request['prompt_1'],
             'prompt_2' => $request['prompt_2'],
@@ -216,11 +231,27 @@ class ScriptTypeController extends Controller
         ]);
         
         foreach($request['script_type_presets'] as $preset){
-            $scriptType->presets()->delete();
-            $scriptType->presets()->create($preset);
+            $model->presets()->delete();
+            $model->presets()->create($preset);
         }
-        
-        return $this->showMessage($scriptType);
+
+        if($request->has('icon')){
+            $image = $request['icon'];
+            if (gettype($image) != "integer") {
+                $path = $this->uploadImage($image, "icon");
+                $model->avatar()->create([
+                    'file_path' => $path,
+                ]);
+            } else {
+                $media = Media::where('id', $image)->first();
+                $media->update([
+                    'fileable_id' => $model->id,
+                    'fileable_type' => $model->getMorphClass(),
+                ]);
+            }
+        }
+
+        return $this->showOne($model);
     }
 
      /**
@@ -233,7 +264,7 @@ class ScriptTypeController extends Controller
     *      
      *      @OA\Parameter(
      *          name="id",
-     *          description="script-typlateste ID",
+     *          description="script-type ID",
      *          required=true,
      *          in="path",
      *          @OA\Schema(
