@@ -100,6 +100,8 @@ class ScriptTypeController extends Controller
             $scriptType->presets()->create($preset);
         }
 
+        
+
         return $this->showOne($scriptType);
     }
 
