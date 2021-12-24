@@ -1548,7 +1548,7 @@
                     {
                         "name": "id",
                         "in": "path",
-                        "description": "script-typlateste ID",
+                        "description": "script-type ID",
                         "required": true,
                         "schema": {
                             "type": "integer"
