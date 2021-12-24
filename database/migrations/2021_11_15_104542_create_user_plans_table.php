@@ -15,8 +15,8 @@ class CreateUserPlansTable extends Migration
     {
         Schema::create('user_plans', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('user_id')->nullable()->constrained();
-            $table->foreignId('plan_id')->nullable()->constrained();
+            $table->foreignId('user_id')->nullable()->constrained()->cascadeOnUpdate()->nullOnDelete();
+            $table->foreignId('plan_id')->nullable()->constrained()->cascadeOnUpdate()->nullOnDelete();
             $table->timestamps();
             $table->softDeletes();
         });

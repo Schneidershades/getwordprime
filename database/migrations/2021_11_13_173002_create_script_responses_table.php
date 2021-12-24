@@ -15,7 +15,7 @@ class CreateScriptResponsesTable extends Migration
     {
         Schema::create('script_responses', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('script_id')->nullable()->constrained();
+            $table->foreignId('script_id')->nullable()->constrained()->cascadeOnUpdate()->nullOnDelete();
             $table->longText('text')->nullable();
             $table->string('index')->nullable();
             $table->string('logprobs')->nullable();

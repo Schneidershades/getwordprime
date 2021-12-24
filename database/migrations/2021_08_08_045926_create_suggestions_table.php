@@ -17,7 +17,7 @@ class CreateSuggestionsTable extends Migration
             $table->id();
             $table->text('message');
             $table->foreignId('user_id')->nullable()->constrained();
-            $table->foreignId('parent_id')->nullable()->constrained('suggestions');
+            $table->foreignId('parent_id')->nullable()->constrained('suggestions')->cascadeOnUpdate()->nullOnDelete();
             $table->string('status')->nullable();
             $table->timestamps();
         });

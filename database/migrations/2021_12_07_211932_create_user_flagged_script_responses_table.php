@@ -15,8 +15,8 @@ class CreateUserFlaggedScriptResponsesTable extends Migration
     {
         Schema::create('user_flagged_script_responses', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('user_id')->nullable()->constrained();
-            $table->foreignId('script_response_id')->nullable()->constrained();
+            $table->foreignId('user_id')->nullable()->constrained()->cascadeOnUpdate()->nullOnDelete();
+            $table->foreignId('script_response_id')->nullable()->constrained()->cascadeOnUpdate()->nullOnDelete();
             $table->timestamps();
             $table->softDeletes();
         });

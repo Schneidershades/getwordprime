@@ -16,8 +16,8 @@ class CreateTransactionsTable extends Migration
         Schema::create('transactions', function (Blueprint $table) {
             $table->id();
             $table->string('transaction_id')->nullable();
-            $table->foreignId('user_id')->nullable()->constrained();
-            $table->foreignId('plan_id')->nullable()->constrained();
+            $table->foreignId('user_id')->nullable()->constrained()->cascadeOnUpdate()->nullOnDelete();
+            $table->foreignId('plan_id')->nullable()->constrained()->cascadeOnUpdate()->nullOnDelete();
             $table->boolean('activate')->default(true);
             $table->timestamps();
             $table->softDeletes();

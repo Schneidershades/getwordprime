@@ -17,7 +17,7 @@ class CreateAgenciesTable extends Migration
             $table->id();
             $table->text('name');
             $table->text('email');
-            $table->foreignId('user_id')->nullable()->constrained();
+            $table->foreignId('user_id')->nullable()->constrained()->cascadeOnUpdate()->nullOnDelete();
             $table->timestamps();
             $table->softDeletes();
         });

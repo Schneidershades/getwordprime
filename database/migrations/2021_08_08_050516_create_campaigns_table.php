@@ -16,7 +16,7 @@ class CreateCampaignsTable extends Migration
         Schema::create('campaigns', function (Blueprint $table) {
             $table->id();
             $table->string('name')->unique();
-            $table->foreignId('user_id')->nullable()->constrained();
+            $table->foreignId('user_id')->nullable()->constrained()->cascadeOnUpdate()->nullOnDelete();
             $table->timestamps();
         });
     }
