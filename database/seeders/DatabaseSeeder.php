@@ -16,11 +16,9 @@ class DatabaseSeeder extends Seeder
         $this->call(PermissionSeeder::class);
         $this->call(PlansTableSeeder::class);
         $this->call(CampaignTableSeeder::class);
-        $this->call(AttributeTableSeeder::class);
         $this->call(ScriptTypeTableSeeder::class);
         $this->call(TutorialTableSeeder::class);
         $this->call(SuggestionTableSeeder::class);
-        $this->call(ScriptTypeAttributeTableSeeder::class);
         $this->call(ScriptTypePresetTableSeeder::class);
         $this->call(UserScriptTypePresetSeeder::class);
         $this->call(PlansTableSeeder::class);
