@@ -1,4 +1,4 @@
-d<?php
+<?php
 
 namespace App\Http\Resources\Script;
 
