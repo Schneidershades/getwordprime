@@ -229,7 +229,7 @@ class ScriptTypeUpdateFormRequest extends FormRequest
         return [
 
             'name' => 'nullable|string',
-            'icon' => 'required|file|max:2048',
+            'icon' => 'nullable|file|max:2048',
             'prompt_1' => 'required|string',
             'prompt_2' => 'required|string',
             'description' => 'nullable|string',
