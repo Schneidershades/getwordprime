@@ -21,21 +21,6 @@ class ScriptTypePresetTableSeeder extends Seeder
             'label'                 => 'Product Name',
             'placeholder'           => 'Maximilla hairoil',
         ]);
-        
-        ScriptTypePreset::create([
-            'script_type_id'       => 2,
-            'question'         => 'What is the name of the product or company?',
-        ]);
-
-        ScriptTypePreset::create([
-            'script_type_id'       => 2,
-            'question'         => 'Who are your target audience',
-        ]);
-
-        ScriptTypePreset::create([
-            'script_type_id'       => 2,
-            'question'         => 'What is the name of the blog subject line you want to run an ads for',
-        ]);
     }
 }
 
