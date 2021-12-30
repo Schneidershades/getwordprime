@@ -21,7 +21,7 @@ class ScriptType extends Model
         return $this->hasMany(ScriptTypePreset::class);
     }
 
-    public function icon()
+    public function iconImage()
     {
         return $this->morphOne(Media::class, 'fileable')->latest();
     }

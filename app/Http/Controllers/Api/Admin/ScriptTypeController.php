@@ -81,7 +81,6 @@ class ScriptTypeController extends Controller
     {
         $model = ScriptType::create([
             'name' => $request['name'],
-            'icon' => $request['icon'],
             'prompt_1' => $request['prompt_1'],
             'prompt_2' => $request['prompt_2'],
             'description' => $request['description'],
@@ -96,16 +95,19 @@ class ScriptTypeController extends Controller
             'top_p' => $request['top_p'],
             'engine' => $request['engine'],
         ]);
-        
-        foreach($request['script_type_presets'] as $preset){
-            $model->presets()->create($preset);
+
+        if($request['script_type_presets']){
+            foreach($request['script_type_presets'] as $preset){
+                $model->presets()->create($preset);
+            }
         }
 
         if($request->has('icon')){
             $image = $request['icon'];
             if (gettype($image) != "integer") {
                 $path = $this->uploadImage($image, "icon");
-                $model->avatar()->create([
+
+                $model->iconImage()->create([
                     'file_path' => $path,
                 ]);
             } else {
