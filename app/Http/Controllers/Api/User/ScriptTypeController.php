@@ -38,7 +38,7 @@ class ScriptTypeController extends Controller
     */
     public function index()
     {
-        return $this->showAll(ScriptType::where('active', true)->latest()->get());
+        return $this->showAll(ScriptType::where('activate', true)->latest()->get());
     }
 
     /**
