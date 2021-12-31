@@ -14,18 +14,29 @@ use Illuminate\Foundation\Http\FormRequest;
  * )
  */
 
-class UserFavoriteScriptResponseCreateFormRequest extends FormRequest
+class UserFavoriteAndFlagScriptResponseCreateFormRequest extends FormRequest
 {
     /**
      * @OA\Property(
-     *      title="script id",
-     *      description="Initial related script of the id",
+     *      title="script_response_id ",
+     *      description="Initial related script_response of the id",
      *      example="1"
      * )
      *
      * @var int
      */
-    private $script_type_id;
+    private $script_response_id;
+
+    /**
+     * @OA\Property(
+     *      title="type",
+     *      description="choose between flag/favorite",
+     *      example="flag/favorite"
+     * )
+     *
+     * @var int
+     */
+    private $type;
     
 
     /**
@@ -46,7 +57,8 @@ class UserFavoriteScriptResponseCreateFormRequest extends FormRequest
     public function rules()
     {
         return [
-            'script_id' => 'required|int',
+            'script_response_id' => 'required|int|exists:script_responses,id',
+            'type' => 'required|in:flag,favorite',
         ];
     }
 }

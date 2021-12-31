@@ -2,58 +2,22 @@
 
 namespace App\Http\Controllers\Api\User;
 
-use App\Models\Script;
 use App\Http\Controllers\Controller;
-use App\Models\UserFavoriteScriptResponse;
-use App\Http\Requests\User\ScriptCreateFormRequest;
-use App\Http\Requests\User\UserFavoriteScriptResponseCreateFormRequest;
+use App\Http\Requests\User\UserFavoriteAndFlagScriptResponseCreateFormRequest;
+use App\Models\ScriptResponse;
 
-class UserFavoriteScriptResponseController extends Controller
+class FavoriteFlagResponseController extends Controller
 {
     /**
-    * @OA\Get(
-    *      path="/api/v1/user-favorite-script-responses",
-    *      operationId="allScriptFavorites",
-    *      tags={"user"},
-    *      summary="Get all script favorite",
-    *      description="Get all script favorite",
-    *      @OA\Response(
-    *          response=200,
-    *          description="Successful signin",
-    *          @OA\MediaType(
-    *             mediaType="application/json",
-    *         ),
-    *       ),
-    *      @OA\Response(
-    *          response=400,
-    *          description="Bad Request"
-    *      ),
-    *      @OA\Response(
-    *          response=401,
-    *          description="unauthenticated",
-    *      ),
-    *      @OA\Response(
-    *          response=403,
-    *          description="Forbidden"
-    *      ),
-    *      security={ {"bearerAuth": {}} },
-    * )
-    */
-    public function index()
-    {
-        $this->showAll(auth()->user()->scripts);
-    }
-
-    /**
     * @OA\Post(
-    *      path="/api/v1/user-favorite-script-responses",
+    *      path="/api/v1/favorite-flag-responses",
     *      operationId="postScriptFavorite",
     *      tags={"user"},
     *      summary="Post script favorite",
     *      description="Post script favorite",
     *      @OA\RequestBody(
     *          required=true,
-    *          @OA\JsonContent(ref="#/components/schemas/UserFavoriteScriptResponseCreateFormRequest")
+    *          @OA\JsonContent(ref="#/components/schemas/UserFavoriteAndFlagScriptResponseCreateFormRequest")
     *      ),
     *      @OA\Response(
     *          response=200,
@@ -77,14 +41,20 @@ class UserFavoriteScriptResponseController extends Controller
     *      security={ {"bearerAuth": {}} },
     * )
     */
-    public function store(UserFavoriteScriptResponseCreateFormRequest $request)
+    public function store(UserFavoriteAndFlagScriptResponseCreateFormRequest $request)
     {
-        return $this->showOne(auth()->user()->scripts()->create($request->validated()));
+        if($request['type'] == 'flag'){
+            $response = ScriptResponse::where('id', $request['script_response_id'])->first();
+            $response->active = false;
+            $response->save();
+        }
+
+        return $this->showOne(auth()->user()->scriptsResponses()->create($request->validated()));
     }
 
      /**
     * @OA\Delete(
-    *      path="/api/v1/user-favorite-script-responses/{id}",
+    *      path="/api/v1/avorite-flag-responses/{id}",
     *      operationId="deleteReseller",
     *      tags={"user"},
     *      summary="Delete an script favorite",
@@ -125,7 +95,7 @@ class UserFavoriteScriptResponseController extends Controller
 
     public function destroy($id)
     {
-        $script =  Script::findOrFail($id);
+        $script =  ScriptResponse::findOrFail($id);
         $script->delete();
         return $this->showMessage('deleted');
     }

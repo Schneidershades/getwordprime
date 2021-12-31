@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateUserFavoriteScriptResponsesTable extends Migration
+class CreateFavoriteFlagResponsesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,12 @@ class CreateUserFavoriteScriptResponsesTable extends Migration
      */
     public function up()
     {
-        Schema::create('user_favorite_script_responses', function (Blueprint $table) {
+        Schema::create('favorite_flag_responses', function (Blueprint $table) {
             $table->id();
             $table->foreignId('user_id')->nullable()->constrained()->cascadeOnUpdate()->nullOnDelete();
-            $table->foreignId('script_id')->nullable()->constrained()->cascadeOnUpdate()->nullOnDelete();
+            $table->foreignId('script_response_id')->nullable()->constrained()->cascadeOnUpdate()->nullOnDelete();
+            $table->string('type')->nullable();
             $table->timestamps();
-            $table->softDeletes();
         });
     }
 
@@ -29,6 +29,6 @@ class CreateUserFavoriteScriptResponsesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('user_favorite_script_responses');
+        Schema::dropIfExists('favorite_flag_responses');
     }
 }

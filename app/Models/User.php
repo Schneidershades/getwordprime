@@ -113,4 +113,19 @@ class User extends Authenticatable implements MustVerifyEmail, JWTSubject
     {
         return $this->hasMany(PlatformIntegration::class);
     }
+
+    public function favorites()
+    {
+        return $this->hasMany(FavoriteFlagResponse::class)->where('type', 'favorite');
+    }
+
+    public function flags()
+    {
+        return $this->hasMany(FavoriteFlagResponse::class)->where('type', 'flag');
+    }
+
+    public function scriptsResponses()
+    {
+        return $this->hasMany(FavoriteFlagResponse::class);
+    }
 }
