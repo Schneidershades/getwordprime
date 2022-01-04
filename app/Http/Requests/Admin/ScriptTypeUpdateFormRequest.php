@@ -50,17 +50,6 @@ class ScriptTypeUpdateFormRequest extends FormRequest
 
     /**
      * @OA\Property(
-     *      title="script type icon",
-     *      description="icon of the script type",
-     *      example="icon link"
-     * )
-     *
-     * @var string
-     */
-    public $icon;
-
-    /**
-     * @OA\Property(
      *      title="script type description",
      *      description="description of the script type",
      *      example="This is"
@@ -203,6 +192,18 @@ class ScriptTypeUpdateFormRequest extends FormRequest
     *    ),
     */    
     public $script_type_presets; 
+
+
+    /**
+     * @OA\Property(
+     *      title="send array of images",
+     *      description="send array of images",
+     *      example="[4]"
+     * )
+     *
+     * @var string
+     */
+    public $icon;
     
 
     /**
@@ -214,6 +215,7 @@ class ScriptTypeUpdateFormRequest extends FormRequest
     {
         return true;
     }
+    
     /**
      * Get the validation rules that apply to the request.
      *
@@ -236,9 +238,9 @@ class ScriptTypeUpdateFormRequest extends FormRequest
             'temperature' => 'required|numeric',
             'top_p' => 'required|numeric',
             'engine' => 'required|nullable',
-            
-            'images' => 'nullable|array',
-            'images.*' => 'nullable|max:2048',  
+
+            'icon' => 'nullable|array',
+            'icon.*' => 'nullable|max:2048',  
 
             'script_type_presets' => 'array', 
             'script_type_presets.*.script_type_id' => 'required|int|exists:script_types,id',
