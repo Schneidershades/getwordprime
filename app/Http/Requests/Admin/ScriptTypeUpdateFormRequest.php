@@ -15,11 +15,6 @@ use Illuminate\Foundation\Http\FormRequest;
 
 class ScriptTypeUpdateFormRequest extends FormRequest
 {
-
-
-
-
-
     /**
      * @OA\Property(
      *      title="script type name",
@@ -227,7 +222,6 @@ class ScriptTypeUpdateFormRequest extends FormRequest
     public function rules()
     {
         return [
-
             'name' => 'required|string',
             'icon' => 'nullable|file|max:2048',
             'prompt_1' => 'required|string',

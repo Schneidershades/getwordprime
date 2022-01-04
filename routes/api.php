@@ -38,6 +38,7 @@ Route::prefix('v1')->group(function () {
 
 	Route::group([ 'prefix' => 'share', 'namespace' => 'Api\Share'], function(){
 		Route::resource('plans', PlanController::class);
+		Route::post('upload', 'UploadController@store')->middleware('auth:api');
 	});
 
 	Route::group(['prefix' => 'admin', 'middleware' => 'auth:api', 'namespace' => 'Api\Admin'], function(){
