@@ -4,8 +4,6 @@ namespace App\Http\Controllers\Api\Share;
 
 use App\Http\Controllers\Controller;
 use App\Models\Media;
-use App\Models\User;
-use App\Models\XpartRequest;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Validation\Rule;
