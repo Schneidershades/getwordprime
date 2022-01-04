@@ -223,7 +223,6 @@ class ScriptTypeUpdateFormRequest extends FormRequest
     {
         return [
             'name' => 'required|string',
-            'icon' => 'nullable|file|max:2048',
             'prompt_1' => 'required|string',
             'prompt_2' => 'required|string',
             'description' => 'required|string',
@@ -237,6 +236,9 @@ class ScriptTypeUpdateFormRequest extends FormRequest
             'temperature' => 'required|numeric',
             'top_p' => 'required|numeric',
             'engine' => 'required|nullable',
+            
+            'images' => 'nullable|array',
+            'images.*' => 'nullable|max:2048',  
 
             'script_type_presets' => 'array', 
             'script_type_presets.*.script_type_id' => 'required|int|exists:script_types,id',

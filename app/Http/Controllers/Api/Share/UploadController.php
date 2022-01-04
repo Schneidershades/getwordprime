@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\Api\Shared;
+namespace App\Http\Controllers\Api\Share;
 
 use App\Http\Controllers\Controller;
 use App\Models\Media;
@@ -24,7 +24,7 @@ class UploadController extends Controller
         }
 
         $path = $this->uploadImage($request->file, $request->path);
-        
+
         $media = Media::create([
             'file_path' => $path,
             'fileable_id' => 0,
