@@ -238,20 +238,20 @@ class ScriptTypeController extends Controller
             }
         }
 
-        if($request->has('icon')){
-            $image = $request['icon'];
-            if (gettype($image) != "integer") {
-                $path = $this->uploadImage($image, "icon");
-
-                $model->iconImage()->create([
-                    'file_path' => $path,
-                ]);
-            } else {
-                $media = Media::where('id', $image)->first();
-                $media->update([
-                    'fileable_id' => $model->id,
-                    'fileable_type' => $model->getMorphClass(),
-                ]);
+        if ($request->has('icon')) {
+            foreach ($request['icon'] as $image) {
+                if (gettype($image) != "integer") {
+                    $path = $this->uploadImage($image, "icon");
+                    $model->iconImage()->create([
+                        'file_path' => $path,
+                    ]);
+                } else {
+                    $media = Media::where('id', $image)->first();
+                    $media->update([
+                        'fileable_id' => $model->id,
+                        'fileable_type' => $model->getMorphClass(),
+                    ]);
+                }
             }
         }
 

@@ -5352,12 +5352,6 @@
                         "type": "string",
                         "example": "This is a prompt 1"
                     },
-                    "icon": {
-                        "title": "script type icon",
-                        "description": "icon of the script type",
-                        "type": "string",
-                        "example": "icon link"
-                    },
                     "description": {
                         "title": "script type description",
                         "description": "description of the script type",
@@ -5451,6 +5445,12 @@
                             },
                             "type": "object"
                         }
+                    },
+                    "icon": {
+                        "title": "send array of images",
+                        "description": "send array of images",
+                        "type": "string",
+                        "example": "[4]"
                     }
                 },
                 "type": "object"
