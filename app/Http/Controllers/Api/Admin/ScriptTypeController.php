@@ -160,9 +160,9 @@ class ScriptTypeController extends Controller
     *      security={ {"bearerAuth": {}} },
     * )
     */
-    public function show(ScriptType $scriptType)
+    public function show($id)
     {
-        return $this->showOne($scriptType);
+        return $this->showOne(ScriptType::where('id', $id)->first());
     }
 
     /**
@@ -208,8 +208,10 @@ class ScriptTypeController extends Controller
     *      security={ {"bearerAuth": {}} },
     * )
     */
-    public function update(ScriptTypeUpdateFormRequest $request, ScriptType $model)
+    public function update(ScriptTypeUpdateFormRequest $request, $id)
     {
+        $model = ScriptType::where('id', $id)->first();
+
         if($model == null){
             return $this->errorResponse('Script type id not found. please place the id on the url to process', 401);
         }
@@ -241,12 +243,17 @@ class ScriptTypeController extends Controller
         if ($request->has('icon')) {
             foreach ($request['icon'] as $image) {
                 if (gettype($image) != "integer") {
+
                     $path = $this->uploadImage($image, "icon");
+
                     $model->iconImage()->create([
                         'file_path' => $path,
                     ]);
+
                 } else {
+
                     $media = Media::where('id', $image)->first();
+
                     $media->update([
                         'fileable_id' => $model->id,
                         'fileable_type' => $model->getMorphClass(),
@@ -297,9 +304,10 @@ class ScriptTypeController extends Controller
     *      security={ {"bearerAuth": {}} },
     * )
     */
-    public function destroy(ScriptType $scriptType)
+    public function destroy($id)
     {
-        $scriptType->delete();
+        $model = ScriptType::where('id', $id)->first();
+        $model->delete();
         return $this->showMessage('deleted');
     }
 }
