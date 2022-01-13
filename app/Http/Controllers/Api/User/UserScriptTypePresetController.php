@@ -121,7 +121,7 @@ class UserScriptTypePresetController extends Controller
     *      security={ {"bearerAuth": {}} },
     * )
     */
-    public function show(UserScriptTypePreset $id)
+    public function show($id)
     {
         return $this->showOne(UserScriptTypePreset::findOrFail($id));
     }
@@ -170,8 +170,9 @@ class UserScriptTypePresetController extends Controller
     * )
     */
     
-    public function update(UserScriptTypePresetUpdateFormRequest $request, UserScriptTypePreset $userScriptTypePreset)
+    public function update(UserScriptTypePresetUpdateFormRequest $request, $id)
     {
+        $userScriptTypePreset = UserScriptTypePreset::find($id);
         $userScriptTypePreset->update($request->validated());
         return $this->showOne($userScriptTypePreset);
     }
@@ -215,9 +216,10 @@ class UserScriptTypePresetController extends Controller
     *      security={ {"bearerAuth": {}} },
     * )
     */
-    public function destroy(UserScriptTypePreset $scriptTypeQuestion)
+    public function destroy($id)
     {
-        $scriptTypeQuestion->delete();
+        $userScriptTypePreset = UserScriptTypePreset::find($id);
+        $userScriptTypePreset->delete();
         return $this->showMessage('deleted');
     }
 }
