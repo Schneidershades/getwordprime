@@ -3273,7 +3273,7 @@
                 ]
             }
         },
-        "/api/v1/favorite-flag-responses": {
+        "/api/v1/favorite-script-responses": {
             "post": {
                 "tags": [
                     "user"
@@ -3286,7 +3286,7 @@
                     "content": {
                         "application/json": {
                             "schema": {
-                                "$ref": "#/components/schemas/UserFavoriteAndFlagScriptResponseCreateFormRequest"
+                                "$ref": "#/components/schemas/StoreFavoriteScriptFormRequest"
                             }
                         }
                     }
@@ -3315,25 +3315,24 @@
                 ]
             }
         },
-        "/api/v1/avorite-flag-responses/{id}": {
-            "delete": {
+        "/api/v1/flagged-script-responses": {
+            "post": {
                 "tags": [
                     "user"
                 ],
-                "summary": "Delete an script favorite",
-                "description": "Delete an script favorite",
-                "operationId": "deleteReseller",
-                "parameters": [
-                    {
-                        "name": "id",
-                        "in": "path",
-                        "description": "Script favorite ID",
-                        "required": true,
-                        "schema": {
-                            "type": "integer"
+                "summary": "Post script flagged",
+                "description": "Post script flagged",
+                "operationId": "postScriptFavorite",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/StoreFlagScriptFormRequest"
+                            }
                         }
                     }
-                ],
+                },
                 "responses": {
                     "200": {
                         "description": "Successful signin",
@@ -6055,6 +6054,38 @@
                     "campaign_id": {
                         "title": "user campaign id",
                         "description": "Initial related campaign of the id",
+                        "type": "integer",
+                        "example": "1"
+                    }
+                },
+                "type": "object"
+            },
+            "StoreFavoriteScriptFormRequest": {
+                "title": "Store Script Favorite Request Fields",
+                "description": "Store Script Favorite request body data",
+                "required": [
+                    "name"
+                ],
+                "properties": {
+                    "script_response_id": {
+                        "title": "user script_response id",
+                        "description": "Initial related script_response of the id",
+                        "type": "integer",
+                        "example": "1"
+                    }
+                },
+                "type": "object"
+            },
+            "StoreFlagScriptFormRequest": {
+                "title": "Store Script Flag Request Fields",
+                "description": "Store Script Flag request body data",
+                "required": [
+                    "name"
+                ],
+                "properties": {
+                    "script_response_id": {
+                        "title": "user script_response id",
+                        "description": "Initial related script_response of the id",
                         "type": "integer",
                         "example": "1"
                     }
