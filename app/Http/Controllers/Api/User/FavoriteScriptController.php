@@ -2,7 +2,10 @@
 
 namespace App\Http\Controllers\Api\User;
 
+use App\Models\FavoriteScript;
+use App\Models\ScriptResponse;
 use App\Http\Controllers\Controller;
+use App\Http\Requests\User\StoreFavoriteScriptFormRequest;
 
 class FavoriteScriptController extends Controller
 {
@@ -15,7 +18,7 @@ class FavoriteScriptController extends Controller
     *      description="Post script favorite",
     *      @OA\RequestBody(
     *          required=true,
-    *          @OA\JsonContent(ref="#/components/schemas/UserFavoriteAndFlagScriptResponseCreateFormRequest")
+    *          @OA\JsonContent(ref="#/components/schemas/StoreFavoriteScriptFormRequest")
     *      ),
     *      @OA\Response(
     *          response=200,
@@ -40,14 +43,13 @@ class FavoriteScriptController extends Controller
     * )
     */
 
-    public function store(UserFavoriteAndFlagScriptResponseCreateFormRequest $request)
+    public function store(StoreFavoriteScriptFormRequest $request)
     {
-        if($request['type'] == 'flag'){
-            $response = ScriptResponse::where('id', $request['script_response_id'])->first();
-            $response->active = false;
-            $response->save();
-        }
+        $model = ScriptResponse::findOrFail($request['script_response_id']);
+        $favorite = $model->flagged ?: new FavoriteScript;
+        $favorite->user_id = auth()->user()->id;
+        $model->favorite()->save($favorite);
 
-        return $this->showOne(auth()->user()->scriptsResponses()->create($request->validated()));
+        return $this->showOne($model);
     }
 }

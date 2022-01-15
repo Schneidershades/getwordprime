@@ -2,7 +2,10 @@
 
 namespace App\Http\Controllers\Api\User;
 
+use App\Models\FlaggedScript;
+use App\Models\ScriptResponse;
 use App\Http\Controllers\Controller;
+use App\Http\Requests\User\StoreFlagScriptFormRequest;
 
 class FlaggedScriptController extends Controller
 {
@@ -15,7 +18,7 @@ class FlaggedScriptController extends Controller
     *      description="Post script flagged",
     *      @OA\RequestBody(
     *          required=true,
-    *          @OA\JsonContent(ref="#/components/schemas/UserFavoriteAndFlagScriptResponseCreateFormRequest")
+    *          @OA\JsonContent(ref="#/components/schemas/StoreFlagScriptFormRequest")
     *      ),
     *      @OA\Response(
     *          response=200,
@@ -40,14 +43,12 @@ class FlaggedScriptController extends Controller
     * )
     */
 
-    public function store(UserFavoriteAndFlagScriptResponseCreateFormRequest $request)
+    public function store(StoreFlagScriptFormRequest $request)
     {
-        if($request['type'] == 'flag'){
-            $response = ScriptResponse::where('id', $request['script_response_id'])->first();
-            $response->active = false;
-            $response->save();
-        }
-
-        return $this->showOne(auth()->user()->scriptsResponses()->create($request->validated()));
+        $model = ScriptResponse::findOrFail($request['script_response_id']);
+        $flagged = $model->flagged ?: new FlaggedScript;
+        $flagged->user_id = auth()->user()->id;
+        $model->flagged()->save($flagged);
+        return $this->showOne($model);
     }
 }
