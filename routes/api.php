@@ -27,6 +27,10 @@ Route::prefix('v1')->group(function () {
 		Route::resource('suggestions', SuggestionController::class);
 		Route::resource('dashboard', DashboardController::class);
 		Route::resource('script-types', ScriptTypeController::class);
+		Route::resource('favorite-script-responses
+		', FavoriteScriptController::class);
+		Route::resource('flagged-script-responses
+		', FavoriteScriptController::class);
 		Route::resource('user-script-type-presets', UserScriptTypePresetController::class);
 		Route::resource('script-type-presets', ScriptTypePresetController::class);
 		Route::resource('platform-integrations', PlatformIntegrationController::class);
