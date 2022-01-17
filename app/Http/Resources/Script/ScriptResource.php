@@ -17,6 +17,7 @@ class ScriptResource extends JsonResource
     {
         return [
             'id' => $this->id,
+            'favorite' => $this->favorite ? true : false,
             'content' => $this->content,
             'responses' => ScriptResponseResource::collection($this->scriptResponses),
             'created_at' => $this->created_at,
