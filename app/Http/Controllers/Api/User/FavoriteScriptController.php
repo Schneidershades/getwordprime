@@ -49,13 +49,13 @@ class FavoriteScriptController extends Controller
 
         if($model->favorite != null){
             $model->favorite()->delete();
+            return $this->showMessage('Script has been removed from favorite scripts');
         }else{
             $favorite = new FavoriteScript;
             $favorite->user_id = auth()->user()->id;
             $favorite->script_response_id = $model->id;
             $model->favorite()->save($favorite);
+            return $this->showMessage('Script has been removed from favorite scripts');
         }
-
-        return $this->showMessage('Script has been added to favorite');
     }
 }
