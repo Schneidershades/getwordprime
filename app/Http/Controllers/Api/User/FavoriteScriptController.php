@@ -55,7 +55,7 @@ class FavoriteScriptController extends Controller
             $favorite->user_id = auth()->user()->id;
             $favorite->script_response_id = $model->id;
             $model->favorite()->save($favorite);
-            return $this->showMessage('Script has been removed from favorite scripts');
+            return $this->showMessage('Script has been added from favorite scripts');
         }
     }
 }
