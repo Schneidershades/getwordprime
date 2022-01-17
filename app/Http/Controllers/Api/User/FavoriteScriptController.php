@@ -46,9 +46,15 @@ class FavoriteScriptController extends Controller
     public function store(StoreFavoriteScriptFormRequest $request)
     {
         $model = ScriptResponse::findOrFail($request['script_response_id']);
-        $favorite = $model->flagged ?: new FavoriteScript;
-        $favorite->user_id = auth()->user()->id;
-        $model->favorite()->save($favorite);
+
+        if($model->favorite != null){
+            $model->favorite()->delete();
+        }else{
+            $favorite = new FavoriteScript;
+            $favorite->user_id = auth()->user()->id;
+            $favorite->script_response_id = $model->id;
+            $model->favorite()->save($favorite);
+        }
 
         return $this->showOne($model);
     }

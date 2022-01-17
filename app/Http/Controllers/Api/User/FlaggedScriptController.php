@@ -46,9 +46,14 @@ class FlaggedScriptController extends Controller
     public function store(StoreFlagScriptFormRequest $request)
     {
         $model = ScriptResponse::findOrFail($request['script_response_id']);
-        $flagged = $model->flagged ?: new FlaggedScript;
-        $flagged->user_id = auth()->user()->id;
-        $model->flagged()->save($flagged);
-        return $this->showOne($model);
+        
+        if($model->favorite != null){
+            $model->favorite()->delete();
+        }else{
+            $favorite = new FlaggedScript;
+            $favorite->user_id = auth()->user()->id;
+            $favorite->script_response_id = $model->id;
+            $model->favorite()->save($favorite);
+        }
     }
 }
