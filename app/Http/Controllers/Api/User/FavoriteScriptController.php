@@ -56,6 +56,6 @@ class FavoriteScriptController extends Controller
             $model->favorite()->save($favorite);
         }
 
-        return $this->showOne($model);
+        return $this->showMessage('Script has been added to favorite');
     }
 }

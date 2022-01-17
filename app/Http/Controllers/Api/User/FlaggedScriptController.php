@@ -55,5 +55,8 @@ class FlaggedScriptController extends Controller
             $favorite->script_response_id = $model->id;
             $model->favorite()->save($favorite);
         }
+
+
+        return $this->showMessage('Script has been flagged');
     }
 }
