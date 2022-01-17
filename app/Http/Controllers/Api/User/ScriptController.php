@@ -122,21 +122,23 @@ class ScriptController extends Controller
             'created' => $generate->created,
             'model' => $generate->model,
         ]);
-        
-        foreach($generate->choices as $choice){
-            $pieces = explode('\n\n', $choice->text);
 
-            foreach($pieces as $piece){
-                ScriptResponse::create([
-                    'text' => $piece,
-                    'index' => $choice->index,
-                    'logprobs' => $choice->logprobs,
-                    'finish_reason' => $choice->finish_reason,
-                    'script_id' => $script->id,
-                ]);
-            }   
+        return $generate->choices[0]->text;
+        
+        // foreach($generate->choices as $choice){
+        //     $pieces = explode('\n\n', $choice->text);
+
+        //     foreach($pieces as $piece){
+        //         ScriptResponse::create([
+        //             'text' => $piece,
+        //             'index' => $choice->index,
+        //             'logprobs' => $choice->logprobs,
+        //             'finish_reason' => $choice->finish_reason,
+        //             'script_id' => $script->id,
+        //         ]);
+        //     }   
                      
-        }
+        // }
 
         return $this->showOne($script);
     }
