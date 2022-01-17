@@ -123,22 +123,14 @@ class ScriptController extends Controller
             'model' => $generate->model,
         ]);
 
-        return $generate->choices[0]->text;
+        ScriptResponse::create([
+            'text' => $generate['choices'][0]['text'],
+            // 'index' => $choice->index,
+            // 'logprobs' => $choice->logprobs,
+            // 'finish_reason' => $choice->finish_reason,
+            'script_id' => $script->id,
+        ]);
         
-        // foreach($generate->choices as $choice){
-        //     $pieces = explode('\n\n', $choice->text);
-
-        //     foreach($pieces as $piece){
-        //         ScriptResponse::create([
-        //             'text' => $piece,
-        //             'index' => $choice->index,
-        //             'logprobs' => $choice->logprobs,
-        //             'finish_reason' => $choice->finish_reason,
-        //             'script_id' => $script->id,
-        //         ]);
-        //     }   
-                     
-        // }
 
         return $this->showOne($script);
     }
