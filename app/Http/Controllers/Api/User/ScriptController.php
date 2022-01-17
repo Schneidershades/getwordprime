@@ -124,7 +124,7 @@ class ScriptController extends Controller
         ]);
 
         ScriptResponse::create([
-            'text' => $generate['choices'][0]['text'],
+            'text' => $generate->choices[0]->text,
             // 'index' => $choice->index,
             // 'logprobs' => $choice->logprobs,
             // 'finish_reason' => $choice->finish_reason,
