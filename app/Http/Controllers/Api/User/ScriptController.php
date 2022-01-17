@@ -124,17 +124,18 @@ class ScriptController extends Controller
         ]);
         
         foreach($generate->choices as $choice){
-            $pieces = explode('\n\n', $choice->text);
-            return $pieces;
+            // $pieces = explode('\n\n', $choice->text);
+            
+            // return $pieces;
             // foreach($pieces as $piece){
                 
-            //     ScriptResponse::create([
-            //         'text' => $piece,
-            //         'index' => $choice->index,
-            //         'logprobs' => $choice->logprobs,
-            //         'finish_reason' => $choice->finish_reason,
-            //         'script_id' => $script->id,
-            //     ]);
+                ScriptResponse::create([
+                    'text' => $piece,
+                    'index' => $choice->index,
+                    'logprobs' => $choice->logprobs,
+                    'finish_reason' => $choice->finish_reason,
+                    'script_id' => $script->id,
+                ]);
 
             // }            
         }
