@@ -130,7 +130,7 @@ class ScriptController extends Controller
             // foreach($pieces as $piece){
                 
                 ScriptResponse::create([
-                    'text' => $piece,
+                    'text' => $choice->text,
                     'index' => $choice->index,
                     'logprobs' => $choice->logprobs,
                     'finish_reason' => $choice->finish_reason,
