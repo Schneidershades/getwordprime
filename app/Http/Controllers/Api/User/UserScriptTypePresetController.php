@@ -78,7 +78,7 @@ class UserScriptTypePresetController extends Controller
     */
     public function store(UserScriptTypePresetCreateFormRequest $request)
     {
-        return $this->showOne(UserScriptTypePreset::create($request->validated()));
+        return $this->showOne(auth()->user()->presets()->create($request->validated()));
     }
 
     /**
