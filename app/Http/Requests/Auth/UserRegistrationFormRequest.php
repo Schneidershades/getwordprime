@@ -18,14 +18,25 @@ class UserRegistrationFormRequest extends FormRequest
 {
     /**
      * @OA\Property(
-     *      title="User Name",
-     *      description="name of the user",
+     *      title="first_name",
+     *      description="first_name of the user",
      *      example="Schneider"
      * )
      *
      * @var string
      */
-    public $name;
+    public $first_name;
+
+    /**
+     * @OA\Property(
+     *      title="last_name",
+     *      description="last_name of the user",
+     *      example="Schneider"
+     * )
+     *
+     * @var string
+     */
+    public $last_name;
 
     /**
      * @OA\Property(
