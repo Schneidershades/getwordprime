@@ -70,7 +70,7 @@ class UserScriptTypePresetCreateFormRequest extends FormRequest
     {
         return [
             'answer' => 'required|string',
-            'script_type_preset_id' => 'required|int|exists:script_types_presets',
+            'script_type_preset_id' => 'required|int|exists:script_type_presets',
             'script_type_id' => 'required|int|exists:script_types',
         ];
     }
