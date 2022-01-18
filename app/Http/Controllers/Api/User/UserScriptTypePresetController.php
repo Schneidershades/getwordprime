@@ -40,7 +40,7 @@ class UserScriptTypePresetController extends Controller
     */
     public function index()
     {        
-        return $this->showAll(UserScriptTypePreset::latest()->get());
+        return $this->showAll(auth()->user()->presets);
     }
 
     /**
