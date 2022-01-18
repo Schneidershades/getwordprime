@@ -41,14 +41,14 @@ class UserScriptTypePresetCreateFormRequest extends FormRequest
 
     /**
      * @OA\Property(
-     *      title="script_id",
-     *      description="Initial related script_id of the id",
+     *      title="script_type_id",
+     *      description="Initial related script_type_id of the id",
      *      example="1"
      * )
      *
      * @var int
      */
-    private $script_id;
+    private $script_type_id;
     
 
     /**
