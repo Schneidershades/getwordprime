@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "8b631abac3962c221ffbcdcebfb62c11",
+    "content-hash": "96667b6819f48891db60383ecf1cbce6",
     "packages": [
         {
             "name": "arcanedev/log-viewer",
@@ -400,6 +400,55 @@
                 }
             ],
             "time": "2021-08-15T20:50:18+00:00"
+        },
+        {
+            "name": "codegreencreative/laravel-aweber",
+            "version": "v1.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/codegreencreative/laravel-aweber.git",
+                "reference": "9b9476b9d7bbd395dbdd6068226e0c730ce0a7a6"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/codegreencreative/laravel-aweber/zipball/9b9476b9d7bbd395dbdd6068226e0c730ce0a7a6",
+                "reference": "9b9476b9d7bbd395dbdd6068226e0c730ce0a7a6",
+                "shasum": ""
+            },
+            "require": {
+                "ext-hash": "*",
+                "ext-json": "*",
+                "illuminate/routing": ">=4.1.0",
+                "illuminate/support": ">=4.1.0",
+                "php": ">=5.3.3"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "CodeGreenCreative\\Aweber\\AweberServiceProvider"
+                    ],
+                    "aliases": {
+                        "Aweber": "CodeGreenCreative\\Aweber\\AweberFacade"
+                    }
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "CodeGreenCreative\\Aweber\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "description": "Laravel OAuth Aweber",
+            "homepage": "https://codegreencreative.com/",
+            "support": {
+                "issues": "https://github.com/codegreencreative/laravel-aweber/issues",
+                "source": "https://github.com/codegreencreative/laravel-aweber/tree/v1.0.0"
+            },
+            "time": "2021-03-24T13:21:06+00:00"
         },
         {
             "name": "darkaonline/l5-swagger",
