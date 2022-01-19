@@ -21,4 +21,9 @@ class UserScriptTypePreset extends Model
     {
         return $this->belongsTo(ScriptTypePreset::class);
     }
+
+    public function scriptType()
+    {
+        return $this->belongsTo(ScriptType::class);
+    }
 }
