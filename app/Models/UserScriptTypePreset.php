@@ -2,10 +2,12 @@
 
 namespace App\Models;
 
-use App\Http\Resources\User\UserScriptTypePresetCollection;
-use App\Http\Resources\User\UserScriptTypePresetResource;
-use Illuminate\Database\Eloquent\Factories\HasFactory;
+use App\Models\ScriptType;
+use App\Models\ScriptTypePreset;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
+use App\Http\Resources\User\UserScriptTypePresetResource;
+use App\Http\Resources\User\UserScriptTypePresetCollection;
 
 class UserScriptTypePreset extends Model
 {
