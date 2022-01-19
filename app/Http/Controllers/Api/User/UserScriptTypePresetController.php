@@ -173,9 +173,7 @@ class UserScriptTypePresetController extends Controller
     public function update(UserScriptTypePresetUpdateFormRequest $request, $id)
     {
         $userScriptTypePreset = UserScriptTypePreset::find($id);
-        $userScriptTypePreset->update([
-            'answers' => $request['answer']
-        ]);
+        $userScriptTypePreset->update($request->validate());
         return $this->showOne($userScriptTypePreset);
     }
 
