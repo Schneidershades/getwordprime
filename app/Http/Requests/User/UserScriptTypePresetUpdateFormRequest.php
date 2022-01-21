@@ -20,14 +20,8 @@ class UserScriptTypePresetUpdateFormRequest extends FormRequest
     *       @OA\Property(property="presets", type="object", type="array",
     *            @OA\Items(
     *                @OA\Property(property="answer", type="string", example="info limited"),
-    *            ),
-    *            @OA\Items(
     *                @OA\Property(property="script_type_preset_id", type="int", example="1"),
-    *            ),
-    *            @OA\Items(
     *                @OA\Property(property="script_type_id", type="int", example="1"),
-    *            ),
-    *            @OA\Items(
     *                @OA\Property(property="user_script_type_preset_id", type="int", example="1"),
     *            ),
     *        ),
