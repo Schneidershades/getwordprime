@@ -220,7 +220,6 @@ class UserScriptTypePresetController extends Controller
                             'script_type_preset_id' => $preset['script_type_preset_id'],
                             'answers' => $preset['answer']
                         ]);
-                              
                     }
                 }
             }else{
@@ -232,7 +231,7 @@ class UserScriptTypePresetController extends Controller
             }
         }
         
-        return $this->showAll(UserScriptTypePreset::where('script_type_id', $preset['script_type_id'])->get());
+        return $this->showAll(UserScriptTypePreset::where('script_type_id', $id)->get());
     }
 
      /**
