@@ -203,6 +203,8 @@ class UserScriptTypePresetController extends Controller
     {
         foreach($request['presets'] as $preset){
 
+            return $preset;
+
             $userPreset = UserScriptTypePreset::find($preset['user_script_type_preset_id']);
 
             if ($userPreset != null){
@@ -211,7 +213,7 @@ class UserScriptTypePresetController extends Controller
 
                 foreach($presets as $preset){
 
-                    if ($preset->script_type_preset_id != $preset['script_type_preset_id'] && $preset->answer != $request['answer']){
+                    if ($preset->script_type_preset_id == $preset['script_type_preset_id'] && $preset->answer != $request['answer']){
                         $userPreset->update([
                             'script_type_id' => $preset['script_type_id'],
                             'script_type_preset_id' => $preset['script_type_preset_id'],
@@ -228,7 +230,7 @@ class UserScriptTypePresetController extends Controller
             }
         }
         
-        return $this->showAll(UserScriptTypePreset::where('script_type_id', $preset['script_type_id'])->get());
+        // return $this->showAll(UserScriptTypePreset::where('script_type_id', $preset['script_type_id'])->get());
     }
 
      /**
