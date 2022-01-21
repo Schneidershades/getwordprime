@@ -212,8 +212,9 @@ class UserScriptTypePresetController extends Controller
                 foreach($userAnswers as $p){
 
                     if ($p->script_type_preset_id != $preset['script_type_preset_id'] && $p->answer != $preset['answer']){
-                        
+                        return 'cec';
                     }else{
+                        return 'ddd';
                         $userPreset->update([
                             'script_type_id' => $preset['script_type_id'],
                             'script_type_preset_id' => $preset['script_type_preset_id'],
