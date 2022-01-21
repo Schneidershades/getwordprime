@@ -205,15 +205,13 @@ class UserScriptTypePresetController extends Controller
 
             $userPreset = UserScriptTypePreset::find($preset['user_script_type_preset_id']);
 
-            return $userPreset;
-
             if ($userPreset != null){
 
                 $presets = auth()->user()->presets;
 
                 foreach($presets as $preset){
 
-                    if ($preset->script_type_preset_id == $preset['script_type_preset_id'] && $preset->answer != $request['answer']){
+                    if ($preset->script_type_preset_id == $preset['script_type_preset_id'] && $preset->answer != $preset['answer']){
                         $userPreset->update([
                             'script_type_id' => $preset['script_type_id'],
                             'script_type_preset_id' => $preset['script_type_preset_id'],
