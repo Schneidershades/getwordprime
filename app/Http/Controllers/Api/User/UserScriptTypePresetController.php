@@ -203,9 +203,9 @@ class UserScriptTypePresetController extends Controller
     {
         foreach($request['presets'] as $preset){
 
-            return $preset;
-
             $userPreset = UserScriptTypePreset::find($preset['user_script_type_preset_id']);
+
+            return $userPreset;
 
             if ($userPreset != null){
 
