@@ -17,38 +17,23 @@ use Illuminate\Foundation\Http\FormRequest;
 class UserScriptTypePresetUpdateFormRequest extends FormRequest
 {
     /**
-     * @OA\Property(
-     *      title="script type answer",
-     *      description="answer of the script type",
-     *      example="Info Limited"
-     * )
-     *
-     * @var string
-     */
-    private $answer;
-
-    /**
-     * @OA\Property(
-     *      title="script_type_preset_id",
-     *      description="Initial related script_type_preset_id of the id",
-     *      example="1"
-     * )
-     *
-     * @var int
-     */
-    private $script_type_preset_id;
-
-    /**
-     * @OA\Property(
-     *      title="script_type_id",
-     *      description="Initial related script_type_id of the id",
-     *      example="1"
-     * )
-     *
-     * @var int
-     */
-    private $script_type_id;
-    
+    *       @OA\Property(property="presets", type="object", type="array",
+    *            @OA\Items(
+    *                @OA\Property(property="answer", type="string", example="info limited"),
+    *            ),
+    *            @OA\Items(
+    *                @OA\Property(property="script_type_preset_id", type="int", example="1"),
+    *            ),
+    *            @OA\Items(
+    *                @OA\Property(property="script_type_id", type="int", example="1"),
+    *            ),
+    *            @OA\Items(
+    *                @OA\Property(property="user_script_type_preset_id", type="int", example="1"),
+    *            ),
+    *        ),
+    *    ),
+    */
+    public $presets;
 
     /**
      * Determine if the user is authorized to make this request.
@@ -68,9 +53,11 @@ class UserScriptTypePresetUpdateFormRequest extends FormRequest
     public function rules()
     {
         return [
-            'answer' => 'required|string',
-            'script_type_preset_id' => 'required|int|exists:script_type_presets,id',
-            'script_type_id' => 'required|int|exists:script_types,id',
+            'presets' => 'array', 
+            'presets.*.answer' => 'required|string',
+            'presets.*.script_type_preset_id' => 'required|int|exists:script_type_presets,id',
+            'presets.*.script_type_id' => 'required|int|exists:script_types,id',
+            'presets.*.user_script_type_preset_id' => 'required|int|exists:user_script_type_presets,id',
         ];
     }
 }

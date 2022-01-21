@@ -78,6 +78,35 @@ class UserScriptTypePresetController extends Controller
     */
     public function store(UserScriptTypePresetCreateFormRequest $request)
     {
+        foreach($request['presets'] as $preset){
+
+            $presets = auth()->user()->presets;
+
+            foreach($presets as $preset){
+
+                if ($preset->script_type_preset_id == $preset['script_type_preset_id'] && $preset->answer == $request['answer']){
+                    
+                }else{
+                    if($preset['user_script_type_preset_id'] == null || $preset['user_script_type_preset_id'] = ""){
+                        auth()->user()->presets()->create([
+                            'script_type_id' => $preset['script_type_id'],
+                            'script_type_preset_id' => $preset['script_type_preset_id'],
+                            'answers' => $preset['answer']
+                        ]);
+                    }else{
+                        $userPreset = UserScriptTypePreset::find($preset['user_script_type_preset_id']);
+
+                        $userPreset->update([
+                            'script_type_id' => $preset['script_type_id'],
+                            'script_type_preset_id' => $preset['script_type_preset_id'],
+                            'answers' => $preset['answer']
+                        ]);
+                            
+                    }
+                }
+            }
+        }
+
         return $this->showOne(auth()->user()->presets()->create($request->validated()));
     }
 
@@ -128,14 +157,14 @@ class UserScriptTypePresetController extends Controller
 
     /**
     * @OA\Put(
-    *      path="/api/v1/user-script-type-presets/{id}",
+    *      path="/api/v1/user-script-type-presets/{script_type_preset_id}",
     *      operationId="adminScriptTypeUserPromptAnswer",
     *      tags={"user"},
     *      summary="Update an answer",
     *      description="Update an answer",
     *      
      *      @OA\Parameter(
-     *          name="id",
+     *          name="script_type_preset_id",
      *          description="Script type prompt ID",
      *          required=true,
      *          in="path",
@@ -172,13 +201,37 @@ class UserScriptTypePresetController extends Controller
     
     public function update(UserScriptTypePresetUpdateFormRequest $request, $id)
     {
-        $userScriptTypePreset = UserScriptTypePreset::find($id);
-        $userScriptTypePreset->update([
-            'script_type_id' => $request['script_type_id'],
-            'script_type_preset_id' => $request['script_type_preset_id'],
-            'answers' => $request['answer']
-        ]);
-        return $this->showOne($userScriptTypePreset);
+        foreach($request['presets'] as $preset){
+
+            $userPreset = UserScriptTypePreset::find($preset['user_script_type_preset_id']);
+
+            if ($userPreset != null){
+
+                $presets = auth()->user()->presets;
+
+                foreach($presets as $preset){
+
+                    if ($preset->script_type_preset_id == $preset['script_type_preset_id'] && $preset->answer == $request['answer']){
+                        
+                    }else{
+                        $userPreset->update([
+                            'script_type_id' => $preset['script_type_id'],
+                            'script_type_preset_id' => $preset['script_type_preset_id'],
+                            'answers' => $preset['answer']
+                        ]);
+                              
+                    }
+                }
+            }else{
+                auth()->user()->presets()->create([
+                    'script_type_id' => $preset['script_type_id'],
+                    'script_type_preset_id' => $preset['script_type_preset_id'],
+                    'answers' => $preset['answer']
+                ]);
+            }
+        }
+        
+        return $this->showAll(UserScriptTypePreset::where('script_type_preset_id', $preset['script_type_preset_id'])->get());
     }
 
      /**
