@@ -213,8 +213,6 @@ class UserScriptTypePresetController extends Controller
 
                     if ($p->script_type_preset_id == $preset['script_type_preset_id'] && $p->answer == $request['answer']){
                     }else{
-                        return $preset['answer'];
-
                         $userPreset->update([
                             'script_type_id' => $preset['script_type_id'],
                             'script_type_preset_id' => $preset['script_type_preset_id'],
