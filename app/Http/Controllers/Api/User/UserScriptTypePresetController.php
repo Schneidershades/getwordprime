@@ -157,14 +157,14 @@ class UserScriptTypePresetController extends Controller
 
     /**
     * @OA\Put(
-    *      path="/api/v1/user-script-type-presets/{script_type_preset_id}",
+    *      path="/api/v1/user-script-type-presets/{script_type_id}",
     *      operationId="adminScriptTypeUserPromptAnswer",
     *      tags={"user"},
     *      summary="Update an answer",
     *      description="Update an answer",
     *      
      *      @OA\Parameter(
-     *          name="script_type_preset_id",
+     *          name="script_type_id",
      *          description="Script type prompt ID",
      *          required=true,
      *          in="path",
@@ -231,7 +231,7 @@ class UserScriptTypePresetController extends Controller
             }
         }
         
-        return $this->showAll(UserScriptTypePreset::where('script_type_preset_id', $preset['script_type_preset_id'])->get());
+        return $this->showAll(UserScriptTypePreset::where('script_type_id', $preset['script_type_id'])->get());
     }
 
      /**
