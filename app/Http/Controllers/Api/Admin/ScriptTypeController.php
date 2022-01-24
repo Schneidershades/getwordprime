@@ -235,7 +235,6 @@ class ScriptTypeController extends Controller
 
         if($request['script_type_presets']){
             foreach($request['script_type_presets'] as $preset){
-                $model->presets()->delete();
                 $model->presets()->create($preset);
             }
         }
