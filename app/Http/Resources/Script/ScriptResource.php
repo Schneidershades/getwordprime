@@ -18,7 +18,7 @@ class ScriptResource extends JsonResource
         return [
             'id' => $this->id,
             'content' => $this->content,
-            // 'responses' => ScriptResponseResource::collection($this->scriptResponses),
+            'responses' => ScriptResponseResource::collection($this->scriptResponses),
             'created_at' => $this->created_at,
             'updated_at' => $this->updated_at,
         ];
