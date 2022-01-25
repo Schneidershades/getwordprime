@@ -19,7 +19,7 @@ class ScriptResponseResource extends JsonResource
             'text' => $this->text,
             'index' => $this->index,
             'favorite' => $this->favorite ? true : false,
-            'script_type' => $this->scriptType?->script?->name,
+            'script_type' => $this->script?->name,
             'logprobs' => $this->logprobs,
             'finish_reason' => $this->finish_reason,
             'created_at' => $this->created_at,
