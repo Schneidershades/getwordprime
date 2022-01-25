@@ -21,7 +21,7 @@ class ScriptResponse extends Model
 
     public function script()
     {
-        return $this->hasOne(Script::class);
+        return $this->belongsTo(Script::class);
     }
 
     public function flagged()
