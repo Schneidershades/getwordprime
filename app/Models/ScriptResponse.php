@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Models\Script;
 use App\Models\FlaggedScript;
 use App\Models\FavoriteScript;
 use Illuminate\Database\Eloquent\Model;
@@ -16,6 +17,11 @@ class ScriptResponse extends Model
     public function favorite()
     {
         return $this->hasOne(FavoriteScript::class);
+    }
+
+    public function script()
+    {
+        return $this->hasOne(Script::class);
     }
 
     public function flagged()
