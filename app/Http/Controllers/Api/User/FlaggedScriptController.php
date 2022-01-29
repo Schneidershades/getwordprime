@@ -40,7 +40,6 @@ class FlaggedScriptController extends Controller
     */
     public function index()
     {
-        // return(auth()->user()->flaggedScripts);
         return $this->showAll(auth()->user()->flaggedScripts);
     }
 
@@ -92,7 +91,5 @@ class FlaggedScriptController extends Controller
             $model->favorite()->save($favorite);
             return $this->showMessage('Script has been added to flagged scripts');
         }
-
-
     }
 }

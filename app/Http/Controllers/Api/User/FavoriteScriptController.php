@@ -40,6 +40,7 @@ class FavoriteScriptController extends Controller
     */
     public function index()
     {
+        // return(auth()->user()->flaggedScripts);
         return $this->showAll(auth()->user()->favoriteScripts);
     }
 
