@@ -40,7 +40,7 @@ class FlaggedScriptController extends Controller
     */
     public function index()
     {
-        return(auth()->user()->flaggedScripts);
+        // return(auth()->user()->flaggedScripts);
         return $this->showAll(auth()->user()->flaggedScripts);
     }
 
