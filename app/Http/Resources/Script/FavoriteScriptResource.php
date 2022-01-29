@@ -9,7 +9,7 @@ class FavoriteScriptResource extends JsonResource
     public function toArray($request)
     {
         return [
-            'response' => ScriptResponseResource::collection($this->scriptResponses),
+            'response' => ScriptResponseResource::collection($this->scriptResponse),
         ];
     }
 }
