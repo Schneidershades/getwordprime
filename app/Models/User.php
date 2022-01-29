@@ -2,19 +2,23 @@
 
 namespace App\Models;
 
-use Illuminate\Contracts\Auth\MustVerifyEmail;
-use Illuminate\Database\Eloquent\Factories\HasFactory;
-use Illuminate\Foundation\Auth\User as Authenticatable;
+use App\Models\Plan;
+use App\Models\FavoriteScript;
+use App\Models\FlaggedScript;
+use App\Models\Agency;
+use App\Models\Script;
+use App\Models\Campaign;
+use App\Models\Suggestion;
+use App\Models\PlatformIntegration;
+use Spatie\Permission\Traits\HasRoles;
+use Tymon\JWTAuth\Contracts\JWTSubject;
 use Illuminate\Notifications\Notifiable;
 use App\Http\Resources\User\UserResource;
 use App\Http\Resources\User\UserCollection;
-use Spatie\Permission\Traits\HasRoles;
-use Tymon\JWTAuth\Contracts\JWTSubject;
+use Illuminate\Contracts\Auth\MustVerifyEmail;
 use App\Notifications\Auth\PasswordResetNotification;
-use App\Models\Agency;
-use App\Models\Campaign;
-use App\Models\Script;
-use App\Models\Suggestion;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Foundation\Auth\User as Authenticatable;
 
 class User extends Authenticatable implements MustVerifyEmail, JWTSubject 
 {
@@ -132,5 +136,15 @@ class User extends Authenticatable implements MustVerifyEmail, JWTSubject
     public function presets()
     {
         return $this->hasMany(UserScriptTypePreset::class);
+    }
+
+    public function favouriteScripts()
+    {
+        return $this->hasMany(FavoriteScript::class);
+    }
+
+    public function flaggedScripts()
+    {
+        return $this->hasMany(FlaggedScript::class);
     }
 }

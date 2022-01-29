@@ -9,6 +9,40 @@ use App\Http\Requests\User\StoreFlagScriptFormRequest;
 
 class FlaggedScriptController extends Controller
 {
+    /**
+    * @OA\Get(
+    *      path="/api/v1/flagged-script-responses",
+    *      operationId="allFlaggedScripts",
+    *      tags={"user"},
+    *      summary="allFlaggedScripts",
+    *      description="allFlaggedScripts",
+    *      @OA\Response(
+    *          response=200,
+    *          description="Successful signin",
+    *          @OA\MediaType(
+    *             mediaType="application/json",
+    *         ),
+    *       ),
+    *      @OA\Response(
+    *          response=400,
+    *          description="Bad Request"
+    *      ),
+    *      @OA\Response(
+    *          response=401,
+    *          description="unauthenticated",
+    *      ),
+    *      @OA\Response(
+    *          response=403,
+    *          description="Forbidden"
+    *      ),
+    *      security={ {"bearerAuth": {}} },
+    * )
+    */
+    public function index()
+    {
+        return $this->showAll(auth()->user()->flaggedScripts);
+    }
+
      /**
     * @OA\Post(
     *      path="/api/v1/flagged-script-responses",

@@ -10,6 +10,40 @@ use App\Http\Requests\User\StoreFavoriteScriptFormRequest;
 class FavoriteScriptController extends Controller
 {
     /**
+    * @OA\Get(
+    *      path="/api/v1/favorite-script-responses",
+    *      operationId="allFavoriteScripts",
+    *      tags={"user"},
+    *      summary="allFavoriteScripts",
+    *      description="allFavoriteScripts",
+    *      @OA\Response(
+    *          response=200,
+    *          description="Successful signin",
+    *          @OA\MediaType(
+    *             mediaType="application/json",
+    *         ),
+    *       ),
+    *      @OA\Response(
+    *          response=400,
+    *          description="Bad Request"
+    *      ),
+    *      @OA\Response(
+    *          response=401,
+    *          description="unauthenticated",
+    *      ),
+    *      @OA\Response(
+    *          response=403,
+    *          description="Forbidden"
+    *      ),
+    *      security={ {"bearerAuth": {}} },
+    * )
+    */
+    public function index()
+    {
+        return $this->showAll(auth()->user()->favoriteScripts);
+    }
+
+    /**
     * @OA\Post(
     *      path="/api/v1/favorite-script-responses",
     *      operationId="postScriptFavorite",
