@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Models\User;
 use App\Models\ScriptResponse;
 use Illuminate\Database\Eloquent\Model;
 use App\Http\Resources\Script\FlaggedScriptResource;
@@ -18,5 +19,10 @@ class FlaggedScript extends Model
     public function scriptResponse()
     {
         return $this->belongsTo(ScriptResponse::class);
+    }
+
+    public function user()
+    {
+        return $this->belongsTo(User::class);
     }
 }
