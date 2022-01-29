@@ -12,4 +12,24 @@ class FlaggedScriptCollection extends ResourceCollection
             'data' => FlaggedScriptResource::collection($this->collection),
         ];
     }
+
+    public static function originalAttribute($index)
+    {
+        $attribute = [
+            'user_id' => 'user_id',
+            'script_response_id' => 'script_response_id',
+        ];
+
+        return isset($attribute[$index]) ? $attribute[$index] : null;
+    }
+
+     public static function transformedAttribute($index)
+    {
+        $attribute = [
+            'user_id' => 'user_id',
+            'script_response_id' => 'script_response_id',
+        ];
+
+        return isset($attribute[$index]) ? $attribute[$index] : null;
+    }
 }
