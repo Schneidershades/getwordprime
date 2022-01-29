@@ -47,10 +47,10 @@ class FlaggedScriptController extends Controller
      /**
     * @OA\Post(
     *      path="/api/v1/flagged-script-responses",
-    *      operationId="postScriptFavorite",
+    *      operationId="postScriptFlagged",
     *      tags={"user"},
-    *      summary="Post script flagged",
-    *      description="Post script flagged",
+    *      summary="postScriptFlagged",
+    *      description="postScriptFlagged",
     *      @OA\RequestBody(
     *          required=true,
     *          @OA\JsonContent(ref="#/components/schemas/StoreFlagScriptFormRequest")
