@@ -138,7 +138,7 @@ class User extends Authenticatable implements MustVerifyEmail, JWTSubject
         return $this->hasMany(UserScriptTypePreset::class);
     }
 
-    public function favouriteScripts()
+    public function favoriteScripts()
     {
         return $this->hasMany(FavoriteScript::class);
     }
