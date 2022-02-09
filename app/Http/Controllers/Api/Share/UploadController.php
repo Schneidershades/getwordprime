@@ -17,13 +17,16 @@ class UploadController extends Controller
             'path' => ['required', Rule::in(["script_type"])],
         ]);
 
+
+        if ($validator->fails()) {
+            return $this->errorResponse("Validation error", 422);
+        }
+
+
+        $path = $this->uploadImage($request->file, $request->path);
+
+
         dd('ss');
-
-        // if ($validator->fails()) {
-        //     return $this->errorResponse("Validation error", 422);
-        // }
-
-        // $path = $this->uploadImage($request->file, $request->path);
 
         // $media = Media::create([
         //     'file_path' => $path,
