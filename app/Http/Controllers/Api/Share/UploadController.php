@@ -25,6 +25,8 @@ class UploadController extends Controller
 
         $path = $this->uploadImage($request->file, $request->path);
 
+        dd($path);
+
 
         dd('ss');
 
