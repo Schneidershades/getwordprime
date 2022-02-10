@@ -56,7 +56,7 @@ class SuggestionCreateFormRequest extends FormRequest
     public function rules()
     {
         return [
-            'name' => 'required|string',
+            'message' => 'required|string',
             'parent_id' => 'required|int',
         ];
     }
