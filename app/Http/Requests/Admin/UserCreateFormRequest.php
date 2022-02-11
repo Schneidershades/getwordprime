@@ -63,6 +63,18 @@ class UserCreateFormRequest extends FormRequest
      */
     public $email;
 
+
+    /**
+     * @OA\Property(
+     *      title="User password",
+     *      description="Email of the user",
+     *      example="info@convertscript.com"
+     * )
+     *
+     * @var string
+     */
+    public $password;
+
     /**
     *       @OA\Property(property="plans", type="object", type="array",
     *            @OA\Items(
@@ -94,6 +106,7 @@ class UserCreateFormRequest extends FormRequest
         return [
             'first_name' => 'required|string|max:255',
             'last_name' => 'required|string|max:255',
+            'password' => 'required|string|min:8',
             'email' => 'required|string|email|max:255|unique:users',
             'role' => 'required|string|max:255|in:Admin,User',
             'plans' => 'array', 
