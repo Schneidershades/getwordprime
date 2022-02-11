@@ -78,7 +78,7 @@ class SuggestionController extends Controller
     */
     public function store(SuggestionCreateFormRequest $request)
     {
-        return $this->showOne(auth()->user()->suggestions->create($request->validated()));
+        return $this->showOne(auth()->user()->suggestions()->create($request->validated()));
     }
     
     /**

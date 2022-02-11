@@ -57,7 +57,7 @@ class SuggestionCreateFormRequest extends FormRequest
     {
         return [
             'message' => 'required|string',
-            'parent_id' => 'required|int',
+            'parent_id' => 'nullable|int',
         ];
     }
 }
