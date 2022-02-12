@@ -7,10 +7,10 @@ use Image;
 
 class ImageHelper
 {
-    public static function uploadAnything($file, $pathDirectory)
+    public static function uploadAnything($file, $name, $pathDirectory, $saveDatabaseAttribute)
     {
         $image = $file;
-        $filename =  $image->getClientOriginalExtension();
+        $filename = rand (100000,9000000). '.' . $image->getClientOriginalExtension();
 
         $directory = $pathDirectory;
         $path = $directory . $filename;
@@ -18,6 +18,7 @@ class ImageHelper
         if (!File::exists($directory)) {
             File::makeDirectory($directory, $mode = 0777, true, true);
         }
+
 
         Image::make($image)->save($path);
 
