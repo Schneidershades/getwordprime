@@ -111,7 +111,7 @@ class ScriptTypeController extends Controller
 
 
                 $file = $request->file('icon');
-                $ogImage = Image::make($file);
+                $ogImage = Image::make($file)->getRealPath();
                 $originalPath = 'public/';
                 $ogImage =  $ogImage->save($originalPath.time().$file->getClientOriginalName());
 
@@ -258,7 +258,7 @@ class ScriptTypeController extends Controller
 
 
                     $file = $request->file('icon');
-                    $ogImage = Image::make($file);
+                    $ogImage = Image::make($file)->getRealPath();
                     $originalPath = 'public/';
                     $ogImage =  $ogImage->save($originalPath.time().$file->getClientOriginalName());
 

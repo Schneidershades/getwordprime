@@ -24,7 +24,7 @@ class UploadController extends Controller
 
         $file = $request->file('image');
              
-        $ogImage = Image::make($file);
+        $ogImage = Image::make($file)->getRealPath();
         $originalPath = 'public/';
         $ogImage =  $ogImage->save($originalPath.time().$file->getClientOriginalName());
 
