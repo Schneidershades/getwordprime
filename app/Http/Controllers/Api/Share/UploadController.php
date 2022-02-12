@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Api\Share;
 
 use App\Http\Controllers\Controller;
 use App\Models\Media;
+use App\Traits\Image\ImageHelper;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Validation\Rule;
@@ -21,7 +22,9 @@ class UploadController extends Controller
             return $this->errorResponse("Validation error", 422);
         }
 
-        $path = $this->uploadImage($request->file, $request->path);
+        $path = ImageHelper::uploadAnything($request->file, $request->path);
+
+        // $path = $this->uploadImage($request->file, $request->path);
 
         $media = Media::create([
             'file_path' => $path,

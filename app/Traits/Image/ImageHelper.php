@@ -2,34 +2,24 @@
 
 namespace App\Traits\Image;
 
-use Auth;
-use Session;
-use File;
+use Illuminate\Support\Facades\File;
 use Image;
-use Storage;
 
 class ImageHelper
 {
-    public static function uploadAnything($file, $name, $pathDirectory, $saveDatabaseAttribute)
+    public static function uploadAnything($file, $pathDirectory)
     {
         $image = $file;
-        $filename = $name . '.' . $image->getClientOriginalExtension();
+        $filename =  $image->getClientOriginalExtension();
 
         $directory = $pathDirectory;
         $path = $directory . $filename;
 
         if (!File::exists($directory)) {
-            // path does not exist
             File::makeDirectory($directory, $mode = 0777, true, true);
         }
 
-        list($width, $height, $type, $attr) = getimagesize($image);
-
-        if ($width < $height) {
-            Image::make($image)->resize(250, 400)->save($path);
-        } else {
-            Image::make($image)->resize(400, 250)->save($path);
-        }
+        Image::make($image)->save($path);
 
         return $path;
     }
