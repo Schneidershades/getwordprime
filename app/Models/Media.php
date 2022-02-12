@@ -29,7 +29,8 @@ class Media extends Model
     public function getFileUrlAttribute()
     {
         if ($this->file_path != null) {
-            return Storage::disk('s3')->url($this->file_path);
+            // return Storage::disk('s3')->url($this->file_path);
+            return public_path($this->file_path);
         }
         return null;
     }

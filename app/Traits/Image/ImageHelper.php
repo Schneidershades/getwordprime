@@ -19,7 +19,6 @@ class ImageHelper
             File::makeDirectory($directory, $mode = 0777, true, true);
         }
 
-
         Image::make($image)->save($path);
 
         return $path;
