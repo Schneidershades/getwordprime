@@ -112,13 +112,13 @@ class ScriptTypeController extends Controller
 
                 $file = $request->file('icon');
                 $ogImage = Image::make($file);
-                $originalPath = 'public/images/';
+                $originalPath = 'public/';
                 $ogImage =  $ogImage->save($originalPath.time().$file->getClientOriginalName());
 
                 // $path = $this->uploadImage($image, "icon");
 
                 $model->iconImage()->create([
-                    'file_path' => $path,
+                    'file_path' => $ogImage,
                 ]);
             } else {
                 $media = Media::where('id', $image)->first();
@@ -256,10 +256,16 @@ class ScriptTypeController extends Controller
             foreach ($request['icon'] as $image) {
                 if (gettype($image) != "integer") {
 
-                    $path = $this->uploadImage($image, "icon");
+
+                    $file = $request->file('icon');
+                    $ogImage = Image::make($file);
+                    $originalPath = 'public/';
+                    $ogImage =  $ogImage->save($originalPath.time().$file->getClientOriginalName());
+
+                    // $path = $this->uploadImage($image, "icon");
 
                     $model->iconImage()->create([
-                        'file_path' => $path,
+                        'file_path' => $ogImage,
                     ]);
 
                 } else {
