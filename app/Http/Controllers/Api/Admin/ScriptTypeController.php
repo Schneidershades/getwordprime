@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Api\Admin;
 use App\Models\Media;
 use App\Models\ScriptType;
 use App\Http\Controllers\Controller;
+use Illuminate\Database\Eloquent\Builder;
 use App\Http\Requests\Admin\ScriptTypeCreateFormRequest;
 use App\Http\Requests\Admin\ScriptTypeUpdateFormRequest;
 
@@ -42,6 +43,19 @@ class ScriptTypeController extends Controller
     public function index()
     {
         return $this->showAll(ScriptType::latest()->get());
+
+        $search_query = request()->get('search') ? request()->get('search') : null;
+        
+        $script_types =  ScriptType::query()
+                ->selectRaw('script_types.*')
+                ->when($search_query, function (Builder $builder, $search_query) {
+                    $builder->where('script_types.name', 'LIKE', "%{$search_query}%")
+                    ->orWhere('script_types.description', 'LIKE', "%{$search_query}%")
+                    ->orWhere('script_types.prompt_1', "%{$search_query}%")
+                    ->orWhere('script_types.prompt_2', "%{$search_query}%");
+                })->latest()->get();
+
+        return $this->showAll($script_types);
     }
 
     /**

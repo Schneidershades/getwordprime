@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Api\Admin;
 
 use App\Http\Controllers\Controller;
+use Illuminate\Database\Eloquent\Builder;
 use App\Http\Requests\Admin\UpdateTransactionFormRequest;
 use Illuminate\Http\Request;
 use App\Models\Transaction;
@@ -40,7 +41,17 @@ class TransactionController extends Controller
     */
     public function index()
     {
-        return $this->showAll(Transaction::all());
+        $search_query = request()->get('search') ? request()->get('search') : null;
+        
+        $transactions =  Transaction::query()
+                ->selectRaw('transactions.*')
+                ->when($search_query, function (Builder $builder, $search_query) {
+                    $builder->where('transactions.transaction_id', 'LIKE', "%{$search_query}%")
+                    ->orWhere('transactions.description', 'LIKE', "%{$search_query}%")
+                    ->orWhere('transactions.link', "%{$search_query}%");
+                })->latest()->get();
+
+        return $this->showAll($transactions);
     }
 
     /**

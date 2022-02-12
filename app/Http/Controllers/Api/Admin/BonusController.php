@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Api\Admin;
 
 use App\Models\Bonus;
 use App\Http\Controllers\Controller;
+use Illuminate\Database\Eloquent\Builder;
 use App\Http\Requests\Admin\BonusStoreFormRequest;
 use App\Http\Requests\Admin\BonusUpdateFormRequest;
 
@@ -40,7 +41,17 @@ class BonusController extends Controller
     */
     public function index()
     {
-        return $this->showAll(Bonus::all());
+        $search_query = request()->get('search') ? request()->get('search') : null;
+
+        $bonuses =  Bonus::query()
+                ->selectRaw('bonuses.*')
+                ->when($search_query, function (Builder $builder, $search_query) {
+                    $builder->where('bonuses.name', 'LIKE', "%{$search_query}%")
+                    ->where('bonuses.description', 'LIKE', "%{$search_query}%")
+                    ->where('bonuses.url', 'LIKE', "%{$search_query}%");
+                })->latest()->get();
+
+        return $this->showAll($bonuses);
     }
 
     /**

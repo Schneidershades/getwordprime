@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Api\Admin;
 use App\Models\Role;
 use App\Models\Permission;
 use App\Http\Controllers\Controller;
+use Illuminate\Database\Eloquent\Builder;
 use App\Http\Requests\Admin\UpdatePermissionRequest;
 
 class PermissionsController extends Controller
@@ -40,7 +41,15 @@ class PermissionsController extends Controller
     */
     public function index()
     {
-        return $this->showAll(Permission::all());
+        $search_query = request()->get('search') ? request()->get('search') : null;
+
+        $permissions =  Permission::query()
+                ->selectRaw('permissions.*')
+                ->when($search_query, function (Builder $builder, $search_query) {
+                    $builder->where('permissions.name', 'LIKE', "%{$search_query}%");
+                })->latest()->get();
+
+        return $this->showAll($permissions);
     }
 
     /**

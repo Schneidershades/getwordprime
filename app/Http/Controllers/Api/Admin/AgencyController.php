@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Api\Admin;
 
 use App\Models\Agency;
 use App\Http\Controllers\Controller;
+use Illuminate\Database\Eloquent\Builder;
 use App\Http\Requests\User\AgencyCreateFormRequest;
 use App\Http\Requests\User\AgencyUpdateFormRequest;
 
@@ -40,7 +41,17 @@ class AgencyController extends Controller
     */
     public function index()
     {
-        return $this->showAll(Agency::latest()->get());
+        $search_query = request()->get('search') ? request()->get('search') : null;
+
+        $agencies =  Agency::query()
+                ->selectRaw('agencies.*')
+                ->when($search_query, function (Builder $builder, $search_query) {
+                    $builder->where('agencies.name', 'LIKE', "%{$search_query}%")
+                    ->where('agencies.description', 'LIKE', "%{$search_query}%")
+                    ->where('agencies.url', 'LIKE', "%{$search_query}%");
+                })->latest()->get();
+
+        return $this->showAll($agencies);
     }
 
     /**

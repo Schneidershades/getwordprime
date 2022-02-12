@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Api\Admin;
 use App\Models\Role;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Database\Eloquent\Builder;
 use App\Http\Requests\Admin\RoleCreateFormRequest;
 use App\Http\Requests\Admin\RoleUpdateFormRequest;
 
@@ -41,7 +42,16 @@ class RoleController extends Controller
     */
     public function index()
     {
-        return $this->showAll(Role::with('permissions')->get());
+        $search_query = request()->get('search') ? request()->get('search') : null;
+        
+        $roles =  Role::query()
+                ->selectRaw('script_types.*')
+                ->when($search_query, function (Builder $builder, $search_query) {
+                    $builder->where('roles.name', 'LIKE', "%{$search_query}%")
+                    ->orWhere('roles.description', 'LIKE', "%{$search_query}%");
+                })->with('permissions')->latest()->get();
+
+        return $this->showAll($roles);
     }
 
     /**

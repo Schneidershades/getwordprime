@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Api\Admin;
 
 use App\Models\Tutorial;
 use Illuminate\Http\Request;
+use Illuminate\Database\Eloquent\Builder;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Admin\TutorialCreateFormRequest;
 use App\Http\Requests\Admin\TutorialUpdateFormRequest;
@@ -41,7 +42,18 @@ class TutorialController extends Controller
     */
     public function index()
     {
-        return $this->showAll(Tutorial::latest()->get());
+        $search_query = request()->get('search') ? request()->get('search') : null;
+
+        $tutorials =  Tutorial::query()
+                ->selectRaw('tutorials.*')
+                ->when($search_query, function (Builder $builder, $search_query) {
+                    $builder->where('tutorials.title', 'LIKE', "%{$search_query}%")
+                    ->orWhere('tutorials.description', 'LIKE', "%{$search_query}%")
+                    ->orWhere('tutorials.link', "%{$search_query}%");
+                })->latest()->get();
+
+        return $this->showAll($tutorials);
+
     }
 
     /**

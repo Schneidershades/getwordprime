@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Api\Admin;
 
 use App\Models\Plan;
 use App\Http\Controllers\Controller;
+use Illuminate\Database\Eloquent\Builder;
 use App\Http\Requests\Admin\PlanStoreFormRequest;
 use App\Http\Requests\Admin\PlanUpdateFormRequest;
 
@@ -40,7 +41,17 @@ class PlanController extends Controller
     */
     public function index()
     {
-        return $this->showAll(Plan::all());
+
+        $search_query = request()->get('search') ? request()->get('search') : null;
+
+        $plans =  Plan::query()
+                ->selectRaw('plans.*')
+                ->when($search_query, function (Builder $builder, $search_query) {
+                    $builder->where('plans.name', 'LIKE', "%{$search_query}%")
+                    ->orWhere('plan.type', 'LIKE', "%{$search_query}%");
+                })->latest()->get();
+
+        return $this->showAll($plans);
     }
 
     /**
