@@ -6,6 +6,7 @@ use App\Models\User;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Admin\UserCreateFormRequest;
 use App\Http\Requests\Admin\UserUpdateFormRequest;
+use Illuminate\Database\Eloquent\Builder;
 
 class UserController extends Controller
 {
@@ -40,7 +41,20 @@ class UserController extends Controller
     */
     public function index()
     {
-        return $this->showAll(User::latest()->get());
+
+        $search_query = request()->get('search') ? request()->get('search') : null;
+
+        $users =  User::query()
+                ->selectRaw('users.*')
+                ->when($search_query, function (Builder $builder, $search_query) {
+                    $builder->where('users.first_name', 'LIKE', "%{$search_query}%")
+                    ->orWhere('users.last_name', 'LIKE', "%{$search_query}%")
+                    ->orWhere('users.phone', 'LIKE', "%{$search_query}%")
+                    ->orWhere('users.role', "%{$search_query}%")
+                    ->orWhere('users.email', 'LIKE', "%{$search_query}%");
+                })->latest();
+
+        return $this->showAll($users);
     }
 
     /**
