@@ -22,9 +22,9 @@ class UploadController extends Controller
             return $this->errorResponse("Validation error", 422);
         }
 
-        $file = $request->file('image');
+        $file = $request->file('file');
              
-        $ogImage = Image::make($file)->getRealPath();
+        $ogImage = Image::make(public_path($file))->getRealPath();
         $originalPath = 'public/';
         $ogImage =  $ogImage->save($originalPath.time().$file->getClientOriginalName());
 
