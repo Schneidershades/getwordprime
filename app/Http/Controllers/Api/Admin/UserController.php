@@ -49,7 +49,6 @@ class UserController extends Controller
                 ->when($search_query, function (Builder $builder, $search_query) {
                     $builder->where('users.first_name', 'LIKE', "%{$search_query}%")
                     ->orWhere('users.last_name', 'LIKE', "%{$search_query}%")
-                    ->orWhere('users.phone', 'LIKE', "%{$search_query}%")
                     ->orWhere('users.role', "%{$search_query}%")
                     ->orWhere('users.email', 'LIKE', "%{$search_query}%");
                 })->latest()->get();
