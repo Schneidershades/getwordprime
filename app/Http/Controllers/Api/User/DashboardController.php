@@ -7,7 +7,6 @@ use App\Models\Tutorial;
 
 class DashboardController extends Controller
 {
-
     /**
     * @OA\Get(
     *      path="/api/v1/dashboard",

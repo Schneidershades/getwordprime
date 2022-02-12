@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Api\Admin;
 
+Use Image;
 use App\Models\Media;
 use App\Models\ScriptType;
 use App\Http\Controllers\Controller;
@@ -103,9 +104,18 @@ class ScriptTypeController extends Controller
         }
 
         if($request->has('icon')){
+
             $image = $request['icon'];
+
             if (gettype($image) != "integer") {
-                $path = $this->uploadImage($image, "icon");
+
+
+                $file = $request->file('icon');
+                $ogImage = Image::make($file);
+                $originalPath = 'public/images/';
+                $ogImage =  $ogImage->save($originalPath.time().$file->getClientOriginalName());
+
+                // $path = $this->uploadImage($image, "icon");
 
                 $model->iconImage()->create([
                     'file_path' => $path,
