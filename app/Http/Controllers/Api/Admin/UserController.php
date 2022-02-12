@@ -52,7 +52,7 @@ class UserController extends Controller
                     ->orWhere('users.phone', 'LIKE', "%{$search_query}%")
                     ->orWhere('users.role', "%{$search_query}%")
                     ->orWhere('users.email', 'LIKE', "%{$search_query}%");
-                })->latest();
+                })->latest()->get();
 
         return $this->showAll($users);
     }
