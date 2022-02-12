@@ -23,6 +23,8 @@ class UploadController extends Controller
         }
 
         $file = $request->file('file');
+
+        dd($file);
              
         $ogImage = Image::make(public_path($file))->getRealPath();
         $originalPath = 'public/';
