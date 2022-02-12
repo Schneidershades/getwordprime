@@ -7,7 +7,6 @@ use App\Models\Media;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Validation\Rule;
-Use Image;
 
 class UploadController extends Controller
 {
@@ -22,19 +21,10 @@ class UploadController extends Controller
             return $this->errorResponse("Validation error", 422);
         }
 
-        $file = $request->file('file');
-
-        dd($file);
-             
-        $ogImage = Image::make(public_path($file))->getRealPath();
-        $originalPath = 'public/';
-        $ogImage =  $ogImage->save($originalPath.time().$file->getClientOriginalName());
-
-
-        // $path = $this->uploadImage($request->file, $request->path);
+        $path = $this->uploadImage($request->file, $request->path);
 
         $media = Media::create([
-            'file_path' => $ogImage,
+            'file_path' => $path,
             'fileable_id' => 0,
             'fileable_type' => "NULL",
         ]);
