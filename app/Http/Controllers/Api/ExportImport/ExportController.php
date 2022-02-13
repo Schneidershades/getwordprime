@@ -24,6 +24,15 @@ class ExportController extends Controller
     *          )
     *      ),
     *      @OA\Parameter(
+    *          name="user_type",
+    *          description="User Type",
+    *          required=true,
+    *          in="path",
+    *          @OA\Schema(
+    *              type="string"
+    *          )
+    *      ),
+    *      @OA\Parameter(
     *          name="export_model",
     *          description="Export model",
     *          required=true,
@@ -66,6 +75,7 @@ class ExportController extends Controller
         }
 
         $fileName = sprintf('%s_export_%s.xlsx', strtolower($request->query('model')), now()->format('Ymd_Hi'));
+        
         $namespace =  "\App\Exports\\" . $request->query('type') . '\\'.  $request->query('export');
 
         return (new $namespace)->download($fileName);

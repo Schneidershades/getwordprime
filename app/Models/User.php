@@ -130,7 +130,7 @@ class User extends Authenticatable implements MustVerifyEmail, JWTSubject
 
     public function scriptsResponses()
     {
-        return $this->hasMany(FavoriteFlagResponse::class);
+        return $this->hasMany(ScriptResponse::class);
     }
 
     public function presets()

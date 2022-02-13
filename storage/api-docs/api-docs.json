@@ -459,6 +459,70 @@
                 ]
             }
         },
+        "/api/v1/admin/favorite-scripts": {
+            "get": {
+                "tags": [
+                    "Admin"
+                ],
+                "summary": "Get all favorite script",
+                "description": "Get all favorite script",
+                "operationId": "allFavorite",
+                "responses": {
+                    "200": {
+                        "description": "Successful signin",
+                        "content": {
+                            "application/json": {}
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    },
+                    "401": {
+                        "description": "unauthenticated"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        },
+        "/api/v1/admin/flagged-scripts": {
+            "get": {
+                "tags": [
+                    "Admin"
+                ],
+                "summary": "Get all flagged script",
+                "description": "Get all flagged script",
+                "operationId": "allFlagged",
+                "responses": {
+                    "200": {
+                        "description": "Successful signin",
+                        "content": {
+                            "application/json": {}
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    },
+                    "401": {
+                        "description": "unauthenticated"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        },
         "/api/v1/admin/permissions": {
             "get": {
                 "tags": [
@@ -2795,6 +2859,67 @@
                 ]
             }
         },
+        "/api/v1/export/excel/model?model={model}&type={user_type}&export={export_model}": {
+            "get": {
+                "tags": [
+                    "Shared"
+                ],
+                "summary": "searchParts",
+                "description": "searchParts",
+                "operationId": "searchParts",
+                "parameters": [
+                    {
+                        "name": "model",
+                        "in": "path",
+                        "description": "The defined model",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "user_type",
+                        "in": "path",
+                        "description": "User Type",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "export_model",
+                        "in": "path",
+                        "description": "Export model",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful signin",
+                        "content": {
+                            "application/json": {}
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    },
+                    "401": {
+                        "description": "unauthenticated"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        },
         "/api/v1/share/plans": {
             "get": {
                 "tags": [
@@ -3274,6 +3399,36 @@
             }
         },
         "/api/v1/favorite-script-responses": {
+            "get": {
+                "tags": [
+                    "user"
+                ],
+                "summary": "allFavoriteScripts",
+                "description": "allFavoriteScripts",
+                "operationId": "allFavoriteScripts",
+                "responses": {
+                    "200": {
+                        "description": "Successful signin",
+                        "content": {
+                            "application/json": {}
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    },
+                    "401": {
+                        "description": "unauthenticated"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            },
             "post": {
                 "tags": [
                     "user"
@@ -3316,13 +3471,43 @@
             }
         },
         "/api/v1/flagged-script-responses": {
+            "get": {
+                "tags": [
+                    "user"
+                ],
+                "summary": "allFlaggedScripts",
+                "description": "allFlaggedScripts",
+                "operationId": "allFlaggedScripts",
+                "responses": {
+                    "200": {
+                        "description": "Successful signin",
+                        "content": {
+                            "application/json": {}
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    },
+                    "401": {
+                        "description": "unauthenticated"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            },
             "post": {
                 "tags": [
                     "user"
                 ],
-                "summary": "Post script flagged",
-                "description": "Post script flagged",
-                "operationId": "postScriptFavorite",
+                "summary": "postScriptFlagged",
+                "description": "postScriptFlagged",
+                "operationId": "postScriptFlagged",
                 "requestBody": {
                     "required": true,
                     "content": {
@@ -4767,34 +4952,24 @@
                     }
                 ]
             },
-            "put": {
+            "delete": {
                 "tags": [
                     "user"
                 ],
-                "summary": "Update an answer",
-                "description": "Update an answer",
-                "operationId": "adminScriptTypeUserPromptAnswer",
+                "summary": "Delete script-type-user-prompt-answers",
+                "description": "Delete script-type-user-prompt-answers",
+                "operationId": "deleteScriptTypeUserPromptAnswer",
                 "parameters": [
                     {
                         "name": "id",
                         "in": "path",
-                        "description": "Script type prompt ID",
+                        "description": "script-type-user-prompt-answers ID",
                         "required": true,
                         "schema": {
                             "type": "integer"
                         }
                     }
                 ],
-                "requestBody": {
-                    "required": true,
-                    "content": {
-                        "application/json": {
-                            "schema": {
-                                "$ref": "#/components/schemas/UserScriptTypePresetUpdateFormRequest"
-                            }
-                        }
-                    }
-                },
                 "responses": {
                     "200": {
                         "description": "Successful signin",
@@ -4817,25 +4992,37 @@
                         "bearerAuth": []
                     }
                 ]
-            },
-            "delete": {
+            }
+        },
+        "/api/v1/user-script-type-presets/{script_type_id}": {
+            "put": {
                 "tags": [
                     "user"
                 ],
-                "summary": "Delete script-type-user-prompt-answers",
-                "description": "Delete script-type-user-prompt-answers",
-                "operationId": "deleteScriptTypeUserPromptAnswer",
+                "summary": "Update an answer",
+                "description": "Update an answer",
+                "operationId": "adminScriptTypeUserPromptAnswer",
                 "parameters": [
                     {
-                        "name": "id",
+                        "name": "script_type_id",
                         "in": "path",
-                        "description": "script-type-user-prompt-answers ID",
+                        "description": "Script type prompt ID",
                         "required": true,
                         "schema": {
                             "type": "integer"
                         }
                     }
                 ],
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/UserScriptTypePresetUpdateFormRequest"
+                            }
+                        }
+                    }
+                },
                 "responses": {
                     "200": {
                         "description": "Successful signin",
@@ -5611,6 +5798,12 @@
                         "type": "string",
                         "example": "info@convertscript.com"
                     },
+                    "password": {
+                        "title": "User password",
+                        "description": "Email of the user",
+                        "type": "string",
+                        "example": "info@convertscript.com"
+                    },
                     "plans": {
                         "type": "array",
                         "items": {
@@ -5773,9 +5966,15 @@
                     "name"
                 ],
                 "properties": {
-                    "name": {
-                        "title": "User Name",
-                        "description": "name of the user",
+                    "first_name": {
+                        "title": "first_name",
+                        "description": "first_name of the user",
+                        "type": "string",
+                        "example": "Schneider"
+                    },
+                    "last_name": {
+                        "title": "last_name",
+                        "description": "last_name of the user",
                         "type": "string",
                         "example": "Schneider"
                     },
@@ -6165,9 +6364,9 @@
                         "type": "integer",
                         "example": "1"
                     },
-                    "script_id": {
-                        "title": "script_id",
-                        "description": "Initial related script_id of the id",
+                    "script_type_id": {
+                        "title": "script_type_id",
+                        "description": "Initial related script_type_id of the id",
                         "type": "integer",
                         "example": "1"
                     }
@@ -6181,17 +6380,29 @@
                     "name"
                 ],
                 "properties": {
-                    "answer": {
-                        "title": "script type answer",
-                        "description": "answer of the script type",
-                        "type": "string",
-                        "example": "Info Limited"
-                    },
-                    "script_type_prompt_id": {
-                        "title": "script_type_prompt_id",
-                        "description": "Initial related script_type_prompt of the id",
-                        "type": "integer",
-                        "example": "1"
+                    "presets": {
+                        "type": "array",
+                        "items": {
+                            "properties": {
+                                "answer": {
+                                    "type": "string",
+                                    "example": "info limited"
+                                },
+                                "script_type_preset_id": {
+                                    "type": "int",
+                                    "example": "1"
+                                },
+                                "script_type_id": {
+                                    "type": "int",
+                                    "example": "1"
+                                },
+                                "user_script_type_preset_id": {
+                                    "type": "int",
+                                    "example": "1"
+                                }
+                            },
+                            "type": "object"
+                        }
                     }
                 },
                 "type": "object"

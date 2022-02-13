@@ -2,6 +2,7 @@
 
 namespace App\Exports\User;
 
+use App\Models\ScriptResponse;
 use Maatwebsite\Excel\Concerns\Exportable;
 use Maatwebsite\Excel\Concerns\WithMapping;
 use Maatwebsite\Excel\Concerns\WithHeadings;
@@ -17,6 +18,7 @@ class ScriptResponsesExport implements FromCollection, ShouldAutoSize, WithMappi
     public function collection()
     {
         return auth()->user()->scriptResponses;
+        // return ScriptResponse::where();
     }
 
     public function map($response) : array
