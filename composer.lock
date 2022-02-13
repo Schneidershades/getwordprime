@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "41b20bf5735f68a33e451bf70bda47f1",
+    "content-hash": "d28bf0e77bd457976b82b1bb86634260",
     "packages": [
         {
             "name": "arcanedev/log-viewer",
@@ -1805,6 +1805,62 @@
             "time": "2022-01-18T15:51:42+00:00"
         },
         {
+            "name": "laravel/legacy-factories",
+            "version": "v1.3.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/laravel/legacy-factories.git",
+                "reference": "5edc7e7eb76e7b4b29221f32139bcbf806c8870f"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/laravel/legacy-factories/zipball/5edc7e7eb76e7b4b29221f32139bcbf806c8870f",
+                "reference": "5edc7e7eb76e7b4b29221f32139bcbf806c8870f",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/macroable": "^8.0|^9.0",
+                "php": "^7.3|^8.0",
+                "symfony/finder": "^3.4|^4.0|^5.0|^6.0"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.x-dev"
+                },
+                "laravel": {
+                    "providers": [
+                        "Illuminate\\Database\\Eloquent\\LegacyFactoryServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "files": [
+                    "helpers.php"
+                ],
+                "psr-4": {
+                    "Illuminate\\Database\\Eloquent\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Taylor Otwell",
+                    "email": "taylor@laravel.com"
+                }
+            ],
+            "description": "The legacy version of the Laravel Eloquent factories.",
+            "homepage": "http://laravel.com",
+            "support": {
+                "issues": "https://github.com/laravel/framework/issues",
+                "source": "https://github.com/laravel/framework"
+            },
+            "time": "2022-01-13T08:45:08+00:00"
+        },
+        {
             "name": "laravel/serializable-closure",
             "version": "v1.0.5",
             "source": {
@@ -2506,6 +2562,69 @@
                 }
             ],
             "time": "2021-11-21T11:48:40+00:00"
+        },
+        {
+            "name": "lerouse/laravel-repository",
+            "version": "v2.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/lerouse/laravel-repository.git",
+                "reference": "11f2080be6a4a11b6ebbf70504d92fda7bf25081"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/lerouse/laravel-repository/zipball/11f2080be6a4a11b6ebbf70504d92fda7bf25081",
+                "reference": "11f2080be6a4a11b6ebbf70504d92fda7bf25081",
+                "shasum": ""
+            },
+            "require": {
+                "ext-json": "*",
+                "illuminate/contracts": "^6.0|^7.0|^8.0",
+                "illuminate/database": "^6.0|^7.0|^8.0",
+                "illuminate/events": "^6.0|^7.0|^8.0",
+                "illuminate/support": "^6.0|^7.0|^8.0",
+                "laravel/legacy-factories": "^1.2",
+                "php": "^7.4|^8.0|^8.1"
+            },
+            "require-dev": {
+                "mockery/mockery": "~1.0",
+                "orchestra/testbench": "^6.0",
+                "phpunit/phpunit": "^9.0"
+            },
+            "type": "package",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Lerouse\\LaravelRepository\\LaravelRepositoryServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Lerouse\\LaravelRepository\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Christian Innerbichler"
+                }
+            ],
+            "description": "Repository implementation for Laravel.",
+            "keywords": [
+                "database",
+                "eloquent",
+                "laravel",
+                "repository"
+            ],
+            "support": {
+                "issues": "https://github.com/lerouse/laravel-repository/issues",
+                "source": "https://github.com/lerouse/laravel-repository/tree/v2.0.0"
+            },
+            "time": "2022-01-12T16:28:57+00:00"
         },
         {
             "name": "maatwebsite/excel",

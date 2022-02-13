@@ -47,8 +47,7 @@ class AgencyController extends Controller
                 ->selectRaw('agencies.*')
                 ->when($search_query, function (Builder $builder, $search_query) {
                     $builder->where('agencies.name', 'LIKE', "%{$search_query}%")
-                    ->where('agencies.description', 'LIKE', "%{$search_query}%")
-                    ->where('agencies.url', 'LIKE', "%{$search_query}%");
+                    ->where('agencies.email', 'LIKE', "%{$search_query}%");
                 })->latest()->get();
 
         return $this->showAll($agencies);

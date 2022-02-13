@@ -45,7 +45,7 @@ class RoleController extends Controller
         $search_query = request()->get('search') ? request()->get('search') : null;
         
         $roles =  Role::query()
-                ->selectRaw('script_types.*')
+                ->selectRaw('roles.*')
                 ->when($search_query, function (Builder $builder, $search_query) {
                     $builder->where('roles.name', 'LIKE', "%{$search_query}%")
                     ->orWhere('roles.description', 'LIKE', "%{$search_query}%");

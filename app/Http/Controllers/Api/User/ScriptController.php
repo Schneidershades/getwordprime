@@ -126,6 +126,7 @@ class ScriptController extends Controller
         ScriptResponse::create([
             'text' => $generate->choices[0]->text,
             'script_id' => $script->id,
+            'user_id' => auth()->user()->id,
         ]);
         
 

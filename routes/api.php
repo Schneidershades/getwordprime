@@ -43,6 +43,10 @@ Route::prefix('v1')->group(function () {
 		Route::post('upload', 'UploadController@store')->middleware('auth:api');
 	});
 
+	Route::group(['prefix' => 'export', /*'middleware' => 'auth:api',*/ 'namespace' => 'Api\ExportImport'], function(){
+		Route::get('/excel/model', 'ExportController@export');
+	});
+
 	Route::group(['prefix' => 'admin', 'middleware' => 'auth:api', 'namespace' => 'Api\Admin'], function(){
 		Route::resource('plans', PlanController::class, array("as"=>"adminPlans"));
 		Route::resource('agencies', AgencyController::class, array("as"=>"adminAgencies"));
