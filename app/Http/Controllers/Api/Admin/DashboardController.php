@@ -45,6 +45,8 @@ class DashboardController extends Controller
             'user' => User::all()->count(),
             'transactions' => Transaction::all()->count(),
             'published' => Script::all()->count(),
+            'dates' => [],
+            'words' => [],
         ];
 
         return $this->showMessage($data);
