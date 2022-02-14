@@ -2,6 +2,7 @@
 
 namespace App\Exports\User;
 
+use App\Models\FavoriteScript;
 use Maatwebsite\Excel\Concerns\Exportable;
 use Maatwebsite\Excel\Concerns\WithMapping;
 use Maatwebsite\Excel\Concerns\WithHeadings;
@@ -14,7 +15,7 @@ class FavoriteScriptExport implements FromCollection, ShouldAutoSize, WithMappin
     
     public function collection()
     {
-        return auth()->user()->favoriteScript;
+        return FavoriteScript::where('id', auth()->user()->id)->get();
     }
 
     public function map($response) : array
