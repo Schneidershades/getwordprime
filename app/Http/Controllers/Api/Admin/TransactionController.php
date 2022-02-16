@@ -47,8 +47,7 @@ class TransactionController extends Controller
                 ->selectRaw('transactions.*')
                 ->when($search_query, function (Builder $builder, $search_query) {
                     $builder->where('transactions.transaction_id', 'LIKE', "%{$search_query}%")
-                    ->orWhere('transactions.description', 'LIKE', "%{$search_query}%")
-                    ->orWhere('transactions.link', "%{$search_query}%");
+                    ->orWhere('transactions.activate', "%{$search_query}%");
                 })->latest()->get();
 
         return $this->showAll($transactions);
