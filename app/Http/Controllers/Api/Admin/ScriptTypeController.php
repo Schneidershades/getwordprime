@@ -122,7 +122,7 @@ class ScriptTypeController extends Controller
             if (gettype($image) != "integer") {
                 // $path = $this->uploadImage($image, "icon");
 
-                $path = ImageHelper::uploadAnything($request->file, $request->path);
+                $path = ImageHelper::uploadAnything($image, "icon");
 
                 $model->iconImage()->create([
                     'file_path' => $path,
@@ -263,7 +263,9 @@ class ScriptTypeController extends Controller
             foreach ($request['icon'] as $image) {
                 if (gettype($image) != "integer") {
 
-                    $path = ImageHelper::uploadAnything($request->file, $request->path);
+                    // $path = $this->uploadImage($image, "icon");
+
+                    $path = ImageHelper::uploadAnything($image, "icon");
 
                     $model->iconImage()->create([
                         'file_path' => $path,
