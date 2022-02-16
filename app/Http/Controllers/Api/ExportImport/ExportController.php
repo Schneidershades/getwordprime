@@ -9,7 +9,7 @@ class ExportController extends Controller
 {
      /**
     * @OA\Get(
-    *      path="/api/v1/export/excel/model?model={model}&type={user_type}&export={export_model}",
+    *      path="/api/v1/export/excel/model?model={model}&id={model_id}&type={user_type}&export={export_model}",
     *      operationId="searchParts",
     *      tags={"Shared"},
     *      summary="searchParts",
@@ -21,6 +21,15 @@ class ExportController extends Controller
     *          in="path",
     *          @OA\Schema(
     *              type="string"
+    *          )
+    *      ),
+    *      @OA\Parameter(
+    *          name="model",
+    *          description="The defined model id",
+    *          required=false,
+    *          in="path",
+    *          @OA\Schema(
+    *              type="integer"
     *          )
     *      ),
     *      @OA\Parameter(

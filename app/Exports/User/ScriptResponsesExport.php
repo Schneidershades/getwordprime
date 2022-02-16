@@ -17,7 +17,7 @@ class ScriptResponsesExport implements FromCollection, ShouldAutoSize, WithMappi
     */
     public function collection()
     {
-        return ScriptResponse::where('id', auth()->user()->id)->get();
+        return ScriptResponse::where('id', request()->get('id'))->get();
     }
 
     public function map($response) : array

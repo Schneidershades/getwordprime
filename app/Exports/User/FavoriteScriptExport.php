@@ -15,7 +15,7 @@ class FavoriteScriptExport implements FromCollection, ShouldAutoSize, WithMappin
     
     public function collection()
     {
-        return FavoriteScript::where('id', auth()->user()->id)->get();
+        return FavoriteScript::where('id', request()->get('id'))->get();
     }
 
     public function map($response) : array

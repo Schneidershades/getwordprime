@@ -2,10 +2,11 @@
 
 namespace App\Http\Controllers\Api\Admin;
 
-use App\Models\Script;
-use App\Http\Controllers\Controller;
-use App\Models\Transaction;
+use Carbon\Carbon;
 use App\Models\User;
+use App\Models\Script;
+use App\Models\Transaction;
+use App\Http\Controllers\Controller;
 
 class DashboardController extends Controller
 {
@@ -41,22 +42,20 @@ class DashboardController extends Controller
 
     public function index()
     {
+        $dates = [];
+        
+        $start = Carbon::now()->subDays(9);
+        for ($i = 0; $i <= 9; $i++) {
+            $day = $start->addDays(1)->format('Y-m-d');
+            $dates[] = $day;
+        }
+
         $data = [
             'user' => User::all()->count(),
             'transactions' => Transaction::all()->count(),
             'published' => Script::all()->count(),
             'xaxis' => [
-                'categories' => [
-                    '03-02-2022', 
-                    '04-02-2022', 
-                    '05-02-2022', 
-                    '06-02-2022', 
-                    '07-02-2022', 
-                    '09-02-2022', 
-                    '10-02-2022', 
-                    '11-02-2022', 
-                    '12-02-2022'
-                ]  
+                'categories' => $dates
             ],
             'data' => [0,0,0,0,0,0,0,0,0],
         ];
