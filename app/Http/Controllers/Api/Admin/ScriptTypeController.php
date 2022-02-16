@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Api\Admin;
 
 use App\Models\Media;
 use App\Models\ScriptType;
+use App\Traits\Image\ImageHelper;
 use App\Http\Controllers\Controller;
 use Illuminate\Database\Eloquent\Builder;
 use App\Http\Requests\Admin\ScriptTypeCreateFormRequest;
@@ -119,7 +120,9 @@ class ScriptTypeController extends Controller
         if($request->has('icon')){
             $image = $request['icon'];
             if (gettype($image) != "integer") {
-                $path = $this->uploadImage($image, "icon");
+                // $path = $this->uploadImage($image, "icon");
+
+                $path = ImageHelper::uploadAnything($request->file, $request->path);
 
                 $model->iconImage()->create([
                     'file_path' => $path,
@@ -260,7 +263,7 @@ class ScriptTypeController extends Controller
             foreach ($request['icon'] as $image) {
                 if (gettype($image) != "integer") {
 
-                    $path = $this->uploadImage($image, "icon");
+                    $path = ImageHelper::uploadAnything($request->file, $request->path);
 
                     $model->iconImage()->create([
                         'file_path' => $path,
