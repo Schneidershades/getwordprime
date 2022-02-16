@@ -47,8 +47,7 @@ class RoleController extends Controller
         $roles =  Role::query()
                 ->selectRaw('roles.*')
                 ->when($search_query, function (Builder $builder, $search_query) {
-                    $builder->where('roles.name', 'LIKE', "%{$search_query}%")
-                    ->orWhere('roles.description', 'LIKE', "%{$search_query}%");
+                    $builder->where('roles.name', 'LIKE', "%{$search_query}%");
                 })->with('permissions')->latest()->get();
 
         return $this->showAll($roles);

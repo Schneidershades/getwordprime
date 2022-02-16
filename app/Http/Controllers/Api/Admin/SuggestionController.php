@@ -46,9 +46,8 @@ class SuggestionController extends Controller
         $suggestions =  Suggestion::query()
                 ->selectRaw('suggestions.*')
                 ->when($search_query, function (Builder $builder, $search_query) {
-                    $builder->where('suggestions.transaction_id', 'LIKE', "%{$search_query}%")
-                    ->orWhere('suggestions.description', 'LIKE', "%{$search_query}%")
-                    ->orWhere('suggestions.link', "%{$search_query}%");
+                    $builder->where('suggestions.message', 'LIKE', "%{$search_query}%")
+                    ->orWhere('suggestions.status', "%{$search_query}%");
                 })->latest()->get();
 
         return $this->showAll($suggestions);
