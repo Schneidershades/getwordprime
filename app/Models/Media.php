@@ -6,6 +6,7 @@ use Illuminate\Support\Str;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Support\Facades\URL;
 
 class Media extends Model
 {
@@ -30,7 +31,7 @@ class Media extends Model
     {
         if ($this->file_path != null) {
             // return Storage::disk('s3')->url($this->file_path);
-            return public_path($this->file_path);
+            return URL::to($this->file_path);
         }
         return null;
     }
