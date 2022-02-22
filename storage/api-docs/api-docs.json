@@ -2859,7 +2859,7 @@
                 ]
             }
         },
-        "/api/v1/export/excel/model?model={model}&type={user_type}&export={export_model}": {
+        "/api/v1/export/excel/model?model={model}&id={model_id}&type={user_type}&export={export_model}": {
             "get": {
                 "tags": [
                     "Shared"
@@ -2875,6 +2875,15 @@
                         "required": false,
                         "schema": {
                             "type": "string"
+                        }
+                    },
+                    {
+                        "name": "model",
+                        "in": "path",
+                        "description": "The defined model id",
+                        "required": false,
+                        "schema": {
+                            "type": "integer"
                         }
                     },
                     {

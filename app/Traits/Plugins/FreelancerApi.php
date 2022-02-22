@@ -4,30 +4,69 @@ namespace App\Traits\Plugins;
 
 class FreelancerApi
 {
-    private function access_token()
+    public function mode($mode)
     {
-        return 'AgDVfyU3jibCKs21fcSlY3r8RaJ4Ad';
+        if($mode == 'live'){
+            return [
+                'url' => "https://www.freelancer.com/api/",
+                'key' => "jUobyaWEUIU5mmN8i3HrTzvGgeC1lo"
+            ];
+        }
+
+        if($mode == 'test'){
+            return [
+                'url' => "https://www.freelancer-sandbox.com/api/",
+                'key' => "AgDVfyU3jibCKs21fcSlY3r8RaJ4Ad"
+            ];
+        }
     }
 
     public function projects()
     { 
-        $response = $this->sendRequest("https://www.freelancer-sandbox.com/api/projects/0.1/projects/all", 'GET', []);
+        $mode =  $this->mode('live');
+        $body = [
+            'filter'=> [
+            'only_active'=>true,
+            'jobs'=>[17,335],
+            'languages'=>['en'],
+            'search_query'=> 'Writing & Content',
+            'project_statuses'=>['active'],
+            'limit'=>10,
+            'offset'=>0,
+            // 'from_time'=>$time
+            ]     
+        ];
+        $response = $this->sendRequest($mode['url']."projects/0.1/projects/all/?compact=1", 'GET', json_encode($body), $mode['key']);
         return ($response);
     }
 
     public function search()
     { 
-        $response = $this->sendRequest("https://www.freelancer-sandbox.com/api/projects/0.1/jobs/search/", 'GET', []);
+        $mode =  $this->mode('live');
+        $response = $this->sendRequest($mode['url']."projects/0.1/jobs/search/", 'GET', [], $mode['key']);
         return ($response);
     }
 
     public function contentWritingJobs()
     { 
-        $response = $this->sendRequest("https://www.freelancer.com/api/projects/0.1/jobs/search/?job_names%5B%5D=Writing&Content", 'GET', []);
+        $body = [
+            'filter'=> [
+            'only_active'=>true,
+            'jobs'=>[17,335],
+            'languages'=>['en'],
+            'search_query'=> 'content writing',
+            'project_statuses'=>['active'],
+            'limit'=>10,
+            'offset'=>0,
+            // 'from_time'=>$time
+            ]     
+        ];
+        $mode =  $this->mode('live');
+        $response = $this->sendRequest($mode['url']."projects/0.1/jobs/search/?job_names%5B%5D=Writing&Content?compact=1&user_details=1&full_description=1&hireme_details", 'GET', json_encode($body), $mode['key']);
         return ($response);
     }
 
-    private function sendRequest($url, $requestType, $postfields=[])
+    private function sendRequest($url, $requestType, $postfields=[], $access)
     {
         $curl = curl_init();
         curl_setopt_array($curl, [
@@ -42,7 +81,7 @@ class FreelancerApi
             CURLOPT_POSTFIELDS => $postfields,
             CURLOPT_HTTPHEADER => [
                 'Content-Type: application/json',
-                'Authorization: Bearer ' . $this->access_token()
+                'Authorization: Bearer ' . $access
             ],
         ]);
 

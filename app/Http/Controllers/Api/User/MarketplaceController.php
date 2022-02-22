@@ -44,6 +44,6 @@ class MarketplaceController extends Controller
         
         return $freelancer->projects();
 
-        return $freelancer->contentWritingJobs();
+        // return $freelancer->contentWritingJobs();
     }
 }

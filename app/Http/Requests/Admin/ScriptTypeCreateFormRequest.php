@@ -191,6 +191,20 @@ class ScriptTypeCreateFormRequest extends FormRequest
      */
     public $engine;
 
+
+
+    /**
+     * @OA\Property(
+     *      title="script_type_category_id",
+     *      description="script_type_category_id of the script type",
+     *      example="1"
+     * )
+     *
+     * @var string
+     */
+    public $script_type_category_id;
+
+    
     /**
     *       @OA\Property(property="script_type_presets", type="object", type="array",
     *            @OA\Items(
@@ -238,6 +252,7 @@ class ScriptTypeCreateFormRequest extends FormRequest
             'temperature' => 'nullable',
             'top_p' => 'nullable',
             'engine' => 'nullable',
+            'script_type_category_id' => 'required|int|exists:script_type_categories,id',
 
             'script_type_presets' => 'array', 
             'script_type_presets.*.script_type_id' => 'nullable|int|exists:script_types,id',
