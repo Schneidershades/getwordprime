@@ -1229,6 +1229,213 @@
                 ]
             }
         },
+        "/api/v1/admin/script-type-categories": {
+            "get": {
+                "tags": [
+                    "Admin"
+                ],
+                "summary": "Get script-type-categories",
+                "description": "Get script-type-categories",
+                "operationId": "allScriptTypeCategorys",
+                "responses": {
+                    "200": {
+                        "description": "Successful signin",
+                        "content": {
+                            "application/json": {}
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    },
+                    "401": {
+                        "description": "unauthenticated"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            },
+            "post": {
+                "tags": [
+                    "Admin"
+                ],
+                "summary": "Post script-type-categories",
+                "description": "Post script-type-categories",
+                "operationId": "postScriptTypeCategorys",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/StoreScriptTypeCategoryRequest"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Successful signin",
+                        "content": {
+                            "application/json": {}
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    },
+                    "401": {
+                        "description": "unauthenticated"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        },
+        "/api/v1/admin/script-type-categories/{id}": {
+            "get": {
+                "tags": [
+                    "Admin"
+                ],
+                "summary": "Show script-type-categories",
+                "description": "Show script-type-categories",
+                "operationId": "showScriptTypeCategorys",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "ScriptTypeCategory ID",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful signin",
+                        "content": {
+                            "application/json": {}
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    },
+                    "401": {
+                        "description": "unauthenticated"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            },
+            "put": {
+                "tags": [
+                    "Admin"
+                ],
+                "summary": "Update script-type-categories",
+                "description": "Update script-type-categories",
+                "operationId": "adminScriptTypeCategorys",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "role ID",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/UpdateScriptTypeCategoryRequest"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Successful signin",
+                        "content": {
+                            "application/json": {}
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    },
+                    "401": {
+                        "description": "unauthenticated"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            },
+            "delete": {
+                "tags": [
+                    "Admin"
+                ],
+                "summary": "Delete script-type-categories",
+                "description": "Delete script-type-categories",
+                "operationId": "deleteScriptTypeCategorys",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "script-type ID",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful signin",
+                        "content": {
+                            "application/json": {}
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    },
+                    "401": {
+                        "description": "unauthenticated"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        },
         "/api/v1/admin/script-type": {
             "get": {
                 "tags": [
@@ -5431,6 +5638,12 @@
                         "type": "string",
                         "example": "1"
                     },
+                    "script_type_category_id": {
+                        "title": "script_type_category_id",
+                        "description": "script_type_category_id of the script type",
+                        "type": "string",
+                        "example": "1"
+                    },
                     "script_type_presets": {
                         "type": "array",
                         "items": {
@@ -5613,6 +5826,12 @@
                         "type": "string",
                         "example": "1"
                     },
+                    "script_type_category_id": {
+                        "title": "script_type_category_id",
+                        "description": "script_type_category_id of the script type",
+                        "type": "string",
+                        "example": "1"
+                    },
                     "script_type_presets": {
                         "type": "array",
                         "items": {
@@ -5646,6 +5865,22 @@
                         "description": "send array of images",
                         "type": "string",
                         "example": "[4]"
+                    }
+                },
+                "type": "object"
+            },
+            "StoreScriptTypeCategoryRequest": {
+                "title": "Script Type Category Store Form Request Fields",
+                "description": "Script Type Category Store request body data",
+                "required": [
+                    "name"
+                ],
+                "properties": {
+                    "name": {
+                        "title": "script type category name",
+                        "description": "category of the script type",
+                        "type": "string",
+                        "example": "Info Limited"
                     }
                 },
                 "type": "object"
@@ -5756,6 +5991,22 @@
                         "description": "permission of the role",
                         "type": "string",
                         "example": "create_user"
+                    }
+                },
+                "type": "object"
+            },
+            "UpdateScriptTypeCategoryRequest": {
+                "title": "Script Type Category Update Form Request Fields",
+                "description": "Script Type Category Update request body data",
+                "required": [
+                    "name"
+                ],
+                "properties": {
+                    "name": {
+                        "title": "script type category name",
+                        "description": "category of the script type",
+                        "type": "string",
+                        "example": "Info Limited"
                     }
                 },
                 "type": "object"

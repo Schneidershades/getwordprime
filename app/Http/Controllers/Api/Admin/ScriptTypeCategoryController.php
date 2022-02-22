@@ -52,7 +52,7 @@ class ScriptTypeCategoryController extends Controller
     *      description="Post script-type-categories",
     *      @OA\RequestBody(
     *          required=true,
-    *          @OA\JsonContent(ref="#/components/schemas/ScriptTypeCategoryCreateFormRequest")
+    *          @OA\JsonContent(ref="#/components/schemas/StoreScriptTypeCategoryRequest")
     *      ),
     *      @OA\Response(
     *          response=200,
@@ -123,7 +123,7 @@ class ScriptTypeCategoryController extends Controller
     */
     public function show(ScriptTypeCategory $scriptTypeCategory)
     {
-        return $this->showOne(ScriptTypeCategory::findOrFail($scriptTypeCategory));
+        return $this->showOne($scriptTypeCategory);
     }
 
     /**
@@ -145,7 +145,7 @@ class ScriptTypeCategoryController extends Controller
      *     ),
     *      @OA\RequestBody(
     *          required=true,
-    *          @OA\JsonContent(ref="#/components/schemas/ScriptTypeCategoryUpdateFormRequest")
+    *          @OA\JsonContent(ref="#/components/schemas/UpdateScriptTypeCategoryRequest")
     *      ),
     *      @OA\Response(
     *          response=200,

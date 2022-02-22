@@ -67,6 +67,7 @@ Route::prefix('v1')->group(function () {
 		Route::resource('dashboard', DashboardController::class, array("as"=>"adminDashboard"));
 		Route::resource('permissions', PermissionsController::class, array("as"=>"adminPermissions"));
 		Route::resource('flagged-scripts', FlaggedScriptController::class, array("as"=>"adminFlagged"));
+		Route::resource('script-type-categories', ScriptTypeCategoryController::class, array("as"=>"adminScriptTypeCategories"));
 	});
 
 	Route::resource('script-test', Api\User\ScriptTestingController::class);
