@@ -96,6 +96,7 @@ class ScriptTypeController extends Controller
     {
         $model = ScriptType::create([
             'name' => $request['name'],
+            'script_type_category_id' => $request['script_type_category_id'],
             'prompt_1' => $request['prompt_1'],
             'prompt_2' => $request['prompt_2'],
             'description' => $request['description'],
@@ -235,6 +236,7 @@ class ScriptTypeController extends Controller
 
         $model->update([
             'name' => $request['name'],
+            'script_type_category_id' => $request['script_type_category_id'],
             'prompt_1' => $request['prompt_1'],
             'prompt_2' => $request['prompt_2'],
             'description' => $request['description'],
