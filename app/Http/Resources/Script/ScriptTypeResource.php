@@ -16,6 +16,7 @@ class ScriptTypeResource extends JsonResource
     {
         return [
             'id' => $this->id,
+            'script_type_category' => $this->script_type_category_id,
             'name' => $this->name,
             'icon' => $this->iconImage ? $this->iconImage->file_url : null,
             'prompt_1' => $this->prompt_1,
