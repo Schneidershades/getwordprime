@@ -22,6 +22,8 @@ class ScriptTypeCollection extends ResourceCollection
             'description' => 'description',
             'usage' => 'usage',
             'activate' => 'activate',
+            'language' => 'language',
+            'tone' => 'tone',
         ];
 
         return isset($attribute[$index]) ? $attribute[$index] : null;
@@ -36,6 +38,8 @@ class ScriptTypeCollection extends ResourceCollection
             'description' => 'description',
             'usage' => 'usage',
             'activate' => 'activate',
+            'language' => 'language',
+            'tone' => 'tone',
         ];
 
         return isset($attribute[$index]) ? $attribute[$index] : null;

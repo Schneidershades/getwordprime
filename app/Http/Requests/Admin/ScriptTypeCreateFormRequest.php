@@ -204,6 +204,33 @@ class ScriptTypeCreateFormRequest extends FormRequest
      */
     public $script_type_category_id;
 
+
+
+    /**
+     * @OA\Property(
+     *      title="language",
+     *      description="script_type_language of the script type",
+     *      example="true"
+     * )
+     *
+     * @var boolean
+     */
+    public $language;
+
+
+
+    /**
+     * @OA\Property(
+     *      title="tone",
+     *      description="tone of the script type",
+     *      example="Funny"
+     * )
+     *
+     * @var boolean
+     */
+    public $tone;
+
+
     
     /**
     *       @OA\Property(property="script_type_presets", type="object", type="array",
@@ -244,6 +271,8 @@ class ScriptTypeCreateFormRequest extends FormRequest
             'description' => 'nullable|string',
             'presence_penalty' => 'nullable',
             'frequency_penalty' => 'nullable',
+            'language' => 'boolean|required',
+            'tone' => 'boolean|required',
             'best_of' => 'nullable',
             'stream' => 'nullable',
             'documents' => 'nullable',
