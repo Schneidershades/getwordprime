@@ -68,6 +68,8 @@ Route::prefix('v1')->group(function () {
 		Route::resource('permissions', PermissionsController::class, array("as"=>"adminPermissions"));
 		Route::resource('flagged-scripts', FlaggedScriptController::class, array("as"=>"adminFlagged"));
 		Route::resource('script-type-categories', ScriptTypeCategoryController::class, array("as"=>"adminScriptTypeCategories"));
+		Route::resource('tones',ToneController::class, array("as"=>"tones"));
+		Route::resource('languages', LanguageController::class, array("as"=>"languages"));
 	});
 
 	Route::resource('script-test', Api\User\ScriptTestingController::class);

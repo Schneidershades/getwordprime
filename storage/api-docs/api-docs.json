@@ -523,6 +523,213 @@
                 ]
             }
         },
+        "/api/v1/admin/languages": {
+            "get": {
+                "tags": [
+                    "Admin"
+                ],
+                "summary": "Get languages",
+                "description": "Get languages",
+                "operationId": "allLanguages",
+                "responses": {
+                    "200": {
+                        "description": "Successful signin",
+                        "content": {
+                            "application/json": {}
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    },
+                    "401": {
+                        "description": "unauthenticated"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            },
+            "post": {
+                "tags": [
+                    "Admin"
+                ],
+                "summary": "Post languages",
+                "description": "Post languages",
+                "operationId": "postLanguages",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/StoreLanguageRequest"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Successful signin",
+                        "content": {
+                            "application/json": {}
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    },
+                    "401": {
+                        "description": "unauthenticated"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        },
+        "/api/v1/admin/languages/{id}": {
+            "get": {
+                "tags": [
+                    "Admin"
+                ],
+                "summary": "Show languages",
+                "description": "Show languages",
+                "operationId": "showLanguages",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Language ID",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful signin",
+                        "content": {
+                            "application/json": {}
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    },
+                    "401": {
+                        "description": "unauthenticated"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            },
+            "put": {
+                "tags": [
+                    "Admin"
+                ],
+                "summary": "Update languages",
+                "description": "Update languages",
+                "operationId": "adminLanguages",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "role ID",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/UpdateLanguageRequest"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Successful signin",
+                        "content": {
+                            "application/json": {}
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    },
+                    "401": {
+                        "description": "unauthenticated"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            },
+            "delete": {
+                "tags": [
+                    "Admin"
+                ],
+                "summary": "Delete languages",
+                "description": "Delete languages",
+                "operationId": "deleteLanguages",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "script-type ID",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful signin",
+                        "content": {
+                            "application/json": {}
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    },
+                    "401": {
+                        "description": "unauthenticated"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        },
         "/api/v1/admin/permissions": {
             "get": {
                 "tags": [
@@ -2142,6 +2349,213 @@
                         "name": "id",
                         "in": "path",
                         "description": "ThirdPartyPlatform ID",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful signin",
+                        "content": {
+                            "application/json": {}
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    },
+                    "401": {
+                        "description": "unauthenticated"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        },
+        "/api/v1/admin/tones": {
+            "get": {
+                "tags": [
+                    "Admin"
+                ],
+                "summary": "Get tones",
+                "description": "Get tones",
+                "operationId": "allTones",
+                "responses": {
+                    "200": {
+                        "description": "Successful signin",
+                        "content": {
+                            "application/json": {}
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    },
+                    "401": {
+                        "description": "unauthenticated"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            },
+            "post": {
+                "tags": [
+                    "Admin"
+                ],
+                "summary": "Post tones",
+                "description": "Post tones",
+                "operationId": "postTones",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/StoreToneRequest"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Successful signin",
+                        "content": {
+                            "application/json": {}
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    },
+                    "401": {
+                        "description": "unauthenticated"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        },
+        "/api/v1/admin/tones/{id}": {
+            "get": {
+                "tags": [
+                    "Admin"
+                ],
+                "summary": "Show tones",
+                "description": "Show tones",
+                "operationId": "showTones",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Tone ID",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful signin",
+                        "content": {
+                            "application/json": {}
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    },
+                    "401": {
+                        "description": "unauthenticated"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            },
+            "put": {
+                "tags": [
+                    "Admin"
+                ],
+                "summary": "Update tones",
+                "description": "Update tones",
+                "operationId": "adminTones",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "role ID",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/UpdateToneRequest"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Successful signin",
+                        "content": {
+                            "application/json": {}
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    },
+                    "401": {
+                        "description": "unauthenticated"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            },
+            "delete": {
+                "tags": [
+                    "Admin"
+                ],
+                "summary": "Delete tones",
+                "description": "Delete tones",
+                "operationId": "deleteTones",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "script-type ID",
                         "required": true,
                         "schema": {
                             "type": "integer"
@@ -5869,6 +6283,22 @@
                 },
                 "type": "object"
             },
+            "StoreLanguageRequest": {
+                "title": "Language Create Form Request Fields",
+                "description": "Language Create request body data",
+                "required": [
+                    "name"
+                ],
+                "properties": {
+                    "name": {
+                        "title": "language name",
+                        "description": "name of the language",
+                        "type": "string",
+                        "example": "English"
+                    }
+                },
+                "type": "object"
+            },
             "StoreScriptTypeCategoryRequest": {
                 "title": "Script Type Category Store Form Request Fields",
                 "description": "Script Type Category Store request body data",
@@ -5881,6 +6311,22 @@
                         "description": "category of the script type",
                         "type": "string",
                         "example": "Info Limited"
+                    }
+                },
+                "type": "object"
+            },
+            "StoreToneRequest": {
+                "title": "Tone Create Form Request Fields",
+                "description": "Tone Create request body data",
+                "required": [
+                    "name"
+                ],
+                "properties": {
+                    "name": {
+                        "title": "tone name",
+                        "description": "name of the tone",
+                        "type": "string",
+                        "example": "English"
                     }
                 },
                 "type": "object"
@@ -5979,6 +6425,22 @@
                 },
                 "type": "object"
             },
+            "UpdateLanguageRequest": {
+                "title": "Language Update Form Request Fields",
+                "description": "Language Update request body data",
+                "required": [
+                    "name"
+                ],
+                "properties": {
+                    "name": {
+                        "title": "language name",
+                        "description": "name of the language",
+                        "type": "string",
+                        "example": "English"
+                    }
+                },
+                "type": "object"
+            },
             "UpdatePermissionRequest": {
                 "title": "Tutorial Update Form Request Fields",
                 "description": "Tutorial Update request body data",
@@ -6007,6 +6469,22 @@
                         "description": "category of the script type",
                         "type": "string",
                         "example": "Info Limited"
+                    }
+                },
+                "type": "object"
+            },
+            "UpdateToneRequest": {
+                "title": "Tone Update Form Request Fields",
+                "description": "Tone Update request body data",
+                "required": [
+                    "name"
+                ],
+                "properties": {
+                    "name": {
+                        "title": "tone name",
+                        "description": "name of the tone",
+                        "type": "string",
+                        "example": "English"
                     }
                 },
                 "type": "object"
