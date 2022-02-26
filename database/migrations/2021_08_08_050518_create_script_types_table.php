@@ -31,6 +31,7 @@ class CreateScriptTypesTable extends Migration
             $table->string('max_tokens')->nullable();
             $table->string('temperature')->nullable();
             $table->string('top_p')->nullable();
+            $table->string('variation')->nullable();
             $table->boolean('activate')->default(false);
             $table->timestamps();
             $table->softDeletes();

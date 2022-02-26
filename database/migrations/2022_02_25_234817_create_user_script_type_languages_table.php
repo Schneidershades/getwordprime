@@ -15,7 +15,6 @@ class CreateUserScriptTypeLanguagesTable extends Migration
     {
         Schema::create('user_script_type_languages', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('script_type_preset_id')->nullable()->constrained()->cascadeOnUpdate()->nullOnDelete();
             $table->foreignId('script_type_id')->nullable()->constrained()->cascadeOnUpdate()->nullOnDelete();
             $table->foreignId('user_id')->nullable()->constrained()->cascadeOnUpdate()->nullOnDelete();
             $table->foreignId('language_id')->nullable()->constrained()->cascadeOnUpdate()->nullOnDelete();
