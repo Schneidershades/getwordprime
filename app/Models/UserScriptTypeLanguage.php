@@ -11,6 +11,8 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 class UserScriptTypeLanguage extends Model
 {
     use HasFactory;
+    
+    protected $guarded = [];
 
     public function user()
     {

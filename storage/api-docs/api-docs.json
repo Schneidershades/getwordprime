@@ -6058,6 +6058,18 @@
                         "type": "string",
                         "example": "1"
                     },
+                    "language": {
+                        "title": "language",
+                        "description": "script_type_language of the script type",
+                        "type": "boolean",
+                        "example": "true"
+                    },
+                    "tone": {
+                        "title": "tone",
+                        "description": "tone of the script type",
+                        "type": "boolean",
+                        "example": "Funny"
+                    },
                     "script_type_presets": {
                         "type": "array",
                         "items": {
@@ -6245,6 +6257,18 @@
                         "description": "script_type_category_id of the script type",
                         "type": "string",
                         "example": "1"
+                    },
+                    "language": {
+                        "title": "language",
+                        "description": "language of the script type",
+                        "type": "boolean",
+                        "example": "true"
+                    },
+                    "tone": {
+                        "title": "tone",
+                        "description": "tone of the script type",
+                        "type": "boolean",
+                        "example": "Funny"
                     },
                     "script_type_presets": {
                         "type": "array",
@@ -7135,6 +7159,46 @@
                                     "example": "1"
                                 },
                                 "user_script_type_preset_id": {
+                                    "type": "int",
+                                    "example": "1"
+                                }
+                            },
+                            "type": "object"
+                        }
+                    },
+                    "languages": {
+                        "type": "array",
+                        "items": {
+                            "properties": {
+                                "language_id": {
+                                    "type": "string",
+                                    "example": "1"
+                                },
+                                "script_type_id": {
+                                    "type": "int",
+                                    "example": "1"
+                                },
+                                "user_id": {
+                                    "type": "int",
+                                    "example": "1"
+                                }
+                            },
+                            "type": "object"
+                        }
+                    },
+                    "tones": {
+                        "type": "array",
+                        "items": {
+                            "properties": {
+                                "tone_id": {
+                                    "type": "string",
+                                    "example": "1"
+                                },
+                                "script_type_id": {
+                                    "type": "int",
+                                    "example": "1"
+                                },
+                                "user_id": {
                                     "type": "int",
                                     "example": "1"
                                 }

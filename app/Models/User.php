@@ -152,4 +152,14 @@ class User extends Authenticatable implements MustVerifyEmail, JWTSubject
     {
         return $this->hasMany(FreelancerAd::class);
     }
+
+    public function languages()
+    {
+        return $this->hasMany(UserScriptTypeLanguage::class);
+    }
+
+    public function tone()
+    {
+        return $this->hasMany(UserScriptTypeTone::class);
+    }
 }

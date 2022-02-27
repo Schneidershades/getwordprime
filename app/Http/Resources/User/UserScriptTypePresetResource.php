@@ -11,7 +11,7 @@ class UserScriptTypePresetResource extends JsonResource
     {
         return [
             'id' => $this->id,
-            'question' => new ScriptTypePresetResource($this->scriptTypePreset) ,
+            'question' => new ScriptTypePresetResource($this->scriptTypePreset),
             'answer' => $this->answers,
             'created_at' => $this->created_at,
             'updated_at' => $this->updated_at,
