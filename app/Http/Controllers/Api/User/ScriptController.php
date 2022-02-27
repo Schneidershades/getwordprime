@@ -3,13 +3,15 @@
 namespace App\Http\Controllers\Api\User;
 
 use App\Models\Script;
+use App\Models\ScriptType;
+use App\Models\ScriptResponse;
+use App\Models\UserScriptTypeTone;
 use App\Http\Controllers\Controller;
+use App\Models\UserScriptTypePreset;
 use App\Traits\Plugins\OpenAi\OpenAi;
+use App\Models\UserScriptTypeLanguage;
 use App\Http\Requests\User\ScriptCreateFormRequest;
 use App\Http\Requests\User\ScriptUpdateFormRequest;
-use App\Models\ScriptResponse;
-use App\Models\ScriptType;
-use App\Models\UserScriptTypePreset;
 
 class ScriptController extends Controller
 {
@@ -108,6 +110,24 @@ class ScriptController extends Controller
                 $submissionToOpenAi .= $answer['answers']. " \n";
                 $submissionToOpenAi .= '""""""'. " \n";
             }
+        }
+            
+        $userLanguage = UserScriptTypeLanguage::where('script_type_id', $this->collection->first()->script_type_id)
+            ->where('user_id', auth()->user()->id)
+            ->first();
+        
+        if($userLanguage) {
+            $submissionToOpenAi .= 'Output the result in '.$userLanguage->language->name. " \n";
+            $submissionToOpenAi .= '""""""'. " \n";
+        }
+
+        $tone = UserScriptTypeTone::where('script_type_id', $this->collection->first()->script_type_id)
+            ->where('user_id', auth()->user()->id)
+            ->first();
+
+        if($tone) {
+            $submissionToOpenAi .= 'The tone for this should be '.$userLanguage->language->name. " \n";
+            $submissionToOpenAi .= '""""""'. " \n";
         }
 
         $generate = (new OpenAi)->ad($submissionToOpenAi, $scriptType);

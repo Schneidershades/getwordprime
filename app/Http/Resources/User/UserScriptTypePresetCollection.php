@@ -46,8 +46,8 @@ class UserScriptTypePresetCollection extends ResourceCollection
     {
         if($this->collection->first()->script_type_id && $this->collection->first()->user_id){
             $tone = UserScriptTypeTone::where('script_type_id', $this->collection->first()->script_type_id)
-            ->where('script_type_id', $this->collection->first()->user_id)
-            ->first();
+                        ->where('user_id', $this->collection->first()->user_id)
+                        ->first();
 
             return new UserScriptTypeToneResource($tone);
         }
@@ -57,11 +57,11 @@ class UserScriptTypePresetCollection extends ResourceCollection
     public function language()
     {
         if($this->collection->first()->script_type_id && $this->collection->first()->user_id){
-            $tone = UserScriptTypeLanguage::where('script_type_id', $this->collection->first()->script_type_id)
-            ->where('script_type_id', $this->collection->first()->user_id)
-            ->first();
+            $language = UserScriptTypeLanguage::where('script_type_id', $this->collection->first()->script_type_id)
+                    ->where('user_id', $this->collection->first()->user_id)
+                    ->first();
 
-            return new UserScriptTypeLanguageResource($tone);
+            return new UserScriptTypeLanguageResource($language);
         }
         
     }
