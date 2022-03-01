@@ -8,6 +8,7 @@ use Illuminate\Http\Resources\Json\ResourceCollection;
 use App\Http\Resources\User\UserScriptTypeToneResource;
 use App\Http\Resources\User\UserScriptTypePresetResource;
 use App\Http\Resources\User\UserScriptTypeLanguageResource;
+use App\Models\ScriptType;
 
 class UserScriptTypePresetCollection extends ResourceCollection
 {
@@ -44,25 +45,42 @@ class UserScriptTypePresetCollection extends ResourceCollection
 
     public function tone()
     {
-        if($this->collection->first()->script_type_id && $this->collection->first()->user_id){
+        if($this->scriptTypeDetails() && $this->collection->first()->user_id){
             $tone = UserScriptTypeTone::where('script_type_id', $this->collection->first()->script_type_id)
                         ->where('user_id', $this->collection->first()->user_id)
                         ->first();
 
             return new UserScriptTypeToneResource($tone);
+        }else{
+            return [
+                "script_type_allowed_tone" => $this->scriptTypeDetails()->tone ? true : false,
+                "script_type_tone_question" => 'Choose a tone (Optional)',
+                "tone" => null,
+            ];
         }
         
     }
 
     public function language()
     {
-        if($this->collection->first()->script_type_id && $this->collection->first()->user_id){
+        if($this->scriptTypeDetails() && $this->collection->first()->user_id){
             $language = UserScriptTypeLanguage::where('script_type_id', $this->collection->first()->script_type_id)
                     ->where('user_id', $this->collection->first()->user_id)
                     ->first();
 
             return new UserScriptTypeLanguageResource($language);
+        }else{
+            return [
+                "script_type_allowed_tone" => $this->scriptTypeDetails()->language ? true : false,
+                "script_type_tone_question" => 'Choose a tone (Optional)',
+                "tone" => null,
+            ];
         }
         
+    }
+
+    public function scriptTypeDetails()
+    {
+        return ScriptType::where('id', $this->collection->first()->script_type_id)->first();
     }
 }

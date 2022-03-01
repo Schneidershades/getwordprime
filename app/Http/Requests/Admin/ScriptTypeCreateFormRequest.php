@@ -51,17 +51,6 @@ class ScriptTypeCreateFormRequest extends FormRequest
 
     /**
      * @OA\Property(
-     *      title="script type icon",
-     *      description="icon of the script type",
-     *      example="icon link"
-     * )
-     *
-     * @var string
-     */
-    public $icon;
-
-    /**
-     * @OA\Property(
      *      title="script type description",
      *      description="description of the script type",
      *      example="This is"
@@ -229,6 +218,19 @@ class ScriptTypeCreateFormRequest extends FormRequest
      * @var boolean
      */
     public $tone;
+
+
+
+    /**
+     * @OA\Property(
+     *      title="send array of images",
+     *      description="send array of images",
+     *      example="[4]"
+     * )
+     *
+     * @var string
+     */
+    public $icon;
 
 
     
