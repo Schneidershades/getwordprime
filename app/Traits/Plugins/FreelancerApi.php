@@ -66,6 +66,13 @@ class FreelancerApi
         return ($response);
     }
 
+    public function getProjectId($id)
+    { 
+        $mode =  $this->mode('live');
+        $response = $this->sendRequest($mode['url']."/projects/0.1/projects/".$id, 'GET', [], $mode['key']);
+        return ($response);
+    }
+
     private function sendRequest($url, $requestType, $postfields=[], $access)
     {
         $curl = curl_init();
@@ -88,4 +95,6 @@ class FreelancerApi
         $response = curl_exec($curl);
         return json_decode($response);
     }
+
+    
 }
