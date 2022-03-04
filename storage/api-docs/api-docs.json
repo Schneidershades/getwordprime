@@ -5980,12 +5980,6 @@
                         "type": "string",
                         "example": "This is a prompt 1"
                     },
-                    "icon": {
-                        "title": "script type icon",
-                        "description": "icon of the script type",
-                        "type": "string",
-                        "example": "icon link"
-                    },
                     "description": {
                         "title": "script type description",
                         "description": "description of the script type",
@@ -6069,6 +6063,12 @@
                         "description": "tone of the script type",
                         "type": "boolean",
                         "example": "Funny"
+                    },
+                    "icon": {
+                        "title": "send array of images",
+                        "description": "send array of images",
+                        "type": "string",
+                        "example": "[4]"
                     },
                     "script_type_presets": {
                         "type": "array",

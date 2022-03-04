@@ -203,41 +203,47 @@ class UserScriptTypePresetController extends Controller
     public function update(UserScriptTypePresetUpdateFormRequest $request, $id)
     {
 
-        foreach($request['languages'] as $language){
+        if($request['languages']){
+            foreach($request['languages'] as $language){
 
-            $userLanguage = UserScriptTypeLanguage::find($language['script_type_id']);
-
-            if ($userLanguage != null){
-                
-                $userLanguage->update([
-                    'script_type_id' => $language['script_type_id'],
-                    'language_id' => $language['language_id']
-                ]);
-
-            }else{
-                auth()->user()->languages()->create([
-                    'script_type_id' => $language['script_type_id'],
-                    'language_id' => $language['language_id']
-                ]);
+                $userLanguage = UserScriptTypeLanguage::find($language['script_type_id']);
+    
+                if ($userLanguage != null){
+                    
+                    $userLanguage->update([
+                        'script_type_id' => $language['script_type_id'],
+                        'language_id' => $language['language_id']
+                    ]);
+    
+                }else{
+                    auth()->user()->languages()->create([
+                        'script_type_id' => $language['script_type_id'],
+                        'language_id' => $language['language_id']
+                    ]);
+                }
             }
         }
+        
 
-        foreach($request['tones'] as $tone){
+        if($request['tones']){
 
-            $userTone = UserScriptTypeLanguage::find($tone['script_type_id']);
+            foreach($request['tones'] as $tone){
 
-            if ($userTone != null){
-                
-                $userTone->update([
-                    'script_type_id' => $tone['script_type_id'],
-                    'tone_id' => $tone['tone_id']
-                ]);
+                $userTone = UserScriptTypeLanguage::find($tone['script_type_id']);
 
-            }else{
-                auth()->user()->languages()->create([
-                    'script_type_id' => $tone['script_type_id'],
-                    'tone_id' => $tone['tone_id']
-                ]);
+                if ($userTone != null){
+                    
+                    $userTone->update([
+                        'script_type_id' => $tone['script_type_id'],
+                        'tone_id' => $tone['tone_id']
+                    ]);
+
+                }else{
+                    auth()->user()->languages()->create([
+                        'script_type_id' => $tone['script_type_id'],
+                        'tone_id' => $tone['tone_id']
+                    ]);
+                }
             }
         }
         
