@@ -45,42 +45,24 @@ class UserScriptTypePresetCollection extends ResourceCollection
 
     public function tone()
     {
-        // if($this->scriptTypeDetails() && $this->collection->first()->user_id){
-        //     $tone = UserScriptTypeTone::where('script_type_id', $this->collection->first()->script_type_id)
-        //                 ->where('user_id', $this->collection->first()->user_id)
-        //                 ->first();
-
-        //     return new UserScriptTypeToneResource($tone);
-        // }else{
-            return [
-                "script_type_allowed_tone" => $this->scriptTypeDetails()->tone ? true : false,
-                "script_type_tone_question" => 'Choose a tone (Optional)',
-                "tone" => UserScriptTypeTone::where('script_type_id', $this->collection->first()->script_type_id)
-                            ->where('user_id', $this->collection->first()->user_id)
-                            ->first()?->tone_id,
-            ];
-        // }
-        
+        return [
+            "script_type_allowed_tone" => $this->scriptTypeDetails()->tone ? true : false,
+            "script_type_tone_question" => 'Choose a tone (Optional)',
+            "tone_id" => UserScriptTypeTone::where('script_type_id', $this->collection->first()->script_type_id)
+                        ->where('user_id', $this->collection->first()->user_id)
+                        ->first()?->tone_id,
+        ];        
     }
 
     public function language()
     {
-        // if($this->scriptTypeDetails() && $this->collection->first()->user_id){
-        //     $language = UserScriptTypeLanguage::where('script_type_id', $this->collection->first()->script_type_id)
-        //             ->where('user_id', $this->collection->first()->user_id)
-        //             ->first();
-
-        //     return new UserScriptTypeLanguageResource($language);
-        // }else{
-            return [
-                "script_type_allowed_tone" => $this->scriptTypeDetails()->language ? true : false,
-                "script_type_tone_question" => 'Choose a tone (Optional)',
-                "language" => UserScriptTypeLanguage::where('script_type_id', $this->collection->first()->script_type_id)
-                    ->where('user_id', $this->collection->first()->user_id)
-                    ->first()?->language_id,
-            ];
-        // }
-        
+        return [
+            "script_type_allowed_tone" => $this->scriptTypeDetails()->language ? true : false,
+            "script_type_tone_question" => 'Choose a tone (Optional)',
+            "language_id" => UserScriptTypeLanguage::where('script_type_id', $this->collection->first()->script_type_id)
+                ->where('user_id', $this->collection->first()->user_id)
+                ->first()?->language_id,
+        ];        
     }
 
     public function scriptTypeDetails()
