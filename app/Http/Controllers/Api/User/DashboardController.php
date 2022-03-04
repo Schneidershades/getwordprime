@@ -42,6 +42,7 @@ class DashboardController extends Controller
             'campaigns' => auth()->user()->campaigns->count(),
             'scripts' => auth()->user()->scripts->count(),
             'published' => auth()->user()->scripts->count(),
+            'script_words_generated' => auth()->user()->scriptsResponses->sum('word_count'),
             'video' => Tutorial::first(),
         ];
 

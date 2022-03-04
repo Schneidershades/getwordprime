@@ -14,7 +14,7 @@ class AddWordCountToScriptResponsesTable extends Migration
     public function up()
     {
         Schema::table('script_responses', function (Blueprint $table) {
-            $table->bigInteger('words_count')->default(0);
+            $table->bigInteger('word_count')->default(0);
         });
     }
 
