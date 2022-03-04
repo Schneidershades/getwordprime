@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Api\Auth;
 
+use App\Events\User\NewUserEvent;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Http\Requests\Auth\UserRegistrationFormRequest;
@@ -48,6 +49,9 @@ class UserController extends Controller
         $user = User::create($request->validated());
 
         $user->sendEmailVerificationNotification();
+
+
+        event(new NewUserEvent($user));
 
         if(!$token = auth()->attempt($request->only(['email', 'password']))){
             return $this->errorResponse('unauthenticated', 401);
