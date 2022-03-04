@@ -3789,6 +3789,38 @@
                 ]
             }
         },
+        "/api/v1/bonuses": {
+            "get": {
+                "tags": [
+                    "user"
+                ],
+                "summary": "Get all bonuses",
+                "description": "Get all bonuses",
+                "operationId": "userBonus",
+                "responses": {
+                    "200": {
+                        "description": "Successful signin",
+                        "content": {
+                            "application/json": {}
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    },
+                    "401": {
+                        "description": "unauthenticated"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        },
         "/api/v1/campaigns": {
             "get": {
                 "tags": [
