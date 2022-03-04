@@ -7040,9 +7040,15 @@
                     "name"
                 ],
                 "properties": {
-                    "name": {
-                        "title": "User Name",
-                        "description": "name of the user",
+                    "first_name": {
+                        "title": "User First Name",
+                        "description": "first name of the user",
+                        "type": "string",
+                        "example": "Schneider"
+                    },
+                    "last_name": {
+                        "title": "User Last Name",
+                        "description": "Last name of the user",
                         "type": "string",
                         "example": "Schneider"
                     },
@@ -7216,10 +7222,136 @@
                     "name"
                 ],
                 "properties": {
-                    "project_id": {
-                        "title": "user project_id",
-                        "description": "Initial related project_id of the marketplace",
+                    "title": {
+                        "title": "project title",
+                        "description": "title of the marketplace",
+                        "type": "string",
+                        "example": "Project for Maksim K."
+                    },
+                    "type": {
+                        "title": "project type",
+                        "description": "type of the marketplace",
+                        "type": "string",
+                        "example": "Fixed"
+                    },
+                    "short_description": {
+                        "title": "project short_description",
+                        "description": "short_description of the marketplace",
                         "type": "integer",
+                        "example": "Hi Maksim K., I noticed your profile and would like to offer you my project. We can discuss any deta"
+                    },
+                    "full_description": {
+                        "title": "project full_description",
+                        "description": "full_description of the marketplace",
+                        "type": "integer",
+                        "example": "Hi Maksim K., I noticed your profile and would like to offer you my project. We can discuss any deta"
+                    },
+                    "date": {
+                        "title": "project date",
+                        "description": "date of the marketplace",
+                        "type": "integer",
+                        "example": "1646388297"
+                    },
+                    "bids": {
+                        "title": "project bids",
+                        "description": "bids of the marketplace",
+                        "type": "integer",
+                        "example": "1"
+                    },
+                    "status": {
+                        "title": "project status",
+                        "description": "status of the marketplace",
+                        "type": "string",
+                        "example": "open"
+                    },
+                    "bid_count": {
+                        "title": "project bid_count",
+                        "description": "bid_count of the marketplace",
+                        "type": "integer",
+                        "example": "1"
+                    },
+                    "bid_avg": {
+                        "title": "project bid_avg",
+                        "description": "bid_avg of the marketplace",
+                        "type": "integer",
+                        "example": "1"
+                    },
+                    "budget_type": {
+                        "title": "project budget_type",
+                        "description": "budget_type of the marketplace",
+                        "type": "integer",
+                        "example": "fixed"
+                    },
+                    "budget_low": {
+                        "title": "project budget_low",
+                        "description": "budget_low of the marketplace",
+                        "type": "string",
+                        "example": "90.0"
+                    },
+                    "budget_high": {
+                        "title": "project budget_high",
+                        "description": "budget_high of the marketplace",
+                        "type": "string",
+                        "example": "90.0"
+                    },
+                    "url": {
+                        "title": "project url",
+                        "description": "url of the marketplace",
+                        "type": "integer",
+                        "example": "https://freelancer.com/"
+                    },
+                    "currency_id": {
+                        "title": "project currency_id",
+                        "description": "currency_id of the marketplace",
+                        "type": "string",
+                        "example": "1"
+                    },
+                    "currency_code": {
+                        "title": "project currency_code",
+                        "description": "currency_code of the marketplace",
+                        "type": "string",
+                        "example": "1"
+                    },
+                    "currency_sign": {
+                        "title": "project currency_sign",
+                        "description": "currency_sign of the marketplace",
+                        "type": "string",
+                        "example": "$"
+                    },
+                    "currency_name": {
+                        "title": "project currency_name",
+                        "description": "currency_name of the marketplace",
+                        "type": "string",
+                        "example": "US Dollar"
+                    },
+                    "currency_exchange_rate": {
+                        "title": "project currency_exchange_rate",
+                        "description": "currency_exchange_rate of the marketplace",
+                        "type": "integer",
+                        "example": "1"
+                    },
+                    "currency_country": {
+                        "title": "project currency_country",
+                        "description": "currency_country of the marketplace",
+                        "type": "string",
+                        "example": "US"
+                    },
+                    "currency_is_escrowcom_supported": {
+                        "title": "project currency_is_escrowcom_supported",
+                        "description": "currency_is_escrowcom_supported of the marketplace",
+                        "type": "boolean",
+                        "example": "true"
+                    },
+                    "hourly_commitment": {
+                        "title": "project hourly_commitment",
+                        "description": "hourly_commitment of the marketplace",
+                        "type": "string",
+                        "example": "1"
+                    },
+                    "hourly_interval": {
+                        "title": "project hourly_interval",
+                        "description": "hourly_interval of the marketplace",
+                        "type": "string",
                         "example": "1"
                     }
                 },

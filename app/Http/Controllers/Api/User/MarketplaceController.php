@@ -163,9 +163,7 @@ class MarketplaceController extends Controller
     */
     public function show($id)
     {
-        $project = FreelancerAd::find($id);
-        $freelancer = new FreelancerApi;  
-        $freelancer->getProjectId($project->project_id);
+        return $this->showOne(FreelancerAd::find($id));
     }
 
 

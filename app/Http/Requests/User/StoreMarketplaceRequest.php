@@ -168,7 +168,7 @@ class StoreMarketplaceRequest extends FormRequest
      *      example="1"
      * )
      *
-     * @var int
+     * @var string
      */
     public $currency_id;
 
@@ -179,7 +179,7 @@ class StoreMarketplaceRequest extends FormRequest
      *      example="1"
      * )
      *
-     * @var int
+     * @var string
      */
     public $currency_code;
 
@@ -294,9 +294,9 @@ class StoreMarketplaceRequest extends FormRequest
             'currency_code' => 'required|string',
             'currency_sign' => 'required|string',
             'currency_name' => 'required|string',
-            'currency_exchange_rate' => 'required|string',
+            'currency_exchange_rate' => 'required|numeric',
             'currency_country' => 'required|string',
-            'currency_is_escrowcom_supported' => 'required|string',
+            'currency_is_escrowcom_supported' => 'required|boolean',
             'hourly_commitment' => 'required|string',
             'hourly_interval' => 'required|string',
         ];
