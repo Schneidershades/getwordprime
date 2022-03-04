@@ -2,10 +2,11 @@
 
 namespace App\Http\Controllers\Api\User;
 
-use App\Http\Controllers\Controller;
+use App\Models\FreelancerAd;
 use App\Models\MarketplaceProject;
+use App\Http\Controllers\Controller;
 use App\Traits\Plugins\FreelancerApi;
-use AWS\CRT\HTTP\Request;
+use App\Http\Requests\User\StoreMarketplaceRequest;
 
 class MarketplaceController extends Controller
 {
@@ -114,9 +115,9 @@ class MarketplaceController extends Controller
     * )
     */
 
-    public function store(Request $request)
+    public function store(StoreMarketplaceRequest $request)
     {
-        auth()->user()->marketplaceProjects()->create($request->validated);
+        auth()->user()->freelancerAds()->create($request->validated());
         return $this->showMessage('Project saved');
     }
 
@@ -162,7 +163,7 @@ class MarketplaceController extends Controller
     */
     public function show($id)
     {
-        $project = MarketplaceProject::find($id);
+        $project = FreelancerAd::find($id);
         $freelancer = new FreelancerApi;  
         $freelancer->getProjectId($project->project_id);
     }
@@ -209,7 +210,7 @@ class MarketplaceController extends Controller
     */
     public function destroy($id)
     {
-        $project = MarketplaceProject::find($id)->delete();
+        $project = FreelancerAd::find($id)->delete();
         return $this->showMessage('Project deleted');
     }
 }
