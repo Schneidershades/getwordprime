@@ -46,7 +46,7 @@ class StoreMarketplaceRequest extends FormRequest
     public function rules()
     {
         return [
-            'script_response_id' => 'required|int',
+            'project_id' => 'required|int',
         ];
     }
 }

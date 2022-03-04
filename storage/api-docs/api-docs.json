@@ -4234,6 +4234,130 @@
                         "bearerAuth": []
                     }
                 ]
+            },
+            "post": {
+                "tags": [
+                    "user"
+                ],
+                "summary": "Post userMarketplace",
+                "description": "Post userMarketplace",
+                "operationId": "postuserMarketplace",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/StoreFavoriteScriptFormRequest"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Successful signin",
+                        "content": {
+                            "application/json": {}
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    },
+                    "401": {
+                        "description": "unauthenticated"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        },
+        "/api/v1/marketplace/{id}": {
+            "get": {
+                "tags": [
+                    "user"
+                ],
+                "summary": "Show an marketplace",
+                "description": "Show an marketplace",
+                "operationId": "showMarketplace",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "marketplace ID",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful signin",
+                        "content": {
+                            "application/json": {}
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    },
+                    "401": {
+                        "description": "unauthenticated"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            },
+            "delete": {
+                "tags": [
+                    "user"
+                ],
+                "summary": "Delete a marketplace",
+                "description": "Delete a marketplace",
+                "operationId": "deleteMarketplace",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "marketplace ID",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful signin",
+                        "content": {
+                            "application/json": {}
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    },
+                    "401": {
+                        "description": "unauthenticated"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
             }
         },
         "/api/v1/platform-integrations": {
@@ -7079,6 +7203,22 @@
                     "script_response_id": {
                         "title": "user script_response id",
                         "description": "Initial related script_response of the id",
+                        "type": "integer",
+                        "example": "1"
+                    }
+                },
+                "type": "object"
+            },
+            "StoreMarketplaceRequest": {
+                "title": "Store Marketplace Request Fields",
+                "description": "Store Marketplace request body data",
+                "required": [
+                    "name"
+                ],
+                "properties": {
+                    "project_id": {
+                        "title": "user project_id",
+                        "description": "Initial related project_id of the marketplace",
                         "type": "integer",
                         "example": "1"
                     }
