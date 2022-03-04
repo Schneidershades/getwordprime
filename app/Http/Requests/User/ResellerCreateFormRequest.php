@@ -93,7 +93,7 @@ class ResellerCreateFormRequest extends FormRequest
             'name' => 'required|string|max:255',
             'email' => 'required|string|email|max:255|unique:users',
             'password' => 'required|string|min:8',
-            'role' => 'required|string|max:255|in:Reseller',
+            'role' => 'required|string|max:255|in:User',
             'plans' => 'array', 
             'plans.*.plan_id' => 'int|exists:plans,id',
         ];

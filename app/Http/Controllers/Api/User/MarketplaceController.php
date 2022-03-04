@@ -89,7 +89,7 @@ class MarketplaceController extends Controller
     *      description="Post userMarketplace",
     *      @OA\RequestBody(
     *          required=true,
-    *          @OA\JsonContent(ref="#/components/schemas/StoreFavoriteScriptFormRequest")
+    *          @OA\JsonContent(ref="#/components/schemas/StoreMarketplaceRequest")
     *      ),
     *      @OA\Response(
     *          response=200,

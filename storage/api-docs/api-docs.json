@@ -4247,7 +4247,7 @@
                     "content": {
                         "application/json": {
                             "schema": {
-                                "$ref": "#/components/schemas/StoreFavoriteScriptFormRequest"
+                                "$ref": "#/components/schemas/StoreMarketplaceRequest"
                             }
                         }
                     }
