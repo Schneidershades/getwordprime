@@ -35,6 +35,7 @@ Route::prefix('v1')->group(function () {
 		Route::resource('platform-integrations', PlatformIntegrationController::class);
 		Route::resource('favorite-flag-responses', FavoriteFlagResponseController::class);
 		Route::resource('marketplace', MarketplaceController::class);
+		Route::resource('marketplace-saved', MarketplaceProjectController::class);
 		Route::get('user-select-script-type/{id}', 'UserSelectScriptTypeController@show');
 		
 	});

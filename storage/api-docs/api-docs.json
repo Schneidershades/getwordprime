@@ -4234,14 +4234,46 @@
                         "bearerAuth": []
                     }
                 ]
+            }
+        },
+        "/api/v1/marketplace-saved": {
+            "get": {
+                "tags": [
+                    "user"
+                ],
+                "summary": "userMarketplaceSaved",
+                "description": "userMarketplaceSaved",
+                "operationId": "userMarketplaceSaved",
+                "responses": {
+                    "200": {
+                        "description": "Successful signin",
+                        "content": {
+                            "application/json": {}
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    },
+                    "401": {
+                        "description": "unauthenticated"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
             },
             "post": {
                 "tags": [
                     "user"
                 ],
-                "summary": "Post userMarketplace",
-                "description": "Post userMarketplace",
-                "operationId": "postuserMarketplace",
+                "summary": "Post userMarketplacesaved",
+                "description": "Post userMarketplacesaved",
+                "operationId": "postuserMarketplacesaved",
                 "requestBody": {
                     "required": true,
                     "content": {
@@ -4276,14 +4308,14 @@
                 ]
             }
         },
-        "/api/v1/marketplace/{id}": {
+        "/api/v1/marketplace-saved/{id}": {
             "get": {
                 "tags": [
                     "user"
                 ],
-                "summary": "Show an marketplace",
-                "description": "Show an marketplace",
-                "operationId": "showMarketplace",
+                "summary": "Show an marketplacesaved",
+                "description": "Show an marketplacesaved",
+                "operationId": "showMarketplacesaved",
                 "parameters": [
                     {
                         "name": "id",
@@ -4322,9 +4354,9 @@
                 "tags": [
                     "user"
                 ],
-                "summary": "Delete a marketplace",
-                "description": "Delete a marketplace",
-                "operationId": "deleteMarketplace",
+                "summary": "Delete a marketplace saved",
+                "description": "Delete a marketplace saved",
+                "operationId": "deleteMarketplaceSaved",
                 "parameters": [
                     {
                         "name": "id",
