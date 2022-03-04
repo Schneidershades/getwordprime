@@ -18,14 +18,25 @@ class ResellerCreateFormRequest extends FormRequest
 {
     /**
      * @OA\Property(
-     *      title="User Name",
-     *      description="name of the user",
+     *      title="User First Name",
+     *      description="first name of the user",
      *      example="Schneider"
      * )
      *
      * @var string
      */
-    public $name;
+    public $first_name;
+
+    /**
+     * @OA\Property(
+     *      title="User Last Name",
+     *      description="Last name of the user",
+     *      example="Schneider"
+     * )
+     *
+     * @var string
+     */
+    public $last_name;
 
     /**
      * @OA\Property(
@@ -90,7 +101,8 @@ class ResellerCreateFormRequest extends FormRequest
     public function rules()
     {
         return [
-            'name' => 'required|string|max:255',
+            'first_name' => 'required|string|max:255',
+            'last_name' => 'required|string|max:255',
             'email' => 'required|string|email|max:255|unique:users',
             'password' => 'required|string|min:8',
             'role' => 'required|string|max:255|in:User',
