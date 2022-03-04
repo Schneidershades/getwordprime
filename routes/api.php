@@ -20,6 +20,7 @@ Route::prefix('v1')->group(function () {
 
 	Route::group(['middleware' => 'auth:api', 'namespace' => 'Api\User'], function(){
 		Route::resource('agencies', AgencyController::class);
+		Route::resource('bonuses', BonusController::class);
 		Route::resource('campaigns', CampaignController::class);
 		Route::resource('reseller', ResellerController::class);
 		Route::resource('scripts', ScriptController::class);
