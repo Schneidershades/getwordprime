@@ -15,6 +15,7 @@ class CreateMarketplaceProjectsTable extends Migration
     {
         Schema::create('marketplace_projects', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('user_id')->nullable()->constrained()->cascadeOnUpdate()->nullOnDelete();
             $table->string('project_id')->nullable();
             $table->timestamps();
         });

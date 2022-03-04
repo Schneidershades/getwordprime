@@ -116,7 +116,7 @@ class MarketplaceController extends Controller
 
     public function store(Request $request)
     {
-        MarketplaceProject::create($request->validated);
+        auth()->user()->marketplaceProjects()->create($request->validated);
         return $this->showMessage('Project saved');
     }
 
