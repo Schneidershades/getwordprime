@@ -112,23 +112,23 @@ class ScriptController extends Controller
             }
         }
             
-        $language = UserScriptTypeLanguage::where('script_type_id', $request['script_type_id'])
+        $userLanguage = UserScriptTypeLanguage::where('script_type_id', $request['script_type_id'])
             ->where('user_id', auth()->user()->id)
             ->where('tone_id', $request['tone_id'])
             ->first();
         
-        if($language) {
-            $submissionToOpenAi .= 'Output the result in '.$language->name. " \n";
+        if($userLanguage) {
+            $submissionToOpenAi .= 'Output the result in '.$userLanguage->language->name. " \n";
             $submissionToOpenAi .= '""""""'. " \n";
         }
 
-        $tone = UserScriptTypeTone::where('script_type_id',  $request['script_type_id'])
+        $userTone = UserScriptTypeTone::where('script_type_id',  $request['script_type_id'])
             ->where('user_id', auth()->user()->id)
             ->where('language_id', $request['language_id'])
             ->first();
 
-        if($tone) {
-            $submissionToOpenAi .= 'The tone for this should be '.$tone->name. " \n";
+        if($userTone) {
+            $submissionToOpenAi .= 'The tone for this should be '.$userTone->tone->name. " \n";
             $submissionToOpenAi .= '""""""'. " \n";
         }
 
