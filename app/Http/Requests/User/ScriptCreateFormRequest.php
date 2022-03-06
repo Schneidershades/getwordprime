@@ -48,6 +48,7 @@ class ScriptCreateFormRequest extends FormRequest
      */
     public $campaign_id;
     
+    
 
     /**
      * Determine if the user is authorized to make this request.
@@ -70,6 +71,8 @@ class ScriptCreateFormRequest extends FormRequest
             'content' => 'required|string',
             'script_type_id' => 'required|int|exists:script_types,id',
             'campaign_id' => 'nullable|int|exists:campaigns,id',
+            'tone_id' => 'nullable|int|exists:tones,id',
+            'language_id' => 'nullable|int|exists:languages,id',
         ];
     }
 }
