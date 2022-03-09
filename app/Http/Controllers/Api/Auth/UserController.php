@@ -103,7 +103,7 @@ class UserController extends Controller
 
     /**
     * @OA\Post(
-    *      path="/api/v1/user/profile",
+    *      path="/api/v1/user/update",
     *      operationId="updateUserProfile",
     *      tags={"authentication"},
     *      summary="Profile of a registered user",

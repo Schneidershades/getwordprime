@@ -36,7 +36,7 @@ class FreelancerApi
             // 'from_time'=>$time
             ]     
         ];
-        $response = $this->sendRequest($mode['url']."projects/0.1/projects/all/?compact=1&user_details=1&full_description=1&hireme_details", 'GET', json_encode($body), $mode['key']);
+        $response = $this->sendRequest($mode['url']."projects/0.1/projects/all/?compact=1&user_details=1&full_description=1&hireme_details&number=10", 'GET', json_encode($body), $mode['key']);
         return ($response);
     }
 

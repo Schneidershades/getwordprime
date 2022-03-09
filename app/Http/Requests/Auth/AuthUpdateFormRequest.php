@@ -38,29 +38,7 @@ class AuthUpdateFormRequest extends FormRequest
      */
     public $role;
 
-    /**
-     * @OA\Property(
-     *      title="User email",
-     *      description="Email of the user",
-     *      example="info@convertscript.com"
-     * )
-     *
-     * @var string
-     */
-    public $email;
 
-
-
-    /**
-     * @OA\Property(
-     *      title="User active",
-     *      description="active of the user",
-     *      example="true"
-     * )
-     *
-     * @var boolean
-     */
-    public $active;
 
     /**
      * Determine if the user is authorized to make this request.
@@ -82,7 +60,7 @@ class AuthUpdateFormRequest extends FormRequest
         return [
             'first_name' => 'nullable|string|max:255',
             'last_name' => 'nullable|string|max:255',
-            'active' => 'required|boolean',
+            // 'active' => 'required|boolean',
         ];
     }
 }

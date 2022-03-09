@@ -3274,37 +3274,7 @@
                 }
             }
         },
-        "/api/v1/user/profile": {
-            "get": {
-                "tags": [
-                    "authentication"
-                ],
-                "summary": "Profile of a registered user",
-                "description": "Profile of a registered user",
-                "operationId": "userProfile",
-                "responses": {
-                    "200": {
-                        "description": "Successful signin",
-                        "content": {
-                            "application/json": {}
-                        }
-                    },
-                    "400": {
-                        "description": "Bad Request"
-                    },
-                    "401": {
-                        "description": "Unauthenticated"
-                    },
-                    "403": {
-                        "description": "Forbidden"
-                    }
-                },
-                "security": [
-                    {
-                        "bearerAuth": []
-                    }
-                ]
-            },
+        "/api/v1/user/update": {
             "post": {
                 "tags": [
                     "authentication"
@@ -3354,6 +3324,38 @@
                 "summary": "Logout a registered user",
                 "description": "Logout a registered user",
                 "operationId": "userLogout",
+                "responses": {
+                    "200": {
+                        "description": "Successful signin",
+                        "content": {
+                            "application/json": {}
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    },
+                    "401": {
+                        "description": "Unauthenticated"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        },
+        "/api/v1/user/profile": {
+            "get": {
+                "tags": [
+                    "authentication"
+                ],
+                "summary": "Profile of a registered user",
+                "description": "Profile of a registered user",
+                "operationId": "userProfile",
                 "responses": {
                     "200": {
                         "description": "Successful signin",
@@ -7173,6 +7175,18 @@
                     "campaign_id": {
                         "title": "user campaign id",
                         "description": "Initial related campaign of the id",
+                        "type": "integer",
+                        "example": "1"
+                    },
+                    "tone_id": {
+                        "title": "user tone id",
+                        "description": "Initial related id of the tone",
+                        "type": "integer",
+                        "example": "1"
+                    },
+                    "language_id": {
+                        "title": "user language id",
+                        "description": "Initial related id of the language",
                         "type": "integer",
                         "example": "1"
                     }
