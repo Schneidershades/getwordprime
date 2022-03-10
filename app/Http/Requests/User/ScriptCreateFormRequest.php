@@ -49,28 +49,6 @@ class ScriptCreateFormRequest extends FormRequest
     public $campaign_id;
 
 
-    /**
-     * @OA\Property(
-     *      title="user tone id",
-     *      description="Initial related id of the tone",
-     *      example="1"
-     * )
-     *
-     * @var int
-     */
-    public $tone_id;
-
-
-    /**
-     * @OA\Property(
-     *      title="user language id",
-     *      description="Initial related id of the language",
-     *      example="1"
-     * )
-     *
-     * @var int
-     */
-    public $language_id;
     
     
 
