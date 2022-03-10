@@ -114,7 +114,7 @@ class ScriptController extends Controller
             
         $userLanguage = UserScriptTypeLanguage::where('script_type_id', $request['script_type_id'])
             ->where('user_id', auth()->user()->id)
-            ->where('tone_id', $request['tone_id'])
+            ->where('tone_id', $request['language_id'])
             ->first();
         
         if($userLanguage) {
@@ -124,7 +124,7 @@ class ScriptController extends Controller
 
         $userTone = UserScriptTypeTone::where('script_type_id',  $request['script_type_id'])
             ->where('user_id', auth()->user()->id)
-            ->where('language_id', $request['language_id'])
+            ->where('language_id', $request['tone_id'])
             ->first();
 
         if($userTone) {
