@@ -204,26 +204,26 @@ class UserScriptTypePresetController extends Controller
     public function update(UserScriptTypePresetUpdateFormRequest $request, $id)
     {
 
-        if($request['languages']){
-            foreach($request['languages'] as $language){
+        // if($request['languages']){
+        //     foreach($request['languages'] as $language){
 
-                $userLanguage = UserScriptTypeLanguage::find($language['script_type_id']);
+        //         $userLanguage = UserScriptTypeLanguage::find($language['script_type_id']);
     
-                if ($userLanguage != null){
+        //         if ($userLanguage != null){
                     
-                    $userLanguage->update([
-                        'script_type_id' => $language['script_type_id'],
-                        'language_id' => $language['language_id']
-                    ]);
+        //             $userLanguage->update([
+        //                 'script_type_id' => $language['script_type_id'],
+        //                 'language_id' => $language['language_id']
+        //             ]);
     
-                }else{
-                    auth()->user()->languages()->create([
-                        'script_type_id' => $language['script_type_id'],
-                        'language_id' => $language['language_id']
-                    ]);
-                }
-            }
-        }
+        //         }else{
+        //             auth()->user()->languages()->create([
+        //                 'script_type_id' => $language['script_type_id'],
+        //                 'language_id' => $language['language_id']
+        //             ]);
+        //         }
+        //     }
+        // }
         
 
         if($request['tones']){
@@ -249,33 +249,33 @@ class UserScriptTypePresetController extends Controller
         }
     
         
-        foreach($request['presets'] as $preset){
+        // foreach($request['presets'] as $preset){
 
-            $userPreset = UserScriptTypePreset::find($preset['user_script_type_preset_id']);
+        //     $userPreset = UserScriptTypePreset::find($preset['user_script_type_preset_id']);
 
-            if ($userPreset != null){
+        //     if ($userPreset != null){
 
-                $userAnswers = auth()->user()->presets;
+        //         $userAnswers = auth()->user()->presets;
 
-                foreach($userAnswers as $p){
+        //         foreach($userAnswers as $p){
 
-                    if ($p->script_type_preset_id == $preset['script_type_preset_id'] && $p->answer == $request['answer']){
-                    }else{
-                        $userPreset->update([
-                            'script_type_id' => $preset['script_type_id'],
-                            'script_type_preset_id' => $preset['script_type_preset_id'],
-                            'answers' => $preset['answer']
-                        ]);
-                    }
-                }
-            }else{
-                auth()->user()->presets()->create([
-                    'script_type_id' => $preset['script_type_id'],
-                    'script_type_preset_id' => $preset['script_type_preset_id'],
-                    'answers' => $preset['answer']
-                ]);
-            }
-        }
+        //             if ($p->script_type_preset_id == $preset['script_type_preset_id'] && $p->answer == $request['answer']){
+        //             }else{
+        //                 $userPreset->update([
+        //                     'script_type_id' => $preset['script_type_id'],
+        //                     'script_type_preset_id' => $preset['script_type_preset_id'],
+        //                     'answers' => $preset['answer']
+        //                 ]);
+        //             }
+        //         }
+        //     }else{
+        //         auth()->user()->presets()->create([
+        //             'script_type_id' => $preset['script_type_id'],
+        //             'script_type_preset_id' => $preset['script_type_preset_id'],
+        //             'answers' => $preset['answer']
+        //         ]);
+        //     }
+        // }
 
         
         
