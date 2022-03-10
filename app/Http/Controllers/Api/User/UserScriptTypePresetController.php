@@ -247,8 +247,7 @@ class UserScriptTypePresetController extends Controller
                 }
             }
         }
-        
-        return auth()->user()->languages;
+    
         
         foreach($request['presets'] as $preset){
 
