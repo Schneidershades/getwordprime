@@ -117,7 +117,7 @@ class ScriptController extends Controller
             ->first();
         
         if($userLanguage) {
-            $submissionToOpenAi .= 'Output the result in '.$userLanguage->language->name. " \n";
+            $submissionToOpenAi .= 'Convert output to '.$userLanguage->language->name. " \n";
             $submissionToOpenAi .= '""""""'. " \n";
         }
 
