@@ -114,7 +114,7 @@ class ScriptController extends Controller
             
         $userLanguage = UserScriptTypeLanguage::where('script_type_id', $request['script_type_id'])
             ->where('user_id', auth()->user()->id)
-            ->first();
+            ->last();
         
         if($userLanguage) {
             $submissionToOpenAi .= 'Convert output to '.$userLanguage->language->name. " \n";
@@ -123,7 +123,7 @@ class ScriptController extends Controller
 
         $userTone = UserScriptTypeTone::where('script_type_id',  $request['script_type_id'])
             ->where('user_id', auth()->user()->id)
-            ->first();
+            ->last();
 
         if($userTone) {
             $submissionToOpenAi .= 'The tone for this should be '.$userTone->tone->name. " \n";
