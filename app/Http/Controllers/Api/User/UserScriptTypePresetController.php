@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Api\User;
 
+use App\Models\UserScriptTypeTone;
 use App\Http\Controllers\Controller;
 use App\Models\UserScriptTypePreset;
 use App\Models\UserScriptTypeLanguage;
@@ -229,7 +230,7 @@ class UserScriptTypePresetController extends Controller
 
             foreach($request['tones'] as $tone){
 
-                $userTone = UserScriptTypeLanguage::find($tone['script_type_id']);
+                $userTone = UserScriptTypeTone::find($tone['script_type_id']);
 
                 if ($userTone != null){
                     
