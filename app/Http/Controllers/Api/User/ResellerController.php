@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Api\User;
 
 use App\Models\User;
+use App\Events\User\NewUserEvent;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\User\ResellerCreateFormRequest;
 use App\Http\Requests\User\ResellerUpdateFormRequest;
@@ -79,6 +80,10 @@ class ResellerController extends Controller
     {
         $user =  auth()->user()->resellers()->create($request->validated());
         $user->plans()->sync($request['plans']);
+
+
+        event(new NewUserEvent($user, $request['password']));
+        
         return $this->showOne($user);
     }
 
