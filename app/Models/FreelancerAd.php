@@ -4,16 +4,16 @@ namespace App\Models;
 
 use App\Models\User;
 use Illuminate\Database\Eloquent\Model;
-use App\Http\Resources\Market\MarketResource;
-use App\Http\Resources\Market\MarketCollection;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use App\Http\Resources\Freelancer\FreelancerAdResource;
+use App\Http\Resources\Freelancer\FreelancerAdCollection;
 
 class FreelancerAd extends Model
 {
     use HasFactory;
 
-    public $oneItem = MarketResource::class;
-    public $allItems = MarketCollection::class;
+    public $oneItem = FreelancerAdResource::class;
+    public $allItems = FreelancerAdCollection::class;
     
     protected $guarded = [];
 

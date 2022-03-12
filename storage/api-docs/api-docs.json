@@ -3126,6 +3126,48 @@
                 ]
             }
         },
+        "/api/v1/user/change/password": {
+            "post": {
+                "tags": [
+                    "authentication"
+                ],
+                "summary": "change password for user",
+                "description": "change password of registered user data",
+                "operationId": "changepassword",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/ChangePasswordFormRequest"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Successful password change",
+                        "content": {
+                            "application/json": {}
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    },
+                    "401": {
+                        "description": "Unauthenticated"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        },
         "/api/v1/user/password/email": {
             "post": {
                 "tags": [
@@ -3560,6 +3602,215 @@
                 "summary": "Get all plans",
                 "description": "Get all plans",
                 "operationId": "allSharedPlans",
+                "responses": {
+                    "200": {
+                        "description": "Successful signin",
+                        "content": {
+                            "application/json": {}
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    },
+                    "401": {
+                        "description": "unauthenticated"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        },
+        "/api/v1/agency/{id}/campaign": {
+            "get": {
+                "tags": [
+                    "user"
+                ],
+                "summary": "Get all agencies",
+                "description": "Get all agencies",
+                "operationId": "allAgencies",
+                "responses": {
+                    "200": {
+                        "description": "Successful signin",
+                        "content": {
+                            "application/json": {}
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    },
+                    "401": {
+                        "description": "unauthenticated"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            },
+            "post": {
+                "tags": [
+                    "user"
+                ],
+                "summary": "Post new agencies",
+                "description": "Post new agencies",
+                "operationId": "postAgencies",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/AgencyCreateFormRequest"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Successful signin",
+                        "content": {
+                            "application/json": {}
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    },
+                    "401": {
+                        "description": "unauthenticated"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        },
+        "/api/v1/agency/{id}/campaign/{campaign_id}": {
+            "get": {
+                "tags": [
+                    "user"
+                ],
+                "summary": "Show an agency",
+                "description": "Show an agency",
+                "operationId": "showAgency",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Agency ID",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful signin",
+                        "content": {
+                            "application/json": {}
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    },
+                    "401": {
+                        "description": "unauthenticated"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        },
+        "/api/v1/agency/{id}/campaign/{id}": {
+            "put": {
+                "tags": [
+                    "user"
+                ],
+                "summary": "Update an agency",
+                "description": "Update an agency",
+                "operationId": "AgencyUpdate",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "agency ID",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/AgencyCreateFormRequest"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Successful signin",
+                        "content": {
+                            "application/json": {}
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    },
+                    "401": {
+                        "description": "unauthenticated"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            },
+            "delete": {
+                "tags": [
+                    "user"
+                ],
+                "summary": "Delete an agency",
+                "description": "Delete an agency",
+                "operationId": "deleteAgency",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Agency ID",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
                 "responses": {
                     "200": {
                         "description": "Successful signin",
@@ -4182,6 +4433,38 @@
                         }
                     }
                 },
+                "responses": {
+                    "200": {
+                        "description": "Successful signin",
+                        "content": {
+                            "application/json": {}
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    },
+                    "401": {
+                        "description": "unauthenticated"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        },
+        "/api/v1/languages": {
+            "get": {
+                "tags": [
+                    "user"
+                ],
+                "summary": "Get languages",
+                "description": "Get languages",
+                "operationId": "allLanguages",
                 "responses": {
                     "200": {
                         "description": "Successful signin",
@@ -5352,6 +5635,38 @@
                         }
                     }
                 ],
+                "responses": {
+                    "200": {
+                        "description": "Successful signin",
+                        "content": {
+                            "application/json": {}
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    },
+                    "401": {
+                        "description": "unauthenticated"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        },
+        "/api/v1/tones": {
+            "get": {
+                "tags": [
+                    "user"
+                ],
+                "summary": "Get tones",
+                "description": "Get tones",
+                "operationId": "allTones",
                 "responses": {
                     "200": {
                         "description": "Successful signin",
@@ -6823,18 +7138,28 @@
                         "description": "User/Admin",
                         "type": "string",
                         "example": "User"
-                    },
-                    "email": {
-                        "title": "User email",
-                        "description": "Email of the user",
+                    }
+                },
+                "type": "object"
+            },
+            "ChangePasswordFormRequest": {
+                "title": "Change password Update Form Request Fields",
+                "description": "Change password Update request body data",
+                "required": [
+                    "name"
+                ],
+                "properties": {
+                    "current_password": {
+                        "title": "User Current  password",
+                        "description": " Current Password of the user",
                         "type": "string",
-                        "example": "info@convertscript.com"
+                        "example": "password"
                     },
-                    "active": {
-                        "title": "User active",
-                        "description": "active of the user",
-                        "type": "boolean",
-                        "example": "true"
+                    "password": {
+                        "title": "User New  password",
+                        "description": " New Password of the user",
+                        "type": "string",
+                        "example": "password"
                     }
                 },
                 "type": "object"

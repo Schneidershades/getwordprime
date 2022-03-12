@@ -46,7 +46,7 @@ class ScriptController extends Controller
     */
     public function index()
     {
-        return $this->showAll(auth()->user()->scripts);
+        return $this->showAll(auth()->user()->scriptResponses);
     }
 
     /**
