@@ -12,7 +12,7 @@ class ChangePasswordController extends Controller
 {
     /**
      * @OA\Post(
-     *      path="/api/v1/auth/change/password",
+     *      path="/api/v1/user/change/password",
      *      operationId="changepassword",
      *      tags={"authentication"},
      *      summary="change password for user",
