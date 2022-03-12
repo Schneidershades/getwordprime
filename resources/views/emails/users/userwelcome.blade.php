@@ -18,7 +18,7 @@ Please find below the login details of your OneCopy AI Writer account.
 Please use the details given below to log in.<br>
 Email: {{$user->email}}<br>
 
-Password: {{$user->password}} <br>
+Password: {{$password}} <br>
 
 Login URL: https://app.onecopy.ai/login <br>
 
