@@ -15,10 +15,10 @@ We're so happy and excited to welcome you to the board.
 Please find below the login details of your OneCopy AI Writer account.
 
 
-Please use the details given below to log in.
-Email: {{$user->email}}
-Password: ********
-Login URL: https://app.onecopy.ai/login
+Please use the details given below to log in.<br>
+Email: {{$user->email}}<br>
+Password: ******** <br>
+Login URL: https://app.onecopy.ai/login <br>
 
  
 
