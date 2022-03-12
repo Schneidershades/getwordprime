@@ -89,4 +89,13 @@ class ExportController extends Controller
 
         return (new $namespace)->download($fileName);
     }
+
+    public function downloadScript()
+    {
+	//   $data = ;
+	  
+    //   $jsongFile = time() . '_file.json';
+	//   File::put(public_path('/upload/json/'.$jsongFile), $data);
+	//   return Response::download(public_path('/upload/jsonfile/'.$jsongFile));
+	}
 }
