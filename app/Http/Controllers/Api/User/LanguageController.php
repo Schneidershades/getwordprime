@@ -13,7 +13,7 @@ class LanguageController extends Controller
     * @OA\Get(
     *      path="/api/v1/languages",
     *      operationId="allLanguages",
-    *      tags={"Admin"},
+    *      tags={"user"},
     *      summary="Get languages",
     *      description="Get languages",
     *      @OA\Response(

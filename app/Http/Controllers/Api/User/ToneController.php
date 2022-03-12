@@ -13,7 +13,7 @@ class ToneController extends Controller
     * @OA\Get(
     *      path="/api/v1/tones",
     *      operationId="allTones",
-    *      tags={"Admin"},
+    *      tags={"user"},
     *      summary="Get tones",
     *      description="Get tones",
     *      @OA\Response(
