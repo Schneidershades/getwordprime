@@ -11,7 +11,7 @@ class SavedProjectResource extends JsonResource
     public function toArray($request)
     {
         return [
-            "freelancer_ad_id" => new FreelancerAdResource($this->freelanceAd) ,
+            "freelancer_ad_id" => new FreelancerAdResource($this->freelanceAd),
         ];
     }
 }
