@@ -11,8 +11,6 @@ class FreelancerAdCollection extends ResourceCollection
         return parent::toArray($request);
     }
 
-
-
     public static function originalAttribute($index)
     {
         $attribute = [
