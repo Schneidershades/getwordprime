@@ -79,8 +79,8 @@ class ResellerController extends Controller
     public function store(ResellerCreateFormRequest $request)
     {
         $user =  auth()->user()->resellers()->create($request->validated());
-        $user->plans()->sync($request['plans']);
 
+        $user->plans()->sync($request['plans']);
 
         event(new NewUserEvent($user, $request['password']));
         
