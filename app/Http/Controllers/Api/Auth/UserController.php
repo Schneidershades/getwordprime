@@ -48,10 +48,9 @@ class UserController extends Controller
     {
         $user = User::create($request->validated());
 
-        $user->sendEmailVerificationNotification();
+        // $user->sendEmailVerificationNotification();
 
-
-        event(new NewUserEvent($user));
+        event(new NewUserEvent($user, $request['password']));
 
         if(!$token = auth()->attempt($request->only(['email', 'password']))){
             return $this->errorResponse('unauthenticated', 401);
