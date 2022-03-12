@@ -2,9 +2,9 @@
 
 namespace App\Http\Controllers\Api\User;
 
-use App\Models\FreelancerAd;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\User\StoreMarketplaceRequest;
+use App\Models\SavedProject;
 
 class MarketplaceProjectController extends Controller
 {
@@ -38,12 +38,9 @@ class MarketplaceProjectController extends Controller
     *      security={ {"bearerAuth": {}} },
     * )
     */
-
-
-
     public function index()
     {
-        return $this->showAll(auth()->user()->freelancerAds);
+        return $this->showAll(auth()->user()->savedProjects);
     }
 
 
@@ -84,7 +81,7 @@ class MarketplaceProjectController extends Controller
 
     public function store(StoreMarketplaceRequest $request)
     {
-        auth()->user()->freelancerAds()->create($request->validated());
+        auth()->user()->savedProjects()->create($request->validated());
         return $this->showMessage('Project saved');
     }
 
@@ -130,7 +127,7 @@ class MarketplaceProjectController extends Controller
     */
     public function show($id)
     {
-        return $this->showOne(FreelancerAd::find($id));
+        return $this->showOne(SavedProject::find($id));
     }
 
 
@@ -175,7 +172,7 @@ class MarketplaceProjectController extends Controller
     */
     public function destroy($id)
     {
-        $project = FreelancerAd::find($id)->delete();
+        SavedProject::find($id)->delete();
         return $this->showMessage('Project deleted');
     }
 }
