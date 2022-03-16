@@ -36,7 +36,7 @@ class FreelancerApi
             // 'from_time'=>$time
             ]     
         ];
-        $response = $this->sendRequest($mode['url']."projects/0.1/projects/all/?compact=1&user_details=1&full_description=1&hireme_details&number=10", 'GET', json_encode($body), $mode['key']);
+        $response = $this->sendRequest($mode['url']."projects/0.1/projects/all/?job_names%5B%5D=Writing%20%Content?compact=1&user_details=1&full_description=1&hireme_details&number=10", 'GET', json_encode($body), $mode['key']);
         return ($response);
     }
 
@@ -52,17 +52,17 @@ class FreelancerApi
         $body = [
             'filter'=> [
             'only_active'=>true,
-            'jobs'=>[17,335],
+            'jobs'=> [17,335],
             'languages'=>['en'],
             'search_query'=> 'content writing',
-            'project_statuses'=>['active'],
+            'project_statuses'=> ['active'],
             'limit'=>10,
             'offset'=>0,
             // 'from_time'=>$time
             ]     
         ];
         $mode =  $this->mode('live');
-        $response = $this->sendRequest($mode['url']."projects/0.1/jobs/search/?job_names%5B%5D=Writing&Content?compact=1&user_details=1&full_description=1&hireme_details", 'GET', json_encode($body), $mode['key']);
+        $response = $this->sendRequest($mode['url']."projects/0.1/jobs/search/?job_names%5B%5D=copywriting?compact=1&user_details=1&full_description=1&hireme_details", 'GET', json_encode($body), $mode['key']);
         return ($response);
     }
 

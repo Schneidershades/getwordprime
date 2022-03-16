@@ -42,12 +42,14 @@ class MarketplaceController extends Controller
     {
         $freelancer = new FreelancerApi; 
 
+        // return $freelancer->contentWritingJobs();
+        // return $freelancer->projects();
+
         foreach($freelancer->projects()->result->projects as $project){
 
             $item = FreelancerAd::where('project_id', $project->id)->first();
             
-            if($project->currency->country == "US"){
-
+            // if($project->currency->country == "US" ){
                 if($item == null){
                     $item = new FreelancerAd;
                     $item->project_id = $project->id;
@@ -65,6 +67,7 @@ class MarketplaceController extends Controller
                     $item->budget_high =  optional($project->budget)->maximum ? round($project->budget->maximum * $project->currency->exchange_rate) : 0;
                     $item->url =  'http://www.freelancer.com/projects/'.$project->seo_url;
                     $item->currency_id  =  $project->currency->id;
+                    $item->city  =  $project?->location?->city;
                     $item->currency_code  =  $project->currency->code;
                     $item->currency_sign  =  $project->currency->sign;
                     $item->currency_name  =  $project->currency->name;
@@ -76,7 +79,7 @@ class MarketplaceController extends Controller
                     $item->save();
                 }
 
-            }
+            // }
         }
 
         return $this->showAll(FreelancerAd::all());
