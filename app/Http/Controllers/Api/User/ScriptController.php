@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers\Api\User;
 
+use App\Models\Tone;
 use App\Models\Script;
+use App\Models\Language;
 use App\Models\ScriptType;
 use App\Models\ScriptResponse;
 use App\Models\UserScriptTypeTone;
@@ -114,25 +116,43 @@ class ScriptController extends Controller
             
 
         if($request['language_id']){
-            $userLanguage = UserScriptTypeLanguage::where('script_type_id', $request['script_type_id'])
-            ->where('user_id', auth()->user()->id)
-            ->where('language_id', $request['language_id'])
+            // $userLanguage = UserScriptTypeLanguage::where('script_type_id', $request['script_type_id'])
+            // ->where('user_id', auth()->user()->id)
+            // ->where('language_id', $request['language_id'])
+            // ->first();
+
+            // return $userLanguage->language->name;
+        
+            // if($userLanguage) {
+            //     $submissionToOpenAi .= 'Output the result in '.$userLanguage->language->name. " \n";
+            //     $submissionToOpenAi .= '""""""'. " \n";
+            // }
+
+            $userLanguage = Language::where('id', $request['language_id'])
             ->first();
         
             if($userLanguage) {
-                $submissionToOpenAi .= 'Output the result in '.$userLanguage->language->name. " \n";
+                $submissionToOpenAi .= 'Output the result in '.$userLanguage->name. " \n";
                 $submissionToOpenAi .= '""""""'. " \n";
             }
         }
         
         if($request['tone_id']){
-            $userTone = UserScriptTypeTone::where('script_type_id',  $request['script_type_id'])
-                ->where('user_id', auth()->user()->id)
-                ->where('tone_id', $request['tone_id'])
+            // $userTone = UserScriptTypeTone::where('script_type_id',  $request['script_type_id'])
+            //     ->where('user_id', auth()->user()->id)
+            //     ->where('tone_id', $request['tone_id'])
+            //     ->first();
+
+            // if($userTone) {
+            //     $submissionToOpenAi .= 'The tone for this should be '.$userTone->tone->name. " \n";
+            //     $submissionToOpenAi .= '""""""'. " \n";
+            // }
+
+            $userTone = Tone::where('id', $request['tone_id'])
                 ->first();
 
             if($userTone) {
-                $submissionToOpenAi .= 'The tone for this should be '.$userTone->tone->name. " \n";
+                $submissionToOpenAi .= 'The tone for this should be '.$userTone->name. " \n";
                 $submissionToOpenAi .= '""""""'. " \n";
             }
         }
