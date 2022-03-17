@@ -40,6 +40,7 @@ class DashboardController extends Controller
     {
         $data = [
             'campaigns' => auth()->user()->campaigns->count(),
+            'agencies' => auth()->user()->agencies->count(),
             'scripts' => auth()->user()->scripts->count(),
             'published' => auth()->user()->scripts->count(),
             'limit' => 50000,
