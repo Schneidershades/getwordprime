@@ -131,7 +131,7 @@ class ExportController extends Controller
     * )
     */
 
-    public function downloadScript($id)
+    public function downloadTextScript($id)
     {
         $script = Script::where('id', $id)->first();
 
