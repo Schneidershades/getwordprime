@@ -9,6 +9,7 @@ use App\Models\ScriptType;
 use App\Http\Controllers\Controller;
 use App\Models\UserScriptTypePreset;
 use App\Traits\Plugins\OpenAi\OpenAi;
+use Illuminate\Database\Eloquent\Builder;
 use App\Http\Requests\User\ScriptCreateFormRequest;
 use App\Http\Requests\User\ScriptUpdateFormRequest;
 
@@ -45,7 +46,16 @@ class ScriptController extends Controller
     */
     public function index()
     {
-        return $this->showAll(auth()->user()->scripts);
+        $search_query = request()->get('search') ? request()->get('search') : null;
+        
+        $scripts =  Script::query()
+                ->selectRaw('scripts.*')
+                ->when($search_query, function (Builder $builder, $search_query) {
+                    $builder->where('scripts.text', 'LIKE', "%{$search_query}%")
+                    ->orWhere('scripts.content', "%{$search_query}%");
+                })->latest()->get();
+
+        return $this->showAll($scripts);
     }
 
     /**
