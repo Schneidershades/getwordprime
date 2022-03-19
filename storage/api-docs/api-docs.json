@@ -3795,7 +3795,7 @@
                     "content": {
                         "application/json": {
                             "schema": {
-                                "$ref": "#/components/schemas/AgencyCreateFormRequest"
+                                "$ref": "#/components/schemas/AgencyCampaignCreateFormRequest"
                             }
                         }
                     }
@@ -7086,6 +7086,14 @@
                 "required": [
                     "name"
                 ],
+                "properties": {
+                    "words": {
+                        "title": "words ",
+                        "description": "words of the ads",
+                        "type": "string",
+                        "example": "Writing & Content"
+                    }
+                },
                 "type": "object"
             },
             "UpdateLanguageRequest": {
@@ -7408,6 +7416,14 @@
                         "example": "password"
                     }
                 },
+                "type": "object"
+            },
+            "AgencyCampaignCreateFormRequest": {
+                "title": "Agency Campaign Create Form Request Fields",
+                "description": "Agency Campaign Create request body data",
+                "required": [
+                    "name"
+                ],
                 "type": "object"
             },
             "AgencyCreateFormRequest": {

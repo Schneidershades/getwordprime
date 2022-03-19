@@ -18,7 +18,7 @@ class ScriptResource extends JsonResource
         return [
             'id' => $this->id,
             'content' => $this->content,
-            'text' => $this->text ? $this->text : 'This is a new version kindly generate another script' ,
+            'text' => $this->text ? $this->text : 'kindly adjust the frontend according to the new  api response then another script',
             'index' => $this->index,
             'favorite' => $this->favorite ? true : false,
             'script_type' => $this->scriptType?->name,
