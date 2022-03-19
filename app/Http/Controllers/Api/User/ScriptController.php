@@ -6,12 +6,9 @@ use App\Models\Tone;
 use App\Models\Script;
 use App\Models\Language;
 use App\Models\ScriptType;
-use App\Models\ScriptResponse;
-use App\Models\UserScriptTypeTone;
 use App\Http\Controllers\Controller;
 use App\Models\UserScriptTypePreset;
 use App\Traits\Plugins\OpenAi\OpenAi;
-use App\Models\UserScriptTypeLanguage;
 use App\Http\Requests\User\ScriptCreateFormRequest;
 use App\Http\Requests\User\ScriptUpdateFormRequest;
 
@@ -48,7 +45,7 @@ class ScriptController extends Controller
     */
     public function index()
     {
-        return $this->showAll(auth()->user()->scriptsResponses);
+        return $this->showAll(auth()->user()->scripts);
     }
 
     /**
@@ -168,15 +165,10 @@ class ScriptController extends Controller
             'object' => $generate->object,
             'created' => $generate->created,
             'model' => $generate->model,
-        ]);
-
-        ScriptResponse::create([
             'text' => $generate->choices[0]->text,
-            'script_id' => $script->id,
             'user_id' => auth()->user()->id,
             'word_count' => str_word_count($generate->choices[0]->text),
         ]);
-        
 
         return $this->showOne($script);
     }
@@ -223,10 +215,7 @@ class ScriptController extends Controller
     */
 
     public function show(Script $script)
-    {
-        // $openai = new OpenAi();
-        // return $openai->request("ada", "This is a test", 5);
-        
+    {        
         return $this->showOne(auth()->user()->scripts->where('id', $script->id)->first());
     }
 

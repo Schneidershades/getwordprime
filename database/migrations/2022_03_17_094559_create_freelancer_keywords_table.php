@@ -15,6 +15,7 @@ class CreateFreelancerKeywordsTable extends Migration
     {
         Schema::create('freelancer_keywords', function (Blueprint $table) {
             $table->id();
+            $table->string('words')->nullable();
             $table->timestamps();
         });
     }

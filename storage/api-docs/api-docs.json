@@ -523,6 +523,132 @@
                 ]
             }
         },
+        "/api/v1/admin/freelancer-keyword": {
+            "get": {
+                "tags": [
+                    "Admin"
+                ],
+                "summary": "Get languages",
+                "description": "Get languages",
+                "operationId": "allFreelancerKeyword",
+                "responses": {
+                    "200": {
+                        "description": "Successful signin",
+                        "content": {
+                            "application/json": {}
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    },
+                    "401": {
+                        "description": "unauthenticated"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        },
+        "/api/v1/admin/freelancer-keyword/{id}": {
+            "get": {
+                "tags": [
+                    "Admin"
+                ],
+                "summary": "Show freelancer-keyword",
+                "description": "Show freelancer-keyword",
+                "operationId": "showFreelancerKeyword",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "freelancer-keyword ID",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful signin",
+                        "content": {
+                            "application/json": {}
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    },
+                    "401": {
+                        "description": "unauthenticated"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            },
+            "put": {
+                "tags": [
+                    "Admin"
+                ],
+                "summary": "Update freelancer-keyword",
+                "description": "Update freelancer-keyword",
+                "operationId": "updateFreelancerKeyword",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "role ID",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/UpdateLanguageRequest"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Successful signin",
+                        "content": {
+                            "application/json": {}
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    },
+                    "401": {
+                        "description": "unauthenticated"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        },
         "/api/v1/admin/languages": {
             "get": {
                 "tags": [
@@ -6952,6 +7078,14 @@
                         "example": "https://www.youtube.com/watch?v=syJHxlJWGrk"
                     }
                 },
+                "type": "object"
+            },
+            "UpdateFreelancerKeywordRequest": {
+                "title": "Freelancer Keyword Update Form Request Fields",
+                "description": "Freelancer Keyword Update request body data",
+                "required": [
+                    "name"
+                ],
                 "type": "object"
             },
             "UpdateLanguageRequest": {

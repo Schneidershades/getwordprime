@@ -3,10 +3,11 @@
 namespace App\Http\Controllers\Api\Admin;
 
 use App\Models\User;
+use App\Events\User\NewUserEvent;
 use App\Http\Controllers\Controller;
+use Illuminate\Database\Eloquent\Builder;
 use App\Http\Requests\Admin\UserCreateFormRequest;
 use App\Http\Requests\Admin\UserUpdateFormRequest;
-use Illuminate\Database\Eloquent\Builder;
 
 class UserController extends Controller
 {
@@ -94,6 +95,8 @@ class UserController extends Controller
         $user = User::create($request->validated());
 
         $user->plans()->sync($request['plans']);
+
+        event(new NewUserEvent($user, $request['password']));
 
         return $this->showOne($user);
     }

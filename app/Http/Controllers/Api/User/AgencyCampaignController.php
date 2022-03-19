@@ -2,8 +2,9 @@
 
 namespace App\Http\Controllers\Api\User;
 
-use App\Http\Controllers\Controller;
 use App\Models\AgencyCampaign;
+use App\Http\Controllers\Controller;
+use App\Http\Requests\User\AgencyCampaignCreateFormRequest;
 
 class AgencyCampaignController extends Controller
 {
@@ -36,9 +37,10 @@ class AgencyCampaignController extends Controller
     *      security={ {"bearerAuth": {}} },
     * )
     */
-    public function index()
+    public function index($id)
     {
-        return $this->showAll(auth()->user()->agencies);
+        $campaigns = AgencyCampaign::where('agency_id', $id)->get();
+        return $this->showAll($campaigns);
     }
 
     /**
@@ -50,7 +52,7 @@ class AgencyCampaignController extends Controller
     *      description="Post new agencies",
     *      @OA\RequestBody(
     *          required=true,
-    *          @OA\JsonContent(ref="#/components/schemas/AgencyCreateFormRequest")
+    *          @OA\JsonContent(ref="#/components/schemas/AgencyCampaignCreateFormRequest")
     *      ),
     *      @OA\Response(
     *          response=200,
@@ -74,7 +76,7 @@ class AgencyCampaignController extends Controller
     *      security={ {"bearerAuth": {}} },
     * )
     */
-    public function store(AgencyCampaignCreateFormRequest $request)
+    public function store(AgencyCampaignCreateFormRequest $request, $id)
     {
         $agency = auth()->user()->agencies()->create($request->validated());
 

@@ -1,11 +1,9 @@
 <?php
 
-namespace App\Http\Controllers\Api\Admin;
+namespace App\Http\Controllers\Api\User;
 
 use App\Models\Tone;
 use App\Http\Controllers\Controller;
-use App\Http\Requests\Admin\StoreToneRequest;
-use App\Http\Requests\Admin\UpdateToneRequest;
 
 class ToneController extends Controller
 {

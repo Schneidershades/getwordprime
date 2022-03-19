@@ -37,7 +37,6 @@ Route::prefix('v1')->group(function () {
 		Route::resource('user-script-type-presets', UserScriptTypePresetController::class);
 		Route::resource('script-type-presets', ScriptTypePresetController::class);
 		Route::resource('platform-integrations', PlatformIntegrationController::class);
-		Route::resource('favorite-flag-responses', FavoriteFlagResponseController::class);
 		Route::resource('marketplace', MarketplaceController::class);
 		Route::resource('marketplace-saved', MarketplaceProjectController::class);
 		Route::get('user-select-script-type/{id}', 'UserSelectScriptTypeController@show');
@@ -56,10 +55,9 @@ Route::prefix('v1')->group(function () {
 	Route::group(['prefix' => 'admin', 'middleware' => 'auth:api', 'namespace' => 'Api\Admin'], function(){
 		Route::resource('plans', PlanController::class, array("as"=>"adminPlans"));
 		Route::resource('agencies', AgencyController::class, array("as"=>"adminAgencies"));
-		Route::resource('attributes', AttributeController::class, array("as"=>"adminAttributes"));
 		Route::resource('campaigns', CampaignController::class, array("as"=>"adminCampaigns"));
 		Route::resource('reseller', ResellerController::class, array("as"=>"adminResellers"));
-		Route::resource('scripts', ScriptController::class, array("as"=>"adminScripts"));
+		// Route::resource('scripts', ScriptController::class, array("as"=>"adminScripts"));
 		Route::resource('roles', RoleController::class, array("as"=>"adminRoles"));
 		Route::resource('script-type-attributes', ScriptTypeAttributeController::class, array("as"=>"adminScriptTypeAttribute"));
 		Route::resource('script-type', ScriptTypeController::class, array("as"=>"adminScriptType"));
@@ -76,6 +74,7 @@ Route::prefix('v1')->group(function () {
 		Route::resource('script-type-categories', ScriptTypeCategoryController::class, array("as"=>"adminScriptTypeCategories"));
 		Route::resource('tones',ToneController::class, array("as"=>"adminTones"));
 		Route::resource('languages', LanguageController::class, array("as"=>"adminLanguages"));
+		Route::resource('freelancer-keyword', FreelanceKeywordController::class, array("as"=>"adminFreelanceKeyword"));
 	});
 
 	Route::resource('script-test', Api\User\ScriptTestingController::class);

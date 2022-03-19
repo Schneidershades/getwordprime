@@ -1,11 +1,9 @@
 <?php
 
-namespace App\Http\Controllers\Api\Admin;
+namespace App\Http\Controllers\Api\User;
 
 use App\Models\Language;
 use App\Http\Controllers\Controller;
-use App\Http\Requests\Admin\StoreLanguageRequest;
-use App\Http\Requests\Admin\UpdateLanguageRequest;
 
 class LanguageController extends Controller
 {
