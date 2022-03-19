@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Api\User;
 
 use App\Models\FreelancerAd;
 use App\Http\Controllers\Controller;
+use App\Models\FreelancerKeyword;
 use App\Traits\Plugins\FreelancerApi;
 
 class MarketplaceController extends Controller
@@ -41,11 +42,12 @@ class MarketplaceController extends Controller
     public function index()
     {
         $freelancer = new FreelancerApi; 
+        $keyword = FreelancerKeyword::first(); 
 
         // return $freelancer->contentWritingJobs();
         // return $freelancer->projects();
 
-        foreach($freelancer->projects()->result->projects as $project){
+        foreach($freelancer->projects($keyword->words)->result->projects as $project){
 
             $item = FreelancerAd::where('project_id', $project->id)->first();
             

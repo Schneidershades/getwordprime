@@ -21,7 +21,7 @@ class FreelancerApi
         }
     }
 
-    public function projects()
+    public function projects($keyword)
     { 
         $mode =  $this->mode('live');
         $body = [
@@ -29,7 +29,7 @@ class FreelancerApi
             'only_active'=>true,
             'jobs'=>[17,335],
             'languages'=>['en'],
-            'search_query'=> 'Writing & Content',
+            'search_query'=> $keyword,
             'project_statuses'=>['active'],
             'limit'=>10,
             'offset'=>0,
