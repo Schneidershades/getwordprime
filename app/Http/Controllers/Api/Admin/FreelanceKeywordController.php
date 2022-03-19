@@ -39,7 +39,7 @@ class FreelanceKeywordController extends Controller
     */
     public function index()
     {
-        return $this->showAll(FreelancerKeyword::first());
+        return $this->showOne(FreelancerKeyword::first());
     }
 
     /**
