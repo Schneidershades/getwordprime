@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers\Api\ExportImport;
 
-use App\Http\Controllers\Controller;
+use App\Models\Script;
 use Illuminate\Http\Request;
+use Illuminate\Http\Response;
+use App\Http\Controllers\Controller;
 
 class ExportController extends Controller
 {
@@ -90,12 +92,59 @@ class ExportController extends Controller
         return (new $namespace)->download($fileName);
     }
 
-    public function downloadScript()
+     /**
+    * @OA\Get(
+    *      path="/api/v1/export/text/script/{id}",
+    *      operationId="searchParts",
+    *      tags={"Shared"},
+    *      summary="searchParts",
+    *      description="searchParts",
+    *      @OA\Parameter(
+    *          name="id",
+    *          description="The defined script id",
+    *          required=false,
+    *          in="path",
+    *          @OA\Schema(
+    *              type="integer"
+    *          )
+    *      ),
+    *      @OA\Response(
+    *          response=200,
+    *          description="Successful signin",
+    *          @OA\MediaType(
+    *             mediaType="application/json",
+    *         ),
+    *      ),
+    *      @OA\Response(
+    *          response=400,
+    *          description="Bad Request"
+    *      ),
+    *      @OA\Response(
+    *          response=401,
+    *          description="unauthenticated",
+    *      ),
+    *      @OA\Response(
+    *          response=403,
+    *          description="Forbidden"
+    *      ),
+    *      security={ {"bearerAuth": {}} },
+    * )
+    */
+
+    public function downloadScript($id)
     {
-	//   $data = ;
+        $script = Script::where('id', $id)->first();
+
+	    $data = $script->text;
+
+        $fileName = $script->scriptType?->name .'_'.$script->id ."_script.txt";
+
+        $headers = [
+            'Content-type' => 'text/plain', 
+            'Content-Disposition' => sprintf('attachment; filename="%s"', $fileName),
+            'Content-Length' => strlen($data)
+        ];   
+        return Response::make($data, 200, $headers);
 	  
-    //   $jsongFile = time() . '_file.json';
-	//   File::put(public_path('/upload/json/'.$jsongFile), $data);
-	//   return Response::download(public_path('/upload/jsonfile/'.$jsongFile));
 	}
 }
