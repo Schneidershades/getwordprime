@@ -144,9 +144,6 @@ class ExportController extends Controller
             'Content-Disposition' => sprintf('attachment; filename="%s"', $fileName),
             'Content-Length' => strlen($data)
         ];   
-        return Response::make($data, 200, $headers);
-
-        
-	  
+        return Response::make($data, 200, $headers);	  
 	}
 }
