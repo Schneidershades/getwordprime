@@ -4,8 +4,8 @@ namespace App\Http\Controllers\Api\ExportImport;
 
 use App\Models\Script;
 use Illuminate\Http\Request;
-use Illuminate\Http\Response;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Response;
 
 class ExportController extends Controller
 {
@@ -145,6 +145,8 @@ class ExportController extends Controller
             'Content-Length' => strlen($data)
         ];   
         return Response::make($data, 200, $headers);
+
+        
 	  
 	}
 }
