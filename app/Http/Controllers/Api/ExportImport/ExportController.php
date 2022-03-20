@@ -135,6 +135,10 @@ class ExportController extends Controller
     {
         $script = Script::where('id', $id)->first();
 
+        if(!$script){
+            return $this->errorResponse('script not found', 404);
+        }
+
 	    $data = $script->text;
 
         $fileName = $script->scriptType?->name .'_'.$script->id ."_script.txt";
