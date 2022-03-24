@@ -84,6 +84,6 @@ class MarketplaceController extends Controller
             // }
         }
 
-        return $this->showAll(FreelancerAd::all());
+        return $this->showAll(FreelancerAd::latest()->get());
     }
 }
