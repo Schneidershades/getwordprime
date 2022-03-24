@@ -267,7 +267,7 @@ class ScriptTypeCreateFormRequest extends FormRequest
     {
         return [
             'name' => 'required|string',
-            'icon' => 'nullable|file|max:2048',
+            // 'icon' => 'nullable|file|max:2048',
             'prompt_1' => 'nullable|string',
             'prompt_2' => 'nullable|string',
             'description' => 'nullable|string',
@@ -284,6 +284,10 @@ class ScriptTypeCreateFormRequest extends FormRequest
             'top_p' => 'nullable',
             'engine' => 'nullable',
             'script_type_category_id' => 'required|int|exists:script_type_categories,id',
+
+
+            'icon' => 'nullable|array',
+            'icon.*' => 'nullable|max:2048',  
 
             'script_type_presets' => 'array', 
             'script_type_presets.*.script_type_id' => 'nullable|int|exists:script_types,id',
