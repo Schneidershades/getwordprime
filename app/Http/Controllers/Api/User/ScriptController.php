@@ -52,6 +52,7 @@ class ScriptController extends Controller
                 ->selectRaw('scripts.*')
                 ->when($search_query, function (Builder $builder, $search_query) {
                     $builder->where('scripts.text', 'LIKE', "%{$search_query}%")
+                    ->where('scripts.user_id', 'LIKE', auth()->user()->id)
                     ->orWhere('scripts.content', "%{$search_query}%");
                 })->latest()->get();
 
