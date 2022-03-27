@@ -165,9 +165,6 @@ class ScriptController extends Controller
             'object' => $generate->object,
             'created' => $generate->created,
             'model' => $generate->model,
-            'text' => $generate->choices[0]->text,
-            'user_id' => auth()->user()->id,
-            'word_count' => str_word_count($generate->choices[0]->text),
         ]);
 
         ScriptResponse::create([
