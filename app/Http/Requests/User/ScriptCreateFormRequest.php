@@ -63,15 +63,27 @@ class ScriptCreateFormRequest extends FormRequest
 
     /**
      * @OA\Property(
-     *      title="user language id",
+     *      title="input language id",
      *      description="Initial related id of the language",
      *      example="1"
      * )
      *
      * @var int
      */
-    public $language_id;
+    public $output_language_id;
     
+    
+
+    /**
+     * @OA\Property(
+     *      title="output language id",
+     *      description="Initial related id of the language",
+     *      example="1"
+     * )
+     *
+     * @var int
+     */
+    public $input_language_id;
     
 
     /**
@@ -96,7 +108,8 @@ class ScriptCreateFormRequest extends FormRequest
             'script_type_id' => 'required|int|exists:script_types,id',
             'campaign_id' => 'nullable|int|exists:campaigns,id',
             'tone_id' => 'nullable|int|exists:tones,id',
-            'language_id' => 'nullable|int|exists:languages,id',
+            'input_language_id' => 'nullable|int|exists:languages,id',
+            'output_language_id' => 'nullable|int|exists:languages,id',
         ];
     }
 }
