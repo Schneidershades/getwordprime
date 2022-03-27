@@ -96,6 +96,7 @@ class ScriptTypeController extends Controller
     {
         $model = ScriptType::create([
             'name' => $request['name'],
+            'icon' => $request['icon'],
             'script_type_category_id' => $request['script_type_category_id'],
             'prompt_1' => $request['prompt_1'],
             'prompt_2' => $request['prompt_2'],
@@ -114,35 +115,35 @@ class ScriptTypeController extends Controller
             'engine' => $request['engine'],
         ]);
 
-        if($request['script_type_presets']){
-            foreach($request['script_type_presets'] as $preset){
-                $model->presets()->create($preset);
-            }
-        }
+        // if($request['script_type_presets']){
+        //     foreach($request['script_type_presets'] as $preset){
+        //         $model->presets()->create($preset);
+        //     }
+        // }
 
-        if ($request->has('icon')) {
-            foreach ($request['icon'] as $image) {
-                if (gettype($image) != "integer") {
+        // if ($request->has('icon')) {
+        //     foreach ($request['icon'] as $image) {
+        //         if (gettype($image) != "integer") {
 
-                    // $path = $this->uploadImage($image, "icon");
+        //             // $path = $this->uploadImage($image, "icon");
 
-                    $path = ImageHelper::uploadAnything($image, "icon");
+        //             $path = ImageHelper::uploadAnything($image, "icon");
 
-                    $model->iconImage()->create([
-                        'file_path' => $path,
-                    ]);
+        //             $model->iconImage()->create([
+        //                 'file_path' => $path,
+        //             ]);
 
-                } else {
+        //         } else {
 
-                    $media = Media::where('id', $image)->first();
+        //             $media = Media::where('id', $image)->first();
 
-                    $media->update([
-                        'fileable_id' => $model->id,
-                        'fileable_type' => $model->getMorphClass(),
-                    ]);
-                }
-            }
-        }
+        //             $media->update([
+        //                 'fileable_id' => $model->id,
+        //                 'fileable_type' => $model->getMorphClass(),
+        //             ]);
+        //         }
+        //     }
+        // }
 
         return $this->showOne($model);
     }
@@ -243,6 +244,7 @@ class ScriptTypeController extends Controller
 
         $model->update([
             'name' => $request['name'],
+            'icon' => $request['icon'],
             'script_type_category_id' => $request['script_type_category_id'],
             'prompt_1' => $request['prompt_1'],
             'prompt_2' => $request['prompt_2'],
@@ -270,29 +272,29 @@ class ScriptTypeController extends Controller
             }
         }
 
-        if ($request->has('icon')) {
-            foreach ($request['icon'] as $image) {
-                if (gettype($image) != "integer") {
+        // if ($request->has('icon')) {
+        //     foreach ($request['icon'] as $image) {
+        //         if (gettype($image) != "integer") {
 
-                    // $path = $this->uploadImage($image, "icon");
+        //             // $path = $this->uploadImage($image, "icon");
 
-                    $path = ImageHelper::uploadAnything($image, "icon");
+        //             $path = ImageHelper::uploadAnything($image, "icon");
 
-                    $model->iconImage()->create([
-                        'file_path' => $path,
-                    ]);
+        //             $model->iconImage()->create([
+        //                 'file_path' => $path,
+        //             ]);
 
-                } else {
+        //         } else {
 
-                    $media = Media::where('id', $image)->first();
+        //             $media = Media::where('id', $image)->first();
 
-                    $media->update([
-                        'fileable_id' => $model->id,
-                        'fileable_type' => $model->getMorphClass(),
-                    ]);
-                }
-            }
-        }
+        //             $media->update([
+        //                 'fileable_id' => $model->id,
+        //                 'fileable_type' => $model->getMorphClass(),
+        //             ]);
+        //         }
+        //     }
+        // }
 
         return $this->showOne($model);
     }

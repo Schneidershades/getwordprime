@@ -26,6 +26,17 @@ class ScriptTypeCreateFormRequest extends FormRequest
      * @var string
      */
     public $name;
+    
+    /**
+     * @OA\Property(
+     *      title="script icon",
+     *      description="icon of the script type",
+     *      example="http://cnicen.com"
+     * )
+     *
+     * @var string
+     */
+    public $icon;
 
     /**
      * @OA\Property(
@@ -220,19 +231,6 @@ class ScriptTypeCreateFormRequest extends FormRequest
     public $tone;
 
 
-
-    /**
-     * @OA\Property(
-     *      title="send array of images",
-     *      description="send array of images",
-     *      example="[4]"
-     * )
-     *
-     * @var string
-     */
-    public $icon;
-
-
     
     /**
     *       @OA\Property(property="script_type_presets", type="object", type="array",
@@ -267,7 +265,7 @@ class ScriptTypeCreateFormRequest extends FormRequest
     {
         return [
             'name' => 'required|string',
-            // 'icon' => 'nullable|file|max:2048',
+            'icon' => 'nullable|file|max:2048',
             'prompt_1' => 'nullable|string',
             'prompt_2' => 'nullable|string',
             'description' => 'nullable|string',
@@ -285,9 +283,8 @@ class ScriptTypeCreateFormRequest extends FormRequest
             'engine' => 'nullable',
             'script_type_category_id' => 'required|int|exists:script_type_categories,id',
 
-
-            'icon' => 'nullable|array',
-            'icon.*' => 'nullable|max:2048',  
+            // 'icon' => 'nullable|array',
+            // 'icon.*' => 'nullable|max:2048',  
 
             'script_type_presets' => 'array', 
             'script_type_presets.*.script_type_id' => 'nullable|int|exists:script_types,id',
