@@ -18,13 +18,7 @@ class ScriptResource extends JsonResource
         return [
             'id' => $this->id,
             'content' => $this->content,
-            'text' => $this->text ? $this->text : 'kindly adjust the frontend according to the new  api response then generate another script',
-            'index' => $this->index,
-            'favorite' => $this->favorite ? true : false,
-            'script_type' => $this->scriptType?->name,
-            'logprobs' => $this->logprobs,
-            'finish_reason' => $this->finish_reason,
-            'word_count' => $this->word_count,
+            'scriptResponses' => ScriptResponseResource::collection($this->scriptResponses),
             'created_at' => $this->created_at,
             'updated_at' => $this->updated_at,
         ];

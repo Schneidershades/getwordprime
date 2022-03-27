@@ -6,6 +6,7 @@ use App\Models\Tone;
 use App\Models\Script;
 use App\Models\Language;
 use App\Models\ScriptType;
+use App\Models\ScriptResponse;
 use App\Http\Controllers\Controller;
 use App\Models\UserScriptTypePreset;
 use App\Traits\Plugins\OpenAi\OpenAi;
@@ -167,6 +168,11 @@ class ScriptController extends Controller
             'text' => $generate->choices[0]->text,
             'user_id' => auth()->user()->id,
             'word_count' => str_word_count($generate->choices[0]->text),
+        ]);
+
+        ScriptResponse::create([
+            'text' => $generate->choices[0]->text,
+            'script_id' => $script->id,
         ]);
 
         return $this->showOne($script);
