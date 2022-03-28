@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Api\ExportImport;
 
 use App\Models\Script;
 use Illuminate\Http\Request;
+use App\Models\ScriptResponse;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Response;
 
@@ -94,11 +95,11 @@ class ExportController extends Controller
 
      /**
     * @OA\Get(
-    *      path="/api/v1/export/text/script/{id}",
-    *      operationId="searchParts",
+    *      path="/api/v1/export/text/script-response/{id}",
+    *      operationId="exportOne",
     *      tags={"Shared"},
-    *      summary="searchParts",
-    *      description="searchParts",
+    *      summary="exportOne",
+    *      description="exportOne",
     *      @OA\Parameter(
     *          name="id",
     *          description="The defined script id",
@@ -131,9 +132,9 @@ class ExportController extends Controller
     * )
     */
 
-    public function downloadTextScript($id)
+    public function downloadTextScriptResponse($id)
     {
-        $script = Script::where('id', $id)->first();
+        $script = ScriptResponse::where('id', $id)->first();
 
         if(!$script){
             return $this->errorResponse('script not found', 404);
@@ -148,6 +149,76 @@ class ExportController extends Controller
             'Content-Disposition' => sprintf('attachment; filename="%s"', $fileName),
             'Content-Length' => strlen($data)
         ];   
+        return Response::make($data, 200, $headers);	  
+	}
+
+
+    
+
+     /**
+    * @OA\Get(
+    *      path="/api/v1/export/text/download/all-script-responses/{id}",
+    *      operationId="exportAll",
+    *      tags={"Shared"},
+    *      summary="exportAll",
+    *      description="exportAll",
+    *      @OA\Parameter(
+    *          name="id",
+    *          description="The defined script id",
+    *          required=false,
+    *          in="path",
+    *          @OA\Schema(
+    *              type="integer"
+    *          )
+    *      ),
+    *      @OA\Response(
+    *          response=200,
+    *          description="Successful signin",
+    *          @OA\MediaType(
+    *             mediaType="application/json",
+    *         ),
+    *      ),
+    *      @OA\Response(
+    *          response=400,
+    *          description="Bad Request"
+    *      ),
+    *      @OA\Response(
+    *          response=401,
+    *          description="unauthenticated",
+    *      ),
+    *      @OA\Response(
+    *          response=403,
+    *          description="Forbidden"
+    *      ),
+    *      security={ {"bearerAuth": {}} },
+    * )
+    */
+    public function downloadTextScript($id)
+    {
+        $script = Script::where('id', $id)->first();
+
+	    $data = "";
+
+        $data .= $script->scriptType?->name .' '.$script->scriptType?->name . "\n\n";
+
+
+        if(!$script){
+            return $this->errorResponse('script not found', 404);
+        }
+
+        foreach($script->scriptResponses as $res){
+            $data .= "$res->text";
+            $data .=  "\n\n";
+        }
+
+        $fileName = $script->scriptType?->name .'_'.$script->id ."_script.txt";
+
+        $headers = [
+            'Content-type' => 'text/plain', 
+            'Content-Disposition' => sprintf('attachment; filename="%s"', $fileName),
+            'Content-Length' => strlen($data)
+        ];   
+
         return Response::make($data, 200, $headers);	  
 	}
 }

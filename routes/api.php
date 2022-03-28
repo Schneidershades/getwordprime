@@ -50,7 +50,8 @@ Route::prefix('v1')->group(function () {
 
 	Route::group(['prefix' => 'export', /*'middleware' => 'auth:api',*/ 'namespace' => 'Api\ExportImport'], function(){
 		Route::get('/excel/model', 'ExportController@export');
-		Route::get('/text/script/{id}', 'ExportController@downloadTextScript');
+		Route::get('/text/script-response/{id}', 'ExportController@downloadTextScriptResponse');
+		Route::get('/text/download/all-script-responses/{id}', 'ExportController@downloadTextScript');
 	});
 
 	Route::group(['prefix' => 'admin', 'middleware' => 'auth:api', 'namespace' => 'Api\Admin'], function(){

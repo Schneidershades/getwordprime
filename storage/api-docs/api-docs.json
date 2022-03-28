@@ -3720,14 +3720,57 @@
                 ]
             }
         },
-        "/api/v1/export/text/script/{id}": {
+        "/api/v1/export/text/script-response/{id}": {
             "get": {
                 "tags": [
                     "Shared"
                 ],
-                "summary": "searchParts",
-                "description": "searchParts",
-                "operationId": "searchParts",
+                "summary": "exportOne",
+                "description": "exportOne",
+                "operationId": "exportOne",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "The defined script id",
+                        "required": false,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful signin",
+                        "content": {
+                            "application/json": {}
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    },
+                    "401": {
+                        "description": "unauthenticated"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        },
+        "/api/v1/export/text/download/all-script-responses/{id}": {
+            "get": {
+                "tags": [
+                    "Shared"
+                ],
+                "summary": "exportAll",
+                "description": "exportAll",
+                "operationId": "exportAll",
                 "parameters": [
                     {
                         "name": "id",
