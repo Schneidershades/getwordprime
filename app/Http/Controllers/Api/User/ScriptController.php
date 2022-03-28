@@ -49,11 +49,16 @@ class ScriptController extends Controller
     {
         $search_query = request()->get('search') ? request()->get('search') : null;
         
-        $scripts =  Script::query()
-                ->selectRaw('scripts.*')
-                ->where('scripts.user_id', '=', auth()->user()->id)
+        $scripts =  ScriptResponse::query()
+                ->selectRaw('script_responses.*')
+                ->selectRaw('scripts.content AS script_content')
+                ->selectRaw('script_types.name AS script_type_name')
+                ->leftJoin('scripts', 'scripts.id', '=', 'script_responses.script_id')
+                ->leftJoin('script_types', 'script_types.id', '=', 'script_responses.script_type_id')
+                ->where('script_responses.user_id', '=', auth()->user()->id)
                 ->when($search_query, function (Builder $builder, $search_query) {
-                    $builder->where('scripts.text', 'LIKE', "%{$search_query}%")
+                    $builder->where('script_responses.text', 'LIKE', "%{$search_query}%")
+                    ->orWhere('script_types.name', 'LIKE', "%{$search_query}%")
                     ->orWhere('scripts.content', "%{$search_query}%");
                 })->latest()->get();
 

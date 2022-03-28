@@ -6642,6 +6642,12 @@
                         "type": "string",
                         "example": "Info Limited"
                     },
+                    "icon": {
+                        "title": "script icon",
+                        "description": "icon of the script type",
+                        "type": "string",
+                        "example": "http://cnicen.com"
+                    },
                     "prompt_1": {
                         "title": "script type prompt 1",
                         "description": "prompt 1 of the script type",
@@ -6737,12 +6743,6 @@
                         "description": "tone of the script type",
                         "type": "boolean",
                         "example": "Funny"
-                    },
-                    "icon": {
-                        "title": "send array of images",
-                        "description": "send array of images",
-                        "type": "string",
-                        "example": "[4]"
                     },
                     "script_type_presets": {
                         "type": "array",
@@ -6847,6 +6847,12 @@
                         "description": "name of the script type",
                         "type": "string",
                         "example": "Info Limited"
+                    },
+                    "icon": {
+                        "title": "script icon",
+                        "description": "icon of the script type",
+                        "type": "string",
+                        "example": "http://cnicen.com"
                     },
                     "prompt_1": {
                         "title": "script type prompt 1",
@@ -6971,12 +6977,6 @@
                             },
                             "type": "object"
                         }
-                    },
-                    "icon": {
-                        "title": "send array of images",
-                        "description": "send array of images",
-                        "type": "string",
-                        "example": "[4]"
                     }
                 },
                 "type": "object"
@@ -7702,8 +7702,14 @@
                         "type": "integer",
                         "example": "1"
                     },
-                    "language_id": {
-                        "title": "user language id",
+                    "output_language_id": {
+                        "title": "input language id",
+                        "description": "Initial related id of the language",
+                        "type": "integer",
+                        "example": "1"
+                    },
+                    "input_language_id": {
+                        "title": "output language id",
                         "description": "Initial related id of the language",
                         "type": "integer",
                         "example": "1"
