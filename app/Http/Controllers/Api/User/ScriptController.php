@@ -130,7 +130,7 @@ class ScriptController extends Controller
             
 
         if($request['input_language_id']){
-            $userLanguage = Language::where('id', $request['language_id'])
+            $userLanguage = Language::where('id', $request['input_language_id'])
             ->first();
         
             if($userLanguage) {
@@ -140,7 +140,7 @@ class ScriptController extends Controller
         }
 
         if($request['output_language_id']){
-            $userLanguage = Language::where('id', $request['language_id'])
+            $userLanguage = Language::where('id', $request['output_language_id'])
             ->first();
         
             if($userLanguage) {

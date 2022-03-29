@@ -211,7 +211,7 @@ class ExportController extends Controller
             $data .=  "\n\n";
         }
 
-        $fileName = $script->scriptType?->name .'_'.$script->id ."_script.txt";
+        $fileName = $script?->scriptType?->name .'_'.$script->id ."_script.txt";
 
         $headers = [
             'Content-type' => 'text/plain', 
