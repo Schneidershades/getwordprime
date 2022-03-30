@@ -24,6 +24,7 @@ Route::prefix('v1')->group(function () {
 		Route::resource('tones', ToneController::class);
 		Route::resource('languages', LanguageController::class);
 		Route::resource('agencies', AgencyController::class);
+		Route::resource('agency-files', AgencyFileController::class);
 		Route::resource('bonuses', BonusController::class);
 		Route::resource('campaigns', CampaignController::class);
 		Route::resource('reseller', ResellerController::class);
@@ -57,6 +58,7 @@ Route::prefix('v1')->group(function () {
 	Route::group(['prefix' => 'admin', 'middleware' => 'auth:api', 'namespace' => 'Api\Admin'], function(){
 		Route::resource('plans', PlanController::class, array("as"=>"adminPlans"));
 		Route::resource('agencies', AgencyController::class, array("as"=>"adminAgencies"));
+		Route::resource('agency-files', AgencyFileController::class, array("as"=>"adminAgencyFiles"));
 		Route::resource('campaigns', CampaignController::class, array("as"=>"adminCampaigns"));
 		Route::resource('reseller', ResellerController::class, array("as"=>"adminResellers"));
 		// Route::resource('scripts', ScriptController::class, array("as"=>"adminScripts"));
