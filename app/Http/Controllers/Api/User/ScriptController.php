@@ -175,6 +175,7 @@ class ScriptController extends Controller
         ScriptResponse::create([
             'text' => $generate->choices[0]->text,
             'script_id' => $script->id,
+            'script_type_id' => $request['script_type_id'],
         ]);
 
         return $this->showOne($script);
