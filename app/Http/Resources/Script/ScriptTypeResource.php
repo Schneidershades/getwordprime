@@ -20,7 +20,7 @@ class ScriptTypeResource extends JsonResource
             'name' => $this->name,
             'tone' => $this->tone,
             'language' => $this->language,
-            'icon' => $this->iconImage ? $this->iconImage->file_url : null,
+            'icon' => $this->icon,
             'prompt_1' => $this->prompt_1,
             'prompt_2' => $this->prompt_2,
             'description' => $this->description,
