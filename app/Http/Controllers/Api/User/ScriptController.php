@@ -176,6 +176,8 @@ class ScriptController extends Controller
             'text' => $generate->choices[0]->text,
             'script_id' => $script->id,
             'script_type_id' => $request['script_type_id'],
+            'user_id' => auth()->user()->id,
+            'word_count' => str_word_count($generate->choices[0]->text),
         ]);
 
         return $this->showOne($script);

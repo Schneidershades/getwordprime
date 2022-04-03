@@ -44,7 +44,7 @@ class DashboardController extends Controller
             'scripts' => auth()->user()->scripts->count(),
             'published' => auth()->user()->scripts->count(),
             'limit' => 50000,
-            'script_words_generated' => auth()->user()->scriptResponses->sum('word_count'),
+            'script_words_generated' => auth()->user()->scriptsResponses->sum('word_count'),
             'video' => Tutorial::first(),
         ];
 
