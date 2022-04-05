@@ -265,7 +265,7 @@ class ScriptTypeCreateFormRequest extends FormRequest
     {
         return [
             'name' => 'required|string',
-            'icon' => 'nullable|file|max:2048',
+            'icon' => 'required|string',
             'prompt_1' => 'nullable|string',
             'prompt_2' => 'nullable|string',
             'description' => 'nullable|string',
