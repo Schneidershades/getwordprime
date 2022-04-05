@@ -115,11 +115,11 @@ class ScriptTypeController extends Controller
             'engine' => $request['engine'],
         ]);
 
-        // if($request['script_type_presets']){
-        //     foreach($request['script_type_presets'] as $preset){
-        //         $model->presets()->create($preset);
-        //     }
-        // }
+        if($request['script_type_presets']){
+            foreach($request['script_type_presets'] as $preset){
+                $model->presets()->create($preset);
+            }
+        }
 
         // if ($request->has('icon')) {
         //     foreach ($request['icon'] as $image) {
