@@ -77,7 +77,7 @@ class UserSelectScriptTypeController extends Controller
         $findAllUserPresets = UserScriptTypePreset::where('user_id', auth()->user()->id)
                     ->where('script_type_id', $scriptType->id)
                     ->whereIn('script_type_preset_id', $questionAddIds)
-                    ->latest();
+                    ->latest()->get();
 
         return $this->showAll($findAllUserPresets);
         
