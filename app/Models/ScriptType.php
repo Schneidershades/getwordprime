@@ -18,7 +18,7 @@ class ScriptType extends Model
 
     public function presets()
     {
-        return $this->hasMany(ScriptTypePreset::class)->orderBy('id', 'DESC');
+        return $this->hasMany(ScriptTypePreset::class)->orderBy('id', 'ASC');
     }
 
     public function iconImage()
