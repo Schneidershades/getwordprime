@@ -36,25 +36,13 @@ class OpenAi
 
     public function ad($prompt, $scriptType)
     { 
-        return $scriptType;
-        
         return $request_body = [
             "prompt" => $prompt,
             "temperature" => (float) $scriptType->temperature, 
-            "max_tokens" =>  (int) $scriptType->max_token, 
+            "max_tokens" =>  (int) $scriptType->max_tokens, 
             "top_p" => (int) $scriptType->top_p, 
             "frequency_penalty" => (int) $scriptType->frequency_penalty, 
             "presence_penalty" => (int) $scriptType->presence_penalty, 
-            "stop" => ["\"\"\"\"\"\""] 
-        ];
-
-        return $request_body = [
-            "prompt" => $prompt,
-            "temperature" => 0.5, 
-            "max_tokens" => 150, 
-            "top_p" => 1, 
-            "frequency_penalty" => 0, 
-            "presence_penalty" => 0, 
             "stop" => ["\"\"\"\"\"\""] 
         ];
 
