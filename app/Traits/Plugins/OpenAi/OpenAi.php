@@ -36,6 +36,8 @@ class OpenAi
 
     public function ad($prompt, $scriptType)
     { 
+        return $scriptType;
+        
         return $request_body = [
             "prompt" => $prompt,
             "temperature" => (float) $scriptType->temperature, 
