@@ -45,7 +45,7 @@ class OpenAi
             "presence_penalty" => (int) $scriptType->presence_penalty, 
             "stop" => ["\"\"\"\"\"\""] 
         ];
-
+        
         $response = $this->sendRequest("https://api.openai.com/v1/engines/" . $scriptType->engine . "/completions", 'POST', json_encode($request_body));
         return($response);
     }
