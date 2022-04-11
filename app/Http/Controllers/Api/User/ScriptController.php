@@ -160,6 +160,8 @@ class ScriptController extends Controller
         }
 
         $generate = (new OpenAi)->ad($submissionToOpenAi, $scriptType);
+
+        return $generate;
         
         $script = Script::create([
             'name' => $request['name'],
