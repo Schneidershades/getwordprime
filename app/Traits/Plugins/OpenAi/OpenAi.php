@@ -38,15 +38,15 @@ class OpenAi
     { 
         $request_body = [
             "prompt" => $prompt,
-            "temperature" => 0.5, 
-            "max_tokens" => 150, 
-            "top_p" => 1, 
-            "frequency_penalty" => 0, 
-            "presence_penalty" => 0, 
+            "temperature" => $scriptType->temperature, 
+            "max_tokens" => $scriptType->max_token, 
+            "top_p" => $scriptType->top_p, 
+            "frequency_penalty" => $scriptType->frequency_penalty, 
+            "presence_penalty" => $scriptType->presence_penalty, 
             "stop" => ["\"\"\"\"\"\""] 
         ];
 
-        $response = $this->sendRequest("https://api.openai.com/v1/engines/" ."davinci-instruct-beta" . "/completions", 'POST', json_encode($request_body));
+        $response = $this->sendRequest("https://api.openai.com/v1/engines/" . $scriptType->engine . "/completions", 'POST', json_encode($request_body));
         return($response);
     }
 

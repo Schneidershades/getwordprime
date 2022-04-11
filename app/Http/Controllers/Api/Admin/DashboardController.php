@@ -7,6 +7,7 @@ use App\Models\User;
 use App\Models\Script;
 use App\Models\Transaction;
 use App\Http\Controllers\Controller;
+use App\Models\ScriptResponse;
 
 class DashboardController extends Controller
 {
@@ -49,6 +50,13 @@ class DashboardController extends Controller
             $day = $start->addDays(1)->format('Y-m-d');
             $dates[] = $day;
         }
+
+        // ScriptResponse::distinct()
+        //           ->select(DB::raw('count(*) as total ') , DB::raw('DATE_FORMAT(created_at, "%Y-%m-%d") as created_date '), DB::raw('DAYNAME(created_at) as dia'))
+        //           ->where('created_at', '>=', DB::raw('DATE(NOW()) - INTERVAL 7 DAY'))
+        //           ->groupBy('created_date')
+        //           ->limit(7)
+        //           ->get();
 
         $data = [
             'user' => User::all()->count(),
