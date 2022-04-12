@@ -25,4 +25,9 @@ class ScriptType extends Model
     {
         return $this->morphOne(Media::class, 'fileable')->latest();
     }
+
+    public function scriptResponses()
+    {
+        return $this->hasMany(ScriptResponse::class);
+    }
 }
