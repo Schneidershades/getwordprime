@@ -44,14 +44,6 @@ class DashboardController extends Controller
 
     public function index()
     {
-        $dates = [];
-        
-        $start = Carbon::now()->subDays(9);
-        for ($i = 0; $i <= 9; $i++) {
-            $day = $start->addDays(1)->format('Y-m-d');
-            $dates[] = $day;
-        }
-
         $dateTime = ScriptResponse::where('created_at', '>=', Carbon::now()->subDays(9))
                 ->groupBy('date')
                 ->orderBy('date', 'DESC')
@@ -67,23 +59,6 @@ class DashboardController extends Controller
                 DB::raw('DATE(created_at) as date'),
                 DB::raw('COUNT(*) as "words"')
         ])->pluck('words')->toArray();
-
-        // return ($productsByDay);
-
-        // ScriptResponse::distinct()
-        //           ->select(DB::raw('count(*) as total ') , DB::raw('DATE_FORMAT(created_at, "%Y-%m-%d") as created_date '), DB::raw('DAYNAME(created_at) as dia'))
-        //           ->where('created_at', '>=', DB::raw('DATE(NOW()) - INTERVAL 8 DAY'))
-        //           ->where('type', 1)
-        //           ->groupBy('created_date')
-        //           ->limit(7)
-        //           ->get();
-
-        // ScriptResponse::distinct()
-        //           ->select(DB::raw('count(*) as total ') , DB::raw('DATE_FORMAT(created_at, "%Y-%m-%d") as created_date '), DB::raw('DAYNAME(created_at) as dia'))
-        //           ->where('created_at', '>=', DB::raw('DATE(NOW()) - INTERVAL 7 DAY'))
-        //           ->groupBy('created_date')
-        //           ->limit(7)
-        //           ->get();
 
         $data = [
             'user' => User::all()->count(),
