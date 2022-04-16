@@ -52,15 +52,23 @@ class DashboardController extends Controller
             $dates[] = $day;
         }
 
-        $productsByDay = ScriptResponse::where('created_at', '>=', Carbon::now()->subDays(9))
+        $dateTime = ScriptResponse::where('created_at', '>=', Carbon::now()->subDays(9))
                 ->groupBy('date')
                 ->orderBy('date', 'DESC')
                 ->get([
                 DB::raw('DATE(created_at) as date'),
                 DB::raw('COUNT(*) as "words"')
-        ])->pluck('words', 'date')->toArray();
+        ])->pluck('date')->toArray();
 
-        return ($productsByDay);
+        $dateCount = ScriptResponse::where('created_at', '>=', Carbon::now()->subDays(9))
+                ->groupBy('date')
+                ->orderBy('date', 'DESC')
+                ->get([
+                DB::raw('DATE(created_at) as date'),
+                DB::raw('COUNT(*) as "words"')
+        ])->pluck('words')->toArray();
+
+        // return ($productsByDay);
 
         // ScriptResponse::distinct()
         //           ->select(DB::raw('count(*) as total ') , DB::raw('DATE_FORMAT(created_at, "%Y-%m-%d") as created_date '), DB::raw('DAYNAME(created_at) as dia'))
@@ -82,9 +90,9 @@ class DashboardController extends Controller
             'transactions' => Transaction::all()->count(),
             'published' => Script::all()->count(),
             'xaxis' => [
-                'categories' => $dates
+                'categories' => $dateTime
             ],
-            'data' => $productsByDay,
+            'data' => $dateCount,
         ];
 
         return $this->showMessage($data);
