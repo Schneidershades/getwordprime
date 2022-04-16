@@ -172,4 +172,9 @@ class User extends Authenticatable implements MustVerifyEmail, JWTSubject
     {
         return $this->hasMany(MarketplaceProject::class);
     }
+
+    public function agencyCampaigns()
+    {
+        return $this->hasMany(AgencyCampaign::class);
+    }
 }

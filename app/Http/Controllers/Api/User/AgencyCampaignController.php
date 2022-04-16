@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Api\User;
 
+use Illuminate\Support\Str;
 use App\Models\AgencyCampaign;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\User\AgencyCampaignCreateFormRequest;
@@ -22,6 +23,16 @@ class AgencyCampaignController extends Controller
     *             mediaType="application/json",
     *         ),
     *       ),
+    *      
+     *      @OA\Parameter(
+     *          name="id",
+     *          description="Campaign ID",
+     *          required=true,
+     *          in="path",
+     *          @OA\Schema(
+     *              type="integer"
+     *          )
+     *      ),
     *      @OA\Response(
     *          response=400,
     *          description="Bad Request"
@@ -54,6 +65,16 @@ class AgencyCampaignController extends Controller
     *          required=true,
     *          @OA\JsonContent(ref="#/components/schemas/AgencyCampaignCreateFormRequest")
     *      ),
+    *      
+     *      @OA\Parameter(
+     *          name="id",
+     *          description="Campaign ID",
+     *          required=true,
+     *          in="path",
+     *          @OA\Schema(
+     *              type="integer"
+     *          )
+     *      ),
     *      @OA\Response(
     *          response=200,
     *          description="Successful signin",
@@ -78,8 +99,7 @@ class AgencyCampaignController extends Controller
     */
     public function store(AgencyCampaignCreateFormRequest $request, $id)
     {
-        $agency = auth()->user()->agencies()->create($request->validated());
-
+        $agency = auth()->user()->agencyCampaigns()->create(array_merge($request->validated(), ['link' => Str::random(40)]));
         return $this->showOne($agency);
     }
 
@@ -90,17 +110,15 @@ class AgencyCampaignController extends Controller
     *      tags={"user"},
     *      summary="Show an agency",
     *      description="Show an agency",
-    *      
      *      @OA\Parameter(
      *          name="id",
-     *          description="Agency ID",
+     *          description="Campaign ID",
      *          required=true,
      *          in="path",
      *          @OA\Schema(
      *              type="integer"
      *          )
      *      ),
-     *      
     *      @OA\Response(
     *          response=200,
     *          description="Successful signin",
@@ -125,7 +143,7 @@ class AgencyCampaignController extends Controller
     */
     public function show($id)
     {
-        return $this->showOne(auth()->user()->agencies->where('id', $id)->first());
+        return $this->showOne(auth()->user()->agencyCampaigns->where('id', $id)->first());
     }
 
     /**
@@ -138,13 +156,13 @@ class AgencyCampaignController extends Controller
     *      
      *      @OA\Parameter(
      *          name="id",
-     *          description="agency ID",
+     *          description="Campaign ID",
      *          required=true,
      *          in="path",
      *          @OA\Schema(
      *              type="integer"
      *          )
-     *     ),
+     *      ),
     *      @OA\RequestBody(
     *          required=true,
     *          @OA\JsonContent(ref="#/components/schemas/AgencyCreateFormRequest")
@@ -174,11 +192,9 @@ class AgencyCampaignController extends Controller
     
     public function update(AgencyCampaignUpdateFormRequest $request, $id)
     {
-        auth()->user()->agencies->where('id', $id)->first()->update($request->validated());
+        auth()->user()->agencyCampaigns->where('id', $id)->first()->update($request->validated());
 
-        $agency = auth()->user()->agencies->where('id', $id)->first();
-
-        $agency->campaigns()->sync($request['campaigns']);
+        $agency = auth()->user()->agencyCampaigns->where('id', $id)->first();
 
         return $this->showOne($agency);
     }
@@ -190,10 +206,9 @@ class AgencyCampaignController extends Controller
     *      tags={"user"},
     *      summary="Delete an agency",
     *      description="Delete an agency",
-    *      
      *      @OA\Parameter(
      *          name="id",
-     *          description="Agency ID",
+     *          description="Campaign ID",
      *          required=true,
      *          in="path",
      *          @OA\Schema(

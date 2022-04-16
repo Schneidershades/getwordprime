@@ -33,12 +33,14 @@ Route::prefix('v1')->group(function () {
 		Route::resource('suggestions', SuggestionController::class);
 		Route::resource('dashboard', DashboardController::class);
 		Route::resource('script-types', ScriptTypeController::class);
+		Route::resource('script-responses', ScriptResponseController::class);
 		Route::resource('favorite-script-responses', FavoriteScriptController::class);
 		Route::resource('flagged-script-responses', FlaggedScriptController::class);
 		Route::resource('user-script-type-presets', UserScriptTypePresetController::class);
 		Route::resource('script-type-presets', ScriptTypePresetController::class);
 		Route::resource('platform-integrations', PlatformIntegrationController::class);
 		Route::resource('marketplace', MarketplaceController::class);
+		Route::resource('agency/{id}/campaign', AgencyCampaignController::class);
 		Route::resource('marketplace-saved', MarketplaceProjectController::class);
 		Route::get('user-select-script-type/{id}', 'UserSelectScriptTypeController@show');
 		

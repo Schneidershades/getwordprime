@@ -6,8 +6,9 @@ use Carbon\Carbon;
 use App\Models\User;
 use App\Models\Script;
 use App\Models\Transaction;
-use App\Http\Controllers\Controller;
 use App\Models\ScriptResponse;
+use Illuminate\Support\Facades\DB;
+use App\Http\Controllers\Controller;
 
 class DashboardController extends Controller
 {
@@ -51,6 +52,24 @@ class DashboardController extends Controller
             $dates[] = $day;
         }
 
+        $productsByDay = ScriptResponse::where('created_at', '>=', Carbon::now()->subDays(9))
+                ->groupBy('date')
+                ->orderBy('date', 'DESC')
+                ->get([
+                DB::raw('DATE(created_at) as date'),
+                DB::raw('COUNT(*) as "words"')
+        ])->pluck('words', 'date')->toArray();
+
+        return ($productsByDay);
+
+        // ScriptResponse::distinct()
+        //           ->select(DB::raw('count(*) as total ') , DB::raw('DATE_FORMAT(created_at, "%Y-%m-%d") as created_date '), DB::raw('DAYNAME(created_at) as dia'))
+        //           ->where('created_at', '>=', DB::raw('DATE(NOW()) - INTERVAL 8 DAY'))
+        //           ->where('type', 1)
+        //           ->groupBy('created_date')
+        //           ->limit(7)
+        //           ->get();
+
         // ScriptResponse::distinct()
         //           ->select(DB::raw('count(*) as total ') , DB::raw('DATE_FORMAT(created_at, "%Y-%m-%d") as created_date '), DB::raw('DAYNAME(created_at) as dia'))
         //           ->where('created_at', '>=', DB::raw('DATE(NOW()) - INTERVAL 7 DAY'))
@@ -65,7 +84,7 @@ class DashboardController extends Controller
             'xaxis' => [
                 'categories' => $dates
             ],
-            'data' => [0,0,0,0,0,0,0,0,0],
+            'data' => $productsByDay,
         ];
 
         return $this->showMessage($data);

@@ -4053,6 +4053,17 @@
                 "summary": "Get all agencies",
                 "description": "Get all agencies",
                 "operationId": "allAgencies",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Campaign ID",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
                 "responses": {
                     "200": {
                         "description": "Successful signin",
@@ -4083,6 +4094,17 @@
                 "summary": "Post new agencies",
                 "description": "Post new agencies",
                 "operationId": "postAgencies",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Campaign ID",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
                 "requestBody": {
                     "required": true,
                     "content": {
@@ -4129,7 +4151,7 @@
                     {
                         "name": "id",
                         "in": "path",
-                        "description": "Agency ID",
+                        "description": "Campaign ID",
                         "required": true,
                         "schema": {
                             "type": "integer"
@@ -4172,7 +4194,7 @@
                     {
                         "name": "id",
                         "in": "path",
-                        "description": "agency ID",
+                        "description": "Campaign ID",
                         "required": true,
                         "schema": {
                             "type": "integer"
@@ -4223,7 +4245,7 @@
                     {
                         "name": "id",
                         "in": "path",
-                        "description": "Agency ID",
+                        "description": "Campaign ID",
                         "required": true,
                         "schema": {
                             "type": "integer"
@@ -5793,49 +5815,6 @@
                     }
                 ]
             },
-            "delete": {
-                "tags": [
-                    "user"
-                ],
-                "summary": "Delete an script",
-                "description": "Delete an script",
-                "operationId": "deleteScript",
-                "parameters": [
-                    {
-                        "name": "id",
-                        "in": "path",
-                        "description": "Script ID",
-                        "required": true,
-                        "schema": {
-                            "type": "integer"
-                        }
-                    }
-                ],
-                "responses": {
-                    "200": {
-                        "description": "Successful signin",
-                        "content": {
-                            "application/json": {}
-                        }
-                    },
-                    "400": {
-                        "description": "Bad Request"
-                    },
-                    "401": {
-                        "description": "unauthenticated"
-                    },
-                    "403": {
-                        "description": "Forbidden"
-                    }
-                },
-                "security": [
-                    {
-                        "bearerAuth": []
-                    }
-                ]
-            }
-        },
-        "/api/v1/scripts-responses/{id}": {
             "put": {
                 "tags": [
                     "user"
@@ -5864,6 +5843,47 @@
                         }
                     }
                 },
+                "responses": {
+                    "200": {
+                        "description": "Successful signin",
+                        "content": {
+                            "application/json": {}
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    },
+                    "401": {
+                        "description": "unauthenticated"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            },
+            "delete": {
+                "tags": [
+                    "user"
+                ],
+                "summary": "Delete an script",
+                "description": "Delete an script",
+                "operationId": "deleteScript",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Script ID",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
                 "responses": {
                     "200": {
                         "description": "Successful signin",
@@ -7805,6 +7825,20 @@
                 "required": [
                     "name"
                 ],
+                "properties": {
+                    "agency_id": {
+                        "title": "agency id",
+                        "description": "Initial related id of the agency",
+                        "type": "integer",
+                        "example": "1"
+                    },
+                    "campaign_id": {
+                        "title": "campaign id",
+                        "description": "Initial related id of the campaign",
+                        "type": "integer",
+                        "example": "1"
+                    }
+                },
                 "type": "object"
             },
             "AgencyCreateFormRequest": {
@@ -8061,6 +8095,14 @@
                 "required": [
                     "name"
                 ],
+                "properties": {
+                    "text": {
+                        "title": "script text",
+                        "description": "text of the script",
+                        "type": "string",
+                        "example": "Info Limited"
+                    }
+                },
                 "type": "object"
             },
             "ScriptUpdateFormRequest": {

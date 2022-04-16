@@ -5,7 +5,6 @@ namespace App\Http\Requests\User;
 use Illuminate\Foundation\Http\FormRequest;
 
 /**
-/**
  * @OA\Schema(
  *      title="Script Response Update Form Request Fields",
  *      description="Script Response Update request body data",
@@ -16,6 +15,18 @@ use Illuminate\Foundation\Http\FormRequest;
 
 class ScriptResponseUpdateFormRequest extends FormRequest
 {
+
+    /**
+     * @OA\Property(
+     *      title="script text",
+     *      description="text of the script",
+     *      example="Info Limited"
+     * )
+     *
+     * @var string
+     */
+    public $text;
+
     /**
      * Determine if the user is authorized to make this request.
      *
@@ -34,7 +45,7 @@ class ScriptResponseUpdateFormRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            'text' => 'required|string',
         ];
     }
 }

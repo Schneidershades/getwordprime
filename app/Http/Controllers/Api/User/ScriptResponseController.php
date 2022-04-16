@@ -52,12 +52,12 @@ class ScriptResponseController extends Controller
 
     public function show(ScriptResponse $scriptResponse)
     {        
-        return $this->showOne(auth()->user()->scripts->where('id', $scriptResponse->id)->first());
+        return $this->showOne(auth()->user()->scriptsResponses->where('id', $scriptResponse->id)->first());
     }
 
      /**
     * @OA\PUT(
-    *      path="/api/v1/scripts-responses/{id}",
+    *      path="/api/v1/script-responses/{id}",
     *      operationId="updateScriptResponses",
     *      tags={"user"},
     *      summary="Update a updateScriptResponses",
@@ -100,14 +100,14 @@ class ScriptResponseController extends Controller
     */
     public function update(ScriptResponseUpdateFormRequest $request, ScriptResponse $scriptResponse)
     {
-        auth()->user()->scriptResponse->where('id', $scriptResponse->id)->first()->update($request->validated());
-        return $this->showOne(auth()->user()->scripts->where('id', $scriptResponse->id)->first());
+        auth()->user()->scriptsResponses->where('id', $scriptResponse->id)->first()->update($request->validated());
+        return $this->showOne(auth()->user()->scriptsResponses->where('id', $scriptResponse->id)->first());
     }
 
      /**
     * @OA\Delete(
     *      path="/api/v1/script-responses/{id}",
-    *      operationId="deleteScript",
+    *      operationId="deleteScriptResponses",
     *      tags={"user"},
     *      summary="Delete an script",
     *      description="Delete an script",
