@@ -100,6 +100,16 @@ class ScriptController extends Controller
     */
     public function store(ScriptCreateFormRequest $request)
     {
+        $variation = 1;
+
+        $script = Script::create([
+            'name' => $request['name'],
+            'user_id' => auth()->user()->id,
+            'campaign_id' => $request['campaign_id'],
+            'script_type_id' => $request['script_type_id'],
+            'content' => $request['name'],
+        ]);
+
         $scriptType = ScriptType::find($request['script_type_id']);
 
         $presets = $scriptType->presets->pluck('id')->toArray();
@@ -114,71 +124,64 @@ class ScriptController extends Controller
             return $this->errorResponse('In other to generate a script kindly set all the answers in the script type questions', 422);
         }
 
-        $submissionToOpenAi = "";
 
-        $submissionToOpenAi .= $scriptType->prompt_1. " \n";
-        $submissionToOpenAi .= '""""""'. " \n";
-        $submissionToOpenAi .= $scriptType->prompt_2. " \n";
-        $submissionToOpenAi .= '""""""'. " \n";
+        for($i = 1; $i <= $variation; $i++){
 
-        foreach($userAnswers as $answer){
-            if($answer['answers'] != null){
-                $submissionToOpenAi .= $answer['answers']. " \n";
-                $submissionToOpenAi .= '""""""'. " \n";
+            $submissionToOpenAi = "";
+
+            $submissionToOpenAi .= $scriptType->prompt_1. " \n";
+            $submissionToOpenAi .= '""""""'. " \n";
+            $submissionToOpenAi .= $scriptType->prompt_2. " \n";
+            $submissionToOpenAi .= '""""""'. " \n";
+
+            foreach($userAnswers as $answer){
+                if($answer['answers'] != null){
+                    $submissionToOpenAi .= $answer['answers']. " \n";
+                    $submissionToOpenAi .= '""""""'. " \n";
+                }
             }
-        }
-            
+                
 
-        if($request['input_language_id']){
-            $userLanguage = Language::where('id', $request['input_language_id'])
-            ->first();
-        
-            if($userLanguage) {
-                $submissionToOpenAi .= 'The input text language is '.$userLanguage->name. " \n";
-                $submissionToOpenAi .= '""""""'. " \n";
-            }
-        }
-
-        if($request['output_language_id']){
-            $userLanguage = Language::where('id', $request['output_language_id'])
-            ->first();
-        
-            if($userLanguage) {
-                $submissionToOpenAi .= 'Output the result in '.$userLanguage->name. " \n";
-                $submissionToOpenAi .= '""""""'. " \n";
-            }
-        }
-        
-        if($request['tone_id']){
-            $userTone = Tone::where('id', $request['tone_id'])
+            if($request['input_language_id']){
+                $userLanguage = Language::where('id', $request['input_language_id'])
                 ->first();
-
-            if($userTone) {
-                $submissionToOpenAi .= 'The tone for this should be '.$userTone->name. " \n";
-                $submissionToOpenAi .= '""""""'. " \n";
+            
+                if($userLanguage) {
+                    $submissionToOpenAi .= 'The input text language is '.$userLanguage->name. " \n";
+                    $submissionToOpenAi .= '""""""'. " \n";
+                }
             }
+
+            if($request['output_language_id']){
+                $userLanguage = Language::where('id', $request['output_language_id'])
+                ->first();
+            
+                if($userLanguage) {
+                    $submissionToOpenAi .= 'Output the result in '.$userLanguage->name. " \n";
+                    $submissionToOpenAi .= '""""""'. " \n";
+                }
+            }
+            
+            if($request['tone_id']){
+                $userTone = Tone::where('id', $request['tone_id'])
+                    ->first();
+
+                if($userTone) {
+                    $submissionToOpenAi .= 'The tone for this should be '.$userTone->name. " \n";
+                    $submissionToOpenAi .= '""""""'. " \n";
+                }
+            }
+
+            $generate = (new OpenAi)->ad($submissionToOpenAi, $scriptType);
+
+            ScriptResponse::create([
+                'text' => $generate->choices[0]->text,
+                'script_id' => $script->id,
+                'script_type_id' => $request['script_type_id'],
+                'user_id' => auth()->user()->id,
+                'word_count' => str_word_count($generate->choices[0]->text),
+            ]);
         }
-
-        $generate = (new OpenAi)->ad($submissionToOpenAi, $scriptType);
-        
-        $script = Script::create([
-            'name' => $request['name'],
-            'user_id' => auth()->user()->id,
-            'campaign_id' => $request['campaign_id'],
-            'script_type_id' => $request['script_type_id'],
-            'content' => $request['name'],
-            'object' => $generate->object,
-            'created' => $generate->created,
-            'model' => $generate->model,
-        ]);
-
-        ScriptResponse::create([
-            'text' => $generate->choices[0]->text,
-            'script_id' => $script->id,
-            'script_type_id' => $request['script_type_id'],
-            'user_id' => auth()->user()->id,
-            'word_count' => str_word_count($generate->choices[0]->text),
-        ]);
 
         return $this->showOne($script);
     }

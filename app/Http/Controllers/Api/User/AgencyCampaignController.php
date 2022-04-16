@@ -143,7 +143,7 @@ class AgencyCampaignController extends Controller
     */
     public function show($id)
     {
-        return $this->showOne(auth()->user()->agencyCampaigns->where('id', $id)->first());
+        return $this->showOne(auth()->user()->agencyCampaigns->where('campaign_id', $id)->first());
     }
 
     /**
@@ -151,8 +151,8 @@ class AgencyCampaignController extends Controller
     *      path="/api/v1/agency/{id}/campaign/{id}",
     *      operationId="AgencyUpdateAgencyCampaign",
     *      tags={"user"},
-    *      summary="Update an agency",
-    *      description="Update an agency",
+    *      summary="Update an agency  campaign",
+    *      description="Update an agency  campaign",
     *      
      *      @OA\Parameter(
      *          name="id",
@@ -204,8 +204,8 @@ class AgencyCampaignController extends Controller
     *      path="/api/v1/agency/{id}/campaign/{id}",
     *      operationId="deleteAgencyCampaign",
     *      tags={"user"},
-    *      summary="Delete an agency",
-    *      description="Delete an agency",
+    *      summary="Delete an agency campaign",
+    *      description="Delete an agency campaign",
      *      @OA\Parameter(
      *          name="id",
      *          description="Campaign ID",

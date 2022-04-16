@@ -13,6 +13,7 @@ class ScriptResource extends JsonResource
             'id' => $this->id,
             'content' => $this->content,
             'scriptResponses' => ScriptResponseResource::collection($this->scriptResponses),
+            'favorite' => $this->favorite ? true : false,
             'created_at' => $this->created_at,
             'updated_at' => $this->updated_at,
         ];
