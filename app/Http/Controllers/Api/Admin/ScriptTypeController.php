@@ -43,8 +43,6 @@ class ScriptTypeController extends Controller
     */
     public function index()
     {
-        return $this->showAll(ScriptType::latest()->get());
-
         $search_query = request()->get('search') ? request()->get('search') : null;
         
         $script_types =  ScriptType::query()
