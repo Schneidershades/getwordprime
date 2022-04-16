@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Api\Admin;
 
 use App\Models\Tone;
 use App\Http\Controllers\Controller;
+use Illuminate\Database\Eloquent\Builder;
 use App\Http\Requests\Admin\StoreToneRequest;
 use App\Http\Requests\Admin\UpdateToneRequest;
 
@@ -40,7 +41,15 @@ class ToneController extends Controller
     */
     public function index()
     {
-        return $this->showAll(Tone::latest()->get());
+        $search_query = request()->get('search') ? request()->get('search') : null;
+        
+        $script_types =  Tone::query()
+                ->selectRaw('tones.*')
+                ->when($search_query, function (Builder $builder, $search_query) {
+                    $builder->where('tones.name', 'LIKE', "%{$search_query}%");
+                })->latest()->get();
+
+        return $this->showAll($script_types);
     }
 
     /**

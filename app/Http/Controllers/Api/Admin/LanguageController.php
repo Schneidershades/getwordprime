@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Api\Admin;
 
 use App\Models\Language;
 use App\Http\Controllers\Controller;
+use Illuminate\Database\Eloquent\Builder;
 use App\Http\Requests\Admin\StoreLanguageRequest;
 use App\Http\Requests\Admin\UpdateLanguageRequest;
 
@@ -40,7 +41,15 @@ class LanguageController extends Controller
     */
     public function index()
     {
-        return $this->showAll(Language::latest()->get());
+        $search_query = request()->get('search') ? request()->get('search') : null;
+        
+        $script_types =  Language::query()
+                ->selectRaw('languages.*')
+                ->when($search_query, function (Builder $builder, $search_query) {
+                    $builder->where('languages.name', 'LIKE', "%{$search_query}%");
+                })->latest()->get();
+
+        return $this->showAll($script_types);
     }
 
     /**
