@@ -12,7 +12,7 @@ class AgencyCampaignController extends Controller
     /**
     * @OA\Get(
     *      path="/api/v1/agency/{id}/campaign",
-    *      operationId="allAgencies",
+    *      operationId="allAgencyCampaign",
     *      tags={"user"},
     *      summary="Get all agencies",
     *      description="Get all agencies",
@@ -57,7 +57,7 @@ class AgencyCampaignController extends Controller
     /**
     * @OA\Post(
     *      path="/api/v1/agency/{id}/campaign",
-    *      operationId="postAgencies",
+    *      operationId="postAgencyCampaign",
     *      tags={"user"},
     *      summary="Post new agencies",
     *      description="Post new agencies",
@@ -106,7 +106,7 @@ class AgencyCampaignController extends Controller
     /**
     * @OA\Get(
     *      path="/api/v1/agency/{id}/campaign/{campaign_id}",
-    *      operationId="showAgency",
+    *      operationId="showAgencyCampaign",
     *      tags={"user"},
     *      summary="Show an agency",
     *      description="Show an agency",
@@ -149,7 +149,7 @@ class AgencyCampaignController extends Controller
     /**
     * @OA\Put(
     *      path="/api/v1/agency/{id}/campaign/{id}",
-    *      operationId="AgencyUpdate",
+    *      operationId="AgencyUpdateAgencyCampaign",
     *      tags={"user"},
     *      summary="Update an agency",
     *      description="Update an agency",
@@ -202,7 +202,7 @@ class AgencyCampaignController extends Controller
      /**
     * @OA\Delete(
     *      path="/api/v1/agency/{id}/campaign/{id}",
-    *      operationId="deleteAgency",
+    *      operationId="deleteAgencyCampaign",
     *      tags={"user"},
     *      summary="Delete an agency",
     *      description="Delete an agency",

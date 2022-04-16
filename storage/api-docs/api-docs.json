@@ -5872,7 +5872,7 @@
                 ],
                 "summary": "Delete an script",
                 "description": "Delete an script",
-                "operationId": "deleteScript",
+                "operationId": "deleteScriptResponses",
                 "parameters": [
                     {
                         "name": "id",
