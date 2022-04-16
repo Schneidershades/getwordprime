@@ -16,4 +16,30 @@ class BonusCollection extends ResourceCollection
     {
         return parent::toArray($request);
     }
+
+
+
+    public static function originalAttribute($index)
+    {
+        $attribute = [
+            'id' => 'id',
+            'name' => 'name',
+            'description' => 'description',
+            'url' => 'url',
+        ];
+
+        return isset($attribute[$index]) ? $attribute[$index] : null;
+    }
+
+     public static function transformedAttribute($index)
+    {
+        $attribute = [
+            'id' => 'id',
+            'name' => 'name',
+            'description' => 'description',
+            'url' => 'url',
+        ];
+
+        return isset($attribute[$index]) ? $attribute[$index] : null;
+    }
 }

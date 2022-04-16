@@ -43,13 +43,13 @@ class ToneController extends Controller
     {
         $search_query = request()->get('search') ? request()->get('search') : null;
         
-        $script_types =  Tone::query()
+        $tone =  Tone::query()
                 ->selectRaw('tones.*')
                 ->when($search_query, function (Builder $builder, $search_query) {
                     $builder->where('tones.name', 'LIKE', "%{$search_query}%");
                 })->latest()->get();
 
-        return $this->showAll($script_types);
+        return $this->showAll($tone);
     }
 
     /**
