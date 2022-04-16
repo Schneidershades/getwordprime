@@ -100,7 +100,7 @@ class ScriptController extends Controller
     */
     public function store(ScriptCreateFormRequest $request)
     {
-        $variation = 1;
+        $variation = 3;
 
         $script = Script::create([
             'name' => $request['name'],
