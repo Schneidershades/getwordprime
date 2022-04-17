@@ -275,10 +275,10 @@ class ScriptController extends Controller
     *      security={ {"bearerAuth": {}} },
     * )
     */
-    public function update(ScriptUpdateFormRequest $request, Script $script)
+    public function update(ScriptUpdateFormRequest $request, ScriptResponse $scriptResponse)
     {
-        auth()->user()->scripts->where('id', $script->id)->first()->update($request->validated());
-        return $this->showOne(auth()->user()->scripts->where('id', $script->id)->first());
+        auth()->user()->scriptsResponses->where('id', $scriptResponse->id)->first()->update($request->validated());
+        return $this->showOne(auth()->user()->scriptsResponses->where('id', $scriptResponse->id)->first());
     }
 
      /**
