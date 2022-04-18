@@ -4086,6 +4086,100 @@
                         "bearerAuth": []
                     }
                 ]
+            }
+        },
+        "/api/v1/agency/{agency_id}/campaign": {
+            "get": {
+                "tags": [
+                    "user"
+                ],
+                "summary": "Show an agency",
+                "description": "Show an agency",
+                "operationId": "showAgencyCampaign",
+                "parameters": [
+                    {
+                        "name": "agency_id",
+                        "in": "path",
+                        "description": "Agency ID",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful signin",
+                        "content": {
+                            "application/json": {}
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    },
+                    "401": {
+                        "description": "unauthenticated"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            },
+            "put": {
+                "tags": [
+                    "user"
+                ],
+                "summary": "Update an agency  campaign",
+                "description": "Update an agency  campaign",
+                "operationId": "AgencyUpdateAgencyCampaign",
+                "parameters": [
+                    {
+                        "name": "agency_id",
+                        "in": "path",
+                        "description": "Agency ID",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/AgencyCreateFormRequest"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Successful signin",
+                        "content": {
+                            "application/json": {}
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    },
+                    "401": {
+                        "description": "unauthenticated"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
             },
             "post": {
                 "tags": [
@@ -4096,9 +4190,9 @@
                 "operationId": "postAgencyCampaign",
                 "parameters": [
                     {
-                        "name": "id",
+                        "name": "agency_id",
                         "in": "path",
-                        "description": "Campaign ID",
+                        "description": "Agency ID",
                         "required": true,
                         "schema": {
                             "type": "integer"
@@ -4139,101 +4233,7 @@
                 ]
             }
         },
-        "/api/v1/agency/{id}/campaign/{campaign_id}": {
-            "get": {
-                "tags": [
-                    "user"
-                ],
-                "summary": "Show an agency",
-                "description": "Show an agency",
-                "operationId": "showAgencyCampaign",
-                "parameters": [
-                    {
-                        "name": "id",
-                        "in": "path",
-                        "description": "Campaign ID",
-                        "required": true,
-                        "schema": {
-                            "type": "integer"
-                        }
-                    }
-                ],
-                "responses": {
-                    "200": {
-                        "description": "Successful signin",
-                        "content": {
-                            "application/json": {}
-                        }
-                    },
-                    "400": {
-                        "description": "Bad Request"
-                    },
-                    "401": {
-                        "description": "unauthenticated"
-                    },
-                    "403": {
-                        "description": "Forbidden"
-                    }
-                },
-                "security": [
-                    {
-                        "bearerAuth": []
-                    }
-                ]
-            }
-        },
         "/api/v1/agency/{id}/campaign/{id}": {
-            "put": {
-                "tags": [
-                    "user"
-                ],
-                "summary": "Update an agency  campaign",
-                "description": "Update an agency  campaign",
-                "operationId": "AgencyUpdateAgencyCampaign",
-                "parameters": [
-                    {
-                        "name": "id",
-                        "in": "path",
-                        "description": "Campaign ID",
-                        "required": true,
-                        "schema": {
-                            "type": "integer"
-                        }
-                    }
-                ],
-                "requestBody": {
-                    "required": true,
-                    "content": {
-                        "application/json": {
-                            "schema": {
-                                "$ref": "#/components/schemas/AgencyCreateFormRequest"
-                            }
-                        }
-                    }
-                },
-                "responses": {
-                    "200": {
-                        "description": "Successful signin",
-                        "content": {
-                            "application/json": {}
-                        }
-                    },
-                    "400": {
-                        "description": "Bad Request"
-                    },
-                    "401": {
-                        "description": "unauthenticated"
-                    },
-                    "403": {
-                        "description": "Forbidden"
-                    }
-                },
-                "security": [
-                    {
-                        "bearerAuth": []
-                    }
-                ]
-            },
             "delete": {
                 "tags": [
                     "user"
@@ -4245,7 +4245,7 @@
                     {
                         "name": "id",
                         "in": "path",
-                        "description": "Campaign ID",
+                        "description": "Agency ID",
                         "required": true,
                         "schema": {
                             "type": "integer"
@@ -7841,6 +7841,14 @@
                 },
                 "type": "object"
             },
+            "AgencyCampaignUpdateFormRequest": {
+                "title": "Agency Campaign Update Form Request Fields",
+                "description": "Agency Campaign Update request body data",
+                "required": [
+                    "name"
+                ],
+                "type": "object"
+            },
             "AgencyCreateFormRequest": {
                 "title": "Agency Create Form Request Fields",
                 "description": "Agency Create request body data",
@@ -8096,6 +8104,12 @@
                     "name"
                 ],
                 "properties": {
+                    "campaign_id": {
+                        "title": "user campaign id",
+                        "description": "Initial related campaign of the id",
+                        "type": "integer",
+                        "example": "1"
+                    },
                     "text": {
                         "title": "script text",
                         "description": "text of the script",

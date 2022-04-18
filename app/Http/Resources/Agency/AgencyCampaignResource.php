@@ -2,7 +2,7 @@
 
 namespace App\Http\Resources\Agency;
 
-use App\Http\Resources\Campaign\CampaignResource;
+use App\Http\Resources\Script\ScriptResponseResource;
 use Illuminate\Http\Resources\Json\JsonResource;
 
 class AgencyCampaignResource extends JsonResource
@@ -15,11 +15,7 @@ class AgencyCampaignResource extends JsonResource
             'agency_name' => $this->agency->name,
             'campaign_name' => $this->campaign->name,
             'campaign_id' => $this->campaign_id,
-            // 'campaign_count' => $this->campaign->count(),
-            // 'campaign' => new CampaignResource($this->campaign),
-            'link' => $this->link,
-            'created_at' => $this->created_at,
-            'updated_at' => $this->updated_at,
+            'scripts' => ScriptResponseResource::collection($this->campaign->scriptResponses),
         ];
     }
 }
