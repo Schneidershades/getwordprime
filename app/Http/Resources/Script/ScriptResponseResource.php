@@ -15,6 +15,7 @@ class ScriptResponseResource extends JsonResource
             'script_type_name' => $this->findScriptType(),
             'favorite' => $this->favorite ? true : false,
             'word_count' => $this->word_count,
+            'campaign_id' => $this->campaign_id,
             'created_at' => $this->created_at,
             'updated_at' => $this->updated_at,
         ];
