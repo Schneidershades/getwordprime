@@ -45,13 +45,15 @@ class MarketplaceController extends Controller
         $keyword = FreelancerKeyword::first(); 
 
         // return $freelancer->contentWritingJobs();
-        // return $freelancer->projects();
+        // return $freelancer->search('copywrting');
+        // return $freelancer->projects('copywrting');
 
         foreach($freelancer->projects($keyword->words)->result->projects as $project){
 
             if($project->currency->country == 'US'){
 
                 $item = FreelancerAd::where('project_id', $project->id)->first();
+
                 if($item == null){
                     $item = new FreelancerAd;
                     $item->project_id = $project->id;
@@ -79,7 +81,6 @@ class MarketplaceController extends Controller
                     $item->hourly_commitment  =  optional(optional(optional($project)->hourly_project_info)->commitment)->hours;
                     $item->hourly_interval  =  optional(optional(optional($project)->hourly_project_info)->commitment)->interval;
                     $item->save();
-                    
                 }
             }
         }

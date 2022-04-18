@@ -4052,7 +4052,7 @@
                 ],
                 "summary": "Get all agencies",
                 "description": "Get all agencies",
-                "operationId": "allAgencies",
+                "operationId": "allAgencyCampaign",
                 "parameters": [
                     {
                         "name": "id",
@@ -4093,7 +4093,7 @@
                 ],
                 "summary": "Post new agencies",
                 "description": "Post new agencies",
-                "operationId": "postAgencies",
+                "operationId": "postAgencyCampaign",
                 "parameters": [
                     {
                         "name": "id",
@@ -4146,7 +4146,7 @@
                 ],
                 "summary": "Show an agency",
                 "description": "Show an agency",
-                "operationId": "showAgency",
+                "operationId": "showAgencyCampaign",
                 "parameters": [
                     {
                         "name": "id",
@@ -4187,9 +4187,9 @@
                 "tags": [
                     "user"
                 ],
-                "summary": "Update an agency",
-                "description": "Update an agency",
-                "operationId": "AgencyUpdate",
+                "summary": "Update an agency  campaign",
+                "description": "Update an agency  campaign",
+                "operationId": "AgencyUpdateAgencyCampaign",
                 "parameters": [
                     {
                         "name": "id",
@@ -4238,9 +4238,9 @@
                 "tags": [
                     "user"
                 ],
-                "summary": "Delete an agency",
-                "description": "Delete an agency",
-                "operationId": "deleteAgency",
+                "summary": "Delete an agency campaign",
+                "description": "Delete an agency campaign",
+                "operationId": "deleteAgencyCampaign",
                 "parameters": [
                     {
                         "name": "id",
@@ -8112,23 +8112,11 @@
                     "name"
                 ],
                 "properties": {
-                    "content": {
-                        "title": "script content",
-                        "description": "content of the script",
+                    "text": {
+                        "title": "script text",
+                        "description": "text of the script",
                         "type": "string",
                         "example": "Info Limited"
-                    },
-                    "script_type_id": {
-                        "title": "user script_type id",
-                        "description": "Initial related script_type of the id",
-                        "type": "integer",
-                        "example": "1"
-                    },
-                    "campaign_id": {
-                        "title": "user campaign id",
-                        "description": "Initial related campaign of the id",
-                        "type": "integer",
-                        "example": "1"
                     }
                 },
                 "type": "object"

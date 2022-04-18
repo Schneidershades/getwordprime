@@ -45,7 +45,8 @@ class ScriptResponseUpdateFormRequest extends FormRequest
     public function rules()
     {
         return [
-            'text' => 'required|string',
+            'campaign_id' => 'int|exists:campaigns,id',
+            'text' => 'string',
         ];
     }
 }
