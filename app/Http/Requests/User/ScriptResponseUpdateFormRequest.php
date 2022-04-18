@@ -18,6 +18,18 @@ class ScriptResponseUpdateFormRequest extends FormRequest
 
     /**
      * @OA\Property(
+     *      title="user campaign id",
+     *      description="Initial related campaign of the id",
+     *      example="1"
+     * )
+     *
+     * @var int
+     */
+    public $campaign_id;
+    
+
+    /**
+     * @OA\Property(
      *      title="script text",
      *      description="text of the script",
      *      example="Info Limited"
