@@ -26,7 +26,7 @@ class ScriptResponseUpdateFormRequest extends FormRequest
      * @var int
      */
     public $campaign_id;
-    
+
 
     /**
      * @OA\Property(
@@ -57,8 +57,8 @@ class ScriptResponseUpdateFormRequest extends FormRequest
     public function rules()
     {
         return [
-            'campaign_id' => 'nullable|int|exists:campaigns,id',
-            'text' => 'nullable|string',
+            'campaign_id' => 'int|exists:campaigns,id',
+            'text' => 'string',
         ];
     }
 }
