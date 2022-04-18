@@ -45,8 +45,8 @@ class ScriptResponseUpdateFormRequest extends FormRequest
     public function rules()
     {
         return [
-            'campaign_id' => 'int|exists:campaigns,id',
-            'text' => 'string',
+            'campaign_id' => 'nullable|int|exists:campaigns,id',
+            'text' => 'nullable|string',
         ];
     }
 }
