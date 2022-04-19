@@ -4013,6 +4013,49 @@
                 ]
             }
         },
+        "/api/v1/export/text/download/user/{id}/all-script-responses": {
+            "get": {
+                "tags": [
+                    "Shared"
+                ],
+                "summary": "exportAllUserScripts",
+                "description": "exportAllUserScripts",
+                "operationId": "exportAllUserScripts",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "The defined user id",
+                        "required": false,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful signin",
+                        "content": {
+                            "application/json": {}
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    },
+                    "401": {
+                        "description": "unauthenticated"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        },
         "/api/v1/share/plans": {
             "get": {
                 "tags": [

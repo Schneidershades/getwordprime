@@ -274,7 +274,7 @@ class ExportController extends Controller
         }
 
         foreach($responses as $res){
-            $data .= $responses->scriptType?->name .' '.$responses->scriptType?->name . "\n\n";
+            $data .= $responses?->scriptType?->name .' '.$responses?->scriptType?->name . "\n\n";
             $data .= "$res->text";
             $data .=  "\n\n";
         }
