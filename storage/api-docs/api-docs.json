@@ -4134,8 +4134,8 @@
                 "tags": [
                     "user"
                 ],
-                "summary": "Update an agency  campaign",
-                "description": "Update an agency  campaign",
+                "summary": "Update an agency campaign",
+                "description": "Update an agency campaign",
                 "operationId": "AgencyUpdateAgencyCampaign",
                 "parameters": [
                     {

@@ -221,4 +221,72 @@ class ExportController extends Controller
 
         return Response::make($data, 200, $headers);	  
 	}
+
+
+
+
+     /**
+    * @OA\Get(
+    *      path="/api/v1/export/text/download/user/{id}/all-script-responses",
+    *      operationId="exportAll",
+    *      tags={"Shared"},
+    *      summary="exportAll",
+    *      description="exportAll",
+    *      @OA\Parameter(
+    *          name="id",
+    *          description="The defined user id",
+    *          required=false,
+    *          in="path",
+    *          @OA\Schema(
+    *              type="integer"
+    *          )
+    *      ),
+    *      @OA\Response(
+    *          response=200,
+    *          description="Successful signin",
+    *          @OA\MediaType(
+    *             mediaType="application/json",
+    *         ),
+    *      ),
+    *      @OA\Response(
+    *          response=400,
+    *          description="Bad Request"
+    *      ),
+    *      @OA\Response(
+    *          response=401,
+    *          description="unauthenticated",
+    *      ),
+    *      @OA\Response(
+    *          response=403,
+    *          description="Forbidden"
+    *      ),
+    *      security={ {"bearerAuth": {}} },
+    * )
+    */
+    public function downloadUserTextScript($id)
+    {
+        $responses = ScriptResponse::where('user_id', $id)->get();
+
+	    $data = "";
+
+        if(!$responses){
+            return $this->errorResponse('script not found', 404);
+        }
+
+        foreach($responses as $res){
+            $data .= $responses->scriptType?->name .' '.$responses->scriptType?->name . "\n\n";
+            $data .= "$res->text";
+            $data .=  "\n\n";
+        }
+
+        $fileName = "one_copy_script_responses.txt";
+
+        $headers = [
+            'Content-type' => 'text/plain', 
+            'Content-Disposition' => sprintf('attachment; filename="%s"', $fileName),
+            'Content-Length' => strlen($data)
+        ];   
+
+        return Response::make($data, 200, $headers);	  
+	}
 }
