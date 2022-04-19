@@ -228,10 +228,10 @@ class ExportController extends Controller
      /**
     * @OA\Get(
     *      path="/api/v1/export/text/download/user/{id}/all-script-responses",
-    *      operationId="exportAll",
+    *      operationId="exportAllUserScripts",
     *      tags={"Shared"},
-    *      summary="exportAll",
-    *      description="exportAll",
+    *      summary="exportAllUserScripts",
+    *      description="exportAllUserScripts",
     *      @OA\Parameter(
     *          name="id",
     *          description="The defined user id",
