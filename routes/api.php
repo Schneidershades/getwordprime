@@ -55,6 +55,7 @@ Route::prefix('v1')->group(function () {
 		Route::get('/excel/model', 'ExportController@export');
 		Route::get('/text/script-response/{id}', 'ExportController@downloadTextScriptResponse');
 		Route::get('/text/download/all-script-responses/{id}', 'ExportController@downloadTextScript');
+		Route::get('text/download/user/{id}/all-script-responses', 'ExportController@downloadUserTextScript');
 	});
 
 	Route::group(['prefix' => 'admin', 'middleware' => 'auth:api', 'namespace' => 'Api\Admin'], function(){
