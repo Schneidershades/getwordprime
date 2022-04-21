@@ -155,7 +155,7 @@ class User extends Authenticatable implements MustVerifyEmail, JWTSubject
 
     public function savedProjects()
     {
-        return $this->hasMany(SavedProject::class);
+        return $this->hasMany(SavedProject::class, 'user_id');
     }
 
     public function languages()
