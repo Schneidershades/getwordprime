@@ -28,7 +28,7 @@ class UserObserver
      * @param  \App\Models\User  $user
      * @return void
      */
-    public function updated(User $user)
+    public function updating(User $user)
     {  
         if ($user->wasChanged('password')) {
             $user->password = bcrypt($user->password);
