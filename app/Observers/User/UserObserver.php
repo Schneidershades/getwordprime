@@ -28,7 +28,7 @@ class UserObserver
      * @param  \App\Models\User  $user
      * @return void
      */
-    public function updating(User $user)
+    public function updated(User $user)
     {  
         if ($user->isDirty('password')) {
             $user->password = bcrypt($user->password);
