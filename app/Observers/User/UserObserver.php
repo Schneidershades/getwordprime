@@ -30,7 +30,7 @@ class UserObserver
      */
     public function updating(User $user)
     {  
-        if ($user->wasChanged('password')) {
+        if ($user->isDirty('password')) {
             $user->password = bcrypt($user->password);
         } 
         
