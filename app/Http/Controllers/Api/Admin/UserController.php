@@ -192,7 +192,7 @@ class UserController extends Controller
     
     public function update(UserUpdateFormRequest $request, User $user)
     {
-        $user->update($request->validated());
+        $user->update($request->all());
 
         $user->plans()->sync($request['plans']);
 
