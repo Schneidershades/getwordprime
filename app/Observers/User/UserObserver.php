@@ -29,8 +29,8 @@ class UserObserver
      * @return void
      */
     public function updated(User $user)
-    {
-        //
+    {  
+        $user->password = bcrypt($user->password);
     }
 
     /**
