@@ -29,11 +29,8 @@ class UserObserver
      * @return void
      */
     public function updated(User $user)
-    {  
-        if ($user->isDirty('password')) {
-            $user->password = bcrypt($user->password);
-        } 
-        
+    {
+        //
     }
 
     /**

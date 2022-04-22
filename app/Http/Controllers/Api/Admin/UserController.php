@@ -194,6 +194,10 @@ class UserController extends Controller
     {
         $user->update($request->all());
 
+        if($request['password']){
+            $user->update(['password'=> bcrypt($request['password'])]);
+        }
+
         $user->plans()->sync($request['plans']);
 
         return $this->showOne($user);
