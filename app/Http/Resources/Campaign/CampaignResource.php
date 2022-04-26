@@ -20,8 +20,8 @@ class CampaignResource extends JsonResource
             'id' => $this->id,
             'name' => $this->name,
             'scripts_count' => $this->scripts->count(),
-            // 'scripts' => ScriptResponseResource::collection($this->scriptResponses),
-            'scripts' => ScriptResource::collection($this->scripts),
+            'scripts' => ScriptResponseResource::collection($this->scriptResponses),
+            // 'scripts' => ScriptResource::collection($this->scripts),
             'created_at' => $this->created_at,
             'updated_at' => $this->updated_at,
         ];
