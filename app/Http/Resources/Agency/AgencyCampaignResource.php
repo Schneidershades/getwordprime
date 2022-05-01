@@ -15,7 +15,7 @@ class AgencyCampaignResource extends JsonResource
             'name' => $this->agency->name,
             'campaign_name' => $this->campaign->name,
             'campaign_id' => $this->campaign_id,
-            'scripts_count' => $this->campaign->scriptResponses->count(),
+            'scripts_count' => $this->scriptResponses->count(),
             'scripts' => ScriptResponseResource::collection($this->scriptResponses),
             'created_at' => $this->created_at,
             'updated_at' => $this->updated_at,
