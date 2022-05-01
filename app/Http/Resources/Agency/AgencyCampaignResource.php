@@ -12,10 +12,13 @@ class AgencyCampaignResource extends JsonResource
         return [
             'id' => $this->id,
             'agency_id' => $this->agency_id,
-            'agency_name' => $this->agency->name,
+            'name' => $this->agency->name,
             'campaign_name' => $this->campaign->name,
             'campaign_id' => $this->campaign_id,
-            'scripts' => ScriptResponseResource::collection($this->campaign->scriptResponses),
+            'scripts_count' => $this->scriptResponses->count(),
+            'scripts' => ScriptResponseResource::collection($this->scriptResponses),
+            'created_at' => $this->created_at,
+            'updated_at' => $this->updated_at,
         ];
     }
 }
