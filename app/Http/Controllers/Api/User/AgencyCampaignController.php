@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Api\User;
 
+use App\Models\Agency;
 use Illuminate\Support\Str;
 use App\Models\AgencyCampaign;
 use App\Http\Controllers\Controller;
@@ -51,8 +52,8 @@ class AgencyCampaignController extends Controller
     */
     public function index($id)
     {
-        $campaigns = AgencyCampaign::where('agency_id', $id)->get();
-        return $this->showAll($campaigns);
+        $agency = Agency::where('agency_id', $id)->get();
+        return $this->showAll($agency->campaigns);
     }
 
     /**
