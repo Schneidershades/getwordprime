@@ -52,7 +52,7 @@ class AgencyCampaignController extends Controller
     */
     public function index($id)
     {
-        $agency = Agency::where('agency_id', $id)->get();
+        $agency = Agency::where('id', $id)->get();
         return $this->showAll($agency->campaigns);
     }
 
