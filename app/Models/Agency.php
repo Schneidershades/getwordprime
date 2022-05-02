@@ -24,6 +24,6 @@ class Agency extends Model
 
     public function campaigns()
     {
-        return $this->hasMany(Campaign::class);
+        return $this->hasMany(Campaign::class, 'agency_campaigns');
     }
 }
