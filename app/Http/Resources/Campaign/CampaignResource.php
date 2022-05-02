@@ -19,7 +19,7 @@ class CampaignResource extends JsonResource
         return [
             'id' => $this->id,
             'name' => $this->name,
-            'scripts_count' => $this->scripts->count(),
+            'scripts_count' => $this->agencies->count(),
             'scripts' => ScriptResponseResource::collection($this->scriptResponses),
             // 'scripts' => ScriptResource::collection($this->scripts),
             'created_at' => $this->created_at,
