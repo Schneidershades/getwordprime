@@ -101,8 +101,9 @@ class AgencyCampaignController extends Controller
     */
     public function store(AgencyCampaignCreateFormRequest $request, $id)
     {
-        $agencyCampaignsExist = auth()->user()->agencyCampaigns()->where('agency_id', $request['agency_id'])
-            ->where('agency_id', $request['agency_id'])->first();
+        $agencyCampaignsExist = auth()->user()->agencyCampaigns()
+            ->where('agency_id', $request['agency_id'])
+            ->where('campaign_id', $request['campaign_id'])->first();
         
         if($agencyCampaignsExist){
             return $this->errorResponse('agency and campaign already exists', 409);
