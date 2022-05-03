@@ -105,9 +105,9 @@ class AgencyCampaignController extends Controller
             ->where('agency_id', $request['agency_id'])->first();
         
         if($agencyCampaignsExist){
-            return $this->errorResponse('Agency and Campaign already exists', 409);
+            return $this->errorResponse('agency and campaign already exists', 409);
         }
-        
+
         $agency = auth()->user()->agencyCampaigns()->create(array_merge($request->validated(), ['link' => Str::random(40)]));
         return $this->showOne($agency);
     }
