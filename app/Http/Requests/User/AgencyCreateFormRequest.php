@@ -63,7 +63,7 @@ class AgencyCreateFormRequest extends FormRequest
     public function rules()
     {
         return [
-            'name' => 'required|string|unique:agencies,email',
+            'name' => 'required|string|unique:agencies,name',
             'email' => 'required|string|email|max:255|unique:agencies,email',
             'campaigns' => 'array', 
             'campaigns.*.campaign_id' => 'int|exists:plans,id',
