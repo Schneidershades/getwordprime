@@ -60,15 +60,10 @@ class AgencyCreateFormRequest extends FormRequest
         return true;
     }
 
-    /**
-     * Get the validation rules that apply to the request.
-     *
-     * @return array
-     */
     public function rules()
     {
         return [
-            'name' => 'required|string',
+            'name' => 'required|string|unique:agencies,email',
             'email' => 'required|string|email|max:255|unique:agencies,email',
             'campaigns' => 'array', 
             'campaigns.*.campaign_id' => 'int|exists:plans,id',

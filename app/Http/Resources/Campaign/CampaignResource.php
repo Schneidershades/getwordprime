@@ -8,12 +8,6 @@ use App\Http\Resources\Script\ScriptResponseResource;
 
 class CampaignResource extends JsonResource
 {
-    /**
-     * Transform the resource into an array.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return array
-     */
     public function toArray($request)
     {
         return [
@@ -21,7 +15,6 @@ class CampaignResource extends JsonResource
             'name' => $this->name,
             'scripts_count' => $this->scriptResponses->count(),
             'scripts' => ScriptResponseResource::collection($this->scriptResponses),
-            // 'scripts' => ScriptResource::collection($this->scripts),
             'created_at' => $this->created_at,
             'updated_at' => $this->updated_at,
         ];
