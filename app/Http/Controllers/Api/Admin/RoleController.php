@@ -88,7 +88,7 @@ class RoleController extends Controller
     */
     public function store(RoleCreateFormRequest $request)
     {
-        $roles = Role::create($request->validated());
+        $roles = Role::create($request->only('name'));
         $roles->givePermissionTo($request['permissions']);
         return $this->showOne($roles);
     }
@@ -184,7 +184,7 @@ class RoleController extends Controller
     
     public function update(RoleUpdateFormRequest $request, Role $role)
     {
-        $role->update($request->validated());
+        $role->update($request->only('name'));
         $role->givePermissionTo($request['permissions']);
         return $this->showOne($role);
     }
