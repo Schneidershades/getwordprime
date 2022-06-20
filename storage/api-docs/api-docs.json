@@ -1093,6 +1093,46 @@
                         "bearerAuth": []
                     }
                 ]
+            },
+            "post": {
+                "tags": [
+                    "Admin"
+                ],
+                "summary": "Post permissions",
+                "description": "Post permissions",
+                "operationId": "postPermissions",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/StorePermissionRequest"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Successful signin",
+                        "content": {
+                            "application/json": {}
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    },
+                    "401": {
+                        "description": "unauthenticated"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
             }
         },
         "/api/v1/admin/role/{id}": {
@@ -1135,7 +1175,7 @@
                         "description": "Bad Request"
                     },
                     "401": {
-                        "description": "unauthenticated"
+                        "description": "unauthenticbgn-ated"
                     },
                     "403": {
                         "description": "Forbidden"
@@ -7052,6 +7092,10 @@
                         "description": "name",
                         "type": "string",
                         "example": "name"
+                    },
+                    "permissions": {
+                        "type": "string",
+                        "example": "['edit_user','create_user']"
                     }
                 },
                 "type": "object"
@@ -7480,6 +7524,22 @@
                         "description": "name of the language",
                         "type": "string",
                         "example": "English"
+                    }
+                },
+                "type": "object"
+            },
+            "StorePermissionRequest": {
+                "title": "Store Permission Create Form Request Fields",
+                "description": "Store Permission Create request body data",
+                "required": [
+                    "name"
+                ],
+                "properties": {
+                    "name": {
+                        "title": "permission",
+                        "description": "permission",
+                        "type": "string",
+                        "example": "create_user"
                     }
                 },
                 "type": "object"

@@ -58,13 +58,13 @@ class PermissionsController extends Controller
     /**
     * @OA\Post(
     *      path="/api/v1/admin/permissions",
-    *      operationId="postPermission",
+    *      operationId="postPermissions",
     *      tags={"Admin"},
     *      summary="Post permissions",
     *      description="Post permissions",
     *      @OA\RequestBody(
     *          required=true,
-    *          @OA\JsonContent(ref="#/components/schemas/PermissionCreateFormRequest")
+    *          @OA\JsonContent(ref="#/components/schemas/StorePermissionRequest")
     *      ),
     *      @OA\Response(
     *          response=200,
