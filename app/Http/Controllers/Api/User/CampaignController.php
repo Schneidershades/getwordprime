@@ -169,7 +169,9 @@ class CampaignController extends Controller
     */
     public function update(CampaignUpdateFormRequest $request, Campaign $campaign)
     {
-        auth()->user()->campaigns->where('id', $campaign->id)->first()->update($request->validated());
+        auth()->user()->campaigns->where('id', $campaign->id)
+            ->first()
+            ->update($request->validated());
         return $this->showOne(auth()->user()->campaigns->where('id', $campaign->id)->first());
     }
 

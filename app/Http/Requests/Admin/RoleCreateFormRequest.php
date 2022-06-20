@@ -5,7 +5,6 @@ namespace App\Http\Requests\Admin;
 use Illuminate\Foundation\Http\FormRequest;
 
 /**
-/**
  * @OA\Schema(
  *      title="Role Create Form Request Fields",
  *      description="Role Create request body data",
@@ -29,6 +28,18 @@ class RoleCreateFormRequest extends FormRequest
     private $name;
 
     /**
+     
+     * @OA\Property(
+     *      property="permissions", 
+     *      type="string", 
+     *      example="['edit_user','create_user']",
+     * ),
+     *
+     * @var string
+     */
+    private $permissions;
+
+    /**
      * Determine if the user is authorized to make this request.
      *
      * @return bool
@@ -47,6 +58,8 @@ class RoleCreateFormRequest extends FormRequest
     {
         return [
             'name' => 'required|string',
+            'permissions' => 'nullable|array',
+            'permissions.*' => 'nullable|string', 
         ];
     }
 }

@@ -5,7 +5,6 @@ namespace App\Http\Requests\Admin;
 use Illuminate\Foundation\Http\FormRequest;
 
 /**
-/**
  * @OA\Schema(
  *      title="Freelancer Keyword Update Form Request Fields",
  *      description="Freelancer Keyword Update request body data",

@@ -6,6 +6,7 @@ use App\Models\Role;
 use App\Models\Permission;
 use App\Http\Controllers\Controller;
 use Illuminate\Database\Eloquent\Builder;
+use App\Http\Requests\Admin\StorePermissionRequest;
 use App\Http\Requests\Admin\UpdatePermissionRequest;
 
 class PermissionsController extends Controller
@@ -52,6 +53,47 @@ class PermissionsController extends Controller
         return $this->showAll($permissions);
     }
 
+
+
+    /**
+    * @OA\Post(
+    *      path="/api/v1/admin/permissions",
+    *      operationId="postPermission",
+    *      tags={"Admin"},
+    *      summary="Post permissions",
+    *      description="Post permissions",
+    *      @OA\RequestBody(
+    *          required=true,
+    *          @OA\JsonContent(ref="#/components/schemas/PermissionCreateFormRequest")
+    *      ),
+    *      @OA\Response(
+    *          response=200,
+    *          description="Successful signin",
+    *          @OA\MediaType(
+    *             mediaType="application/json",
+    *         ),
+    *       ),
+    *      @OA\Response(
+    *          response=400,
+    *          description="Bad Request"
+    *      ),
+    *      @OA\Response(
+    *          response=401,
+    *          description="unauthenticated",
+    *      ),
+    *      @OA\Response(
+    *          response=403,
+    *          description="Forbidden"
+    *      ),
+    *      security={ {"bearerAuth": {}} },
+    * )
+    */
+    public function store(StorePermissionRequest $request)
+    {
+        $permissions = Permission::create($request->validated());
+        return $this->showOne($permissions);
+    }
+
     /**
     * @OA\Put(
     *      path="/api/v1/admin/role/{id}",
@@ -86,7 +128,7 @@ class PermissionsController extends Controller
     *      ),
     *      @OA\Response(
     *          response=401,
-    *          description="unauthenticated",
+    *          description="unauthenticbgn-ated",
     *      ),
     *      @OA\Response(
     *          response=403,

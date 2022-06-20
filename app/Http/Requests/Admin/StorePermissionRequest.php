@@ -4,28 +4,28 @@ namespace App\Http\Requests\Admin;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-/**
+
 /**
  * @OA\Schema(
- *      title="Tutorial Update Form Request Fields",
- *      description="Tutorial Update request body data",
+ *      title="Store Permission Create Form Request Fields",
+ *      description="Store Permission Create request body data",
  *      type="object",
  *      required={"name"}
  * )
  */
 
-class UpdatePermissionRequest extends FormRequest
+class StorePermissionRequest extends FormRequest
 {
     /**
      * @OA\Property(
      *      title="permission",
-     *      description="permission of the role",
+     *      description="permission",
      *      example="create_user"
      * )
      *
      * @var string
      */
-    private $permission;
+    public $name;
 
 
     /**
@@ -46,7 +46,7 @@ class UpdatePermissionRequest extends FormRequest
     public function rules()
     {
         return [
-            'status' => 'required|boolean',
+            'name' => 'required|string',
         ];
     }
 }
