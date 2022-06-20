@@ -128,7 +128,7 @@ class PermissionsController extends Controller
     *      ),
     *      @OA\Response(
     *          response=401,
-    *          description="unauthenticbgn-ated",
+    *          description="unauthenticated",
     *      ),
     *      @OA\Response(
     *          response=403,
