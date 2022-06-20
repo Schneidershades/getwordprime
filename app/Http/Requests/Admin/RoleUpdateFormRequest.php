@@ -28,6 +28,20 @@ class RoleUpdateFormRequest extends FormRequest
      */
     private $name;
 
+    
+
+    /**
+     
+     * @OA\Property(
+     *      property="permissions", 
+     *      type="string", 
+     *      example="['edit_user','create_user']",
+     * ),
+     *
+     * @var string
+     */
+    private $permissions;
+
     /**
      * Determine if the user is authorized to make this request.
      *
@@ -47,6 +61,8 @@ class RoleUpdateFormRequest extends FormRequest
     {
         return [
             'name' => 'required|string',
+            'permissions' => 'nullable|array',
+            'permissions.*' => 'nullable|string',
         ];
     }
 }

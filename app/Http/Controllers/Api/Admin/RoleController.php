@@ -185,6 +185,7 @@ class RoleController extends Controller
     public function update(RoleUpdateFormRequest $request, Role $role)
     {
         $role->update($request->validated());
+        $role->givePermissionTo($request['permissions']);
         return $this->showOne($role);
     }
 
