@@ -66,6 +66,7 @@ Route::prefix('v1')->group(function () {
 		Route::resource('reseller', ResellerController::class, array("as"=>"adminResellers"));
 		// Route::resource('scripts', ScriptController::class, array("as"=>"adminScripts"));
 		Route::resource('roles', RoleController::class, array("as"=>"adminRoles"));
+		Route::resource('role', RoleController::class, array("as"=>"adminRole"));
 		Route::resource('script-type-attributes', ScriptTypeAttributeController::class, array("as"=>"adminScriptTypeAttribute"));
 		Route::resource('script-type', ScriptTypeController::class, array("as"=>"adminScriptType"));
 		Route::resource('suggestions', SuggestionController::class, array("as"=>"adminSuggestions"));

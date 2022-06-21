@@ -139,12 +139,9 @@ class PermissionsController extends Controller
     */
     public function update(Role $role, UpdatePermissionRequest $request)
     {
-        if($request['status'] == false){
-            $role->revokePermissionTo($request['permission']);
-        }
-        if($request['status'] == true){
-            $role->givePermissionTo($request['permission']);
-        }
+        $role->update($request->only('name'));
+        $role->givePermissionTo($request['permissions']);
+        return $this->showOne($role);
     }
 
 }

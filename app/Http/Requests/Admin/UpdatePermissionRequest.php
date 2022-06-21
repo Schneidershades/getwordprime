@@ -16,16 +16,18 @@ use Illuminate\Foundation\Http\FormRequest;
 
 class UpdatePermissionRequest extends FormRequest
 {
+    
     /**
+     
      * @OA\Property(
-     *      title="permission",
-     *      description="permission of the role",
-     *      example="create_user"
-     * )
+     *      property="permissions", 
+     *      type="string", 
+     *      example="['edit_user','create_user']",
+     * ),
      *
      * @var string
      */
-    private $permission;
+    private $permissions;
 
 
     /**
@@ -46,7 +48,8 @@ class UpdatePermissionRequest extends FormRequest
     public function rules()
     {
         return [
-            'status' => 'required|boolean',
+            'permissions' => 'required|array',
+            'permissions.*' => 'required|string',
         ];
     }
 }
