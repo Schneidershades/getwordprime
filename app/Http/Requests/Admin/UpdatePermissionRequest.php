@@ -22,12 +22,12 @@ class UpdatePermissionRequest extends FormRequest
      * @OA\Property(
      *      property="permissions", 
      *      type="string", 
-     *      example="['edit_user','create_user']",
+     *      example='["edit_user","create_user"]',
      * ),
      *
      * @var string
      */
-    private $permissions;
+    public $permissions;
 
 
     /**
