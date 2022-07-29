@@ -14,7 +14,7 @@ class CreateAgenciesTable extends Migration
     public function up()
     {
         Schema::create('agencies', function (Blueprint $table) {
-            $table->id();
+            $table->uuid('id')->primary();
             $table->text('name');
             $table->text('email');
             $table->foreignId('user_id')->nullable()->constrained()->cascadeOnUpdate()->nullOnDelete();

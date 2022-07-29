@@ -14,7 +14,7 @@ class CreateSavedProjectsTable extends Migration
     public function up()
     {
         Schema::create('saved_projects', function (Blueprint $table) {
-            $table->id();
+            $table->uuid('id')->primary();
             $table->foreignId('user_id')->nullable()->constrained()->cascadeOnUpdate()->nullOnDelete();
             $table->foreignId('freelancer_ad_id')->nullable()->constrained()->cascadeOnUpdate()->nullOnDelete();
             $table->timestamps();

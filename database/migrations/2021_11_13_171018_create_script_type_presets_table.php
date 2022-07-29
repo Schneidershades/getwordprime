@@ -14,7 +14,7 @@ class CreateScriptTypePresetsTable extends Migration
     public function up()
     {
         Schema::create('script_type_presets', function (Blueprint $table) {
-            $table->id();
+            $table->uuid('id')->primary();
             $table->foreignId('script_type_id')->nullable()->constrained()->cascadeOnUpdate()->nullOnDelete();
             $table->string('question')->nullable();
             $table->string('field_type')->nullable();

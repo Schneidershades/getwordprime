@@ -4,8 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateSuggestionsTable extends Migration
-{
+return new class () extends Migration {
     /**
      * Run the migrations.
      *
@@ -13,12 +12,11 @@ class CreateSuggestionsTable extends Migration
      */
     public function up()
     {
-        Schema::create('suggestions', function (Blueprint $table) {
+        Schema::create('subscription_renewals', function (Blueprint $table) {
             $table->uuid('id')->primary();
-            $table->text('message');
-            $table->foreignId('user_id')->nullable()->constrained();
-            $table->foreignId('parent_id')->nullable()->constrained('suggestions')->cascadeOnUpdate()->nullOnDelete();
-            $table->string('status')->nullable();
+            $table->boolean('overdue');
+            $table->boolean('renewal');
+            $table->uuid('subscription_id')->nullable()->constrained()->cascadeOnUpdate()->nullOnDelete();
             $table->timestamps();
         });
     }
@@ -30,6 +28,6 @@ class CreateSuggestionsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('suggestions');
+        Schema::dropIfExists('subscription_renewals');
     }
-}
+};

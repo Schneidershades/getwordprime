@@ -14,7 +14,7 @@ class CreateThirdPartyPlatformsTable extends Migration
     public function up()
     {
         Schema::create('third_party_platforms', function (Blueprint $table) {
-            $table->id();
+            $table->uuid('id')->primary();
             $table->text('name')->nullable();
             $table->boolean('activate')->default(true);
             $table->timestamps();

@@ -14,7 +14,7 @@ class CreateScriptResponsesTable extends Migration
     public function up()
     {
         Schema::create('script_responses', function (Blueprint $table) {
-            $table->id();
+            $table->uuid('id')->primary();
             $table->foreignId('script_id')->nullable()->constrained()->cascadeOnUpdate()->nullOnDelete();
             $table->foreignId('campaign_id')->nullable()->constrained()->cascadeOnUpdate()->nullOnDelete();
             $table->foreignId('script_type_id')->nullable()->constrained()->cascadeOnUpdate()->nullOnDelete();

@@ -14,7 +14,7 @@ class CreateScriptTypesTable extends Migration
     public function up()
     {
         Schema::create('script_types', function (Blueprint $table) {
-            $table->id();
+            $table->uuid('id')->primary();
             $table->string('name');
             $table->text('icon')->nullable();
             $table->text('description')->nullable();

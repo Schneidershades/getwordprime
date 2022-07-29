@@ -14,7 +14,7 @@ class CreateFlaggedScriptsTable extends Migration
     public function up()
     {
         Schema::create('flagged_scripts', function (Blueprint $table) {
-            $table->id();
+            $table->uuid('id')->primary();
             $table->foreignId('user_id')->nullable()->constrained()->cascadeOnUpdate()->nullOnDelete();
             $table->foreignId('script_response_id')->nullable()->constrained()->cascadeOnUpdate()->nullOnDelete();
             $table->timestamps();

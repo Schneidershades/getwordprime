@@ -14,7 +14,7 @@ class CreateTutorialsTable extends Migration
     public function up()
     {
         Schema::create('tutorials', function (Blueprint $table) {
-            $table->id();
+            $table->uuid('id')->primary();
             $table->string('title')->nullable();
             $table->text('description')->nullable();
             $table->text('link')->nullable();

@@ -14,7 +14,7 @@ class CreateCampaignsTable extends Migration
     public function up()
     {
         Schema::create('campaigns', function (Blueprint $table) {
-            $table->id();
+            $table->uuid('id')->primary();
             $table->string('name')->unique();
             $table->foreignId('user_id')->nullable()->constrained()->cascadeOnUpdate()->nullOnDelete();
             $table->timestamps();

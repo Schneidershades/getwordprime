@@ -14,7 +14,7 @@ class CreateAgencyCampaignsTable extends Migration
     public function up()
     {
         Schema::create('agency_campaigns', function (Blueprint $table) {
-            $table->id();
+            $table->uuid('id')->primary();
             $table->foreignId('agency_id')->nullable()->constrained()->cascadeOnUpdate()->nullOnDelete();
             $table->foreignId('campaign_id')->nullable()->constrained()->cascadeOnUpdate()->nullOnDelete();
             $table->foreignId('user_id')->nullable()->constrained()->cascadeOnUpdate()->nullOnDelete();
