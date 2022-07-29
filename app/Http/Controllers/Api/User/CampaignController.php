@@ -172,6 +172,7 @@ class CampaignController extends Controller
         auth()->user()->campaigns->where('id', $campaign->id)
             ->first()
             ->update($request->validated());
+            
         return $this->showOne(auth()->user()->campaigns->where('id', $campaign->id)->first());
     }
 

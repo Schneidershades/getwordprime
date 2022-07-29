@@ -17,6 +17,7 @@ class CreateAgencyCampaignsTable extends Migration
             $table->id();
             $table->foreignId('agency_id')->nullable()->constrained()->cascadeOnUpdate()->nullOnDelete();
             $table->foreignId('campaign_id')->nullable()->constrained()->cascadeOnUpdate()->nullOnDelete();
+            $table->foreignId('user_id')->nullable()->constrained()->cascadeOnUpdate()->nullOnDelete();
             $table->text('link')->nullable();
             $table->timestamps();
             $table->softDeletes();

@@ -14,26 +14,6 @@ class OpenAi
         dd($response);
     }
 
-    // [
-    //     "engine" => "davinci-instruct-beta", 
-    //     "prompt" => "Write a creative ad for the following product to run on Facebook:
-    // """"""
-    // Airee is a line of skin-care products for young women with delicate skin. The ingredients are all-natural.
-    // """"""
-    // This is the ad I wrote for Facebook aimed at teenage girls:
-    // """"""", 
-    //     "temperature" => 0.5, 
-    //     "max_tokens" => 60, 
-    //     "top_p" => 1, 
-    //     "frequency_penalty" => 0, 
-    //     "presence_penalty" => 0, 
-    //     "stop" => [
-    //         """""""" 
-    //     ] 
-    // ]; 
-    
-
-
     public function ad($prompt, $scriptType)
     { 
         $request_body = [
@@ -163,24 +143,4 @@ class OpenAi
         dd($response);
     }
 
-    // public function item()
-    // {
-    //     $ch = curl_init();
-
-    //     curl_setopt($ch, CURLOPT_URL, 'https://api.openai.com/v1/engines/davinci-instruct-beta/completions');
-    //     curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
-    //     curl_setopt($ch, CURLOPT_POST, 1);
-    //     curl_setopt($ch, CURLOPT_POSTFIELDS, "{\n  \"prompt\": \"Write a creative ad for the following product to run on Facebook:n\"\"\"\"\"\"nAiree is a line of skin-care products for young women with delicate skin. The ingredients are all-natural.n\"\"\"\"\"\"nThis is the ad I wrote for Facebook aimed at teenage girls:n\"\"\"\"\"\"\",\n  \"temperature\": 0.5,\n  \"max_tokens\": 60,\n  \"top_p\": 1.0,\n  \"frequency_penalty\": 0.0,\n  \"presence_penalty\": 0.0,\n  \"stop\": [\"\"\"\"\"\"\"\"]\n}");
-
-    //     $headers = array();
-    //     $headers[] = 'Content-Type: application/json';
-    //     $headers[] = 'Authorization: _ENV["Bearer OPENAI_API_KEY"];
-    //     curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
-
-    //     $result = curl_exec($ch);
-    //     if (curl_errno($ch)) {
-    //         echo 'Error:' . curl_error($ch);
-    //     }
-    //     curl_close($ch);
-    // }
 }

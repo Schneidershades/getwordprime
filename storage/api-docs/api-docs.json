@@ -1175,7 +1175,7 @@
                         "description": "Bad Request"
                     },
                     "401": {
-                        "description": "unauthenticbgn-ated"
+                        "description": "unauthenticated"
                     },
                     "403": {
                         "description": "Forbidden"
@@ -7112,6 +7112,10 @@
                         "description": "name",
                         "type": "string",
                         "example": "name"
+                    },
+                    "permissions": {
+                        "type": "string",
+                        "example": "['edit_user','create_user']"
                     }
                 },
                 "type": "object"
@@ -7709,11 +7713,9 @@
                     "name"
                 ],
                 "properties": {
-                    "permission": {
-                        "title": "permission",
-                        "description": "permission of the role",
+                    "permissions": {
                         "type": "string",
-                        "example": "create_user"
+                        "example": "['edit_user','create_user']"
                     }
                 },
                 "type": "object"

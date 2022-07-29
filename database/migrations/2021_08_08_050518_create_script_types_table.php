@@ -18,6 +18,7 @@ class CreateScriptTypesTable extends Migration
             $table->string('name');
             $table->text('icon')->nullable();
             $table->text('description')->nullable();
+            $table->foreignId('script_type_category_id')->nullable()->constrained()->cascadeOnUpdate()->nullOnDelete();
             $table->string('prompt_1')->nullable();
             $table->string('prompt_2')->nullable();
             $table->string('usage')->nullable();
@@ -33,6 +34,8 @@ class CreateScriptTypesTable extends Migration
             $table->string('top_p')->nullable();
             $table->string('variation')->nullable();
             $table->boolean('activate')->default(false);
+            $table->boolean('tone')->default(false);
+            $table->boolean('language')->default(false);
             $table->timestamps();
             $table->softDeletes();
         });

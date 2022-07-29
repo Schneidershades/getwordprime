@@ -23,6 +23,12 @@ class CreateScriptsTable extends Migration
             $table->string('object')->nullable();
             $table->string('created')->nullable();
             $table->string('model')->nullable();
+            $table->bigInteger('word_count')->default(0);
+            $table->boolean('active')->default(true);
+            $table->longText('text')->nullable();
+            $table->string('index')->nullable();
+            $table->string('logprobs')->nullable();
+            $table->string('finish_reason')->nullable();
             $table->timestamps();
             $table->softDeletes();
         });
