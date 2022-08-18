@@ -2,23 +2,27 @@
 
 namespace App\Models;
 
-use App\Models\User;
-use Illuminate\Database\Eloquent\Model;
+use App\Traits\Uuids;
+use Illuminate\Database\Eloquent\Builder;
 use App\Http\Resources\Plan\PlanResource;
 use App\Http\Resources\Plan\PlanCollection;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use LucasDotVin\Soulbscription\Models\Plan as SoulPlan;
 
-class Plan extends Model
+class Plan extends SoulPlan
 {
-    use HasFactory;
+    use Uuids, HasFactory;
 
-    protected $guarded = [];
-    
     public $oneItem = PlanResource::class;
     public $allItems = PlanCollection::class;
 
-    public function users()
+    public function scopeTeams(Builder $builder)
     {
-    	return $this->belongsToMany(User::class, 'user_plans');
+        return $builder->where('teams', true);
+    }
+
+    public function transactions()
+    {
+        return $this->morphMany(Transaction::class, 'transactionable');
     }
 }
