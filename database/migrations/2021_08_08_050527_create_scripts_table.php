@@ -15,9 +15,9 @@ class CreateScriptsTable extends Migration
     {
         Schema::create('scripts', function (Blueprint $table) {
             $table->uuid('id')->primary();
-            $table->foreignId('user_id')->nullable()->constrained()->cascadeOnUpdate()->nullOnDelete();
-            $table->foreignId('script_type_id')->nullable()->constrained()->cascadeOnUpdate()->nullOnDelete();
-            $table->foreignId('campaign_id')->nullable()->constrained()->cascadeOnUpdate()->nullOnDelete();
+            $table->uuid('user_id')->nullable()->constrained()->cascadeOnUpdate()->nullOnDelete();
+            $table->uuid('script_type_id')->nullable()->constrained()->cascadeOnUpdate()->nullOnDelete();
+            $table->uuid('campaign_id')->nullable()->constrained()->cascadeOnUpdate()->nullOnDelete();
             $table->text('content')->nullable();
             $table->text('name')->nullable();
             $table->string('object')->nullable();

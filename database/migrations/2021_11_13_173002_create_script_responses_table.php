@@ -15,10 +15,10 @@ class CreateScriptResponsesTable extends Migration
     {
         Schema::create('script_responses', function (Blueprint $table) {
             $table->uuid('id')->primary();
-            $table->foreignId('script_id')->nullable()->constrained()->cascadeOnUpdate()->nullOnDelete();
-            $table->foreignId('campaign_id')->nullable()->constrained()->cascadeOnUpdate()->nullOnDelete();
-            $table->foreignId('script_type_id')->nullable()->constrained()->cascadeOnUpdate()->nullOnDelete();
-            $table->foreignId('user_id')->nullable()->constrained()->cascadeOnUpdate()->nullOnDelete();
+            $table->uuid('script_id')->nullable()->constrained()->cascadeOnUpdate()->nullOnDelete();
+            $table->uuid('campaign_id')->nullable()->constrained()->cascadeOnUpdate()->nullOnDelete();
+            $table->uuid('script_type_id')->nullable()->constrained()->cascadeOnUpdate()->nullOnDelete();
+            $table->uuid('user_id')->nullable()->constrained()->cascadeOnUpdate()->nullOnDelete();
             $table->longText('text')->nullable();
             $table->string('index')->nullable();
             $table->string('logprobs')->nullable();

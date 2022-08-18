@@ -15,9 +15,9 @@ class CreateAgencyCampaignsTable extends Migration
     {
         Schema::create('agency_campaigns', function (Blueprint $table) {
             $table->uuid('id')->primary();
-            $table->foreignId('agency_id')->nullable()->constrained()->cascadeOnUpdate()->nullOnDelete();
-            $table->foreignId('campaign_id')->nullable()->constrained()->cascadeOnUpdate()->nullOnDelete();
-            $table->foreignId('user_id')->nullable()->constrained()->cascadeOnUpdate()->nullOnDelete();
+            $table->uuid('agency_id')->nullable()->constrained()->cascadeOnUpdate()->nullOnDelete();
+            $table->uuid('campaign_id')->nullable()->constrained()->cascadeOnUpdate()->nullOnDelete();
+            $table->uuid('user_id')->nullable()->constrained()->cascadeOnUpdate()->nullOnDelete();
             $table->text('link')->nullable();
             $table->timestamps();
             $table->softDeletes();

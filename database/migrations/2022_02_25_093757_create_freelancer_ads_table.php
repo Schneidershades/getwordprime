@@ -15,7 +15,7 @@ class CreateFreelancerAdsTable extends Migration
     {
         Schema::create('freelancer_ads', function (Blueprint $table) {
             $table->uuid('id')->primary();
-            $table->foreignId('user_id')->nullable()->constrained()->cascadeOnUpdate()->nullOnDelete();
+            $table->uuid('user_id')->nullable()->constrained()->cascadeOnUpdate()->nullOnDelete();
             $table->string('city')->nullable();
             $table->text('title')->nullable();
             $table->string('type')->nullable();

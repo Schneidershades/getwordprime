@@ -16,8 +16,8 @@ class CreateSuggestionsTable extends Migration
         Schema::create('suggestions', function (Blueprint $table) {
             $table->uuid('id')->primary();
             $table->text('message');
-            $table->foreignId('user_id')->nullable()->constrained();
-            $table->foreignId('parent_id')->nullable()->constrained('suggestions')->cascadeOnUpdate()->nullOnDelete();
+            $table->uuid('user_id')->nullable()->constrained();
+            $table->uuid('parent_id')->nullable()->constrained('suggestions')->cascadeOnUpdate()->nullOnDelete();
             $table->string('status')->nullable();
             $table->timestamps();
         });

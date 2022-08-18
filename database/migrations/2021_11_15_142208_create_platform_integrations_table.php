@@ -15,9 +15,9 @@ class CreatePlatformIntegrationsTable extends Migration
     {
         Schema::create('platform_integrations', function (Blueprint $table) {
             $table->uuid('id')->primary();
-            $table->foreignId('platform_integration_id')->nullable()->constrained()->cascadeOnUpdate()->nullOnDelete();
+            $table->uuid('platform_integration_id')->nullable()->constrained()->cascadeOnUpdate()->nullOnDelete();
             $table->text('platform_keys');
-            $table->foreignId('user_id')->nullable()->constrained();
+            $table->uuid('user_id')->nullable()->constrained();
             $table->boolean('activate')->default(true);
             $table->timestamps();
         });
