@@ -68,7 +68,7 @@ class PermissionSeeder extends Seeder
             $user = User::Create([
                 'first_name'                          => 'Admin',
                 'last_name'                          => 'Admin',
-                'email'                         => 'admin@convertscript.com',
+                'email'                         => 'admin@getwordprime.com',
                 'password'                      => 'password',
                 'role'                          => $role->name,
             ]);
@@ -82,7 +82,7 @@ class PermissionSeeder extends Seeder
             $user = User::Create([
                 'first_name'                          => 'Manuel',
                 'last_name'                          => 'Manuel',
-                'email'                         => 'user@convertscript.com',
+                'email'                         => 'user@getwordprime.com',
                 'password'                      => 'password',
                 'role'                          => $role->name,
             ]);
