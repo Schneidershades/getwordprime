@@ -19,6 +19,7 @@ class CreateUsersTable extends Migration
             $table->string('last_name')->nullable();
             $table->string('email')->unique();
             $table->string('role')->nullable();
+            $table->string('phone')->nullable();
             $table->uuid('referral_id')->nullable()->constrained('users')->cascadeOnUpdate()->nullOnDelete();
             $table->uuid('parent_id')->nullable()->constrained('users')->cascadeOnUpdate()->nullOnDelete();
             $table->timestamp('email_verified_at')->nullable();
