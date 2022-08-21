@@ -71,6 +71,17 @@ class UserRegistrationFormRequest extends FormRequest
      */
     public $password;
 
+    /**
+    * @OA\Property(
+    *      title="User Phone",
+    *      description="Phone of the user",
+    *      example="080222"
+    * )
+    *
+    * @var string
+    */
+    public $phone;
+
     
     /**
      * Determine if the user is authorized to make this request.
