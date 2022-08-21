@@ -19,6 +19,7 @@ class CreateUsersTable extends Migration
             $table->string('last_name')->nullable();
             $table->string('email')->unique();
             $table->string('role')->nullable();
+            $table->string('phone')->nullable();
             $table->float('ads')->nullable(0);
             $table->foreignId('parent_id')->nullable()->constrained('users');
             $table->foreignId('plan_id')->nullable()->constrained();
