@@ -5,7 +5,6 @@ namespace App\Http\Requests\Auth;
 use Illuminate\Foundation\Http\FormRequest;
 
 /**
-/**
  * @OA\Schema(
  *      title="User Update Form Request Fields",
  *      description="User Update request body data",
@@ -16,27 +15,40 @@ use Illuminate\Foundation\Http\FormRequest;
 
 class AuthUpdateFormRequest extends FormRequest
 {
+    
      /**
      * @OA\Property(
-     *      title="User Name",
-     *      description="name of the user",
+     *      title="User First Name",
+     *      description="first name of the user",
      *      example="Schneider"
      * )
      *
      * @var string
      */
-    public $name;
+    public $first_name;
 
     /**
-     * @OA\Property(
-     *      title="User Role",
-     *      description="User/Admin",
-     *      example="User"
-     * )
-     *
-     * @var string
-     */
-    public $role;
+    * @OA\Property(
+    *      title="User Last Name",
+    *      description="Last name of the user",
+    *      example="Schneider"
+    * )
+    *
+    * @var string
+    */
+   public $last_name;
+
+
+    /**
+    * @OA\Property(
+    *      title="User Phone",
+    *      description="Phone of the user",
+    *      example="080222"
+    * )
+    *
+    * @var string
+    */
+    public $phone;
 
 
 
@@ -60,7 +72,7 @@ class AuthUpdateFormRequest extends FormRequest
         return [
             'first_name' => 'nullable|string|max:255',
             'last_name' => 'nullable|string|max:255',
-            // 'active' => 'required|boolean',
+            'phone' => 'nullable|string|max:255',
         ];
     }
 }

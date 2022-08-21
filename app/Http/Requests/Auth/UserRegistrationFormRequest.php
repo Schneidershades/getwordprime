@@ -49,6 +49,18 @@ class UserRegistrationFormRequest extends FormRequest
      */
     public $role;
 
+
+    /**
+    * @OA\Property(
+    *      title="User Phone",
+    *      description="Phone of the user",
+    *      example="080222"
+    * )
+    *
+    * @var string
+    */
+    public $phone;
+
     /**
      * @OA\Property(
      *      title="User email",
