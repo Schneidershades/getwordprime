@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Traits\Uuids;
 use Illuminate\Database\Eloquent\Model;
 use App\Http\Resources\Bonus\BonusResource;
 use App\Http\Resources\Bonus\BonusCollection;
@@ -9,7 +10,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class Bonus extends Model
 {
-    use HasFactory;
+    use Uuids, HasFactory;
     
     protected $guarded = [];
 

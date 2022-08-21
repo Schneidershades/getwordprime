@@ -3,6 +3,7 @@
 namespace Database\Seeders;
 
 use App\Models\Campaign;
+use App\Models\User;
 use Illuminate\Database\Seeder;
 
 class CampaignTableSeeder extends Seeder
@@ -16,12 +17,8 @@ class CampaignTableSeeder extends Seeder
     {
         Campaign::create([
             'name'             => 'Time',
-            'user_id'         => 1,
+            'user_id'         => User::first()->id,
         ]);
 
-        Campaign::create([
-            'name'             => 'Timing',
-            'user_id'         => 2,
-        ]);
     }
 }

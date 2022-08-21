@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Traits\Uuids;
 use App\Models\User;
 use App\Models\ScriptResponse;
 use Illuminate\Database\Eloquent\Model;
@@ -11,7 +12,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class FlaggedScript extends Model
 {
-    use HasFactory;
+    use Uuids, HasFactory;
     
     public $oneItem = FlaggedScriptResource::class;
     public $allItems = FlaggedScriptCollection::class;

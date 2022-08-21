@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Traits\Uuids;
 use App\Models\Plan;
 use App\Models\User;
 use Illuminate\Database\Eloquent\Model;
@@ -11,7 +12,7 @@ use App\Http\Resources\Transaction\TransactionCollection;
 
 class Transaction extends Model
 {
-    use HasFactory;
+    use Uuids, HasFactory;
 
     protected $guarded = [];
 

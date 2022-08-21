@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Traits\Uuids;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use App\Models\User;
@@ -10,7 +11,7 @@ use App\Http\Resources\Suggestion\SuggestionCollection;
 
 class Suggestion extends Model
 {
-    use HasFactory;
+    use Uuids, HasFactory;
     protected $guarded = [];
 
     public $oneItem = SuggestionResource::class;

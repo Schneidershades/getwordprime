@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Traits\Uuids;
 use App\Models\User;
 use App\Models\Language;
 use App\Models\ScriptType;
@@ -10,7 +11,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class UserScriptTypeLanguage extends Model
 {
-    use HasFactory;
+    use Uuids, HasFactory;
     
     protected $guarded = [];
 

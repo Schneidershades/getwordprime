@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Traits\Uuids;
 use App\Models\Plan;
 use App\Models\FavoriteScript;
 use App\Models\FlaggedScript;
@@ -22,7 +23,7 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 
 class User extends Authenticatable implements MustVerifyEmail, JWTSubject 
 {
-    use HasFactory, Notifiable, HasRoles;
+    use HasFactory, Notifiable, HasRoles, Uuids;
 
     protected $guard_name = 'api';
     

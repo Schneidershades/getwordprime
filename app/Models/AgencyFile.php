@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Traits\Uuids;
 use Illuminate\Database\Eloquent\Model;
 use App\Http\Resources\AgencyFile\AgencyFileResource;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
@@ -9,7 +10,7 @@ use App\Http\Resources\AgencyFile\AgencyFileCollection;
 
 class AgencyFile extends Model
 {
-    use HasFactory;
+    use Uuids, HasFactory;
 
     protected $guarded = [];
 

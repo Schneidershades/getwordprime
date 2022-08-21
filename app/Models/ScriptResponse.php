@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Traits\Uuids;
 use App\Models\Script;
 use App\Models\FlaggedScript;
 use App\Models\FavoriteScript;
@@ -12,7 +13,7 @@ use App\Http\Resources\Script\ScriptResponseCollection;
 
 class ScriptResponse extends Model
 {
-    use HasFactory;
+    use Uuids, HasFactory;
     
     protected $guarded = [];
 

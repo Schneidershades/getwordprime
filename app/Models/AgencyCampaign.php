@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Traits\Uuids;
 use App\Models\Agency;
 use App\Models\Campaign;
 use Illuminate\Database\Eloquent\Model;
@@ -11,7 +12,7 @@ use App\Http\Resources\Agency\AgencyCampaignCollection;
 
 class AgencyCampaign extends Model
 {
-    use HasFactory;
+    use Uuids, HasFactory;
     
     protected $guarded = [];
 

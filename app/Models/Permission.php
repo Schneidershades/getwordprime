@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Traits\Uuids;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Spatie\Permission\Models\Permission as SpatiePermissions;
@@ -10,7 +11,7 @@ use App\Http\Resources\Permission\PermissionCollection;
 
 class Permission extends SpatiePermissions
 {
-	use HasFactory;
+	use Uuids, HasFactory;
 
     public $oneItem = PermissionResource::class;
     public $allItems = PermissionCollection::class;

@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Traits\Uuids;
 use App\Models\ScriptType;
 use App\Models\ScriptTypePreset;
 use Illuminate\Database\Eloquent\Model;
@@ -11,7 +12,7 @@ use App\Http\Resources\User\UserScriptTypePresetCollection;
 
 class UserScriptTypePreset extends Model
 {
-    use HasFactory;
+    use Uuids, HasFactory;
 
     protected $guarded = [];
 

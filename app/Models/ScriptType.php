@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Traits\Uuids;
 use App\Models\Media;
 use App\Models\ScriptResponse;
 use App\Models\ScriptTypePreset;
@@ -12,7 +13,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class ScriptType extends Model
 {
-    use HasFactory;
+    use Uuids, HasFactory;
     
     protected $guarded = [];
 

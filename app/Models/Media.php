@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Traits\Uuids;
 use Illuminate\Support\Str;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Storage;
@@ -10,7 +11,7 @@ use Illuminate\Support\Facades\URL;
 
 class Media extends Model
 {
-    use HasFactory;
+    use Uuids, HasFactory;
 
     protected $fillable = ['uuid', 'file_path', 'fileable_id', 'fileable_type'];
 
