@@ -20,7 +20,7 @@ class UserLoginFormRequest extends FormRequest
      * @OA\Property(
      *      title="User email",
      *      description="Email of the user",
-     *      example="user@convertscript.com"
+     *      example="user@getwordprime.com"
      * )
      *
      * @var string
