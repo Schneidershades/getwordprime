@@ -4,10 +4,7 @@
 ![WordPrime](https://dev-convert-script.netlify.app/img/Logo.c0abf694.svg)
 
 
-# Welcome {{ $user->first_name }} {{ $user->last_name }},
-
-We're so happy and excited to welcome you to the board.
-
+# Hi,
 
 You requested a password reset. Click on the button below to create a new password
 
