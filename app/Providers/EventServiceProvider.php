@@ -19,6 +19,10 @@ class EventServiceProvider extends ServiceProvider
             SendEmailVerificationNotification::class,
         ],
 
+        \App\Events\User\ForgotPassword::class => [
+            \App\Listeners\ForgotPasswordListener::class,
+        ],
+
 
         // user
         'App\Events\User\NewUserEvent' => [

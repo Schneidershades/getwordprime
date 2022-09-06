@@ -1,5 +1,6 @@
 @component('mail::message')
 
+
 ![WordPrime](https://dev-convert-script.netlify.app/img/Logo.c0abf694.svg)
 
 
@@ -8,19 +9,16 @@
 We're so happy and excited to welcome you to the board.
 
 
-Please find below the login details of your WordPrime AI Writer account.
+You requested a password reset. Click on the button below to create a new password
 
 
-Please use the details given below to log in.<br>
-Email: {{$user->email}}<br>
-
-Password: {{$password}} <br>
-
-Login URL: https://app.onecopy.ai/login <br>
+@component('mail::button', ['url' => $link])
+Set a new password
+@endcomponent 
 
  
 
-In case of any queries, please get in touch with the WordPrime support.
+In case of any queries, please get in touch with the wordprime support.
 
  
 
