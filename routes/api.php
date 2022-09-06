@@ -11,7 +11,7 @@ Route::prefix('v1')->group(function () {
         Route::post('update', 'UserController@updateUser');
         Route::post('password/email', 'ForgotPasswordController@updateUser');
         Route::post('change/password', 'ChangePasswordController')->middleware('auth:api');
-		
+
         Route::post('/password/email', 'ForgotPasswordController@forgotPassword');
 		Route::post('/password/reset', 'ResetPasswordController@reset');
 		
@@ -58,32 +58,32 @@ Route::prefix('v1')->group(function () {
 		Route::get('text/download/user/{id}/all-script-responses', 'ExportController@downloadUserTextScript');
 	});
 
-	Route::group(['prefix' => 'admin', 'middleware' => 'auth:api', 'namespace' => 'Api\Admin'], function(){
-		Route::resource('plans', PlanController::class, array("as"=>"adminPlans"));
-		Route::resource('agencies', AgencyController::class, array("as"=>"adminAgencies"));
-		Route::resource('agency-files', AgencyFileController::class, array("as"=>"adminAgencyFiles"));
-		Route::resource('campaigns', CampaignController::class, array("as"=>"adminCampaigns"));
-		Route::resource('reseller', ResellerController::class, array("as"=>"adminResellers"));
-		// Route::resource('scripts', ScriptController::class, array("as"=>"adminScripts"));
-		Route::resource('roles', RoleController::class, array("as"=>"adminRoles"));
-		Route::resource('role', RoleController::class, array("as"=>"adminRole"));
-		Route::resource('script-type-attributes', ScriptTypeAttributeController::class, array("as"=>"adminScriptTypeAttribute"));
-		Route::resource('script-type', ScriptTypeController::class, array("as"=>"adminScriptType"));
-		Route::resource('suggestions', SuggestionController::class, array("as"=>"adminSuggestions"));
-		Route::resource('tutorials', TutorialController::class, array("as"=>"adminTutorials"));
-		Route::resource('users', UserController::class, array("as"=>"adminUsers"));
-		Route::resource('script-type-presets', ScriptTypePresetController::class, array("as"=>"adminScriptTypePrompts"));
-		Route::resource('transactions', TransactionController::class, array("as"=>"adminTransactions"));
-		Route::resource('bonuses', BonusController::class, array("as"=>"adminBonuses"));
-		Route::resource('third-party-platforms', ThirdPartyPlatformController::class, array("as"=>"adminThirdPartyPlatforms"));
-		Route::resource('dashboard', DashboardController::class, array("as"=>"adminDashboard"));
-		Route::resource('permissions', PermissionsController::class, array("as"=>"adminPermissions"));
-		Route::resource('flagged-scripts', FlaggedScriptController::class, array("as"=>"adminFlagged"));
-		Route::resource('script-type-categories', ScriptTypeCategoryController::class, array("as"=>"adminScriptTypeCategories"));
-		Route::resource('tones',ToneController::class, array("as"=>"adminTones"));
-		Route::resource('languages', LanguageController::class, array("as"=>"adminLanguages"));
-		Route::resource('freelancer-keyword', FreelanceKeywordController::class, array("as"=>"adminFreelanceKeyword"));
-	});
+	// Route::group(['prefix' => 'admin', 'middleware' => 'auth:api', 'namespace' => 'Api\Admin'], function(){
+	// 	Route::resource('plans', PlanController::class, array("as"=>"adminPlans"));
+	// 	Route::resource('agencies', AgencyController::class, array("as"=>"adminAgencies"));
+	// 	Route::resource('agency-files', AgencyFileController::class, array("as"=>"adminAgencyFiles"));
+	// 	Route::resource('campaigns', CampaignController::class, array("as"=>"adminCampaigns"));
+	// 	Route::resource('reseller', ResellerController::class, array("as"=>"adminResellers"));
+	// 	// Route::resource('scripts', ScriptController::class, array("as"=>"adminScripts"));
+	// 	Route::resource('roles', RoleController::class, array("as"=>"adminRoles"));
+	// 	Route::resource('role', RoleController::class, array("as"=>"adminRole"));
+	// 	Route::resource('script-type-attributes', ScriptTypeAttributeController::class, array("as"=>"adminScriptTypeAttribute"));
+	// 	Route::resource('script-type', ScriptTypeController::class, array("as"=>"adminScriptType"));
+	// 	Route::resource('suggestions', SuggestionController::class, array("as"=>"adminSuggestions"));
+	// 	Route::resource('tutorials', TutorialController::class, array("as"=>"adminTutorials"));
+	// 	Route::resource('users', UserController::class, array("as"=>"adminUsers"));
+	// 	Route::resource('script-type-presets', ScriptTypePresetController::class, array("as"=>"adminScriptTypePrompts"));
+	// 	Route::resource('transactions', TransactionController::class, array("as"=>"adminTransactions"));
+	// 	Route::resource('bonuses', BonusController::class, array("as"=>"adminBonuses"));
+	// 	Route::resource('third-party-platforms', ThirdPartyPlatformController::class, array("as"=>"adminThirdPartyPlatforms"));
+	// 	Route::resource('dashboard', DashboardController::class, array("as"=>"adminDashboard"));
+	// 	Route::resource('permissions', PermissionsController::class, array("as"=>"adminPermissions"));
+	// 	Route::resource('flagged-scripts', FlaggedScriptController::class, array("as"=>"adminFlagged"));
+	// 	Route::resource('script-type-categories', ScriptTypeCategoryController::class, array("as"=>"adminScriptTypeCategories"));
+	// 	Route::resource('tones',ToneController::class, array("as"=>"adminTones"));
+	// 	Route::resource('languages', LanguageController::class, array("as"=>"adminLanguages"));
+	// 	Route::resource('freelancer-keyword', FreelanceKeywordController::class, array("as"=>"adminFreelanceKeyword"));
+	// });
 
 	Route::resource('script-test', Api\User\ScriptTestingController::class);
 });
