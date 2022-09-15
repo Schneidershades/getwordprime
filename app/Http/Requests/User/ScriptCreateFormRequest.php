@@ -29,7 +29,7 @@ class ScriptCreateFormRequest extends FormRequest
      * @OA\Property(
      *      title="user script_type id",
      *      description="Initial related script_type of the id",
-     *      example="1"
+     *      example="ids"
      * )
      *
      * @var int
@@ -41,7 +41,7 @@ class ScriptCreateFormRequest extends FormRequest
      * @OA\Property(
      *      title="user campaign id",
      *      description="Initial related campaign of the id",
-     *      example="1"
+     *      example="ids"
      * )
      *
      * @var int
@@ -53,7 +53,7 @@ class ScriptCreateFormRequest extends FormRequest
      * @OA\Property(
      *      title="user tone id",
      *      description="Initial related id of the tone",
-     *      example="1"
+     *      example="ids"
      * )
      *
      * @var int
@@ -65,7 +65,7 @@ class ScriptCreateFormRequest extends FormRequest
      * @OA\Property(
      *      title="input language id",
      *      description="Initial related id of the language",
-     *      example="1"
+     *      example="ids"
      * )
      *
      * @var int
@@ -78,7 +78,7 @@ class ScriptCreateFormRequest extends FormRequest
      * @OA\Property(
      *      title="output language id",
      *      description="Initial related id of the language",
-     *      example="1"
+     *      example="ids"
      * )
      *
      * @var int
