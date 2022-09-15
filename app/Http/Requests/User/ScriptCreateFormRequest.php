@@ -105,11 +105,11 @@ class ScriptCreateFormRequest extends FormRequest
     {
         return [
             'content' => 'required|string',
-            'script_type_id' => 'required|int|exists:script_types,id',
-            'campaign_id' => 'nullable|int|exists:campaigns,id',
-            'tone_id' => 'nullable|int|exists:tones,id',
-            'input_language_id' => 'nullable|int|exists:languages,id',
-            'output_language_id' => 'nullable|int|exists:languages,id',
+            'script_type_id' => 'required|string|exists:script_types,id',
+            'campaign_id' => 'nullable|string|exists:campaigns,id',
+            'tone_id' => 'nullable|string|exists:tones,id',
+            'input_language_id' => 'nullable|string|exists:languages,id',
+            'output_language_id' => 'nullable|string|exists:languages,id',
         ];
     }
 }
