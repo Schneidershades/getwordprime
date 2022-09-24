@@ -21,6 +21,7 @@
         "laravel/ui": "^3.4",
         "league/flysystem-aws-s3-v3": "^3.0",
         "lucasdotvin/laravel-soulbscription": "^2.2.1",
+        "opcodesio/log-viewer": "^1.4",
         "owen-it/laravel-auditing": "^13.0",
         "php-open-source-saver/jwt-auth": "^1.4",
         "phpoffice/phpword": "^0.18.3",

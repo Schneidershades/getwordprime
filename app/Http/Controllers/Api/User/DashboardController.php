@@ -2,8 +2,14 @@
 
 namespace App\Http\Controllers\Api\User;
 
-use App\Http\Controllers\Controller;
+use Carbon\Carbon;
+use App\Models\User;
+use App\Models\Script;
 use App\Models\Tutorial;
+use App\Models\Transaction;
+use App\Models\ScriptResponse;
+use Illuminate\Support\Facades\DB;
+use App\Http\Controllers\Controller;
 
 class DashboardController extends Controller
 {
@@ -38,14 +44,30 @@ class DashboardController extends Controller
     */
     public function index()
     {
+        $dateTime = ScriptResponse::where('created_at', '>=', Carbon::now()->subDays(9))->where('user_id', auth()->user()->id)
+                ->groupBy('date')
+                ->orderBy('date', 'DESC')
+                ->get([
+                DB::raw('DATE(created_at) as date'),
+                DB::raw('COUNT(*) as "words"')
+        ])->pluck('date')->toArray();
+
+        $dateCount = ScriptResponse::where('created_at', '>=', Carbon::now()->subDays(9))->where('user_id', auth()->user()->id)
+                ->groupBy('date')
+                ->orderBy('date', 'DESC')
+                ->get([
+                DB::raw('DATE(created_at) as date'),
+                DB::raw('COUNT(*) as "words"')
+        ])->pluck('words')->toArray();
+
         $data = [
-            'campaigns' => auth()->user()->campaigns->count(),
-            'agencies' => auth()->user()->agencies->count(),
-            'scripts' => auth()->user()->scripts->count(),
-            'published' => auth()->user()->scripts->count(),
-            'limit' => 50000,
-            'script_words_generated' => auth()->user()->scriptsResponses->sum('word_count'),
-            'video' => Tutorial::first(),
+            'words' => auth()->user()->scriptsResponses->sum('word_count'),
+            'copies' => auth()->user()->scriptsResponses->count(),
+            'balance' => 0,
+            'xaxis' => [
+                'categories' => $dateTime
+            ],
+            'data' => $dateCount,
         ];
 
         return $this->showMessage($data);

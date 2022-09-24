@@ -5,8 +5,11 @@ namespace App\Traits\Payments;
 class Paystack
 {
     protected $baseUrl;
+
     protected $env;
+
     protected $secretKey;
+
     protected $publicKey;
 
     public function __construct()
@@ -18,32 +21,31 @@ class Paystack
 
     public function verify($reference)
     {
-        $reference;
-
         $curl = curl_init();
-        
-        curl_setopt_array($curl, array(
-            CURLOPT_URL => "https://api.paystack.co/transaction/verify/".$reference,
+
+        curl_setopt_array($curl, [
+            CURLOPT_URL => 'https://api.paystack.co/transaction/verify/'.$reference,
             CURLOPT_RETURNTRANSFER => true,
-            CURLOPT_ENCODING => "",
+            CURLOPT_ENCODING => '',
             CURLOPT_MAXREDIRS => 10,
             CURLOPT_TIMEOUT => 30,
             CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
-            CURLOPT_CUSTOMREQUEST => "GET",
-            CURLOPT_HTTPHEADER => array(
-            "Authorization: Bearer ".config('paystack.secret_key'),
-            "Cache-Control: no-cache",
-            ),
-        ));
-        
+            CURLOPT_CUSTOMREQUEST => 'GET',
+            CURLOPT_HTTPHEADER => [
+                'Authorization: Bearer '.config('paystack.secret_key'),
+                'Cache-Control: no-cache',
+            ],
+        ]);
+
         $response = curl_exec($curl);
         $err = curl_error($curl);
         curl_close($curl);
 
         $tx = json_decode($response, true);
 
-        if ($tx['status'] && $tx['data']['status'] == "success") {
+        if ($tx['status'] && $tx['data']['status'] == 'success') {
             $txData = $tx['data'];
+
             return [
                 'success' => true,
                 'payment_gateway' => 'Paystack',
@@ -55,7 +57,6 @@ class Paystack
                 'status' => 'Paid',
                 'amount_paid' => $txData['amount'] / 100,
             ];
-    
         } else {
             return [
                 'success' => false,
@@ -70,31 +71,31 @@ class Paystack
     public function createTransferReceipient($bankDetails)
     {
         $request_body = [
-            "type" => "xparts user ".$bankDetails->user->id . " - ".$bankDetails->user->name,
-            "name" => $bankDetails->user->name,
-            "description" => "Xparts user withdrawal process ".$bankDetails->user->id . " - ".$bankDetails->user->name,
-            "account_number" => $bankDetails->bank_account_number,
-            "bank_code" => $bankDetails->bank->code,
-            "currency" => "NGN"
+            'type' => 'xparts user '.$bankDetails->user->id.' - '.$bankDetails->user->name,
+            'name' => $bankDetails->user->name,
+            'description' => 'Xparts user withdrawal process '.$bankDetails->user->id.' - '.$bankDetails->user->name,
+            'account_number' => $bankDetails->bank_account_number,
+            'bank_code' => $bankDetails->bank->code,
+            'currency' => 'NGN',
         ];
 
-        $response = $this->sendRequest("https://api.paystack.co/transferrecipient", 'POST', json_encode($request_body));
+        $response = $this->sendRequest('https://api.paystack.co/transferrecipient', 'POST', json_encode($request_body));
 
-        if($response == null){
+        if ($response == null) {
             return [
                 'status' => false,
-                'message' => 'cannot connect to service'
+                'message' => 'cannot connect to service',
             ];
         }
 
-        if($response->status == false ){
+        if ($response->status == false) {
             return [
                 'status' => $response->status,
-                'message' => $response->message
+                'message' => $response->message,
             ];
         }
 
-        if($response->status == true ){
+        if ($response->status == true) {
             return [
                 'status' => $response->status,
                 'paystack_recipient_code' => $response->data->recipient_code,
@@ -105,29 +106,29 @@ class Paystack
     public function initiateTransfer($bankDetails, $amount, $code)
     {
         $request_body = [
-            "source" => "balance", 
-            "reason" => "Withdrawals from xparts aplication user". $bankDetails->user->id.  " - " .$bankDetails->user->name, 
-            "amount" => $amount * 100, 
-            "recipient" => $code,
+            'source' => 'balance',
+            'reason' => 'Withdrawals from xparts aplication user'.$bankDetails->user->id.' - '.$bankDetails->user->name,
+            'amount' => $amount * 100,
+            'recipient' => $code,
         ];
 
-        $response = $this->sendRequest("https://api.paystack.co/transfer", 'POST', json_encode($request_body));
-        
-        if($response == null){
+        $response = $this->sendRequest('https://api.paystack.co/transfer', 'POST', json_encode($request_body));
+
+        if ($response == null) {
             return [
                 'status' => false,
-                'message' => 'cannot connect to service'
+                'message' => 'cannot connect to service',
             ];
         }
 
-        if($response->status == false ){
+        if ($response->status == false) {
             return [
                 'status' => $response->status,
-                'message' => $response->message
+                'message' => $response->message,
             ];
         }
 
-        if($response->status == true ){
+        if ($response->status == true) {
             return [
                 'status' => $response->status,
                 'message' => $response->message,
@@ -142,26 +143,26 @@ class Paystack
     public function resolveBank($account_number, $bank)
     {
         $response = $this->sendRequest(
-            "https://api.paystack.co/bank/resolve?account_number=". $account_number ."&bank_code=". $bank->code, 
-            'GET', 
+            'https://api.paystack.co/bank/resolve?account_number='.$account_number.'&bank_code='.$bank->code,
+            'GET',
             []
         );
-        
-        if($response == null){
+
+        if ($response == null) {
             return [
                 'status' => false,
-                'message' => 'cannot connect to service'
+                'message' => 'cannot connect to service',
             ];
         }
 
-        if($response->status == false ){
+        if ($response->status == false) {
             return [
                 'status' => $response->status,
-                'message' => $response->message
+                'message' => $response->message,
             ];
         }
 
-        if($response->status == true ){
+        if ($response->status == true) {
             return [
                 'status' => $response->status,
                 'message' => $response->message,
@@ -175,27 +176,27 @@ class Paystack
     public function finalizeTransfer($order, $otp)
     {
         $request_body = [
-            "transfer_code" => $order->payment_transfer_code, 
-            "otp" => $otp
+            'transfer_code' => $order->payment_transfer_code,
+            'otp' => $otp,
         ];
-       
-        $response = $this->sendRequest("https://api.paystack.co/transfer/finalize_transfer", 'POST', json_encode($request_body));
 
-        if($response == null){
+        $response = $this->sendRequest('https://api.paystack.co/transfer/finalize_transfer', 'POST', json_encode($request_body));
+
+        if ($response == null) {
             return [
                 'status' => false,
-                'message' => 'cannot connect to service'
+                'message' => 'cannot connect to service',
             ];
         }
 
-        if($response->status == false ){
+        if ($response->status == false) {
             return [
                 'status' => $response->status,
-                'message' => $response->message
+                'message' => $response->message,
             ];
         }
 
-        if($response->status == true ){
+        if ($response->status == true) {
             return [
                 'status' => $response->status,
                 'message' => $response->message,
@@ -208,23 +209,23 @@ class Paystack
 
     public function verifyTransfer($reference)
     {
-        $response = $this->sendRequest("https://api.paystack.co/transfer/verify/". $reference, 'GET', []);
+        $response = $this->sendRequest('https://api.paystack.co/transfer/verify/'.$reference, 'GET', []);
 
-        if($response == null){
+        if ($response == null) {
             return [
                 'status' => false,
-                'message' => 'cannot connect to service'
+                'message' => 'cannot connect to service',
             ];
         }
 
-        if($response->status == false ){
+        if ($response->status == false) {
             return [
                 'status' => $response->status,
-                'message' => $response->message
+                'message' => $response->message,
             ];
         }
 
-        if($response->status == true ){
+        if ($response->status == true) {
             return [
                 'status' => $response->status,
                 'message' => $response->message,
@@ -235,14 +236,14 @@ class Paystack
         }
     }
 
-    private function sendRequest($url, $requestType, $postfields=[])
+    private function sendRequest($url, $requestType, $postfields = [])
     {
         $curl = curl_init();
         curl_setopt_array($curl, [
             CURLOPT_URL => $url,
             CURLOPT_RETURNTRANSFER => true,
             CURLOPT_FOLLOWLOCATION => true,
-            CURLOPT_ENCODING => "",
+            CURLOPT_ENCODING => '',
             CURLOPT_MAXREDIRS => 10,
             CURLOPT_TIMEOUT => 30,
             CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
@@ -250,12 +251,12 @@ class Paystack
             CURLOPT_POSTFIELDS => $postfields,
             CURLOPT_HTTPHEADER => [
                 'Content-Type: application/json',
-                "Authorization: Bearer ".config('paystack.secret_key'),
+                'Authorization: Bearer '.config('paystack.secret_key'),
             ],
         ]);
 
         $response = curl_exec($curl);
+
         return json_decode($response);
     }
-
 }
