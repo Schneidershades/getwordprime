@@ -3,10 +3,6 @@
 namespace App\Http\Controllers\Api\User;
 
 use Carbon\Carbon;
-use App\Models\User;
-use App\Models\Script;
-use App\Models\Tutorial;
-use App\Models\Transaction;
 use App\Models\ScriptResponse;
 use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
