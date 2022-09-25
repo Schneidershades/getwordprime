@@ -1914,7 +1914,6 @@ class ScriptTypeCategorySeeder extends Seeder
 
 
         ScriptTypePreset::create([
-            'id' => 353,
             'script_type_id' => $scriptType5->id,
             'question' => 'The name of the product is',
             'field_type' => 'text',
@@ -1925,7 +1924,6 @@ class ScriptTypeCategorySeeder extends Seeder
 
 
         ScriptTypePreset::create([
-            'id' => 354,
             'script_type_id' => $scriptType5->id,
             'question' => 'The product description is',
             'field_type' => 'textarea',
@@ -1936,7 +1934,6 @@ class ScriptTypeCategorySeeder extends Seeder
 
 
         ScriptTypePreset::create([
-            'id' => 419,
             'script_type_id' => $scriptType4->id,
             'question' => 'The name of the product is',
             'field_type' => 'text',
@@ -1947,7 +1944,6 @@ class ScriptTypeCategorySeeder extends Seeder
 
 
         ScriptTypePreset::create([
-            'id' => 420,
             'script_type_id' => $scriptType4->id,
             'question' => 'The product description is',
             'field_type' => 'textarea',
@@ -1958,7 +1954,6 @@ class ScriptTypeCategorySeeder extends Seeder
 
 
         ScriptTypePreset::create([
-            'id' => 358,
             'script_type_id' => $scriptType2->id,
             'question' => 'Product description:',
             'field_type' => 'textarea',
@@ -1969,7 +1964,6 @@ class ScriptTypeCategorySeeder extends Seeder
 
 
         ScriptTypePreset::create([
-            'id' => 415,
             'script_type_id' => $scriptType3->id,
             'question' => 'The name of the product is',
             'field_type' => 'text',
@@ -1980,7 +1974,6 @@ class ScriptTypeCategorySeeder extends Seeder
 
 
         ScriptTypePreset::create([
-            'id' => 416,
             'script_type_id' => $scriptType3->id,
             'question' => 'The product description is',
             'field_type' => 'textarea',
@@ -1991,7 +1984,6 @@ class ScriptTypeCategorySeeder extends Seeder
 
 
         ScriptTypePreset::create([
-            'id' => 357,
             'script_type_id' => $scriptType2->id,
             'question' => 'Product name:',
             'field_type' => 'text',
@@ -2002,7 +1994,6 @@ class ScriptTypeCategorySeeder extends Seeder
 
 
         ScriptTypePreset::create([
-            'id' => 245,
             'script_type_id' => $scriptType6->id,
             'question' => 'The name of the product is',
             'field_type' => 'text',
@@ -2013,7 +2004,6 @@ class ScriptTypeCategorySeeder extends Seeder
 
 
         ScriptTypePreset::create([
-            'id' => 246,
             'script_type_id' => $scriptType6->id,
             'question' => 'The product description is',
             'field_type' => 'textarea',
@@ -2024,7 +2014,6 @@ class ScriptTypeCategorySeeder extends Seeder
 
 
         ScriptTypePreset::create([
-            'id' => 247,
             'script_type_id' => $scriptType7->id,
             'question' => 'Product name:',
             'field_type' => 'text',
@@ -2035,7 +2024,6 @@ class ScriptTypeCategorySeeder extends Seeder
 
 
         ScriptTypePreset::create([
-            'id' => 248,
             'script_type_id' => $scriptType7->id,
             'question' => 'Product description:',
             'field_type' => 'textarea',
@@ -2046,7 +2034,6 @@ class ScriptTypeCategorySeeder extends Seeder
 
 
         ScriptTypePreset::create([
-            'id' => 251,
             'script_type_id' => $scriptType8->id,
             'question' => 'The name of the product is',
             'field_type' => 'text',
@@ -2057,7 +2044,6 @@ class ScriptTypeCategorySeeder extends Seeder
 
 
         ScriptTypePreset::create([
-            'id' => 252,
             'script_type_id' => $scriptType8->id,
             'question' => 'The product description is',
             'field_type' => 'textarea',
@@ -2068,7 +2054,6 @@ class ScriptTypeCategorySeeder extends Seeder
 
 
         ScriptTypePreset::create([
-            'id' => 253,
             'script_type_id' => $scriptType9->id,
             'question' => 'Event description',
             'field_type' => 'textarea',
@@ -2079,7 +2064,6 @@ class ScriptTypeCategorySeeder extends Seeder
 
 
         ScriptTypePreset::create([
-            'id' => 418,
             'script_type_id' => $scriptType10->id,
             'question' => 'The product description is',
             'field_type' => 'textarea',
@@ -2090,7 +2074,6 @@ class ScriptTypeCategorySeeder extends Seeder
 
 
         ScriptTypePreset::create([
-            'id' => 430,
             'script_type_id' => $scriptType1->id,
             'question' => 'The copy is:',
             'field_type' => 'textarea',
@@ -2101,7 +2084,6 @@ class ScriptTypeCategorySeeder extends Seeder
 
 
         ScriptTypePreset::create([
-            'id' => 272,
             'script_type_id' => $scriptType11->id,
             'question' => 'The name of the product is',
             'field_type' => 'text',
@@ -2112,7 +2094,6 @@ class ScriptTypeCategorySeeder extends Seeder
 
 
         ScriptTypePreset::create([
-            'id' => 273,
             'script_type_id' => $scriptType11->id,
             'question' => 'The product description is',
             'field_type' => 'textarea',
@@ -2123,7 +2104,6 @@ class ScriptTypeCategorySeeder extends Seeder
 
 
         ScriptTypePreset::create([
-            'id' => 274,
             'script_type_id' => $scriptType12->id,
             'question' => 'The name of the product is',
             'field_type' => 'text',
@@ -2134,7 +2114,6 @@ class ScriptTypeCategorySeeder extends Seeder
 
 
         ScriptTypePreset::create([
-            'id' => 275,
             'script_type_id' => $scriptType12->id,
             'question' => 'The product description is',
             'field_type' => 'textarea',
@@ -2145,7 +2124,6 @@ class ScriptTypeCategorySeeder extends Seeder
 
 
         ScriptTypePreset::create([
-            'id' => 276,
             'script_type_id' => $scriptType13->id,
             'question' => 'The name of the product is',
             'field_type' => 'text',
@@ -2156,7 +2134,6 @@ class ScriptTypeCategorySeeder extends Seeder
 
 
         ScriptTypePreset::create([
-            'id' => 277,
             'script_type_id' => $scriptType13->id,
             'question' => 'The product description is',
             'field_type' => 'textarea',
@@ -2167,7 +2144,6 @@ class ScriptTypeCategorySeeder extends Seeder
 
 
         ScriptTypePreset::create([
-            'id' => 280,
             'script_type_id' => $scriptType14->id,
             'question' => 'The name of the website is',
             'field_type' => 'text',
