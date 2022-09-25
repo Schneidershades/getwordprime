@@ -2504,7 +2504,6 @@ class ScriptTypeCategorySeeder extends Seeder
 
 
         ScriptTypePreset::create([
-            'id' => 323,
             'script_type_id' => $scriptType37->id,
             'question' => 'The video title is',
             'field_type' => 'text',
