@@ -38,7 +38,7 @@ class ScriptTypeCategoryController extends Controller
     */
     public function index()
     {
-        return $this->showAll(ScriptTypeCategory::with('scriptTypes')->get());
+        return $this->showAll(ScriptTypeCategory::with('scriptTypes', 'scriptTypes_count')->get());
     }
 
     /**
