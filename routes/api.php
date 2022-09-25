@@ -43,6 +43,7 @@ Route::prefix('v1')->group(function () {
 		Route::resource('agency/{id}/campaign', AgencyCampaignController::class);
 		Route::resource('marketplace-saved', MarketplaceProjectController::class);
 		Route::get('user-select-script-type/{id}', 'UserSelectScriptTypeController@show');
+		Route::resource('script-type-categories', ScriptTypeCategoryController::class);
 		
 	});
 
