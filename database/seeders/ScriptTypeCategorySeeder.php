@@ -2724,7 +2724,6 @@ class ScriptTypeCategorySeeder extends Seeder
 
 
         ScriptTypePreset::create([
-            'id' => 417,
             'script_type_id' => $scriptType10->id,
             'question' => 'The name of the product is',
             'field_type' => 'text',
