@@ -14,7 +14,7 @@ class CreateTransactionsTable extends Migration
     public function up()
     {
         Schema::create('transactions', function (Blueprint $table) {
-            $table->uuid('id')->primary()->default();
+            $table->uuid('id')->primary();
             $table->string('title')->nullable();
             $table->string('details')->nullable();
             $table->uuid('parent_id')->nullable()->constrained('transactions')->cascadeOnUpdate()->nullOnDelete();

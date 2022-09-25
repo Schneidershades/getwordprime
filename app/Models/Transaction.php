@@ -28,13 +28,4 @@ class Transaction extends Model
     {
         return $this->belongsTo(Plan::class);
     }
-
-    protected static function boot()
-    {
-        parent::boot();
-
-        static::creating(function ($order) {
-            $order->transaction_id = 'XR-'. substr(str_shuffle("0123456789"), 0, 6);
-        });
-    }
 }
