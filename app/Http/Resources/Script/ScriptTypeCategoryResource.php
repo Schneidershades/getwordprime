@@ -11,7 +11,7 @@ class ScriptTypeCategoryResource extends JsonResource
         return [
             'id' => $this->id,
             'name' => $this->name,
-            'scripts' => $this->scripts->count(),
+            'scriptTypes' => ScriptTypeResource::collection($this->whenLoaded('scriptTypes')),
         ];
     }
 }

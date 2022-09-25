@@ -18,7 +18,7 @@ class ScriptTypeCategory extends Model
     public $oneItem = ScriptTypeCategoryResource::class;
     public $allItems = ScriptTypeCategoryCollection::class;
 
-    public function scripts()
+    public function scriptTypes()
     {
         return $this->hasMany(ScriptType::class);
     }
