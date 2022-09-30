@@ -20,9 +20,9 @@ class UserScriptTypePresetUpdateFormRequest extends FormRequest
     *       @OA\Property(property="presets", type="object", type="array",
     *            @OA\Items(
     *                @OA\Property(property="answer", type="string", example="info limited"),
-    *                @OA\Property(property="script_type_preset_id", type="int", example="1"),
-    *                @OA\Property(property="script_type_id", type="int", example="1"),
-    *                @OA\Property(property="user_script_type_preset_id", type="int", example="1"),
+    *                @OA\Property(property="script_type_preset_id", type="string", example="1"),
+    *                @OA\Property(property="script_type_id", type="string", example="1"),
+    *                @OA\Property(property="user_script_type_preset_id", type="string", example="1"),
     *            ),
     *        ),
     *    ),
@@ -33,8 +33,8 @@ class UserScriptTypePresetUpdateFormRequest extends FormRequest
     *       @OA\Property(property="languages", type="object", type="array",
     *            @OA\Items(
     *                @OA\Property(property="language_id", type="string", example="1"),
-    *                @OA\Property(property="script_type_id", type="int", example="1"),
-    *                @OA\Property(property="user_id", type="int", example="1"),
+    *                @OA\Property(property="script_type_id", type="string", example="1"),
+    *                @OA\Property(property="user_id", type="string", example="1"),
     *            ),
     *        ),
     *    ),
