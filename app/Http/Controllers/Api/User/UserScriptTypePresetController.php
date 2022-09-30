@@ -168,7 +168,7 @@ class UserScriptTypePresetController extends Controller
      *      @OA\Parameter(
      *          name="script_type_id",
      *          description="Script type prompt ID",
-     *          required=true,
+     *          required=false,
      *          in="path",
      *          @OA\Schema(
      *              type="integer"
@@ -279,7 +279,7 @@ class UserScriptTypePresetController extends Controller
 
         
         
-        return $this->showAll(UserScriptTypePreset::where('script_type_id', $id)->get());
+        return $this->showMessage('Presets saved');
     }
 
      /**
