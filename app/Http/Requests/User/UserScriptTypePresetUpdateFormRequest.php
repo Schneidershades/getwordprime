@@ -45,8 +45,8 @@ class UserScriptTypePresetUpdateFormRequest extends FormRequest
     *       @OA\Property(property="tones", type="object", type="array",
     *            @OA\Items(
     *                @OA\Property(property="tone_id", type="string", example="1"),
-    *                @OA\Property(property="script_type_id", type="int", example="1"),
-    *                @OA\Property(property="user_id", type="int", example="1"),
+    *                @OA\Property(property="script_type_id", type="string", example="1"),
+    *                @OA\Property(property="user_id", type="string", example="1"),
     *            ),
     *        ),
     *    ),
