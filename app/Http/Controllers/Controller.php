@@ -11,6 +11,27 @@ use App\Traits\Image\AwsS3;
 
 use Illuminate\Routing\Controller as BaseController;
 
+/**
+ * @OA\Tag(
+ *     name="Wordprime backend team",
+ *     description="(Schneider Shades Komolafe - Overseer)"
+ * )
+ * @OA\Info(
+ *     version="1.0",
+ *     title="ToNote App OpenApi API Documentation",
+ *     description="ToNote App Using L5 Swagger OpenApi description",
+ *     @OA\Contact(email="schneidershades@gmail.com")
+ * )
+ * @OA\Server(
+ *     url="http://getwordprime.herokuapp.com/",
+ *     description="Staging API server"
+ * )
+ *  @OA\SecurityScheme(
+ *     securityScheme="bearerAuth",
+ *     type="http",
+ *     scheme="bearer"
+ * )
+ */
 class Controller extends BaseController
 {
     use AuthorizesRequests, DispatchesJobs, ValidatesRequests, ApiResponder, AwsS3;
@@ -41,32 +62,4 @@ class Controller extends BaseController
 
         return $model;
     }
-
-    /**
-     * @OA\Info(
-     *      version="1.0.0",
-     *      title="Convertscript App OpenApi API Documentation",
-     *      description="Convertscript App Using L5 Swagger OpenApi description",
-     *      @OA\Contact(
-     *          email="schneidershades@gmail.com"
-     *      ),
-     *      @OA\License(
-     *          name="Apache 2.0",
-     *          url="http://www.apache.org/licenses/LICENSE-2.0.html"
-     *      )
-     * )
-     *
-     *
-     * @OA\Tag(
-     *     name="Convertscript Application",
-     *     description="API Endpoints of Projects"
-     * )
-     *
-     *  @OA\SecurityScheme(
-     *     securityScheme="bearerAuth",
-     *     type="http",
-     *     scheme="bearer"
-     * )
-     *
-     */
 }
