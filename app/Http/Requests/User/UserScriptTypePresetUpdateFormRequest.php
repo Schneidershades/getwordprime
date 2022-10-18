@@ -71,19 +71,19 @@ class UserScriptTypePresetUpdateFormRequest extends FormRequest
         return [
             'presets' => 'array',
             'presets.*.answer' => 'required|string',
-            'presets.*.script_type_preset_id' => 'required|int|exists:script_type_presets,id',
-            'presets.*.script_type_id' => 'required|int|exists:script_types,id',
-            'presets.*.user_script_type_preset_id' => 'required|int|exists:user_script_type_presets,id',
+            'presets.*.script_type_preset_id' => 'required|string|exists:script_type_presets,id',
+            'presets.*.script_type_id' => 'required|string|exists:script_types,id',
+            'presets.*.user_script_type_preset_id' => 'required|string|exists:user_script_type_presets,id',
 
             'tone' => 'array',
             'tone.*.tone_id' => 'nullable|string',
-            'tone.*.script_type_id' => 'nullable|int|exists:script_types,id',
-            'tone.*.user_id' => 'nullable|int|exists:users,id',
+            'tone.*.script_type_id' => 'nullable|string|exists:script_types,id',
+            'tone.*.user_id' => 'nullable|string|exists:users,id',
 
             'language' => 'array',
             'language.*.tone_id' => 'nullable|string',
-            'language.*.script_type_id' => 'nullable|int|exists:script_types,id',
-            'language.*.user_id' => 'nullable|int|exists:users,id',
+            'language.*.script_type_id' => 'nullable|string|exists:script_types,id',
+            'language.*.user_id' => 'nullable|string|exists:users,id',
         ];
     }
 }
