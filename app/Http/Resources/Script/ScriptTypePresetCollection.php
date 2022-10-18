@@ -32,14 +32,14 @@ class ScriptTypePresetCollection extends ResourceCollection
     }
 
      public static function transformedAttribute($index)
-    {
-        $attribute = [
-            'id' => 'id',
-            'name' => 'name',
-            'icon' => 'icon',
-            'description' => 'description',
-        ];
+     {
+         $attribute = [
+             'id' => 'id',
+             'name' => 'name',
+             'icon' => 'icon',
+             'description' => 'description',
+         ];
 
-        return isset($attribute[$index]) ? $attribute[$index] : null;
-    }
+         return isset($attribute[$index]) ? $attribute[$index] : null;
+     }
 }

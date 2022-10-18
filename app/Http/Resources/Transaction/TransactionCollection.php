@@ -25,16 +25,15 @@ class TransactionCollection extends ResourceCollection
     }
 
      public static function transformedAttribute($index)
-    {
-        $attribute = [
-            'id' => 'id',
-            'transactionId' => 'transactionId',
-            'plan_id' => 'plan_id',
-            'user_id' => 'user_id',
-            'activate' => 'activate',
-        ];
+     {
+         $attribute = [
+             'id' => 'id',
+             'transactionId' => 'transactionId',
+             'plan_id' => 'plan_id',
+             'user_id' => 'user_id',
+             'activate' => 'activate',
+         ];
 
-        return isset($attribute[$index]) ? $attribute[$index] : null;
-    }
+         return isset($attribute[$index]) ? $attribute[$index] : null;
+     }
 }
-

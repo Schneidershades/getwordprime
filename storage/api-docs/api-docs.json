@@ -1,17 +1,19 @@
 {
     "openapi": "3.0.0",
     "info": {
-        "title": "Convertscript App OpenApi API Documentation",
-        "description": "Convertscript App Using L5 Swagger OpenApi description",
+        "title": "ToNote App OpenApi API Documentation",
+        "description": "ToNote App Using L5 Swagger OpenApi description",
         "contact": {
             "email": "schneidershades@gmail.com"
         },
-        "license": {
-            "name": "Apache 2.0",
-            "url": "http://www.apache.org/licenses/LICENSE-2.0.html"
-        },
-        "version": "1.0.0"
+        "version": "3.0"
     },
+    "servers": [
+        {
+            "url": "http://getwordprime.herokuapp.com/",
+            "description": "Staging API server"
+        }
+    ],
     "paths": {
         "/api/v1/admin/agencies": {
             "get": {
@@ -20,7 +22,7 @@
                 ],
                 "summary": "Get Agencys",
                 "description": "Get Agencys",
-                "operationId": "allAgencys",
+                "operationId": "allAdminAgencies",
                 "responses": {
                     "200": {
                         "description": "Successful signin",
@@ -50,7 +52,7 @@
                 ],
                 "summary": "Post agencies",
                 "description": "Post agencies",
-                "operationId": "postAgencys",
+                "operationId": "postAdminAgencies",
                 "requestBody": {
                     "required": true,
                     "content": {
@@ -133,7 +135,7 @@
                 ],
                 "summary": "Update agency",
                 "description": "Update agency",
-                "operationId": "updateAgencys",
+                "operationId": "updateAdminAgencys",
                 "parameters": [
                     {
                         "name": "id",
@@ -184,7 +186,7 @@
                 ],
                 "summary": "Delete agency",
                 "description": "Delete agency",
-                "operationId": "deleteAgencys",
+                "operationId": "deleteAdminAgencys",
                 "parameters": [
                     {
                         "name": "id",
@@ -863,7 +865,7 @@
                 ],
                 "summary": "Get languages",
                 "description": "Get languages",
-                "operationId": "allLanguages",
+                "operationId": "allAdminLanguages",
                 "responses": {
                     "200": {
                         "description": "Successful signin",
@@ -893,7 +895,7 @@
                 ],
                 "summary": "Post languages",
                 "description": "Post languages",
-                "operationId": "postLanguages",
+                "operationId": "postAdminLanguages",
                 "requestBody": {
                     "required": true,
                     "content": {
@@ -935,7 +937,7 @@
                 ],
                 "summary": "Show languages",
                 "description": "Show languages",
-                "operationId": "showLanguages",
+                "operationId": "showAdminLanguages",
                 "parameters": [
                     {
                         "name": "id",
@@ -976,7 +978,7 @@
                 ],
                 "summary": "Update languages",
                 "description": "Update languages",
-                "operationId": "adminLanguages",
+                "operationId": "adminAdminLanguages",
                 "parameters": [
                     {
                         "name": "id",
@@ -1027,7 +1029,7 @@
                 ],
                 "summary": "Delete languages",
                 "description": "Delete languages",
-                "operationId": "deleteLanguages",
+                "operationId": "deleteAdminLanguages",
                 "parameters": [
                     {
                         "name": "id",
@@ -2053,7 +2055,7 @@
                 ],
                 "summary": "Post script type",
                 "description": "Post script type",
-                "operationId": "postScriptType",
+                "operationId": "postAdminScriptType",
                 "requestBody": {
                     "required": true,
                     "content": {
@@ -2095,7 +2097,7 @@
                 ],
                 "summary": "Show script type",
                 "description": "Show script type",
-                "operationId": "showScriptType",
+                "operationId": "showAdminScriptType",
                 "parameters": [
                     {
                         "name": "id",
@@ -2136,7 +2138,7 @@
                 ],
                 "summary": "Update script-type",
                 "description": "Update script-type",
-                "operationId": "updateScriptType",
+                "operationId": "updateAdminScriptType",
                 "parameters": [
                     {
                         "name": "id",
@@ -2187,7 +2189,7 @@
                 ],
                 "summary": "Delete script-type",
                 "description": "Delete script-type",
-                "operationId": "deleteScriptType",
+                "operationId": "deleteAdminScriptType",
                 "parameters": [
                     {
                         "name": "id",
@@ -4058,9 +4060,9 @@
                 "tags": [
                     "Shared"
                 ],
-                "summary": "exportAllUserScripts",
-                "description": "exportAllUserScripts",
-                "operationId": "exportAllUserScripts",
+                "summary": "exportAllScriptResponses",
+                "description": "exportAllScriptResponses",
+                "operationId": "exportAllScriptResponses",
                 "parameters": [
                     {
                         "name": "id",
@@ -4101,9 +4103,9 @@
                 "tags": [
                     "Shared"
                 ],
-                "summary": "exportAllUserFavoriteScripts",
-                "description": "exportAllUserFavoriteScripts",
-                "operationId": "exportAllUserScripts",
+                "summary": "exportAllFavoriteScripts",
+                "description": "exportAllFavoriteScripts",
+                "operationId": "exportAllFavoriteScripts",
                 "parameters": [
                     {
                         "name": "id",
@@ -4144,9 +4146,9 @@
                 "tags": [
                     "Shared"
                 ],
-                "summary": "exportAllCampaignScripts",
-                "description": "exportAllCampaignScripts",
-                "operationId": "exportAllUserScripts",
+                "summary": "exportAllCampaignScriptResponses",
+                "description": "exportAllCampaignScriptResponses",
+                "operationId": "exportAllCampaignScriptResponses",
                 "parameters": [
                     {
                         "name": "id",
@@ -4618,7 +4620,7 @@
                 ],
                 "summary": "Get all agencies",
                 "description": "Get all agencies",
-                "operationId": "allAgencies",
+                "operationId": "userAgencies",
                 "responses": {
                     "200": {
                         "description": "Successful signin",
@@ -4648,7 +4650,7 @@
                 ],
                 "summary": "Post new agencies",
                 "description": "Post new agencies",
-                "operationId": "postAgencies",
+                "operationId": "postUserAgencies",
                 "requestBody": {
                     "required": true,
                     "content": {
@@ -4690,7 +4692,7 @@
                 ],
                 "summary": "Show an agency",
                 "description": "Show an agency",
-                "operationId": "showAgency",
+                "operationId": "showUserAgency",
                 "parameters": [
                     {
                         "name": "id",
@@ -4731,7 +4733,7 @@
                 ],
                 "summary": "Update an agency",
                 "description": "Update an agency",
-                "operationId": "AgencyUpdate",
+                "operationId": "AgencyUserUpdate",
                 "parameters": [
                     {
                         "name": "id",
@@ -4782,7 +4784,7 @@
                 ],
                 "summary": "Delete an agency",
                 "description": "Delete an agency",
-                "operationId": "deleteAgency",
+                "operationId": "deleteUserAgency",
                 "parameters": [
                     {
                         "name": "id",
@@ -6036,6 +6038,81 @@
                 ]
             }
         },
+        "/api/v1/script-type-categories": {
+            "get": {
+                "tags": [
+                    "user"
+                ],
+                "summary": "Get Script-type",
+                "description": "Get script-types",
+                "operationId": "allScriptTypeCategory",
+                "responses": {
+                    "200": {
+                        "description": "Successful signin",
+                        "content": {
+                            "application/json": {}
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    },
+                    "401": {
+                        "description": "unauthenticated"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        },
+        "/api/v1/script-type-categories/{id}": {
+            "get": {
+                "tags": [
+                    "user"
+                ],
+                "summary": "Show script type",
+                "description": "Show script type",
+                "operationId": "showScriptType",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Script Type ID",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful signin",
+                        "content": {
+                            "application/json": {}
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    },
+                    "401": {
+                        "description": "unauthenticated"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        },
         "/api/v1/script-types": {
             "get": {
                 "tags": [
@@ -6043,7 +6120,7 @@
                 ],
                 "summary": "Get Script-type",
                 "description": "Get script-types",
-                "operationId": "allScriptTypes",
+                "operationId": "allUserScriptTypes",
                 "responses": {
                     "200": {
                         "description": "Successful signin",
@@ -6075,7 +6152,7 @@
                 ],
                 "summary": "Show script type",
                 "description": "Show script type",
-                "operationId": "showScriptType",
+                "operationId": "showUserScriptType",
                 "parameters": [
                     {
                         "name": "id",
@@ -6265,7 +6342,7 @@
                 ],
                 "summary": "Get tones",
                 "description": "Get tones",
-                "operationId": "allTones",
+                "operationId": "allUserTones",
                 "responses": {
                     "200": {
                         "description": "Successful signin",
@@ -6297,7 +6374,7 @@
                 ],
                 "summary": "allTutorials",
                 "description": "allTutorials",
-                "operationId": "allTutorials",
+                "operationId": "allUserTutorials",
                 "responses": {
                     "200": {
                         "description": "Successful signin",
@@ -6534,7 +6611,7 @@
                         "name": "script_type_id",
                         "in": "path",
                         "description": "Script type prompt ID",
-                        "required": true,
+                        "required": false,
                         "schema": {
                             "type": "integer"
                         }
@@ -7036,7 +7113,7 @@
                         "items": {
                             "properties": {
                                 "script_type_id": {
-                                    "type": "int",
+                                    "type": "integer",
                                     "example": "1"
                                 },
                                 "question": {
@@ -7074,7 +7151,7 @@
                         "items": {
                             "properties": {
                                 "script_type_id": {
-                                    "type": "int",
+                                    "type": "integer",
                                     "example": "1"
                                 },
                                 "question": {
@@ -7242,7 +7319,7 @@
                         "items": {
                             "properties": {
                                 "script_type_id": {
-                                    "type": "int",
+                                    "type": "integer",
                                     "example": "1"
                                 },
                                 "question": {
@@ -7546,7 +7623,7 @@
                         "items": {
                             "properties": {
                                 "plan_id": {
-                                    "type": "int",
+                                    "type": "integer",
                                     "example": "1"
                                 }
                             },
@@ -7878,7 +7955,7 @@
                         "items": {
                             "properties": {
                                 "campaign_id": {
-                                    "type": "int",
+                                    "type": "integer",
                                     "example": "1"
                                 }
                             },
@@ -7912,7 +7989,7 @@
                         "items": {
                             "properties": {
                                 "campaign_id": {
-                                    "type": "int",
+                                    "type": "integer",
                                     "example": "1"
                                 }
                             },
@@ -8012,7 +8089,7 @@
                         "items": {
                             "properties": {
                                 "plan_id": {
-                                    "type": "int",
+                                    "type": "integer",
                                     "example": "1"
                                 }
                             },
@@ -8046,7 +8123,7 @@
                         "items": {
                             "properties": {
                                 "plan_id": {
-                                    "type": "int",
+                                    "type": "integer",
                                     "example": "1"
                                 }
                             },
@@ -8286,15 +8363,15 @@
                                     "example": "info limited"
                                 },
                                 "script_type_preset_id": {
-                                    "type": "int",
+                                    "type": "string",
                                     "example": "1"
                                 },
                                 "script_type_id": {
-                                    "type": "int",
+                                    "type": "string",
                                     "example": "1"
                                 },
                                 "user_script_type_preset_id": {
-                                    "type": "int",
+                                    "type": "string",
                                     "example": "1"
                                 }
                             },
@@ -8310,11 +8387,11 @@
                                     "example": "1"
                                 },
                                 "script_type_id": {
-                                    "type": "int",
+                                    "type": "string",
                                     "example": "1"
                                 },
                                 "user_id": {
-                                    "type": "int",
+                                    "type": "string",
                                     "example": "1"
                                 }
                             },
@@ -8330,11 +8407,11 @@
                                     "example": "1"
                                 },
                                 "script_type_id": {
-                                    "type": "int",
+                                    "type": "string",
                                     "example": "1"
                                 },
                                 "user_id": {
-                                    "type": "int",
+                                    "type": "string",
                                     "example": "1"
                                 }
                             },
@@ -8354,8 +8431,8 @@
     },
     "tags": [
         {
-            "name": "Convertscript Application",
-            "description": "API Endpoints of Projects"
+            "name": "Wordprime backend team",
+            "description": "(Schneider Shades Komolafe - Overseer)"
         }
     ]
 }

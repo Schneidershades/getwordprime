@@ -13,7 +13,6 @@ use Illuminate\Foundation\Http\FormRequest;
  *      required={"name"}
  * )
  */
-
 class UserUpdateFormRequest extends FormRequest
 {
     /**
@@ -81,7 +80,7 @@ class UserUpdateFormRequest extends FormRequest
             'first_name' => 'string|max:255',
             'last_name' => 'string|max:255',
             'role' => 'string|max:255|in:Admin,User',
-            'plans' => 'array', 
+            'plans' => 'array',
             'plans.*.plan_id' => 'int|exists:plans,id',
         ];
     }

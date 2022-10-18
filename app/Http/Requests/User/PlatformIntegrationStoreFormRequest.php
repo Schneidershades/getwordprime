@@ -12,8 +12,6 @@ use Illuminate\Foundation\Http\FormRequest;
  *      required={"name"}
  * )
  */
-
-
 class PlatformIntegrationStoreFormRequest extends FormRequest
 {
     /**

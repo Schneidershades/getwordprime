@@ -2,15 +2,11 @@
 
 namespace App\Models;
 
-use App\Traits\Uuids;
-use App\Models\User;
-use App\Models\Agency;
-use App\Models\Script;
-use App\Models\ScriptResponse;
-use Illuminate\Database\Eloquent\Model;
-use App\Http\Resources\Campaign\CampaignResource;
 use App\Http\Resources\Campaign\CampaignCollection;
+use App\Http\Resources\Campaign\CampaignResource;
+use App\Traits\Uuids;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Model;
 
 class Campaign extends Model
 {
@@ -19,6 +15,7 @@ class Campaign extends Model
     protected $guarded = [];
 
     public $oneItem = CampaignResource::class;
+
     public $allItems = CampaignCollection::class;
 
     public function user()
@@ -38,6 +35,6 @@ class Campaign extends Model
 
     public function agencies()
     {
-    	return $this->belongsToMany(Agency::class, 'agency_campaigns');
+        return $this->belongsToMany(Agency::class, 'agency_campaigns');
     }
 }

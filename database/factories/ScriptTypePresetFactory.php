@@ -7,8 +7,8 @@ use Illuminate\Database\Eloquent\Factories\Factory;
 
 class ScriptTypePresetFactory extends Factory
 {
-
     protected $model = ScriptTypePreset::class;
+
     /**
      * Define the model's default state.
      *

@@ -3,10 +3,9 @@
 namespace Database\Seeders;
 
 use App\Models\ScriptType;
-use Illuminate\Database\Seeder;
-use App\Models\ScriptTypePreset;
 use App\Models\ScriptTypeCategory;
-use Illuminate\Database\Console\Seeds\WithoutModelEvents;
+use App\Models\ScriptTypePreset;
+use Illuminate\Database\Seeder;
 
 class ScriptTypeCategorySeeder extends Seeder
 {
@@ -65,7 +64,6 @@ class ScriptTypeCategorySeeder extends Seeder
             'name' => 'Personal Tools',
         ]);
 
-
         $scriptType1 = ScriptType::create([
             'name' => 'Ad Copy Variation',
             'icon' => 'https://onecopy.ai/images/general.png',
@@ -73,23 +71,21 @@ class ScriptTypeCategorySeeder extends Seeder
             'script_type_category_id' => $scriptTypeCategory5->id,
             'prompt_1' => 'Create variations for the following ad copy',
             'prompt_2' => 'Make it creative',
-            'usage' => NULL,
+            'usage' => null,
             'engine' => 'text-davinci-002',
             'presence_penalty' => '0',
             'frequency_penalty' => '0',
             'best_of' => '1',
-            'stream' => NULL,
-            'documents' => NULL,
-            'query' => NULL,
+            'stream' => null,
+            'documents' => null,
+            'query' => null,
             'max_tokens' => '200',
             'temperature' => '0.5',
             'top_p' => '1',
             'activate' => 0,
             'tone' => 1,
-            'language' => 1
+            'language' => 1,
         ]);
-
-
 
         $scriptType2 = ScriptType::create([
             'name' => 'Facebook Link Description',
@@ -98,23 +94,21 @@ class ScriptTypeCategorySeeder extends Seeder
             'script_type_category_id' => $scriptTypeCategory10->id,
             'prompt_1' => 'Rewrite this product\'s Facebook link description in 6 words or less:',
             'prompt_2' => 'Give 5 variations',
-            'usage' => NULL,
+            'usage' => null,
             'engine' => 'text-davinci-002',
             'presence_penalty' => '0',
             'frequency_penalty' => '0',
             'best_of' => '1',
-            'stream' => NULL,
-            'documents' => NULL,
-            'query' => NULL,
+            'stream' => null,
+            'documents' => null,
+            'query' => null,
             'max_tokens' => '100',
             'temperature' => '0.5',
             'top_p' => '1',
             'activate' => 0,
             'tone' => 1,
-            'language' => 1
+            'language' => 1,
         ]);
-
-
 
         $scriptType3 = ScriptType::create([
             'name' => 'General Ad Copy',
@@ -123,23 +117,21 @@ class ScriptTypeCategorySeeder extends Seeder
             'script_type_category_id' => $scriptTypeCategory5->id,
             'prompt_1' => 'Write an ad copy for this product',
             'prompt_2' => 'The goal is to persuade the audience to take action',
-            'usage' => NULL,
+            'usage' => null,
             'engine' => 'text-davinci-002',
             'presence_penalty' => '0',
             'frequency_penalty' => '0',
             'best_of' => '1',
-            'stream' => NULL,
-            'documents' => NULL,
-            'query' => NULL,
+            'stream' => null,
+            'documents' => null,
+            'query' => null,
             'max_tokens' => '1000',
             'temperature' => '0.5',
             'top_p' => '1',
             'activate' => 0,
             'tone' => 1,
-            'language' => 1
+            'language' => 1,
         ]);
-
-
 
         $scriptType4 = ScriptType::create([
             'name' => 'Facebook Primary Text',
@@ -148,23 +140,21 @@ class ScriptTypeCategorySeeder extends Seeder
             'script_type_category_id' => $scriptTypeCategory10->id,
             'prompt_1' => 'Write a creative ad for the following product to run on Facebook',
             'prompt_2' => 'The goal is to persuade the audience to take action',
-            'usage' => NULL,
+            'usage' => null,
             'engine' => 'text-davinci-002',
             'presence_penalty' => '0',
             'frequency_penalty' => '0',
             'best_of' => '1',
-            'stream' => NULL,
-            'documents' => NULL,
-            'query' => NULL,
+            'stream' => null,
+            'documents' => null,
+            'query' => null,
             'max_tokens' => '200',
             'temperature' => '0.5',
             'top_p' => '1',
             'activate' => 0,
             'tone' => 1,
-            'language' => 1
+            'language' => 1,
         ]);
-
-
 
         $scriptType5 = ScriptType::create([
             'name' => 'Facebook Headline',
@@ -173,23 +163,21 @@ class ScriptTypeCategorySeeder extends Seeder
             'script_type_category_id' => $scriptTypeCategory10->id,
             'prompt_1' => 'Write a marketing copy headline for Facebook Ad to get the user to purchase the product',
             'prompt_2' => 'maximum of 10 words in the output',
-            'usage' => NULL,
+            'usage' => null,
             'engine' => 'text-davinci-002',
             'presence_penalty' => '0',
             'frequency_penalty' => '0',
             'best_of' => '1',
-            'stream' => NULL,
-            'documents' => NULL,
-            'query' => NULL,
+            'stream' => null,
+            'documents' => null,
+            'query' => null,
             'max_tokens' => '100',
             'temperature' => '0.5',
             'top_p' => '1',
             'activate' => 0,
             'tone' => 1,
-            'language' => 1
+            'language' => 1,
         ]);
-
-
 
         $scriptType6 = ScriptType::create([
             'name' => 'Google Ads Description',
@@ -198,23 +186,21 @@ class ScriptTypeCategorySeeder extends Seeder
             'script_type_category_id' => $scriptTypeCategory1->id,
             'prompt_1' => 'Write a persuasive Google ad copy to gets your audience to take action',
             'prompt_2' => 'Add a call to action',
-            'usage' => NULL,
+            'usage' => null,
             'engine' => 'text-davinci-002',
             'presence_penalty' => '0',
             'frequency_penalty' => '0',
             'best_of' => '1',
-            'stream' => NULL,
-            'documents' => NULL,
-            'query' => NULL,
+            'stream' => null,
+            'documents' => null,
+            'query' => null,
             'max_tokens' => '100',
             'temperature' => '0.5',
             'top_p' => '1',
             'activate' => 0,
             'tone' => 1,
-            'language' => 1
+            'language' => 1,
         ]);
-
-
 
         $scriptType7 = ScriptType::create([
             'name' => 'Google Ads Headline',
@@ -223,23 +209,21 @@ class ScriptTypeCategorySeeder extends Seeder
             'script_type_category_id' => $scriptTypeCategory1->id,
             'prompt_1' => 'Create a compelling Google Ads headline that drives clicks',
             'prompt_2' => 'Maximum of 8 words',
-            'usage' => NULL,
+            'usage' => null,
             'engine' => 'text-davinci-002',
             'presence_penalty' => '0',
             'frequency_penalty' => '0',
             'best_of' => '1',
-            'stream' => NULL,
-            'documents' => NULL,
-            'query' => NULL,
+            'stream' => null,
+            'documents' => null,
+            'query' => null,
             'max_tokens' => '100',
             'temperature' => '0.5',
             'top_p' => '1',
             'activate' => 0,
             'tone' => 1,
-            'language' => 1
+            'language' => 1,
         ]);
-
-
 
         $scriptType8 = ScriptType::create([
             'name' => 'Call To Action',
@@ -248,23 +232,21 @@ class ScriptTypeCategorySeeder extends Seeder
             'script_type_category_id' => $scriptTypeCategory6->id,
             'prompt_1' => 'Write a call to action button text for the following product',
             'prompt_2' => 'Maximum of 4 words',
-            'usage' => NULL,
+            'usage' => null,
             'engine' => 'text-davinci-002',
             'presence_penalty' => '0',
             'frequency_penalty' => '0',
             'best_of' => '1',
-            'stream' => NULL,
-            'documents' => NULL,
-            'query' => NULL,
+            'stream' => null,
+            'documents' => null,
+            'query' => null,
             'max_tokens' => '50',
             'temperature' => '0.5',
             'top_p' => '1',
             'activate' => 0,
             'tone' => 1,
-            'language' => 1
+            'language' => 1,
         ]);
-
-
 
         $scriptType9 = ScriptType::create([
             'name' => 'Event Promotion',
@@ -273,23 +255,21 @@ class ScriptTypeCategorySeeder extends Seeder
             'script_type_category_id' => $scriptTypeCategory6->id,
             'prompt_1' => 'Write a marketing copy to promote an event',
             'prompt_2' => '-',
-            'usage' => NULL,
+            'usage' => null,
             'engine' => 'text-davinci-002',
             'presence_penalty' => '0',
             'frequency_penalty' => '0',
             'best_of' => '1',
-            'stream' => NULL,
-            'documents' => NULL,
-            'query' => NULL,
+            'stream' => null,
+            'documents' => null,
+            'query' => null,
             'max_tokens' => '100',
             'temperature' => '0.5',
             'top_p' => '1',
             'activate' => 0,
             'tone' => 1,
-            'language' => 1
+            'language' => 1,
         ]);
-
-
 
         $scriptType10 = ScriptType::create([
             'name' => 'LinkedIn Ad Copy',
@@ -298,23 +278,21 @@ class ScriptTypeCategorySeeder extends Seeder
             'script_type_category_id' => $scriptTypeCategory10->id,
             'prompt_1' => 'Write a creative ad for the following product to run on LinkedIn',
             'prompt_2' => 'The goal is to persuade the audience to take action',
-            'usage' => NULL,
+            'usage' => null,
             'engine' => 'text-davinci-002',
             'presence_penalty' => '0',
             'frequency_penalty' => '0',
             'best_of' => '1',
-            'stream' => NULL,
-            'documents' => NULL,
-            'query' => NULL,
+            'stream' => null,
+            'documents' => null,
+            'query' => null,
             'max_tokens' => '200',
             'temperature' => '0.5',
             'top_p' => '1',
             'activate' => 0,
             'tone' => 1,
-            'language' => 1
+            'language' => 1,
         ]);
-
-
 
         $scriptType11 = ScriptType::create([
             'name' => 'Amazon Product Description',
@@ -323,23 +301,21 @@ class ScriptTypeCategorySeeder extends Seeder
             'script_type_category_id' => $scriptTypeCategory8->id,
             'prompt_1' => 'Write an amazon product listing description to help sell more',
             'prompt_2' => 'Make it compelling',
-            'usage' => NULL,
+            'usage' => null,
             'engine' => 'text-davinci-002',
             'presence_penalty' => '0',
             'frequency_penalty' => '0',
             'best_of' => '1',
-            'stream' => NULL,
-            'documents' => NULL,
-            'query' => NULL,
+            'stream' => null,
+            'documents' => null,
+            'query' => null,
             'max_tokens' => '100',
             'temperature' => '0.5',
             'top_p' => '1',
             'activate' => 0,
             'tone' => 1,
-            'language' => 1
+            'language' => 1,
         ]);
-
-
 
         $scriptType12 = ScriptType::create([
             'name' => 'Amazon Product Features',
@@ -348,23 +324,21 @@ class ScriptTypeCategorySeeder extends Seeder
             'script_type_category_id' => $scriptTypeCategory8->id,
             'prompt_1' => 'Convert the following list of product features to benefit',
             'prompt_2' => 'Make the result a list',
-            'usage' => NULL,
+            'usage' => null,
             'engine' => 'text-davinci-002',
             'presence_penalty' => '0',
             'frequency_penalty' => '0',
             'best_of' => '1',
-            'stream' => NULL,
-            'documents' => NULL,
-            'query' => NULL,
+            'stream' => null,
+            'documents' => null,
+            'query' => null,
             'max_tokens' => '100',
             'temperature' => '0.5',
             'top_p' => '1',
             'activate' => 0,
             'tone' => 1,
-            'language' => 1
+            'language' => 1,
         ]);
-
-
 
         $scriptType13 = ScriptType::create([
             'name' => 'Landing Page Hero Headline',
@@ -373,23 +347,21 @@ class ScriptTypeCategorySeeder extends Seeder
             'script_type_category_id' => $scriptTypeCategory6->id,
             'prompt_1' => 'Write a eye-catching headline for a landing page',
             'prompt_2' => 'It should be able to hook the reader',
-            'usage' => NULL,
+            'usage' => null,
             'engine' => 'text-davinci-002',
             'presence_penalty' => '0',
             'frequency_penalty' => '0',
             'best_of' => '1',
-            'stream' => NULL,
-            'documents' => NULL,
-            'query' => NULL,
+            'stream' => null,
+            'documents' => null,
+            'query' => null,
             'max_tokens' => '100',
             'temperature' => '0.5',
             'top_p' => '1',
             'activate' => 0,
             'tone' => 1,
-            'language' => 1
+            'language' => 1,
         ]);
-
-
 
         $scriptType14 = ScriptType::create([
             'name' => 'Website Meta Description',
@@ -398,23 +370,21 @@ class ScriptTypeCategorySeeder extends Seeder
             'script_type_category_id' => $scriptTypeCategory6->id,
             'prompt_1' => 'Write a short 15 word meta description for a website',
             'prompt_2' => 'Should be catchy',
-            'usage' => NULL,
+            'usage' => null,
             'engine' => 'text-davinci-002',
             'presence_penalty' => '0',
             'frequency_penalty' => '0',
             'best_of' => '1',
-            'stream' => NULL,
-            'documents' => NULL,
-            'query' => NULL,
+            'stream' => null,
+            'documents' => null,
+            'query' => null,
             'max_tokens' => '100',
             'temperature' => '0.5',
             'top_p' => '1',
             'activate' => 0,
             'tone' => 1,
-            'language' => 1
+            'language' => 1,
         ]);
-
-
 
         $scriptType15 = ScriptType::create([
             'name' => 'Niche Question Generator',
@@ -423,23 +393,21 @@ class ScriptTypeCategorySeeder extends Seeder
             'script_type_category_id' => $scriptTypeCategory6->id,
             'prompt_1' => 'Generate niche related questions to this product or topic',
             'prompt_2' => 'Create 5 variations',
-            'usage' => NULL,
+            'usage' => null,
             'engine' => 'text-davinci-002',
             'presence_penalty' => '0',
             'frequency_penalty' => '0',
             'best_of' => '1',
-            'stream' => NULL,
-            'documents' => NULL,
-            'query' => NULL,
+            'stream' => null,
+            'documents' => null,
+            'query' => null,
             'max_tokens' => '100',
             'temperature' => '0.5',
             'top_p' => '1',
             'activate' => 0,
             'tone' => 1,
-            'language' => 1
+            'language' => 1,
         ]);
-
-
 
         $scriptType16 = ScriptType::create([
             'name' => 'Customer Review Generator',
@@ -448,23 +416,21 @@ class ScriptTypeCategorySeeder extends Seeder
             'script_type_category_id' => $scriptTypeCategory6->id,
             'prompt_1' => 'Create a testimonials for the following product',
             'prompt_2' => '-',
-            'usage' => NULL,
+            'usage' => null,
             'engine' => 'text-davinci-002',
             'presence_penalty' => '0',
             'frequency_penalty' => '0',
             'best_of' => '1',
-            'stream' => NULL,
-            'documents' => NULL,
-            'query' => NULL,
+            'stream' => null,
+            'documents' => null,
+            'query' => null,
             'max_tokens' => '100',
             'temperature' => '0.5',
             'top_p' => '1',
             'activate' => 0,
             'tone' => 1,
-            'language' => 1
+            'language' => 1,
         ]);
-
-
 
         $scriptType17 = ScriptType::create([
             'name' => 'Landing Page Subheader',
@@ -473,23 +439,21 @@ class ScriptTypeCategorySeeder extends Seeder
             'script_type_category_id' => $scriptTypeCategory6->id,
             'prompt_1' => 'Write a attention grabbing subheader text for a website',
             'prompt_2' => '-',
-            'usage' => NULL,
+            'usage' => null,
             'engine' => 'text-davinci-002',
             'presence_penalty' => '0',
             'frequency_penalty' => '0',
             'best_of' => '1',
-            'stream' => NULL,
-            'documents' => NULL,
-            'query' => NULL,
+            'stream' => null,
+            'documents' => null,
+            'query' => null,
             'max_tokens' => '100',
             'temperature' => '0.5',
             'top_p' => '1',
             'activate' => 0,
             'tone' => 1,
-            'language' => 1
+            'language' => 1,
         ]);
-
-
 
         $scriptType18 = ScriptType::create([
             'name' => 'Blog Post Headline',
@@ -498,23 +462,21 @@ class ScriptTypeCategorySeeder extends Seeder
             'script_type_category_id' => $scriptTypeCategory9->id,
             'prompt_1' => 'Create an attention-grabbing headline for a blog post',
             'prompt_2' => 'Maximum of 12 words',
-            'usage' => NULL,
+            'usage' => null,
             'engine' => 'text-davinci-002',
             'presence_penalty' => '0',
             'frequency_penalty' => '0',
             'best_of' => '1',
-            'stream' => NULL,
-            'documents' => NULL,
-            'query' => NULL,
+            'stream' => null,
+            'documents' => null,
+            'query' => null,
             'max_tokens' => '100',
             'temperature' => '0.5',
             'top_p' => '1',
             'activate' => 0,
             'tone' => 1,
-            'language' => 1
+            'language' => 1,
         ]);
-
-
 
         $scriptType19 = ScriptType::create([
             'name' => 'Blog Intro',
@@ -523,23 +485,21 @@ class ScriptTypeCategorySeeder extends Seeder
             'script_type_category_id' => $scriptTypeCategory9->id,
             'prompt_1' => 'Write the intro for a blog article',
             'prompt_2' => 'Make it a paragraph that hooks the reader',
-            'usage' => NULL,
+            'usage' => null,
             'engine' => 'text-davinci-002',
             'presence_penalty' => '0',
             'frequency_penalty' => '0',
             'best_of' => '1',
-            'stream' => NULL,
-            'documents' => NULL,
-            'query' => NULL,
+            'stream' => null,
+            'documents' => null,
+            'query' => null,
             'max_tokens' => '100',
             'temperature' => '0.5',
             'top_p' => '1',
             'activate' => 0,
             'tone' => 1,
-            'language' => 1
+            'language' => 1,
         ]);
-
-
 
         $scriptType20 = ScriptType::create([
             'name' => 'Blog Post Ideas',
@@ -548,23 +508,21 @@ class ScriptTypeCategorySeeder extends Seeder
             'script_type_category_id' => $scriptTypeCategory9->id,
             'prompt_1' => 'Generate blog post topic ideas for the following product niche',
             'prompt_2' => 'Make 5 variations',
-            'usage' => NULL,
+            'usage' => null,
             'engine' => 'text-davinci-002',
             'presence_penalty' => '0',
             'frequency_penalty' => '0',
             'best_of' => '1',
-            'stream' => NULL,
-            'documents' => NULL,
-            'query' => NULL,
+            'stream' => null,
+            'documents' => null,
+            'query' => null,
             'max_tokens' => '100',
             'temperature' => '0.5',
             'top_p' => '1',
             'activate' => 0,
             'tone' => 1,
-            'language' => 1
+            'language' => 1,
         ]);
-
-
 
         $scriptType21 = ScriptType::create([
             'name' => 'Listicle Blog Post Title',
@@ -573,23 +531,21 @@ class ScriptTypeCategorySeeder extends Seeder
             'script_type_category_id' => $scriptTypeCategory9->id,
             'prompt_1' => 'Write a blog post title for a listicle',
             'prompt_2' => 'Make 5 variations',
-            'usage' => NULL,
+            'usage' => null,
             'engine' => 'text-davinci-002',
             'presence_penalty' => '0',
             'frequency_penalty' => '0',
             'best_of' => '1',
-            'stream' => NULL,
-            'documents' => NULL,
-            'query' => NULL,
+            'stream' => null,
+            'documents' => null,
+            'query' => null,
             'max_tokens' => '100',
             'temperature' => '0.5',
             'top_p' => '1',
             'activate' => 0,
             'tone' => 1,
-            'language' => 1
+            'language' => 1,
         ]);
-
-
 
         $scriptType22 = ScriptType::create([
             'name' => 'Keyword Generator',
@@ -598,23 +554,21 @@ class ScriptTypeCategorySeeder extends Seeder
             'script_type_category_id' => $scriptTypeCategory9->id,
             'prompt_1' => 'Generate keywords for the following blog post idea',
             'prompt_2' => '-',
-            'usage' => NULL,
+            'usage' => null,
             'engine' => 'text-davinci-002',
             'presence_penalty' => '0',
             'frequency_penalty' => '0',
             'best_of' => '1',
-            'stream' => NULL,
-            'documents' => NULL,
-            'query' => NULL,
+            'stream' => null,
+            'documents' => null,
+            'query' => null,
             'max_tokens' => '100',
             'temperature' => '0.5',
             'top_p' => '1',
             'activate' => 0,
             'tone' => 1,
-            'language' => 1
+            'language' => 1,
         ]);
-
-
 
         $scriptType23 = ScriptType::create([
             'name' => 'Bullet Point to Paragraph',
@@ -623,23 +577,21 @@ class ScriptTypeCategorySeeder extends Seeder
             'script_type_category_id' => $scriptTypeCategory9->id,
             'prompt_1' => 'Expand the following sentence into a short blog article',
             'prompt_2' => '-',
-            'usage' => NULL,
+            'usage' => null,
             'engine' => 'text-davinci-002',
             'presence_penalty' => '0',
             'frequency_penalty' => '0',
             'best_of' => '1',
-            'stream' => NULL,
-            'documents' => NULL,
-            'query' => NULL,
+            'stream' => null,
+            'documents' => null,
+            'query' => null,
             'max_tokens' => '100',
             'temperature' => '0.3',
             'top_p' => '1',
             'activate' => 0,
             'tone' => 1,
-            'language' => 1
+            'language' => 1,
         ]);
-
-
 
         $scriptType24 = ScriptType::create([
             'name' => 'Blog Post Conclusion',
@@ -648,23 +600,21 @@ class ScriptTypeCategorySeeder extends Seeder
             'script_type_category_id' => $scriptTypeCategory9->id,
             'prompt_1' => 'Write a conclusion paragraph for a blog post',
             'prompt_2' => '-',
-            'usage' => NULL,
+            'usage' => null,
             'engine' => 'text-davinci-002',
             'presence_penalty' => '0',
             'frequency_penalty' => '0',
             'best_of' => '1',
-            'stream' => NULL,
-            'documents' => NULL,
-            'query' => NULL,
+            'stream' => null,
+            'documents' => null,
+            'query' => null,
             'max_tokens' => '100',
             'temperature' => '0.5',
             'top_p' => '1',
             'activate' => 0,
             'tone' => 1,
-            'language' => 1
+            'language' => 1,
         ]);
-
-
 
         $scriptType25 = ScriptType::create([
             'name' => 'Welcome email',
@@ -673,20 +623,20 @@ class ScriptTypeCategorySeeder extends Seeder
             'script_type_category_id' => $scriptTypeCategory3->id,
             'prompt_1' => 'Write a welcome email for a new subscriber',
             'prompt_2' => '-',
-            'usage' => NULL,
+            'usage' => null,
             'engine' => 'text-davinci-002',
             'presence_penalty' => '0',
             'frequency_penalty' => '0',
             'best_of' => '1',
-            'stream' => NULL,
-            'documents' => NULL,
-            'query' => NULL,
+            'stream' => null,
+            'documents' => null,
+            'query' => null,
             'max_tokens' => '100',
             'temperature' => '0.5',
             'top_p' => '1',
             'activate' => 0,
             'tone' => 1,
-            'language' => 1
+            'language' => 1,
         ]);
 
         $scriptType26 = ScriptType::create([
@@ -696,23 +646,21 @@ class ScriptTypeCategorySeeder extends Seeder
             'script_type_category_id' => $scriptTypeCategory3->id,
             'prompt_1' => 'Write a short thank you note',
             'prompt_2' => '-',
-            'usage' => NULL,
+            'usage' => null,
             'engine' => 'text-davinci-002',
             'presence_penalty' => '0',
             'frequency_penalty' => '0',
             'best_of' => '1',
-            'stream' => NULL,
-            'documents' => NULL,
-            'query' => NULL,
+            'stream' => null,
+            'documents' => null,
+            'query' => null,
             'max_tokens' => '100',
             'temperature' => '0.5',
             'top_p' => '1',
             'activate' => 0,
             'tone' => 1,
-            'language' => 1
+            'language' => 1,
         ]);
-
-
 
         $scriptType27 = ScriptType::create([
             'name' => 'Follow-Up Email',
@@ -721,23 +669,21 @@ class ScriptTypeCategorySeeder extends Seeder
             'script_type_category_id' => $scriptTypeCategory3->id,
             'prompt_1' => 'Write a follow up email after a meeting',
             'prompt_2' => '-',
-            'usage' => NULL,
+            'usage' => null,
             'engine' => 'text-davinci-002',
             'presence_penalty' => '0',
             'frequency_penalty' => '0',
             'best_of' => '1',
-            'stream' => NULL,
-            'documents' => NULL,
-            'query' => NULL,
+            'stream' => null,
+            'documents' => null,
+            'query' => null,
             'max_tokens' => '1000',
             'temperature' => '0.5',
             'top_p' => '1',
             'activate' => 0,
             'tone' => 1,
-            'language' => 1
+            'language' => 1,
         ]);
-
-
 
         $scriptType28 = ScriptType::create([
             'name' => 'Purchase Confirmation Email',
@@ -746,23 +692,21 @@ class ScriptTypeCategorySeeder extends Seeder
             'script_type_category_id' => $scriptTypeCategory3->id,
             'prompt_1' => 'Write an email for a purchase conformation for the following product',
             'prompt_2' => '-',
-            'usage' => NULL,
+            'usage' => null,
             'engine' => 'text-davinci-002',
             'presence_penalty' => '0',
             'frequency_penalty' => '0',
             'best_of' => '1',
-            'stream' => NULL,
-            'documents' => NULL,
-            'query' => NULL,
+            'stream' => null,
+            'documents' => null,
+            'query' => null,
             'max_tokens' => '100',
             'temperature' => '0.5',
             'top_p' => '1',
             'activate' => 0,
             'tone' => 1,
-            'language' => 1
+            'language' => 1,
         ]);
-
-
 
         $scriptType29 = ScriptType::create([
             'name' => 'Email Subject Line',
@@ -771,23 +715,21 @@ class ScriptTypeCategorySeeder extends Seeder
             'script_type_category_id' => $scriptTypeCategory3->id,
             'prompt_1' => 'Write an email subject line that is catchy for the following product',
             'prompt_2' => 'Keep it short',
-            'usage' => NULL,
+            'usage' => null,
             'engine' => 'text-davinci-002',
             'presence_penalty' => '0',
             'frequency_penalty' => '0',
             'best_of' => '1',
-            'stream' => NULL,
-            'documents' => NULL,
-            'query' => NULL,
+            'stream' => null,
+            'documents' => null,
+            'query' => null,
             'max_tokens' => '100',
             'temperature' => '0.5',
             'top_p' => '1',
             'activate' => 0,
             'tone' => 1,
-            'language' => 1
+            'language' => 1,
         ]);
-
-
 
         $scriptType30 = ScriptType::create([
             'name' => 'Cancellation Email',
@@ -796,23 +738,21 @@ class ScriptTypeCategorySeeder extends Seeder
             'script_type_category_id' => $scriptTypeCategory3->id,
             'prompt_1' => 'Draft a cancellation email for the following product',
             'prompt_2' => '-',
-            'usage' => NULL,
+            'usage' => null,
             'engine' => 'text-davinci-002',
             'presence_penalty' => '0',
             'frequency_penalty' => '0',
             'best_of' => '1',
-            'stream' => NULL,
-            'documents' => NULL,
-            'query' => NULL,
+            'stream' => null,
+            'documents' => null,
+            'query' => null,
             'max_tokens' => '100',
             'temperature' => '0.5',
             'top_p' => '1',
             'activate' => 0,
             'tone' => 1,
-            'language' => 1
+            'language' => 1,
         ]);
-
-
 
         $scriptType31 = ScriptType::create([
             'name' => 'Instagram Post Caption',
@@ -821,23 +761,21 @@ class ScriptTypeCategorySeeder extends Seeder
             'script_type_category_id' => $scriptTypeCategory10->id,
             'prompt_1' => 'Create an Instagram Post Caption for following content',
             'prompt_2' => '-',
-            'usage' => NULL,
+            'usage' => null,
             'engine' => 'text-davinci-002',
             'presence_penalty' => '0',
             'frequency_penalty' => '0',
             'best_of' => '1',
-            'stream' => NULL,
-            'documents' => NULL,
-            'query' => NULL,
+            'stream' => null,
+            'documents' => null,
+            'query' => null,
             'max_tokens' => '100',
             'temperature' => '0.5',
             'top_p' => '1',
             'activate' => 0,
             'tone' => 1,
-            'language' => 1
+            'language' => 1,
         ]);
-
-
 
         $scriptType32 = ScriptType::create([
             'name' => 'Instagram Product Post',
@@ -846,23 +784,21 @@ class ScriptTypeCategorySeeder extends Seeder
             'script_type_category_id' => $scriptTypeCategory10->id,
             'prompt_1' => 'Create an instagram caption for a product promotion',
             'prompt_2' => '-',
-            'usage' => NULL,
+            'usage' => null,
             'engine' => 'text-davinci-002',
             'presence_penalty' => '0',
             'frequency_penalty' => '0',
             'best_of' => '1',
-            'stream' => NULL,
-            'documents' => NULL,
-            'query' => NULL,
+            'stream' => null,
+            'documents' => null,
+            'query' => null,
             'max_tokens' => '100',
             'temperature' => '0.5',
             'top_p' => '1',
             'activate' => 0,
             'tone' => 1,
-            'language' => 1
+            'language' => 1,
         ]);
-
-
 
         $scriptType33 = ScriptType::create([
             'name' => 'Instagram Hashtag Generator',
@@ -871,23 +807,21 @@ class ScriptTypeCategorySeeder extends Seeder
             'script_type_category_id' => $scriptTypeCategory10->id,
             'prompt_1' => 'Generate relevant and trendy hashtags for an Instagram post',
             'prompt_2' => '-',
-            'usage' => NULL,
+            'usage' => null,
             'engine' => 'text-davinci-002',
             'presence_penalty' => '0',
             'frequency_penalty' => '0',
             'best_of' => '1',
-            'stream' => NULL,
-            'documents' => NULL,
-            'query' => NULL,
+            'stream' => null,
+            'documents' => null,
+            'query' => null,
             'max_tokens' => '100',
             'temperature' => '0.5',
             'top_p' => '1',
             'activate' => 0,
             'tone' => 1,
-            'language' => 1
+            'language' => 1,
         ]);
-
-
 
         $scriptType34 = ScriptType::create([
             'name' => 'Brainstorm a Hook',
@@ -896,23 +830,21 @@ class ScriptTypeCategorySeeder extends Seeder
             'script_type_category_id' => $scriptTypeCategory10->id,
             'prompt_1' => 'Generate a hook for the following social media post',
             'prompt_2' => 'The post should hold the readers attention',
-            'usage' => NULL,
+            'usage' => null,
             'engine' => 'text-davinci-002',
             'presence_penalty' => '0',
             'frequency_penalty' => '0',
             'best_of' => '1',
-            'stream' => NULL,
-            'documents' => NULL,
-            'query' => NULL,
+            'stream' => null,
+            'documents' => null,
+            'query' => null,
             'max_tokens' => '100',
             'temperature' => '0.5',
             'top_p' => '1',
             'activate' => 0,
             'tone' => 1,
-            'language' => 1
+            'language' => 1,
         ]);
-
-
 
         $scriptType35 = ScriptType::create([
             'name' => 'Product Launch Announcement',
@@ -921,23 +853,21 @@ class ScriptTypeCategorySeeder extends Seeder
             'script_type_category_id' => $scriptTypeCategory10->id,
             'prompt_1' => 'Generate a social media post for a product launch announcement',
             'prompt_2' => '-',
-            'usage' => NULL,
+            'usage' => null,
             'engine' => 'text-davinci-002',
             'presence_penalty' => '0',
             'frequency_penalty' => '0',
             'best_of' => '1',
-            'stream' => NULL,
-            'documents' => NULL,
-            'query' => NULL,
+            'stream' => null,
+            'documents' => null,
+            'query' => null,
             'max_tokens' => '100',
             'temperature' => '0.5',
             'top_p' => '1',
             'activate' => 0,
             'tone' => 1,
-            'language' => 1
+            'language' => 1,
         ]);
-
-
 
         $scriptType36 = ScriptType::create([
             'name' => 'Tik Tok Content Idea',
@@ -946,23 +876,21 @@ class ScriptTypeCategorySeeder extends Seeder
             'script_type_category_id' => $scriptTypeCategory10->id,
             'prompt_1' => 'Generate tik tok content ideas for the following',
             'prompt_2' => 'Make 5 Variations',
-            'usage' => NULL,
+            'usage' => null,
             'engine' => 'text-davinci-002',
             'presence_penalty' => '0',
             'frequency_penalty' => '0',
             'best_of' => '1',
-            'stream' => NULL,
-            'documents' => NULL,
-            'query' => NULL,
+            'stream' => null,
+            'documents' => null,
+            'query' => null,
             'max_tokens' => '100',
             'temperature' => '0.5',
             'top_p' => '1',
             'activate' => 0,
             'tone' => 1,
-            'language' => 1
+            'language' => 1,
         ]);
-
-
 
         $scriptType37 = ScriptType::create([
             'name' => 'Video Call To Action',
@@ -971,23 +899,21 @@ class ScriptTypeCategorySeeder extends Seeder
             'script_type_category_id' => $scriptTypeCategory10->id,
             'prompt_1' => 'Create a short call to action text for the following content',
             'prompt_2' => 'Maximum of 10 words',
-            'usage' => NULL,
+            'usage' => null,
             'engine' => 'text-davinci-002',
             'presence_penalty' => '0',
             'frequency_penalty' => '0',
             'best_of' => '1',
-            'stream' => NULL,
-            'documents' => NULL,
-            'query' => NULL,
+            'stream' => null,
+            'documents' => null,
+            'query' => null,
             'max_tokens' => '100',
             'temperature' => '05',
             'top_p' => '1',
             'activate' => 0,
             'tone' => 1,
-            'language' => 1
+            'language' => 1,
         ]);
-
-
 
         $scriptType38 = ScriptType::create([
             'name' => 'YouTube Video Title',
@@ -996,23 +922,21 @@ class ScriptTypeCategorySeeder extends Seeder
             'script_type_category_id' => $scriptTypeCategory4->id,
             'prompt_1' => 'Generate a youtube video title for the following post',
             'prompt_2' => '-',
-            'usage' => NULL,
+            'usage' => null,
             'engine' => 'text-davinci-002',
             'presence_penalty' => '0',
             'frequency_penalty' => '0',
             'best_of' => '1',
-            'stream' => NULL,
-            'documents' => NULL,
-            'query' => NULL,
+            'stream' => null,
+            'documents' => null,
+            'query' => null,
             'max_tokens' => '100',
             'temperature' => '0.5',
             'top_p' => '1',
             'activate' => 0,
             'tone' => 1,
-            'language' => 1
+            'language' => 1,
         ]);
-
-
 
         $scriptType39 = ScriptType::create([
             'name' => 'YouTube Video Description',
@@ -1021,23 +945,21 @@ class ScriptTypeCategorySeeder extends Seeder
             'script_type_category_id' => $scriptTypeCategory4->id,
             'prompt_1' => 'Generate a description for the following video on Youtube',
             'prompt_2' => '-',
-            'usage' => NULL,
+            'usage' => null,
             'engine' => 'text-davinci-002',
             'presence_penalty' => '0',
             'frequency_penalty' => '0',
             'best_of' => '1',
-            'stream' => NULL,
-            'documents' => NULL,
-            'query' => NULL,
+            'stream' => null,
+            'documents' => null,
+            'query' => null,
             'max_tokens' => '100',
             'temperature' => '0.5',
             'top_p' => '1',
             'activate' => 0,
             'tone' => 1,
-            'language' => 1
+            'language' => 1,
         ]);
-
-
 
         $scriptType40 = ScriptType::create([
             'name' => 'Video Topic Ideas',
@@ -1046,23 +968,21 @@ class ScriptTypeCategorySeeder extends Seeder
             'script_type_category_id' => $scriptTypeCategory4->id,
             'prompt_1' => 'Generate trendy video topic ideas for youtube',
             'prompt_2' => 'Make 5 variations',
-            'usage' => NULL,
+            'usage' => null,
             'engine' => 'text-davinci-002',
             'presence_penalty' => '0',
             'frequency_penalty' => '0',
             'best_of' => '1',
-            'stream' => NULL,
-            'documents' => NULL,
-            'query' => NULL,
+            'stream' => null,
+            'documents' => null,
+            'query' => null,
             'max_tokens' => '100',
             'temperature' => '0.5',
             'top_p' => '1',
             'activate' => 0,
             'tone' => 1,
-            'language' => 1
+            'language' => 1,
         ]);
-
-
 
         $scriptType41 = ScriptType::create([
             'name' => 'AIDA Framework',
@@ -1071,23 +991,21 @@ class ScriptTypeCategorySeeder extends Seeder
             'script_type_category_id' => $scriptTypeCategory5->id,
             'prompt_1' => 'Write an Attention-Interest-Desire-Action framework copy for the following product',
             'prompt_2' => '-',
-            'usage' => NULL,
+            'usage' => null,
             'engine' => 'text-davinci-002',
             'presence_penalty' => '0',
             'frequency_penalty' => '0',
             'best_of' => '1',
-            'stream' => NULL,
-            'documents' => NULL,
-            'query' => NULL,
+            'stream' => null,
+            'documents' => null,
+            'query' => null,
             'max_tokens' => '150',
             'temperature' => '0.5',
             'top_p' => '1',
             'activate' => 0,
             'tone' => 1,
-            'language' => 1
+            'language' => 1,
         ]);
-
-
 
         $scriptType42 = ScriptType::create([
             'name' => 'Relatable Experiences',
@@ -1096,23 +1014,21 @@ class ScriptTypeCategorySeeder extends Seeder
             'script_type_category_id' => $scriptTypeCategory10->id,
             'prompt_1' => 'What are the common experience of people in the following niche',
             'prompt_2' => 'Make 5 variations',
-            'usage' => NULL,
+            'usage' => null,
             'engine' => 'text-davinci-002',
             'presence_penalty' => '0',
             'frequency_penalty' => '0',
             'best_of' => '1',
-            'stream' => NULL,
-            'documents' => NULL,
-            'query' => NULL,
+            'stream' => null,
+            'documents' => null,
+            'query' => null,
             'max_tokens' => '100',
             'temperature' => '0.5',
             'top_p' => '1',
             'activate' => 0,
             'tone' => 1,
-            'language' => 1
+            'language' => 1,
         ]);
-
-
 
         $scriptType43 = ScriptType::create([
             'name' => 'Review Response',
@@ -1121,23 +1037,21 @@ class ScriptTypeCategorySeeder extends Seeder
             'script_type_category_id' => $scriptTypeCategory6->id,
             'prompt_1' => 'Generate a reply to a customer review',
             'prompt_2' => 'Make it friendly and professional',
-            'usage' => NULL,
+            'usage' => null,
             'engine' => 'text-davinci-002',
             'presence_penalty' => '0',
             'frequency_penalty' => '0',
             'best_of' => '1',
-            'stream' => NULL,
-            'documents' => NULL,
-            'query' => NULL,
+            'stream' => null,
+            'documents' => null,
+            'query' => null,
             'max_tokens' => '150',
             'temperature' => '0.5',
             'top_p' => '1',
             'activate' => 0,
             'tone' => 1,
-            'language' => 1
+            'language' => 1,
         ]);
-
-
 
         $scriptType44 = ScriptType::create([
             'name' => 'Before-After-Bridge Copy',
@@ -1146,23 +1060,21 @@ class ScriptTypeCategorySeeder extends Seeder
             'script_type_category_id' => $scriptTypeCategory5->id,
             'prompt_1' => 'Generate a Before-After-Bridge copy for the following product',
             'prompt_2' => '-',
-            'usage' => NULL,
+            'usage' => null,
             'engine' => 'text-davinci-002',
             'presence_penalty' => '0',
             'frequency_penalty' => '0',
             'best_of' => '1',
-            'stream' => NULL,
-            'documents' => NULL,
-            'query' => NULL,
+            'stream' => null,
+            'documents' => null,
+            'query' => null,
             'max_tokens' => '150',
             'temperature' => '0.5',
             'top_p' => '1',
             'activate' => 0,
             'tone' => 1,
-            'language' => 1
+            'language' => 1,
         ]);
-
-
 
         $scriptType45 = ScriptType::create([
             'name' => 'PAS Framework Copy',
@@ -1171,23 +1083,21 @@ class ScriptTypeCategorySeeder extends Seeder
             'script_type_category_id' => $scriptTypeCategory5->id,
             'prompt_1' => 'Write an Pain-Agitate-Solution framework copy for the following product',
             'prompt_2' => '-',
-            'usage' => NULL,
+            'usage' => null,
             'engine' => 'text-davinci-002',
             'presence_penalty' => '0',
             'frequency_penalty' => '0',
             'best_of' => '1',
-            'stream' => NULL,
-            'documents' => NULL,
-            'query' => NULL,
+            'stream' => null,
+            'documents' => null,
+            'query' => null,
             'max_tokens' => '150',
             'temperature' => '0.5',
             'top_p' => '1',
             'activate' => 0,
             'tone' => 1,
-            'language' => 1
+            'language' => 1,
         ]);
-
-
 
         $scriptType46 = ScriptType::create([
             'name' => 'Convert Feature to Benefits',
@@ -1196,23 +1106,21 @@ class ScriptTypeCategorySeeder extends Seeder
             'script_type_category_id' => $scriptTypeCategory5->id,
             'prompt_1' => 'Convert the following list of product features into benefits',
             'prompt_2' => '-',
-            'usage' => NULL,
+            'usage' => null,
             'engine' => 'text-davinci-002',
             'presence_penalty' => '0',
             'frequency_penalty' => '0',
             'best_of' => '1',
-            'stream' => NULL,
-            'documents' => NULL,
-            'query' => NULL,
+            'stream' => null,
+            'documents' => null,
+            'query' => null,
             'max_tokens' => '150',
             'temperature' => '0.5',
             'top_p' => '1',
             'activate' => 0,
             'tone' => 1,
-            'language' => 1
+            'language' => 1,
         ]);
-
-
 
         $scriptType47 = ScriptType::create([
             'name' => 'Unique Selling Point',
@@ -1221,23 +1129,21 @@ class ScriptTypeCategorySeeder extends Seeder
             'script_type_category_id' => $scriptTypeCategory5->id,
             'prompt_1' => 'generate a unique selling point for the following product',
             'prompt_2' => '-',
-            'usage' => NULL,
+            'usage' => null,
             'engine' => 'text-davinci-002',
             'presence_penalty' => '0',
             'frequency_penalty' => '0',
             'best_of' => '1',
-            'stream' => NULL,
-            'documents' => NULL,
-            'query' => NULL,
+            'stream' => null,
+            'documents' => null,
+            'query' => null,
             'max_tokens' => '150',
             'temperature' => '0.5',
             'top_p' => '1',
             'activate' => 0,
             'tone' => 1,
-            'language' => 1
+            'language' => 1,
         ]);
-
-
 
         $scriptType48 = ScriptType::create([
             'name' => 'Marketing Angles',
@@ -1246,23 +1152,21 @@ class ScriptTypeCategorySeeder extends Seeder
             'script_type_category_id' => $scriptTypeCategory5->id,
             'prompt_1' => 'Generate marketing ideas and angles for the following product',
             'prompt_2' => '-',
-            'usage' => NULL,
+            'usage' => null,
             'engine' => 'text-davinci-002',
             'presence_penalty' => '0',
             'frequency_penalty' => '0',
             'best_of' => '1',
-            'stream' => NULL,
-            'documents' => NULL,
-            'query' => NULL,
+            'stream' => null,
+            'documents' => null,
+            'query' => null,
             'max_tokens' => '150',
             'temperature' => '0.5',
             'top_p' => '1',
             'activate' => 0,
             'tone' => 1,
-            'language' => 1
+            'language' => 1,
         ]);
-
-
 
         $scriptType49 = ScriptType::create([
             'name' => 'Problem-Promise-Proof-Proposal',
@@ -1271,23 +1175,21 @@ class ScriptTypeCategorySeeder extends Seeder
             'script_type_category_id' => $scriptTypeCategory5->id,
             'prompt_1' => 'Generate a copy using the Problem-Promise-Proof-Proposal for the following product',
             'prompt_2' => '-',
-            'usage' => NULL,
+            'usage' => null,
             'engine' => 'text-davinci-002',
             'presence_penalty' => '0',
             'frequency_penalty' => '0',
             'best_of' => '1',
-            'stream' => NULL,
-            'documents' => NULL,
-            'query' => NULL,
+            'stream' => null,
+            'documents' => null,
+            'query' => null,
             'max_tokens' => '150',
             'temperature' => '0.5',
             'top_p' => '1',
             'activate' => 0,
             'tone' => 1,
-            'language' => 1
+            'language' => 1,
         ]);
-
-
 
         $scriptType50 = ScriptType::create([
             'name' => 'Rewrite a Sentence',
@@ -1296,23 +1198,21 @@ class ScriptTypeCategorySeeder extends Seeder
             'script_type_category_id' => $scriptTypeCategory7->id,
             'prompt_1' => 'Rewrite this sentence',
             'prompt_2' => 'Make it plagiarism free',
-            'usage' => NULL,
+            'usage' => null,
             'engine' => 'text-davinci-002',
             'presence_penalty' => '0',
             'frequency_penalty' => '0',
             'best_of' => '1',
-            'stream' => NULL,
-            'documents' => NULL,
-            'query' => NULL,
+            'stream' => null,
+            'documents' => null,
+            'query' => null,
             'max_tokens' => '150',
             'temperature' => '0.5',
             'top_p' => '1',
             'activate' => 0,
             'tone' => 1,
-            'language' => 1
+            'language' => 1,
         ]);
-
-
 
         $scriptType51 = ScriptType::create([
             'name' => 'Sentence Expander',
@@ -1321,23 +1221,21 @@ class ScriptTypeCategorySeeder extends Seeder
             'script_type_category_id' => $scriptTypeCategory7->id,
             'prompt_1' => 'Expand the following sentence for more details',
             'prompt_2' => '-',
-            'usage' => NULL,
+            'usage' => null,
             'engine' => 'text-davinci-002',
             'presence_penalty' => '0',
             'frequency_penalty' => '0',
             'best_of' => '1',
-            'stream' => NULL,
-            'documents' => NULL,
-            'query' => NULL,
+            'stream' => null,
+            'documents' => null,
+            'query' => null,
             'max_tokens' => '150',
             'temperature' => '0.5',
             'top_p' => '1',
             'activate' => 0,
             'tone' => 1,
-            'language' => 1
+            'language' => 1,
         ]);
-
-
 
         $scriptType52 = ScriptType::create([
             'name' => 'Simplify a Sentence',
@@ -1346,23 +1244,21 @@ class ScriptTypeCategorySeeder extends Seeder
             'script_type_category_id' => $scriptTypeCategory7->id,
             'prompt_1' => 'Simplify this sentence and use less words',
             'prompt_2' => '-',
-            'usage' => NULL,
+            'usage' => null,
             'engine' => 'text-davinci-002',
             'presence_penalty' => '0',
             'frequency_penalty' => '0',
             'best_of' => '1',
-            'stream' => NULL,
-            'documents' => NULL,
-            'query' => NULL,
+            'stream' => null,
+            'documents' => null,
+            'query' => null,
             'max_tokens' => '100',
             'temperature' => '0.5',
             'top_p' => '1',
             'activate' => 0,
             'tone' => 1,
-            'language' => 1
+            'language' => 1,
         ]);
-
-
 
         $scriptType53 = ScriptType::create([
             'name' => 'Summarize for a 2nd grader',
@@ -1371,23 +1267,21 @@ class ScriptTypeCategorySeeder extends Seeder
             'script_type_category_id' => $scriptTypeCategory7->id,
             'prompt_1' => 'Summarize this for a second-grade student:',
             'prompt_2' => '-',
-            'usage' => NULL,
+            'usage' => null,
             'engine' => 'text-davinci-002',
             'presence_penalty' => '0',
             'frequency_penalty' => '0',
             'best_of' => '1',
-            'stream' => NULL,
-            'documents' => NULL,
-            'query' => NULL,
+            'stream' => null,
+            'documents' => null,
+            'query' => null,
             'max_tokens' => '150',
             'temperature' => '0.7',
             'top_p' => '1',
             'activate' => 0,
             'tone' => 1,
-            'language' => 1
+            'language' => 1,
         ]);
-
-
 
         $scriptType54 = ScriptType::create([
             'name' => 'Sentence improver',
@@ -1396,23 +1290,21 @@ class ScriptTypeCategorySeeder extends Seeder
             'script_type_category_id' => $scriptTypeCategory7->id,
             'prompt_1' => 'Rewrite content to make it more interesting, creative, and engaging',
             'prompt_2' => '-',
-            'usage' => NULL,
+            'usage' => null,
             'engine' => 'text-davinci-002',
             'presence_penalty' => '0',
             'frequency_penalty' => '0',
             'best_of' => '1',
-            'stream' => NULL,
-            'documents' => NULL,
-            'query' => NULL,
+            'stream' => null,
+            'documents' => null,
+            'query' => null,
             'max_tokens' => '150',
             'temperature' => '0.5',
             'top_p' => '1',
             'activate' => 0,
             'tone' => 1,
-            'language' => 1
+            'language' => 1,
         ]);
-
-
 
         $scriptType55 = ScriptType::create([
             'name' => 'Cliffhanger',
@@ -1421,23 +1313,21 @@ class ScriptTypeCategorySeeder extends Seeder
             'script_type_category_id' => $scriptTypeCategory7->id,
             'prompt_1' => 'Generate a cliffhanger for an article about this topic',
             'prompt_2' => 'It should keep the reader hooked',
-            'usage' => NULL,
+            'usage' => null,
             'engine' => 'text-davinci-002',
             'presence_penalty' => '0',
             'frequency_penalty' => '0',
             'best_of' => '1',
-            'stream' => NULL,
-            'documents' => NULL,
-            'query' => NULL,
+            'stream' => null,
+            'documents' => null,
+            'query' => null,
             'max_tokens' => '150',
             'temperature' => '0.5',
             'top_p' => '1',
             'activate' => 0,
             'tone' => 1,
-            'language' => 1
+            'language' => 1,
         ]);
-
-
 
         $scriptType56 = ScriptType::create([
             'name' => 'Essay Introduction',
@@ -1446,23 +1336,21 @@ class ScriptTypeCategorySeeder extends Seeder
             'script_type_category_id' => $scriptTypeCategory7->id,
             'prompt_1' => 'Generate the introduction for the following essay topic',
             'prompt_2' => '-',
-            'usage' => NULL,
+            'usage' => null,
             'engine' => 'text-davinci-002',
             'presence_penalty' => '0',
             'frequency_penalty' => '0',
             'best_of' => '1',
-            'stream' => NULL,
-            'documents' => NULL,
-            'query' => NULL,
+            'stream' => null,
+            'documents' => null,
+            'query' => null,
             'max_tokens' => '150',
             'temperature' => '0.5',
             'top_p' => '1',
             'activate' => 0,
             'tone' => 1,
-            'language' => 1
+            'language' => 1,
         ]);
-
-
 
         $scriptType57 = ScriptType::create([
             'name' => 'Essay Outline',
@@ -1471,23 +1359,21 @@ class ScriptTypeCategorySeeder extends Seeder
             'script_type_category_id' => $scriptTypeCategory7->id,
             'prompt_1' => 'Generate an outline for the following essay topic',
             'prompt_2' => '-',
-            'usage' => NULL,
+            'usage' => null,
             'engine' => 'text-davinci-002',
             'presence_penalty' => '0',
             'frequency_penalty' => '0',
             'best_of' => '1',
-            'stream' => NULL,
-            'documents' => NULL,
-            'query' => NULL,
+            'stream' => null,
+            'documents' => null,
+            'query' => null,
             'max_tokens' => '150',
             'temperature' => '0.5',
             'top_p' => '1',
             'activate' => 0,
             'tone' => 1,
-            'language' => 1
+            'language' => 1,
         ]);
-
-
 
         $scriptType58 = ScriptType::create([
             'name' => 'Create a Hero Story Intro',
@@ -1496,23 +1382,21 @@ class ScriptTypeCategorySeeder extends Seeder
             'script_type_category_id' => $scriptTypeCategory7->id,
             'prompt_1' => 'Write a short intro story about a hero figure',
             'prompt_2' => '-',
-            'usage' => NULL,
+            'usage' => null,
             'engine' => 'text-davinci-002',
             'presence_penalty' => '0',
             'frequency_penalty' => '0',
             'best_of' => '1',
-            'stream' => NULL,
-            'documents' => NULL,
-            'query' => NULL,
+            'stream' => null,
+            'documents' => null,
+            'query' => null,
             'max_tokens' => '150',
             'temperature' => '0.5',
             'top_p' => '1',
             'activate' => 0,
             'tone' => 1,
-            'language' => 1
+            'language' => 1,
         ]);
-
-
 
         $scriptType59 = ScriptType::create([
             'name' => 'Passive To Active Voice',
@@ -1521,23 +1405,21 @@ class ScriptTypeCategorySeeder extends Seeder
             'script_type_category_id' => $scriptTypeCategory7->id,
             'prompt_1' => 'Rewrite the following copy in a more active an compelling voice',
             'prompt_2' => '-',
-            'usage' => NULL,
+            'usage' => null,
             'engine' => 'text-davinci-002',
             'presence_penalty' => '0',
             'frequency_penalty' => '0',
             'best_of' => '1',
-            'stream' => NULL,
-            'documents' => NULL,
-            'query' => NULL,
+            'stream' => null,
+            'documents' => null,
+            'query' => null,
             'max_tokens' => '150',
             'temperature' => '0.5',
             'top_p' => '1',
             'activate' => 0,
             'tone' => 1,
-            'language' => 1
+            'language' => 1,
         ]);
-
-
 
         $scriptType60 = ScriptType::create([
             'name' => 'Press Release Introduction',
@@ -1546,23 +1428,21 @@ class ScriptTypeCategorySeeder extends Seeder
             'script_type_category_id' => $scriptTypeCategory7->id,
             'prompt_1' => 'Write a short press release intro for the following product',
             'prompt_2' => '-',
-            'usage' => NULL,
+            'usage' => null,
             'engine' => 'text-davinci-002',
             'presence_penalty' => '0',
             'frequency_penalty' => '0',
             'best_of' => '1',
-            'stream' => NULL,
-            'documents' => NULL,
-            'query' => NULL,
+            'stream' => null,
+            'documents' => null,
+            'query' => null,
             'max_tokens' => '150',
             'temperature' => '0.5',
             'top_p' => '1',
             'activate' => 0,
             'tone' => 1,
-            'language' => 1
+            'language' => 1,
         ]);
-
-
 
         $scriptType61 = ScriptType::create([
             'name' => 'Rewrite & Add Keyword',
@@ -1571,23 +1451,21 @@ class ScriptTypeCategorySeeder extends Seeder
             'script_type_category_id' => $scriptTypeCategory7->id,
             'prompt_1' => 'Write a text and add the following keywords to it',
             'prompt_2' => '-',
-            'usage' => NULL,
+            'usage' => null,
             'engine' => 'text-davinci-002',
             'presence_penalty' => '0',
             'frequency_penalty' => '0',
             'best_of' => '1',
-            'stream' => NULL,
-            'documents' => NULL,
-            'query' => NULL,
+            'stream' => null,
+            'documents' => null,
+            'query' => null,
             'max_tokens' => '150',
             'temperature' => '0.5',
             'top_p' => '1',
             'activate' => 0,
             'tone' => 1,
-            'language' => 1
+            'language' => 1,
         ]);
-
-
 
         $scriptType62 = ScriptType::create([
             'name' => 'Two Sentence Story',
@@ -1596,23 +1474,21 @@ class ScriptTypeCategorySeeder extends Seeder
             'script_type_category_id' => $scriptTypeCategory7->id,
             'prompt_1' => 'Write a short and interesting story in two sentence with the following topic',
             'prompt_2' => '-',
-            'usage' => NULL,
+            'usage' => null,
             'engine' => 'text-davinci-002',
             'presence_penalty' => '0',
             'frequency_penalty' => '0',
             'best_of' => '1',
-            'stream' => NULL,
-            'documents' => NULL,
-            'query' => NULL,
+            'stream' => null,
+            'documents' => null,
+            'query' => null,
             'max_tokens' => '150',
             'temperature' => '0.5',
             'top_p' => '1',
             'activate' => 0,
             'tone' => 1,
-            'language' => 1
+            'language' => 1,
         ]);
-
-
 
         $scriptType63 = ScriptType::create([
             'name' => 'Verb Booster',
@@ -1621,23 +1497,21 @@ class ScriptTypeCategorySeeder extends Seeder
             'script_type_category_id' => $scriptTypeCategory7->id,
             'prompt_1' => 'Generate stronger alternatives for the following verb',
             'prompt_2' => '-',
-            'usage' => NULL,
+            'usage' => null,
             'engine' => 'text-davinci-002',
             'presence_penalty' => '0',
             'frequency_penalty' => '0',
             'best_of' => '1',
-            'stream' => NULL,
-            'documents' => NULL,
-            'query' => NULL,
+            'stream' => null,
+            'documents' => null,
+            'query' => null,
             'max_tokens' => '150',
             'temperature' => '0.5',
             'top_p' => '1',
             'activate' => 0,
             'tone' => 1,
-            'language' => 1
+            'language' => 1,
         ]);
-
-
 
         $scriptType64 = ScriptType::create([
             'name' => 'Business Growth Ideas',
@@ -1646,23 +1520,21 @@ class ScriptTypeCategorySeeder extends Seeder
             'script_type_category_id' => $scriptTypeCategory11->id,
             'prompt_1' => 'Brainstorm ideas to grow the following business product',
             'prompt_2' => '-',
-            'usage' => NULL,
+            'usage' => null,
             'engine' => 'text-davinci-002',
             'presence_penalty' => '0',
             'frequency_penalty' => '0',
             'best_of' => '1',
-            'stream' => NULL,
-            'documents' => NULL,
-            'query' => NULL,
+            'stream' => null,
+            'documents' => null,
+            'query' => null,
             'max_tokens' => '150',
             'temperature' => '0.5',
             'top_p' => '1',
             'activate' => 0,
             'tone' => 1,
-            'language' => 1
+            'language' => 1,
         ]);
-
-
 
         $scriptType65 = ScriptType::create([
             'name' => 'Product/Business Name Generator',
@@ -1671,23 +1543,21 @@ class ScriptTypeCategorySeeder extends Seeder
             'script_type_category_id' => $scriptTypeCategory11->id,
             'prompt_1' => 'Generate a business name using the following business description and seed word ideas',
             'prompt_2' => 'Make 5 variations',
-            'usage' => NULL,
+            'usage' => null,
             'engine' => 'text-davinci-002',
             'presence_penalty' => '0',
             'frequency_penalty' => '0',
             'best_of' => '1',
-            'stream' => NULL,
-            'documents' => NULL,
-            'query' => NULL,
+            'stream' => null,
+            'documents' => null,
+            'query' => null,
             'max_tokens' => '150',
             'temperature' => '0.5',
             'top_p' => '1',
             'activate' => 0,
             'tone' => 1,
-            'language' => 1
+            'language' => 1,
         ]);
-
-
 
         $scriptType66 = ScriptType::create([
             'name' => 'Business Startup Ideas',
@@ -1696,23 +1566,21 @@ class ScriptTypeCategorySeeder extends Seeder
             'script_type_category_id' => $scriptTypeCategory11->id,
             'prompt_1' => 'Generate business ideas using the following skills or passion',
             'prompt_2' => 'Make 5 variations',
-            'usage' => NULL,
+            'usage' => null,
             'engine' => 'text-davinci-002',
             'presence_penalty' => '0',
             'frequency_penalty' => '0',
             'best_of' => '1',
-            'stream' => NULL,
-            'documents' => NULL,
-            'query' => NULL,
+            'stream' => null,
+            'documents' => null,
+            'query' => null,
             'max_tokens' => '150',
             'temperature' => '0.8',
             'top_p' => '1',
             'activate' => 0,
             'tone' => 1,
-            'language' => 1
+            'language' => 1,
         ]);
-
-
 
         $scriptType67 = ScriptType::create([
             'name' => 'Audience Refiner',
@@ -1721,23 +1589,21 @@ class ScriptTypeCategorySeeder extends Seeder
             'script_type_category_id' => $scriptTypeCategory11->id,
             'prompt_1' => 'Refine the following audience and get more insight',
             'prompt_2' => '-',
-            'usage' => NULL,
+            'usage' => null,
             'engine' => 'text-davinci-002',
             'presence_penalty' => '0',
             'frequency_penalty' => '0',
             'best_of' => '1',
-            'stream' => NULL,
-            'documents' => NULL,
-            'query' => NULL,
+            'stream' => null,
+            'documents' => null,
+            'query' => null,
             'max_tokens' => '150',
             'temperature' => '0.8',
             'top_p' => '1',
             'activate' => 0,
             'tone' => 1,
-            'language' => 1
+            'language' => 1,
         ]);
-
-
 
         $scriptType68 = ScriptType::create([
             'name' => 'Mission Statement',
@@ -1746,23 +1612,21 @@ class ScriptTypeCategorySeeder extends Seeder
             'script_type_category_id' => $scriptTypeCategory11->id,
             'prompt_1' => 'Generate a mission statement for the following product or brand',
             'prompt_2' => '-',
-            'usage' => NULL,
+            'usage' => null,
             'engine' => 'text-davinci-002',
             'presence_penalty' => '0',
             'frequency_penalty' => '0',
             'best_of' => '1',
-            'stream' => NULL,
-            'documents' => NULL,
-            'query' => NULL,
+            'stream' => null,
+            'documents' => null,
+            'query' => null,
             'max_tokens' => '150',
             'temperature' => '0.8',
             'top_p' => '1',
             'activate' => 0,
             'tone' => 1,
-            'language' => 1
+            'language' => 1,
         ]);
-
-
 
         $scriptType69 = ScriptType::create([
             'name' => 'Vision Statement',
@@ -1771,23 +1635,21 @@ class ScriptTypeCategorySeeder extends Seeder
             'script_type_category_id' => $scriptTypeCategory11->id,
             'prompt_1' => 'Generate a vision statement for the following product or brand',
             'prompt_2' => '-',
-            'usage' => NULL,
+            'usage' => null,
             'engine' => 'text-davinci-002',
             'presence_penalty' => '0',
             'frequency_penalty' => '0',
             'best_of' => '1',
-            'stream' => NULL,
-            'documents' => NULL,
-            'query' => NULL,
+            'stream' => null,
+            'documents' => null,
+            'query' => null,
             'max_tokens' => '150',
             'temperature' => '0.8',
             'top_p' => '1',
             'activate' => 0,
             'tone' => 1,
-            'language' => 1
+            'language' => 1,
         ]);
-
-
 
         $scriptType70 = ScriptType::create([
             'name' => 'Brand Voice',
@@ -1796,23 +1658,21 @@ class ScriptTypeCategorySeeder extends Seeder
             'script_type_category_id' => $scriptTypeCategory11->id,
             'prompt_1' => 'Generate a brand voice idea for the following product or brand',
             'prompt_2' => 'Make 5 variations',
-            'usage' => NULL,
+            'usage' => null,
             'engine' => 'text-davinci-002',
             'presence_penalty' => '0',
             'frequency_penalty' => '0',
             'best_of' => '1',
-            'stream' => NULL,
-            'documents' => NULL,
-            'query' => NULL,
+            'stream' => null,
+            'documents' => null,
+            'query' => null,
             'max_tokens' => '150',
             'temperature' => '0.8',
             'top_p' => '1',
             'activate' => 0,
             'tone' => 1,
-            'language' => 1
+            'language' => 1,
         ]);
-
-
 
         $scriptType71 = ScriptType::create([
             'name' => 'Birthday Message',
@@ -1821,23 +1681,21 @@ class ScriptTypeCategorySeeder extends Seeder
             'script_type_category_id' => $scriptTypeCategory12->id,
             'prompt_1' => 'Generate a birthday message for the following person',
             'prompt_2' => '-',
-            'usage' => NULL,
+            'usage' => null,
             'engine' => 'text-davinci-002',
             'presence_penalty' => '0',
             'frequency_penalty' => '0',
             'best_of' => '1',
-            'stream' => NULL,
-            'documents' => NULL,
-            'query' => NULL,
+            'stream' => null,
+            'documents' => null,
+            'query' => null,
             'max_tokens' => '200',
             'temperature' => '0.8',
             'top_p' => '1',
             'activate' => 0,
             'tone' => 1,
-            'language' => 1
+            'language' => 1,
         ]);
-
-
 
         $scriptType72 = ScriptType::create([
             'name' => 'Cover Letter',
@@ -1846,23 +1704,21 @@ class ScriptTypeCategorySeeder extends Seeder
             'script_type_category_id' => $scriptTypeCategory12->id,
             'prompt_1' => 'Write a resume cover letter for the following role using my experience',
             'prompt_2' => '-',
-            'usage' => NULL,
+            'usage' => null,
             'engine' => 'text-davinci-002',
             'presence_penalty' => '0',
             'frequency_penalty' => '0',
             'best_of' => '1',
-            'stream' => NULL,
-            'documents' => NULL,
-            'query' => NULL,
+            'stream' => null,
+            'documents' => null,
+            'query' => null,
             'max_tokens' => '150',
             'temperature' => '0.8',
             'top_p' => '1',
             'activate' => 0,
             'tone' => 1,
-            'language' => 1
+            'language' => 1,
         ]);
-
-
 
         $scriptType73 = ScriptType::create([
             'name' => 'Love Letter',
@@ -1871,23 +1727,21 @@ class ScriptTypeCategorySeeder extends Seeder
             'script_type_category_id' => $scriptTypeCategory12->id,
             'prompt_1' => 'Write a love letter with the following details',
             'prompt_2' => '-',
-            'usage' => NULL,
+            'usage' => null,
             'engine' => 'text-davinci-002',
             'presence_penalty' => '0',
             'frequency_penalty' => '0',
             'best_of' => '1',
-            'stream' => NULL,
-            'documents' => NULL,
-            'query' => NULL,
+            'stream' => null,
+            'documents' => null,
+            'query' => null,
             'max_tokens' => '150',
             'temperature' => '0.8',
             'top_p' => '1',
             'activate' => 0,
             'tone' => 1,
-            'language' => 1
+            'language' => 1,
         ]);
-
-
 
         $scriptType74 = ScriptType::create([
             'name' => 'Motto Generator',
@@ -1896,22 +1750,21 @@ class ScriptTypeCategorySeeder extends Seeder
             'script_type_category_id' => $scriptTypeCategory11->id,
             'prompt_1' => 'Generate the perfect motto for the following product or business',
             'prompt_2' => '-',
-            'usage' => NULL,
+            'usage' => null,
             'engine' => 'text-davinci-002',
             'presence_penalty' => '0',
             'frequency_penalty' => '0',
             'best_of' => '1',
-            'stream' => NULL,
-            'documents' => NULL,
-            'query' => NULL,
+            'stream' => null,
+            'documents' => null,
+            'query' => null,
             'max_tokens' => '150',
             'temperature' => '0.5',
             'top_p' => '1',
             'activate' => 0,
             'tone' => 1,
-            'language' => 1
+            'language' => 1,
         ]);
-
 
         ScriptTypePreset::create([
             'script_type_id' => $scriptType5->id,
@@ -1921,8 +1774,6 @@ class ScriptTypeCategorySeeder extends Seeder
             'placeholder' => 'WordPrime AI Writer',
         ]);
 
-
-
         ScriptTypePreset::create([
             'script_type_id' => $scriptType5->id,
             'question' => 'The product description is',
@@ -1931,8 +1782,6 @@ class ScriptTypeCategorySeeder extends Seeder
             'placeholder' => 'An AI copywriter software for creators, business owners & marketing agencies',
         ]);
 
-
-
         ScriptTypePreset::create([
             'script_type_id' => $scriptType4->id,
             'question' => 'The name of the product is',
@@ -1940,8 +1789,6 @@ class ScriptTypeCategorySeeder extends Seeder
             'label' => 'Product/Brand Name',
             'placeholder' => 'WordPrime AI',
         ]);
-
-
 
         ScriptTypePreset::create([
             'script_type_id' => $scriptType4->id,
@@ -1951,8 +1798,6 @@ class ScriptTypeCategorySeeder extends Seeder
             'placeholder' => 'An AI copywriter software for creators, business owners & marketing agencies',
         ]);
 
-
-
         ScriptTypePreset::create([
             'script_type_id' => $scriptType2->id,
             'question' => 'Product description:',
@@ -1960,8 +1805,6 @@ class ScriptTypeCategorySeeder extends Seeder
             'label' => 'Describe your product',
             'placeholder' => 'An AI copywriter software for creators, business owners & marketing agencies',
         ]);
-
-
 
         ScriptTypePreset::create([
             'script_type_id' => $scriptType3->id,
@@ -1971,8 +1814,6 @@ class ScriptTypeCategorySeeder extends Seeder
             'placeholder' => 'WordPrime AI',
         ]);
 
-
-
         ScriptTypePreset::create([
             'script_type_id' => $scriptType3->id,
             'question' => 'The product description is',
@@ -1980,8 +1821,6 @@ class ScriptTypeCategorySeeder extends Seeder
             'label' => 'Describe your product',
             'placeholder' => 'An AI copywriter software for creators, business owners & marketing agencies',
         ]);
-
-
 
         ScriptTypePreset::create([
             'script_type_id' => $scriptType2->id,
@@ -1991,8 +1830,6 @@ class ScriptTypeCategorySeeder extends Seeder
             'placeholder' => 'WordPrime AI',
         ]);
 
-
-
         ScriptTypePreset::create([
             'script_type_id' => $scriptType6->id,
             'question' => 'The name of the product is',
@@ -2001,8 +1838,6 @@ class ScriptTypeCategorySeeder extends Seeder
             'placeholder' => 'WordPrime AI',
         ]);
 
-
-
         ScriptTypePreset::create([
             'script_type_id' => $scriptType6->id,
             'question' => 'The product description is',
@@ -2010,8 +1845,6 @@ class ScriptTypeCategorySeeder extends Seeder
             'label' => 'Describe your product',
             'placeholder' => 'An AI copywriter software for creators, business owners & marketing agencies',
         ]);
-
-
 
         ScriptTypePreset::create([
             'script_type_id' => $scriptType7->id,
@@ -2021,8 +1854,6 @@ class ScriptTypeCategorySeeder extends Seeder
             'placeholder' => 'WordPrime AI',
         ]);
 
-
-
         ScriptTypePreset::create([
             'script_type_id' => $scriptType7->id,
             'question' => 'Product description:',
@@ -2030,8 +1861,6 @@ class ScriptTypeCategorySeeder extends Seeder
             'label' => 'Describe your product',
             'placeholder' => 'An AI copywriter software for creators, business owners & marketing agencies',
         ]);
-
-
 
         ScriptTypePreset::create([
             'script_type_id' => $scriptType8->id,
@@ -2041,8 +1870,6 @@ class ScriptTypeCategorySeeder extends Seeder
             'placeholder' => 'WordPrime AI',
         ]);
 
-
-
         ScriptTypePreset::create([
             'script_type_id' => $scriptType8->id,
             'question' => 'The product description is',
@@ -2050,8 +1877,6 @@ class ScriptTypeCategorySeeder extends Seeder
             'label' => 'Describe your product',
             'placeholder' => 'An AI copywriter software for creators, business owners & marketing agencies',
         ]);
-
-
 
         ScriptTypePreset::create([
             'script_type_id' => $scriptType9->id,
@@ -2061,8 +1886,6 @@ class ScriptTypeCategorySeeder extends Seeder
             'placeholder' => 'A live event with Uche Nick teaching you how to get more leads & sales for your business/startup',
         ]);
 
-
-
         ScriptTypePreset::create([
             'script_type_id' => $scriptType10->id,
             'question' => 'The product description is',
@@ -2070,8 +1893,6 @@ class ScriptTypeCategorySeeder extends Seeder
             'label' => 'Describe your product',
             'placeholder' => 'An AI copywriter software for creators, business owners & marketing agencies',
         ]);
-
-
 
         ScriptTypePreset::create([
             'script_type_id' => $scriptType1->id,
@@ -2081,8 +1902,6 @@ class ScriptTypeCategorySeeder extends Seeder
             'placeholder' => 'E.g. Looking for a high-converting copywriter, look no further than Onecopy AI Writer.',
         ]);
 
-
-
         ScriptTypePreset::create([
             'script_type_id' => $scriptType11->id,
             'question' => 'The name of the product is',
@@ -2090,8 +1909,6 @@ class ScriptTypeCategorySeeder extends Seeder
             'label' => 'Product/Brand Name',
             'placeholder' => 'WordPrime AI',
         ]);
-
-
 
         ScriptTypePreset::create([
             'script_type_id' => $scriptType11->id,
@@ -2101,8 +1918,6 @@ class ScriptTypeCategorySeeder extends Seeder
             'placeholder' => 'An AI copywriter software for creators, business owners & marketing agencies',
         ]);
 
-
-
         ScriptTypePreset::create([
             'script_type_id' => $scriptType12->id,
             'question' => 'The name of the product is',
@@ -2110,8 +1925,6 @@ class ScriptTypeCategorySeeder extends Seeder
             'label' => 'Product/Brand Name',
             'placeholder' => 'WordPrime AI',
         ]);
-
-
 
         ScriptTypePreset::create([
             'script_type_id' => $scriptType12->id,
@@ -2121,8 +1934,6 @@ class ScriptTypeCategorySeeder extends Seeder
             'placeholder' => 'An AI copywriter software for creators, business owners & marketing agencies',
         ]);
 
-
-
         ScriptTypePreset::create([
             'script_type_id' => $scriptType13->id,
             'question' => 'The name of the product is',
@@ -2131,8 +1942,6 @@ class ScriptTypeCategorySeeder extends Seeder
             'placeholder' => 'WordPrime AI',
         ]);
 
-
-
         ScriptTypePreset::create([
             'script_type_id' => $scriptType13->id,
             'question' => 'The product description is',
@@ -2140,8 +1949,6 @@ class ScriptTypeCategorySeeder extends Seeder
             'label' => 'Describe your product',
             'placeholder' => 'An AI copywriter software for creators, business owners & marketing agencies',
         ]);
-
-
 
         ScriptTypePreset::create([
             'script_type_id' => $scriptType14->id,
@@ -2151,8 +1958,6 @@ class ScriptTypeCategorySeeder extends Seeder
             'placeholder' => 'WordPrime AI',
         ]);
 
-
-
         ScriptTypePreset::create([
             'script_type_id' => $scriptType14->id,
             'question' => 'The product description is',
@@ -2160,8 +1965,6 @@ class ScriptTypeCategorySeeder extends Seeder
             'label' => 'Describe your website/product',
             'placeholder' => 'An AI copywriter software for creators, business owners & marketing agencies',
         ]);
-
-
 
         ScriptTypePreset::create([
             'script_type_id' => $scriptType15->id,
@@ -2171,8 +1974,6 @@ class ScriptTypeCategorySeeder extends Seeder
             'placeholder' => 'Organic Hair oil for women with brittle hair above 40 years',
         ]);
 
-
-
         ScriptTypePreset::create([
             'script_type_id' => $scriptType16->id,
             'question' => 'The product description is',
@@ -2180,8 +1981,6 @@ class ScriptTypeCategorySeeder extends Seeder
             'label' => 'Describe your product',
             'placeholder' => 'An AI copywriter software for creators, business owners & marketing agencies',
         ]);
-
-
 
         ScriptTypePreset::create([
             'script_type_id' => $scriptType17->id,
@@ -2191,8 +1990,6 @@ class ScriptTypeCategorySeeder extends Seeder
             'placeholder' => 'WordPrime AI',
         ]);
 
-
-
         ScriptTypePreset::create([
             'script_type_id' => $scriptType17->id,
             'question' => 'The product description is',
@@ -2200,8 +1997,6 @@ class ScriptTypeCategorySeeder extends Seeder
             'label' => 'Describe your product',
             'placeholder' => 'An AI copywriter software for creators, business owners & marketing agencies',
         ]);
-
-
 
         ScriptTypePreset::create([
             'script_type_id' => $scriptType18->id,
@@ -2211,8 +2006,6 @@ class ScriptTypeCategorySeeder extends Seeder
             'placeholder' => 'AI copywriter software for creators, business owners & marketing agencies',
         ]);
 
-
-
         ScriptTypePreset::create([
             'script_type_id' => $scriptType19->id,
             'question' => 'The blog post is about',
@@ -2220,8 +2013,6 @@ class ScriptTypeCategorySeeder extends Seeder
             'label' => 'What is the blog about?',
             'placeholder' => 'AI copywriter software for creators, business owners & marketing agencies',
         ]);
-
-
 
         ScriptTypePreset::create([
             'script_type_id' => $scriptType19->id,
@@ -2231,8 +2022,6 @@ class ScriptTypeCategorySeeder extends Seeder
             'placeholder' => 'Get your copywriting done faster and easier with AI software!',
         ]);
 
-
-
         ScriptTypePreset::create([
             'script_type_id' => $scriptType20->id,
             'question' => 'The name of the product is',
@@ -2241,8 +2030,6 @@ class ScriptTypeCategorySeeder extends Seeder
             'placeholder' => 'WordPrime AI',
         ]);
 
-
-
         ScriptTypePreset::create([
             'script_type_id' => $scriptType20->id,
             'question' => 'The product description is',
@@ -2250,8 +2037,6 @@ class ScriptTypeCategorySeeder extends Seeder
             'label' => 'Describe your product',
             'placeholder' => 'An AI copywriter software for creators, business owners & marketing agencies',
         ]);
-
-
 
         ScriptTypePreset::create([
             'script_type_id' => $scriptType21->id,
@@ -2261,8 +2046,6 @@ class ScriptTypeCategorySeeder extends Seeder
             'placeholder' => 'AI copywriter software for creators, business owners & marketing agencies',
         ]);
 
-
-
         ScriptTypePreset::create([
             'script_type_id' => $scriptType22->id,
             'question' => 'The blog post is about',
@@ -2271,8 +2054,6 @@ class ScriptTypeCategorySeeder extends Seeder
             'placeholder' => 'AI copywriter software for creators, business owners & marketing agencies',
         ]);
 
-
-
         ScriptTypePreset::create([
             'script_type_id' => $scriptType23->id,
             'question' => 'The blog post is about',
@@ -2280,8 +2061,6 @@ class ScriptTypeCategorySeeder extends Seeder
             'label' => 'What is the blog about?',
             'placeholder' => 'AI copywriter software for creators, business owners & marketing agencies',
         ]);
-
-
 
         ScriptTypePreset::create([
             'script_type_id' => $scriptType23->id,
@@ -2291,8 +2070,6 @@ class ScriptTypeCategorySeeder extends Seeder
             'placeholder' => 'Get your copywriting done faster and easier with AI software!',
         ]);
 
-
-
         ScriptTypePreset::create([
             'script_type_id' => $scriptType24->id,
             'question' => 'The title of the blog post is',
@@ -2301,8 +2078,6 @@ class ScriptTypeCategorySeeder extends Seeder
             'placeholder' => 'Get your copywriting done faster and easier with AI software!',
         ]);
 
-
-
         ScriptTypePreset::create([
             'script_type_id' => $scriptType24->id,
             'question' => 'The blog post is about',
@@ -2310,8 +2085,6 @@ class ScriptTypeCategorySeeder extends Seeder
             'label' => 'What is the blog about?',
             'placeholder' => 'AI copywriter software for creators, business owners & marketing agencies',
         ]);
-
-
 
         ScriptTypePreset::create([
             'script_type_id' => $scriptType25->id,
@@ -2321,8 +2094,6 @@ class ScriptTypeCategorySeeder extends Seeder
             'placeholder' => 'WordPrime AI',
         ]);
 
-
-
         ScriptTypePreset::create([
             'script_type_id' => $scriptType25->id,
             'question' => 'The product description is',
@@ -2330,8 +2101,6 @@ class ScriptTypeCategorySeeder extends Seeder
             'label' => 'Describe your product',
             'placeholder' => 'An AI copywriter software for creators, business owners & marketing agencies',
         ]);
-
-
 
         ScriptTypePreset::create([
             'script_type_id' => $scriptType26->id,
@@ -2341,8 +2110,6 @@ class ScriptTypeCategorySeeder extends Seeder
             'placeholder' => 'E.g A friend, My Customer, Chioma',
         ]);
 
-
-
         ScriptTypePreset::create([
             'script_type_id' => $scriptType26->id,
             'question' => 'I am thanking them for',
@@ -2350,8 +2117,6 @@ class ScriptTypeCategorySeeder extends Seeder
             'label' => 'What would you like to thank them for?',
             'placeholder' => 'Being a good customer and supporting my business',
         ]);
-
-
 
         ScriptTypePreset::create([
             'script_type_id' => $scriptType27->id,
@@ -2361,8 +2126,6 @@ class ScriptTypeCategorySeeder extends Seeder
             'placeholder' => 'Following up after a sales call',
         ]);
 
-
-
         ScriptTypePreset::create([
             'script_type_id' => $scriptType28->id,
             'question' => 'The name of the product is',
@@ -2370,8 +2133,6 @@ class ScriptTypeCategorySeeder extends Seeder
             'label' => 'Product/Brand Name',
             'placeholder' => 'WordPrime AI',
         ]);
-
-
 
         ScriptTypePreset::create([
             'script_type_id' => $scriptType28->id,
@@ -2381,8 +2142,6 @@ class ScriptTypeCategorySeeder extends Seeder
             'placeholder' => 'An AI copywriter software for creators, business owners & marketing agencies',
         ]);
 
-
-
         ScriptTypePreset::create([
             'script_type_id' => $scriptType29->id,
             'question' => 'The name of the product is',
@@ -2390,8 +2149,6 @@ class ScriptTypeCategorySeeder extends Seeder
             'label' => 'Product/Brand Name',
             'placeholder' => 'WordPrime AI',
         ]);
-
-
 
         ScriptTypePreset::create([
             'script_type_id' => $scriptType29->id,
@@ -2401,8 +2158,6 @@ class ScriptTypeCategorySeeder extends Seeder
             'placeholder' => 'An AI copywriter software for creators, business owners & marketing agencies',
         ]);
 
-
-
         ScriptTypePreset::create([
             'script_type_id' => $scriptType30->id,
             'question' => 'The name of the product is',
@@ -2411,8 +2166,6 @@ class ScriptTypeCategorySeeder extends Seeder
             'placeholder' => 'WordPrime AI',
         ]);
 
-
-
         ScriptTypePreset::create([
             'script_type_id' => $scriptType30->id,
             'question' => 'The product description is',
@@ -2420,8 +2173,6 @@ class ScriptTypeCategorySeeder extends Seeder
             'label' => 'Describe your product',
             'placeholder' => 'An AI copywriter software for creators, business owners & marketing agencies',
         ]);
-
-
 
         ScriptTypePreset::create([
             'script_type_id' => $scriptType31->id,
@@ -2431,8 +2182,6 @@ class ScriptTypeCategorySeeder extends Seeder
             'placeholder' => 'An AI copywriter software for creators, business owners & marketing agencies',
         ]);
 
-
-
         ScriptTypePreset::create([
             'script_type_id' => $scriptType32->id,
             'question' => 'The name of the product is',
@@ -2441,8 +2190,6 @@ class ScriptTypeCategorySeeder extends Seeder
             'placeholder' => 'WordPrime AI',
         ]);
 
-
-
         ScriptTypePreset::create([
             'script_type_id' => $scriptType32->id,
             'question' => 'The product description is',
@@ -2450,8 +2197,6 @@ class ScriptTypeCategorySeeder extends Seeder
             'label' => 'Describe your product',
             'placeholder' => 'An AI copywriter software for creators, business owners & marketing agencies',
         ]);
-
-
 
         ScriptTypePreset::create([
             'script_type_id' => $scriptType33->id,
@@ -2461,8 +2206,6 @@ class ScriptTypeCategorySeeder extends Seeder
             'placeholder' => 'An AI copywriter software for creators, business owners & marketing agencies',
         ]);
 
-
-
         ScriptTypePreset::create([
             'script_type_id' => $scriptType34->id,
             'question' => 'The post is about',
@@ -2470,8 +2213,6 @@ class ScriptTypeCategorySeeder extends Seeder
             'label' => 'What is your post about?',
             'placeholder' => 'An AI copywriter software for creators, business owners & marketing agencies',
         ]);
-
-
 
         ScriptTypePreset::create([
             'script_type_id' => $scriptType35->id,
@@ -2481,8 +2222,6 @@ class ScriptTypeCategorySeeder extends Seeder
             'placeholder' => 'WordPrime AI',
         ]);
 
-
-
         ScriptTypePreset::create([
             'script_type_id' => $scriptType35->id,
             'question' => 'The product description is',
@@ -2490,8 +2229,6 @@ class ScriptTypeCategorySeeder extends Seeder
             'label' => 'Describe your product',
             'placeholder' => 'An AI copywriter software for creators, business owners & marketing agencies',
         ]);
-
-
 
         ScriptTypePreset::create([
             'script_type_id' => $scriptType36->id,
@@ -2501,8 +2238,6 @@ class ScriptTypeCategorySeeder extends Seeder
             'placeholder' => 'An AI copywriter software for creators, business owners & marketing agencies',
         ]);
 
-
-
         ScriptTypePreset::create([
             'script_type_id' => $scriptType37->id,
             'question' => 'The video title is',
@@ -2510,8 +2245,6 @@ class ScriptTypeCategorySeeder extends Seeder
             'label' => 'What is your video title?',
             'placeholder' => 'How to creating marketing copies that sell',
         ]);
-
-
 
         ScriptTypePreset::create([
             'script_type_id' => $scriptType37->id,
@@ -2521,8 +2254,6 @@ class ScriptTypeCategorySeeder extends Seeder
             'placeholder' => 'How to creating marketing copies that sell using Artificial Intelligence',
         ]);
 
-
-
         ScriptTypePreset::create([
             'script_type_id' => $scriptType38->id,
             'question' => 'The video is about',
@@ -2530,8 +2261,6 @@ class ScriptTypeCategorySeeder extends Seeder
             'label' => 'What is your video about?',
             'placeholder' => 'Using AI copywriter software  to generate content for creators, business owners & marketing agencies',
         ]);
-
-
 
         ScriptTypePreset::create([
             'script_type_id' => $scriptType39->id,
@@ -2541,8 +2270,6 @@ class ScriptTypeCategorySeeder extends Seeder
             'placeholder' => 'How to Use AI Copywriter Software to Generate Content',
         ]);
 
-
-
         ScriptTypePreset::create([
             'script_type_id' => $scriptType39->id,
             'question' => 'The video is about',
@@ -2550,8 +2277,6 @@ class ScriptTypeCategorySeeder extends Seeder
             'label' => 'What is your video about?',
             'placeholder' => 'An AI copywriter software for creators, business owners & marketing agencies',
         ]);
-
-
 
         ScriptTypePreset::create([
             'script_type_id' => $scriptType40->id,
@@ -2561,8 +2286,6 @@ class ScriptTypeCategorySeeder extends Seeder
             'placeholder' => 'Copywriting for business owners',
         ]);
 
-
-
         ScriptTypePreset::create([
             'script_type_id' => $scriptType16->id,
             'question' => 'The name of the product is',
@@ -2570,8 +2293,6 @@ class ScriptTypeCategorySeeder extends Seeder
             'label' => 'Product/Brand Name',
             'placeholder' => 'WordPrime AI',
         ]);
-
-
 
         ScriptTypePreset::create([
             'script_type_id' => $scriptType42->id,
@@ -2581,8 +2302,6 @@ class ScriptTypeCategorySeeder extends Seeder
             'placeholder' => 'Business owners who need copywriting',
         ]);
 
-
-
         ScriptTypePreset::create([
             'script_type_id' => $scriptType41->id,
             'question' => 'The name of the product is',
@@ -2590,8 +2309,6 @@ class ScriptTypeCategorySeeder extends Seeder
             'label' => 'Product/Brand Name',
             'placeholder' => 'WordPrime AI',
         ]);
-
-
 
         ScriptTypePreset::create([
             'script_type_id' => $scriptType41->id,
@@ -2601,8 +2318,6 @@ class ScriptTypeCategorySeeder extends Seeder
             'placeholder' => 'An AI copywriter software for creators, business owners & marketing agencies',
         ]);
 
-
-
         ScriptTypePreset::create([
             'script_type_id' => $scriptType44->id,
             'question' => 'The name of the product is',
@@ -2610,8 +2325,6 @@ class ScriptTypeCategorySeeder extends Seeder
             'label' => 'Product/Brand Name',
             'placeholder' => 'WordPrime AI',
         ]);
-
-
 
         ScriptTypePreset::create([
             'script_type_id' => $scriptType44->id,
@@ -2621,8 +2334,6 @@ class ScriptTypeCategorySeeder extends Seeder
             'placeholder' => 'An AI copywriter software for creators, business owners & marketing agencies',
         ]);
 
-
-
         ScriptTypePreset::create([
             'script_type_id' => $scriptType45->id,
             'question' => 'The name of the product is',
@@ -2631,8 +2342,6 @@ class ScriptTypeCategorySeeder extends Seeder
             'placeholder' => 'WordPrime AI',
         ]);
 
-
-
         ScriptTypePreset::create([
             'script_type_id' => $scriptType45->id,
             'question' => 'The product description is',
@@ -2640,8 +2349,6 @@ class ScriptTypeCategorySeeder extends Seeder
             'label' => 'Describe your product',
             'placeholder' => 'An AI copywriter software for creators, business owners & marketing agencies',
         ]);
-
-
 
         ScriptTypePreset::create([
             'script_type_id' => $scriptType46->id,
@@ -2651,8 +2358,6 @@ class ScriptTypeCategorySeeder extends Seeder
             'placeholder' => 'WordPrime Ai Writer',
         ]);
 
-
-
         ScriptTypePreset::create([
             'script_type_id' => $scriptType46->id,
             'question' => 'The product features are',
@@ -2661,8 +2366,6 @@ class ScriptTypeCategorySeeder extends Seeder
             'placeholder' => 'An AI copywriter software for creators, business owners & marketing agencies',
         ]);
 
-
-
         ScriptTypePreset::create([
             'script_type_id' => $scriptType47->id,
             'question' => 'The name of the product is',
@@ -2670,8 +2373,6 @@ class ScriptTypeCategorySeeder extends Seeder
             'label' => 'Product/Brand Name',
             'placeholder' => 'WordPrime AI Writer',
         ]);
-
-
 
         ScriptTypePreset::create([
             'script_type_id' => $scriptType47->id,
@@ -2681,8 +2382,6 @@ class ScriptTypeCategorySeeder extends Seeder
             'placeholder' => 'An AI copywriter software for creators, business owners & marketing agencies',
         ]);
 
-
-
         ScriptTypePreset::create([
             'script_type_id' => $scriptType48->id,
             'question' => 'The name of the product is',
@@ -2690,8 +2389,6 @@ class ScriptTypeCategorySeeder extends Seeder
             'label' => 'Product/Brand Name',
             'placeholder' => 'WordPrime AI Writer',
         ]);
-
-
 
         ScriptTypePreset::create([
             'script_type_id' => $scriptType48->id,
@@ -2701,8 +2398,6 @@ class ScriptTypeCategorySeeder extends Seeder
             'placeholder' => 'An AI copywriter software for creators, business owners & marketing agencies',
         ]);
 
-
-
         ScriptTypePreset::create([
             'script_type_id' => $scriptType49->id,
             'question' => 'The name of the product is',
@@ -2711,8 +2406,6 @@ class ScriptTypeCategorySeeder extends Seeder
             'placeholder' => 'WordPrime AI Writer',
         ]);
 
-
-
         ScriptTypePreset::create([
             'script_type_id' => $scriptType49->id,
             'question' => 'The product description is',
@@ -2720,8 +2413,6 @@ class ScriptTypeCategorySeeder extends Seeder
             'label' => 'Describe your product',
             'placeholder' => 'An AI copywriter software for creators, business owners & marketing agencies',
         ]);
-
-
 
         ScriptTypePreset::create([
             'script_type_id' => $scriptType10->id,
@@ -2731,8 +2422,6 @@ class ScriptTypeCategorySeeder extends Seeder
             'placeholder' => 'WordPrime AI',
         ]);
 
-
-
         ScriptTypePreset::create([
             'script_type_id' => $scriptType50->id,
             'question' => 'The sentence is',
@@ -2740,8 +2429,6 @@ class ScriptTypeCategorySeeder extends Seeder
             'label' => 'What sentence would you like to rewrite?',
             'placeholder' => 'WordPrime AI is the world\'s first AI copywriter software that helps you create high-converting copy for your campaigns',
         ]);
-
-
 
         ScriptTypePreset::create([
             'script_type_id' => $scriptType51->id,
@@ -2751,8 +2438,6 @@ class ScriptTypeCategorySeeder extends Seeder
             'placeholder' => 'WordPrime AI is the world\'s first AI copywriter software that helps you create high-converting copy for your campaigns',
         ]);
 
-
-
         ScriptTypePreset::create([
             'script_type_id' => $scriptType52->id,
             'question' => 'The sentence is',
@@ -2760,8 +2445,6 @@ class ScriptTypeCategorySeeder extends Seeder
             'label' => 'What sentence would you like to simplify?',
             'placeholder' => 'WordPrime AI is the world\'s first AI copywriter software that helps you create high-converting copy for your campaigns',
         ]);
-
-
 
         ScriptTypePreset::create([
             'script_type_id' => $scriptType53->id,
@@ -2771,28 +2454,22 @@ class ScriptTypeCategorySeeder extends Seeder
             'placeholder' => 'WordPrime AI is the world\'s first AI copywriter software that helps you create high-converting copy for your campaigns',
         ]);
 
-
-
         ScriptTypePreset::create([
             'script_type_id' => $scriptType54->id,
             'question' => 'The sentence is',
-            'field_type' => NULL,
+            'field_type' => null,
             'label' => 'What sentence would you like to improve?',
             'placeholder' => 'WordPrime AI is the world\'s first AI copywriter software that helps you create high-converting copy for your campaigns',
         ]);
 
-
-
         ScriptTypePreset::create([
             'script_type_id' => $scriptType55->id,
             'question' => 'The top is',
-            'field_type' => NULL,
+            'field_type' => null,
             'label' => 'What is your topic?',
             'placeholder' => 'An AI copywriter software for creators, business owners & marketing agencies',
         ]);
 
-
-
         ScriptTypePreset::create([
             'script_type_id' => $scriptType56->id,
             'question' => 'The essay title is',
@@ -2800,8 +2477,6 @@ class ScriptTypeCategorySeeder extends Seeder
             'label' => 'What is your essay title?',
             'placeholder' => 'WordPrime AI Writer',
         ]);
-
-
 
         ScriptTypePreset::create([
             'script_type_id' => $scriptType56->id,
@@ -2811,8 +2486,6 @@ class ScriptTypeCategorySeeder extends Seeder
             'placeholder' => 'An AI copywriter software for creators, business owners & marketing agencies',
         ]);
 
-
-
         ScriptTypePreset::create([
             'script_type_id' => $scriptType57->id,
             'question' => 'The essay title is',
@@ -2821,8 +2494,6 @@ class ScriptTypeCategorySeeder extends Seeder
             'placeholder' => 'WordPrime AI Writer',
         ]);
 
-
-
         ScriptTypePreset::create([
             'script_type_id' => $scriptType57->id,
             'question' => 'The essay is about',
@@ -2830,8 +2501,6 @@ class ScriptTypeCategorySeeder extends Seeder
             'label' => 'What is your essay about?',
             'placeholder' => 'An AI copywriter software for creators, business owners & marketing agencies',
         ]);
-
-
 
         ScriptTypePreset::create([
             'script_type_id' => $scriptType58->id,
@@ -2841,8 +2510,6 @@ class ScriptTypeCategorySeeder extends Seeder
             'placeholder' => 'E.g Benny, a small business owner from Yaba Lagos',
         ]);
 
-
-
         ScriptTypePreset::create([
             'script_type_id' => $scriptType59->id,
             'question' => 'The copy is about',
@@ -2850,8 +2517,6 @@ class ScriptTypeCategorySeeder extends Seeder
             'label' => 'What would you like to rewrite?',
             'placeholder' => 'An AI copywriter software for creators, business owners & marketing agencies',
         ]);
-
-
 
         ScriptTypePreset::create([
             'script_type_id' => $scriptType60->id,
@@ -2861,8 +2526,6 @@ class ScriptTypeCategorySeeder extends Seeder
             'placeholder' => 'The name of the product is',
         ]);
 
-
-
         ScriptTypePreset::create([
             'script_type_id' => $scriptType60->id,
             'question' => 'The product description is',
@@ -2870,8 +2533,6 @@ class ScriptTypeCategorySeeder extends Seeder
             'label' => 'Describe your product',
             'placeholder' => 'An AI copywriter software for creators, business owners & marketing agencies',
         ]);
-
-
 
         ScriptTypePreset::create([
             'script_type_id' => $scriptType61->id,
@@ -2881,8 +2542,6 @@ class ScriptTypeCategorySeeder extends Seeder
             'placeholder' => 'E.g Copywriting, Sales, Business',
         ]);
 
-
-
         ScriptTypePreset::create([
             'script_type_id' => $scriptType61->id,
             'question' => 'The text to rewrite is',
@@ -2890,8 +2549,6 @@ class ScriptTypeCategorySeeder extends Seeder
             'label' => 'The text to rewrite is',
             'placeholder' => 'E.g. An AI copywriter software for creators, business owners & marketing agencies',
         ]);
-
-
 
         ScriptTypePreset::create([
             'script_type_id' => $scriptType62->id,
@@ -2901,8 +2558,6 @@ class ScriptTypeCategorySeeder extends Seeder
             'placeholder' => 'E.g. An AI copywriter software for creators, business owners & marketing agencies',
         ]);
 
-
-
         ScriptTypePreset::create([
             'script_type_id' => $scriptType63->id,
             'question' => 'The verb description is',
@@ -2910,8 +2565,6 @@ class ScriptTypeCategorySeeder extends Seeder
             'label' => 'Describe your verb',
             'placeholder' => 'E.g Love',
         ]);
-
-
 
         ScriptTypePreset::create([
             'script_type_id' => $scriptType64->id,
@@ -2921,17 +2574,13 @@ class ScriptTypeCategorySeeder extends Seeder
             'placeholder' => 'E.g. WordPrime AI Writer',
         ]);
 
-
-
         ScriptTypePreset::create([
             'script_type_id' => $scriptType64->id,
             'question' => 'The product description is',
-            'field_type' => NULL,
+            'field_type' => null,
             'label' => 'Describe your product',
             'placeholder' => 'E.g. An AI copywriter software for creators, business owners & marketing agencies',
         ]);
-
-
 
         ScriptTypePreset::create([
             'script_type_id' => $scriptType65->id,
@@ -2940,8 +2589,6 @@ class ScriptTypeCategorySeeder extends Seeder
             'label' => 'Describe your product',
             'placeholder' => 'E.g. An AI copywriter software for creators, business owners & marketing agencies',
         ]);
-
-
 
         ScriptTypePreset::create([
             'script_type_id' => $scriptType65->id,
@@ -2951,8 +2598,6 @@ class ScriptTypeCategorySeeder extends Seeder
             'placeholder' => 'E.g Copywriting, Copy, AI, Marketing',
         ]);
 
-
-
         ScriptTypePreset::create([
             'script_type_id' => $scriptType66->id,
             'question' => 'The skill sets are',
@@ -2960,8 +2605,6 @@ class ScriptTypeCategorySeeder extends Seeder
             'label' => 'What are your skills/passion',
             'placeholder' => 'E.g. Building websites using wordpress',
         ]);
-
-
 
         ScriptTypePreset::create([
             'script_type_id' => $scriptType67->id,
@@ -2971,8 +2614,6 @@ class ScriptTypeCategorySeeder extends Seeder
             'placeholder' => 'E.g Business owners who want more customers',
         ]);
 
-
-
         ScriptTypePreset::create([
             'script_type_id' => $scriptType68->id,
             'question' => 'The name of the product is',
@@ -2980,8 +2621,6 @@ class ScriptTypeCategorySeeder extends Seeder
             'label' => 'Product/Brand Name',
             'placeholder' => 'E.g. WordPrime AI Writer',
         ]);
-
-
 
         ScriptTypePreset::create([
             'script_type_id' => $scriptType68->id,
@@ -2991,8 +2630,6 @@ class ScriptTypeCategorySeeder extends Seeder
             'placeholder' => 'E.g. An AI copywriter software for creators, business owners & marketing agencies',
         ]);
 
-
-
         ScriptTypePreset::create([
             'script_type_id' => $scriptType69->id,
             'question' => 'The name of the product is',
@@ -3000,8 +2637,6 @@ class ScriptTypeCategorySeeder extends Seeder
             'label' => 'Product/Brand Name',
             'placeholder' => 'E.g. WordPrime AI Writer',
         ]);
-
-
 
         ScriptTypePreset::create([
             'script_type_id' => $scriptType69->id,
@@ -3011,8 +2646,6 @@ class ScriptTypeCategorySeeder extends Seeder
             'placeholder' => 'E.g. An AI copywriter software for creators, business owners & marketing agencies',
         ]);
 
-
-
         ScriptTypePreset::create([
             'script_type_id' => $scriptType70->id,
             'question' => 'The name of the product is',
@@ -3021,8 +2654,6 @@ class ScriptTypeCategorySeeder extends Seeder
             'placeholder' => 'E.g. WordPrime AI Writer',
         ]);
 
-
-
         ScriptTypePreset::create([
             'script_type_id' => $scriptType70->id,
             'question' => 'The product description is',
@@ -3030,8 +2661,6 @@ class ScriptTypeCategorySeeder extends Seeder
             'label' => 'Describe your product',
             'placeholder' => 'E.g. An AI copywriter software for creators, business owners & marketing agencies',
         ]);
-
-
 
         ScriptTypePreset::create([
             'script_type_id' => $scriptType71->id,
@@ -3041,8 +2670,6 @@ class ScriptTypeCategorySeeder extends Seeder
             'placeholder' => 'E.g. being a good friend and mentor',
         ]);
 
-
-
         ScriptTypePreset::create([
             'script_type_id' => $scriptType71->id,
             'question' => 'The message is for',
@@ -3050,8 +2677,6 @@ class ScriptTypeCategorySeeder extends Seeder
             'label' => 'Who is the message for?',
             'placeholder' => 'E.g. Nick',
         ]);
-
-
 
         ScriptTypePreset::create([
             'script_type_id' => $scriptType72->id,
@@ -3061,8 +2686,6 @@ class ScriptTypeCategorySeeder extends Seeder
             'placeholder' => 'E.g Media Buyer',
         ]);
 
-
-
         ScriptTypePreset::create([
             'script_type_id' => $scriptType72->id,
             'question' => 'My experience is',
@@ -3071,17 +2694,13 @@ class ScriptTypeCategorySeeder extends Seeder
             'placeholder' => 'E.g I am skilled an running Facebook Ad Campaign',
         ]);
 
-
-
         ScriptTypePreset::create([
             'script_type_id' => $scriptType73->id,
             'question' => 'The message is for',
-            'field_type' => NULL,
+            'field_type' => null,
             'label' => 'Who is the message for?',
             'placeholder' => 'E.g. My wife',
         ]);
-
-
 
         ScriptTypePreset::create([
             'script_type_id' => $scriptType73->id,
@@ -3091,8 +2710,6 @@ class ScriptTypeCategorySeeder extends Seeder
             'placeholder' => 'E.g. Our wedding anniversary',
         ]);
 
-
-
         ScriptTypePreset::create([
             'script_type_id' => $scriptType74->id,
             'question' => 'The name of the product is',
@@ -3100,8 +2717,6 @@ class ScriptTypeCategorySeeder extends Seeder
             'label' => 'Product/Brand Name',
             'placeholder' => 'E.g. WordPrime AI Writer',
         ]);
-
-
 
         ScriptTypePreset::create([
             'script_type_id' => $scriptType74->id,

@@ -2,9 +2,8 @@
 
 namespace App\Http\Resources\Campaign;
 
-use App\Http\Resources\Script\ScriptResource;
-use Illuminate\Http\Resources\Json\JsonResource;
 use App\Http\Resources\Script\ScriptResponseResource;
+use Illuminate\Http\Resources\Json\JsonResource;
 
 class CampaignResource extends JsonResource
 {

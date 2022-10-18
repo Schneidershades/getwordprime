@@ -12,7 +12,6 @@ use Illuminate\Foundation\Http\FormRequest;
  *      required={"name"}
  * )
  */
-
 class ScriptTypeUpdateFormRequest extends FormRequest
 {
     /**
@@ -26,8 +25,6 @@ class ScriptTypeUpdateFormRequest extends FormRequest
      */
     public $name;
 
-
-    
     /**
      * @OA\Property(
      *      title="script icon",
@@ -72,7 +69,6 @@ class ScriptTypeUpdateFormRequest extends FormRequest
      */
     public $description;
 
-
     /**
      * @OA\Property(
      *      title="script type presence_penalty",
@@ -95,7 +91,6 @@ class ScriptTypeUpdateFormRequest extends FormRequest
      */
     public $frequency_penalty;
 
-
     /**
      * @OA\Property(
      *      title="script type best_of",
@@ -106,7 +101,6 @@ class ScriptTypeUpdateFormRequest extends FormRequest
      * @var string
      */
     public $best_of;
-
 
     /**
      * @OA\Property(
@@ -119,7 +113,6 @@ class ScriptTypeUpdateFormRequest extends FormRequest
      */
     public $stream;
 
-
     /**
      * @OA\Property(
      *      title="script type documents",
@@ -130,7 +123,6 @@ class ScriptTypeUpdateFormRequest extends FormRequest
      * @var string
      */
     public $documents;
-
 
     /**
      * @OA\Property(
@@ -143,7 +135,6 @@ class ScriptTypeUpdateFormRequest extends FormRequest
      */
     public $query;
 
-
     /**
      * @OA\Property(
      *      title="script type max_tokens",
@@ -154,7 +145,6 @@ class ScriptTypeUpdateFormRequest extends FormRequest
      * @var string
      */
     public $max_tokens;
-
 
     /**
      * @OA\Property(
@@ -167,7 +157,6 @@ class ScriptTypeUpdateFormRequest extends FormRequest
      */
     public $temperature;
 
-
     /**
      * @OA\Property(
      *      title="script type top_p",
@@ -179,8 +168,6 @@ class ScriptTypeUpdateFormRequest extends FormRequest
      */
     public $top_p;
 
-
-
     /**
      * @OA\Property(
      *      title="script type engine",
@@ -191,8 +178,6 @@ class ScriptTypeUpdateFormRequest extends FormRequest
      * @var string
      */
     public $engine;
-
-
 
     /**
      * @OA\Property(
@@ -212,10 +197,9 @@ class ScriptTypeUpdateFormRequest extends FormRequest
      *      example="true"
      * )
      *
-     * @var boolean
+     * @var bool
      */
     public $language;
-
 
     /**
      * @OA\Property(
@@ -224,26 +208,23 @@ class ScriptTypeUpdateFormRequest extends FormRequest
      *      example="Funny"
      * )
      *
-     * @var boolean
+     * @var bool
      */
     public $tone;
 
-
     /**
-    *       @OA\Property(property="script_type_presets", type="object", type="array",
-    *            @OA\Items(
-    *                @OA\Property(property="script_type_id", type="int", example="1"),
-    *                @OA\Property(property="question", type="string", example="what is this?"),
-    *                @OA\Property(property="field_type", type="string", example="text"),
-    *                @OA\Property(property="label", type="string", example="Question 1"),
-    *                @OA\Property(property="placeholder", type="string", example="what is this?"),
-    *            ),
-    *        ),
-    *    ),
-    */    
-    public $script_type_presets; 
-
-    
+     *       @OA\Property(property="script_type_presets", type="object", type="array",
+     *            @OA\Items(
+     *                @OA\Property(property="script_type_id", type="int", example="1"),
+     *                @OA\Property(property="question", type="string", example="what is this?"),
+     *                @OA\Property(property="field_type", type="string", example="text"),
+     *                @OA\Property(property="label", type="string", example="Question 1"),
+     *                @OA\Property(property="placeholder", type="string", example="what is this?"),
+     *            ),
+     *        ),
+     *    ),
+     */
+    public $script_type_presets;
 
     /**
      * Determine if the user is authorized to make this request.
@@ -254,7 +235,7 @@ class ScriptTypeUpdateFormRequest extends FormRequest
     {
         return true;
     }
-    
+
     /**
      * Get the validation rules that apply to the request.
      *
@@ -283,14 +264,14 @@ class ScriptTypeUpdateFormRequest extends FormRequest
             'script_type_category_id' => 'required|int|exists:script_type_categories,id',
 
             // 'icon' => 'nullable|array',
-            // 'icon.*' => 'nullable|max:2048',  
+            // 'icon.*' => 'nullable|max:2048',
 
-            'script_type_presets' => 'array', 
+            'script_type_presets' => 'array',
             'script_type_presets.*.script_type_id' => 'required|int|exists:script_types,id',
-            'script_type_presets.*.question' =>'required|string',
-            'script_type_presets.*.field_type' =>'required|string',
-            'script_type_presets.*.label' =>'required|string',
-            'script_type_presets.*.placeholder' =>'required|string',
+            'script_type_presets.*.question' => 'required|string',
+            'script_type_presets.*.field_type' => 'required|string',
+            'script_type_presets.*.label' => 'required|string',
+            'script_type_presets.*.placeholder' => 'required|string',
         ];
     }
 }

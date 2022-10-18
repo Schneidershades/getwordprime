@@ -25,13 +25,13 @@ class AgencyCampaignCollection extends ResourceCollection
     }
 
      public static function transformedAttribute($index)
-    {
-        $attribute = [
-            'id' => 'id',
-            'agency_id' => 'agency_id',
-            'campaign_id' => 'campaign_id',
-        ];
+     {
+         $attribute = [
+             'id' => 'id',
+             'agency_id' => 'agency_id',
+             'campaign_id' => 'campaign_id',
+         ];
 
-        return isset($attribute[$index]) ? $attribute[$index] : null;
-    }
+         return isset($attribute[$index]) ? $attribute[$index] : null;
+     }
 }

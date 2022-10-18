@@ -3,9 +3,8 @@
 namespace App\Repositories;
 
 use Illuminate\Contracts\Pagination\LengthAwarePaginator;
-use Lerouse\LaravelRepository\EloquentRepository;
 
-abstract class ApplicationRepository extends EloquentRepository
+abstract class ApplicationRepository
 {
     public function __construct()
     {
@@ -20,5 +19,4 @@ abstract class ApplicationRepository extends EloquentRepository
             $limit ?? $this->paginationLimit, ['*'], 'page', $page
         );
     }
-
 }

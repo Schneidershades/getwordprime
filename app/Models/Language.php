@@ -2,11 +2,11 @@
 
 namespace App\Models;
 
-use App\Traits\Uuids;
-use Illuminate\Database\Eloquent\Model;
-use App\Http\Resources\Script\LanguageResource;
 use App\Http\Resources\Script\LanguageCollection;
+use App\Http\Resources\Script\LanguageResource;
+use App\Traits\Uuids;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Model;
 
 class Language extends Model
 {
@@ -15,5 +15,6 @@ class Language extends Model
     protected $guarded = [];
 
     public $oneItem = LanguageResource::class;
+
     public $allItems = LanguageCollection::class;
 }

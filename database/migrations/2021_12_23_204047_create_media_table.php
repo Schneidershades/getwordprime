@@ -17,7 +17,7 @@ class CreateMediaTable extends Migration
             $table->uuid('id')->primary();
             $table->uuid('uuid');
             $table->string('file_path');
-            $table->unsignedBigInteger("fileable_id");
+            $table->unsignedBigInteger('fileable_id');
             $table->string('fileable_type');
             $table->timestamps();
         });

@@ -3,6 +3,7 @@
 namespace App\Http\Requests\User;
 
 use Illuminate\Foundation\Http\FormRequest;
+
 /**
 /**
  * @OA\Schema(
@@ -36,7 +37,6 @@ class ScriptCreateFormRequest extends FormRequest
      */
     public $script_type_id;
 
-
     /**
      * @OA\Property(
      *      title="user campaign id",
@@ -47,7 +47,6 @@ class ScriptCreateFormRequest extends FormRequest
      * @var int
      */
     public $campaign_id;
-
 
     /**
      * @OA\Property(
@@ -60,7 +59,6 @@ class ScriptCreateFormRequest extends FormRequest
      */
     public $tone_id;
 
-
     /**
      * @OA\Property(
      *      title="input language id",
@@ -71,8 +69,6 @@ class ScriptCreateFormRequest extends FormRequest
      * @var int
      */
     public $output_language_id;
-    
-    
 
     /**
      * @OA\Property(
@@ -84,7 +80,6 @@ class ScriptCreateFormRequest extends FormRequest
      * @var int
      */
     public $input_language_id;
-    
 
     /**
      * Determine if the user is authorized to make this request.

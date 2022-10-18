@@ -2,50 +2,50 @@
 
 namespace App\Http\Controllers\Api\Admin;
 
+use App\Http\Controllers\Controller;
+use App\Http\Requests\Admin\ScriptTypeCreateFormRequest;
+use App\Http\Requests\Admin\ScriptTypeUpdateFormRequest;
 use App\Models\Media;
 use App\Models\ScriptType;
 use App\Traits\Image\ImageHelper;
-use App\Http\Controllers\Controller;
 use Illuminate\Database\Eloquent\Builder;
-use App\Http\Requests\Admin\ScriptTypeCreateFormRequest;
-use App\Http\Requests\Admin\ScriptTypeUpdateFormRequest;
 
 class ScriptTypeController extends Controller
 {
     /**
-    * @OA\Get(
-    *      path="/api/v1/admin/script-type",
-    *      operationId="allScriptTypes",
-    *      tags={"Admin"},
-    *      summary="Get Script-type",
-    *      description="Get script-type",
-    *      @OA\Response(
-    *          response=200,
-    *          description="Successful signin",
-    *          @OA\MediaType(
-    *             mediaType="application/json",
-    *         ),
-    *       ),
-    *      @OA\Response(
-    *          response=400,
-    *          description="Bad Request"
-    *      ),
-    *      @OA\Response(
-    *          response=401,
-    *          description="unauthenticated",
-    *      ),
-    *      @OA\Response(
-    *          response=403,
-    *          description="Forbidden"
-    *      ),
-    *      security={ {"bearerAuth": {}} },
-    * )
-    */
+     * @OA\Get(
+     *      path="/api/v1/admin/script-type",
+     *      operationId="allScriptTypes",
+     *      tags={"Admin"},
+     *      summary="Get Script-type",
+     *      description="Get script-type",
+     *      @OA\Response(
+     *          response=200,
+     *          description="Successful signin",
+     *          @OA\MediaType(
+     *             mediaType="application/json",
+     *         ),
+     *       ),
+     *      @OA\Response(
+     *          response=400,
+     *          description="Bad Request"
+     *      ),
+     *      @OA\Response(
+     *          response=401,
+     *          description="unauthenticated",
+     *      ),
+     *      @OA\Response(
+     *          response=403,
+     *          description="Forbidden"
+     *      ),
+     *      security={ {"bearerAuth": {}} },
+     * )
+     */
     public function index()
     {
         $search_query = request()->get('search') ? request()->get('search') : null;
-        
-        $script_types =  ScriptType::query()
+
+        $script_types = ScriptType::query()
                 ->selectRaw('script_types.*')
                 ->when($search_query, function (Builder $builder, $search_query) {
                     $builder->where('script_types.name', 'LIKE', "%{$search_query}%")
@@ -58,38 +58,38 @@ class ScriptTypeController extends Controller
     }
 
     /**
-    * @OA\Post(
-    *      path="/api/v1/admin/script-type",
-    *      operationId="postScriptType",
-    *      tags={"Admin"},
-    *      summary="Post script type",
-    *      description="Post script type",
-    *      @OA\RequestBody(
-    *          required=true,
-    *          @OA\JsonContent(ref="#/components/schemas/ScriptTypeCreateFormRequest")
-    *      ),
-    *      @OA\Response(
-    *          response=200,
-    *          description="Successful signin",
-    *          @OA\MediaType(
-    *             mediaType="application/json",
-    *         ),
-    *       ),
-    *      @OA\Response(
-    *          response=400,
-    *          description="Bad Request"
-    *      ),
-    *      @OA\Response(
-    *          response=401,
-    *          description="unauthenticated",
-    *      ),
-    *      @OA\Response(
-    *          response=403,
-    *          description="Forbidden"
-    *      ),
-    *      security={ {"bearerAuth": {}} },
-    * )
-    */
+     * @OA\Post(
+     *      path="/api/v1/admin/script-type",
+     *      operationId="postAdminScriptType",
+     *      tags={"Admin"},
+     *      summary="Post script type",
+     *      description="Post script type",
+     *      @OA\RequestBody(
+     *          required=true,
+     *          @OA\JsonContent(ref="#/components/schemas/ScriptTypeCreateFormRequest")
+     *      ),
+     *      @OA\Response(
+     *          response=200,
+     *          description="Successful signin",
+     *          @OA\MediaType(
+     *             mediaType="application/json",
+     *         ),
+     *       ),
+     *      @OA\Response(
+     *          response=400,
+     *          description="Bad Request"
+     *      ),
+     *      @OA\Response(
+     *          response=401,
+     *          description="unauthenticated",
+     *      ),
+     *      @OA\Response(
+     *          response=403,
+     *          description="Forbidden"
+     *      ),
+     *      security={ {"bearerAuth": {}} },
+     * )
+     */
     public function store(ScriptTypeCreateFormRequest $request)
     {
         $model = ScriptType::create([
@@ -113,8 +113,8 @@ class ScriptTypeController extends Controller
             'engine' => $request['engine'],
         ]);
 
-        if($request['script_type_presets']){
-            foreach($request['script_type_presets'] as $preset){
+        if ($request['script_type_presets']) {
+            foreach ($request['script_type_presets'] as $preset) {
                 $model->presets()->create($preset);
             }
         }
@@ -147,56 +147,56 @@ class ScriptTypeController extends Controller
     }
 
     /**
-    * @OA\Get(
-    *      path="/api/v1/admin/script-type/{id}",
-    *      operationId="showScriptType",
-    *      tags={"Admin"},
-    *      summary="Show script type",
-    *      description="Show script type",
-    *      @OA\Parameter(
-    *          name="id",
-    *          description="Script Type ID",
-    *          required=true,
-    *          in="path",
-    *          @OA\Schema(
-    *              type="integer"
-    *          )
-    *      ),
-    *      @OA\Response(
-    *          response=200,
-    *          description="Successful signin",
-    *          @OA\MediaType(
-    *             mediaType="application/json",
-    *         ),
-    *       ),
-    *      @OA\Response(
-    *          response=400,
-    *          description="Bad Request"
-    *      ),
-    *      @OA\Response(
-    *          response=401,
-    *          description="unauthenticated",
-    *      ),
-    *      @OA\Response(
-    *          response=403,
-    *          description="Forbidden"
-    *      ),
-    *      security={ {"bearerAuth": {}} },
-    * )
-    */
+     * @OA\Get(
+     *      path="/api/v1/admin/script-type/{id}",
+     *      operationId="showAdminScriptType",
+     *      tags={"Admin"},
+     *      summary="Show script type",
+     *      description="Show script type",
+     *      @OA\Parameter(
+     *          name="id",
+     *          description="Script Type ID",
+     *          required=true,
+     *          in="path",
+     *          @OA\Schema(
+     *              type="integer"
+     *          )
+     *      ),
+     *      @OA\Response(
+     *          response=200,
+     *          description="Successful signin",
+     *          @OA\MediaType(
+     *             mediaType="application/json",
+     *         ),
+     *       ),
+     *      @OA\Response(
+     *          response=400,
+     *          description="Bad Request"
+     *      ),
+     *      @OA\Response(
+     *          response=401,
+     *          description="unauthenticated",
+     *      ),
+     *      @OA\Response(
+     *          response=403,
+     *          description="Forbidden"
+     *      ),
+     *      security={ {"bearerAuth": {}} },
+     * )
+     */
     public function show($id)
     {
         return $this->showOne(ScriptType::where('id', $id)->first());
     }
 
     /**
-    * @OA\Put(
-    *      path="/api/v1/admin/script-type/{id}",
-    *      operationId="updateScriptType",
-    *      tags={"Admin"},
-    *      summary="Update script-type",
-    *      description="Update script-type",
-    *      
+     * @OA\Put(
+     *      path="/api/v1/admin/script-type/{id}",
+     *      operationId="updateAdminScriptType",
+     *      tags={"Admin"},
+     *      summary="Update script-type",
+     *      description="Update script-type",
+     *
      *      @OA\Parameter(
      *          name="id",
      *          description="script-type ID",
@@ -206,37 +206,37 @@ class ScriptTypeController extends Controller
      *              type="integer"
      *          )
      *     ),
-    *      @OA\RequestBody(
-    *          required=true,
-    *          @OA\JsonContent(ref="#/components/schemas/ScriptTypeUpdateFormRequest")
-    *      ),
-    *      @OA\Response(
-    *          response=200,
-    *          description="Successful signin",
-    *          @OA\MediaType(
-    *             mediaType="application/json",
-    *         ),
-    *       ),
-    *      @OA\Response(
-    *          response=400,
-    *          description="Bad Request"
-    *      ),
-    *      @OA\Response(
-    *          response=401,
-    *          description="unauthenticated",
-    *      ),
-    *      @OA\Response(
-    *          response=403,
-    *          description="Forbidden"
-    *      ),
-    *      security={ {"bearerAuth": {}} },
-    * )
-    */
+     *      @OA\RequestBody(
+     *          required=true,
+     *          @OA\JsonContent(ref="#/components/schemas/ScriptTypeUpdateFormRequest")
+     *      ),
+     *      @OA\Response(
+     *          response=200,
+     *          description="Successful signin",
+     *          @OA\MediaType(
+     *             mediaType="application/json",
+     *         ),
+     *       ),
+     *      @OA\Response(
+     *          response=400,
+     *          description="Bad Request"
+     *      ),
+     *      @OA\Response(
+     *          response=401,
+     *          description="unauthenticated",
+     *      ),
+     *      @OA\Response(
+     *          response=403,
+     *          description="Forbidden"
+     *      ),
+     *      security={ {"bearerAuth": {}} },
+     * )
+     */
     public function update(ScriptTypeUpdateFormRequest $request, $id)
     {
         $model = ScriptType::where('id', $id)->first();
 
-        if($model == null){
+        if ($model == null) {
             return $this->errorResponse('Script type id not found. please place the id on the url to process', 401);
         }
 
@@ -261,11 +261,10 @@ class ScriptTypeController extends Controller
             'engine' => $request['engine'],
         ]);
 
-
         $model->presets()->delete();
 
-        if($request['script_type_presets']){
-            foreach($request['script_type_presets'] as $preset){
+        if ($request['script_type_presets']) {
+            foreach ($request['script_type_presets'] as $preset) {
                 $model->presets()->create($preset);
             }
         }
@@ -297,14 +296,14 @@ class ScriptTypeController extends Controller
         return $this->showOne($model);
     }
 
-     /**
-    * @OA\Delete(
-    *      path="/api/v1/admin/script-type/{id}",
-    *      operationId="deleteScriptType",
-    *      tags={"Admin"},
-    *      summary="Delete script-type",
-    *      description="Delete script-type",
-    *      
+    /**
+     * @OA\Delete(
+     *      path="/api/v1/admin/script-type/{id}",
+     *      operationId="deleteAdminScriptType",
+     *      tags={"Admin"},
+     *      summary="Delete script-type",
+     *      description="Delete script-type",
+     *
      *      @OA\Parameter(
      *          name="id",
      *          description="script-type ID",
@@ -314,32 +313,33 @@ class ScriptTypeController extends Controller
      *              type="integer"
      *          )
      *      ),
-    *      @OA\Response(
-    *          response=200,
-    *          description="Successful signin",
-    *          @OA\MediaType(
-    *             mediaType="application/json",
-    *         ),
-    *       ),
-    *      @OA\Response(
-    *          response=400,
-    *          description="Bad Request"
-    *      ),
-    *      @OA\Response(
-    *          response=401,
-    *          description="unauthenticated",
-    *      ),
-    *      @OA\Response(
-    *          response=403,
-    *          description="Forbidden"
-    *      ),
-    *      security={ {"bearerAuth": {}} },
-    * )
-    */
+     *      @OA\Response(
+     *          response=200,
+     *          description="Successful signin",
+     *          @OA\MediaType(
+     *             mediaType="application/json",
+     *         ),
+     *       ),
+     *      @OA\Response(
+     *          response=400,
+     *          description="Bad Request"
+     *      ),
+     *      @OA\Response(
+     *          response=401,
+     *          description="unauthenticated",
+     *      ),
+     *      @OA\Response(
+     *          response=403,
+     *          description="Forbidden"
+     *      ),
+     *      security={ {"bearerAuth": {}} },
+     * )
+     */
     public function destroy($id)
     {
         $model = ScriptType::where('id', $id)->first();
         $model->delete();
+
         return $this->showMessage('deleted');
     }
 }

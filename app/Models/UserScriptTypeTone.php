@@ -3,18 +3,15 @@
 namespace App\Models;
 
 use App\Traits\Uuids;
-use App\Models\Tone;
-use App\Models\User;
-use App\Models\ScriptType;
-use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Model;
 
 class UserScriptTypeTone extends Model
 {
     use Uuids, HasFactory;
-    
+
     protected $guarded = [];
-    
+
     public function user()
     {
         return $this->belongsTo(User::class);

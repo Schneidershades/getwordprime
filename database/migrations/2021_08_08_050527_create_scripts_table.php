@@ -33,6 +33,7 @@ class CreateScriptsTable extends Migration
             $table->softDeletes();
         });
     }
+
     /**
      * Reverse the migrations.
      *

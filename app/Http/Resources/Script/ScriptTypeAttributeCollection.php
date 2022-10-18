@@ -32,14 +32,14 @@ class ScriptTypeAttributeCollection extends ResourceCollection
     }
 
      public static function transformedAttribute($index)
-    {
-        $attribute = [
-            'id' => 'id',
-            'script_type_id' => 'script_type_id',
-            'attribute_id' => 'attribute_id',
-            'value' => 'value',
-        ];
+     {
+         $attribute = [
+             'id' => 'id',
+             'script_type_id' => 'script_type_id',
+             'attribute_id' => 'attribute_id',
+             'value' => 'value',
+         ];
 
-        return isset($attribute[$index]) ? $attribute[$index] : null;
-    }
+         return isset($attribute[$index]) ? $attribute[$index] : null;
+     }
 }

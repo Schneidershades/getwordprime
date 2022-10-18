@@ -2,11 +2,11 @@
 
 namespace App\Services;
 
-use App\Models\User;
-use App\Models\Document;
-use App\Models\DocumentResourceTool;
 use App\Events\Document\SignerSigned;
 use App\Events\Document\SigningCompleted;
+use App\Models\Document;
+use App\Models\DocumentResourceTool;
+use App\Models\User;
 
 class DocumentResourceToolService
 {
@@ -65,20 +65,16 @@ class DocumentResourceToolService
         $documentResourceTool?->upload?->document ? $this->checkIfSignatureIsCompleted($documentResourceTool?->upload?->document) : null;
     }
 
-
     public function userTools(Document $document, User $user)
     {
-
     }
 
     public function userSignedTools(Document $document, User $user)
     {
-        
     }
 
     public function userUnsignedTools(Document $document, User $user)
     {
-        
     }
 
     public function sendSignedCompletedMail($detail)

@@ -2,12 +2,11 @@
 
 namespace App\Models;
 
-use App\Traits\Uuids;
-use App\Models\ScriptType;
-use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\Factories\HasFactory;
-use App\Http\Resources\Script\ScriptTypeCategoryResource;
 use App\Http\Resources\Script\ScriptTypeCategoryCollection;
+use App\Http\Resources\Script\ScriptTypeCategoryResource;
+use App\Traits\Uuids;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Model;
 
 class ScriptTypeCategory extends Model
 {
@@ -16,6 +15,7 @@ class ScriptTypeCategory extends Model
     protected $guarded = [];
 
     public $oneItem = ScriptTypeCategoryResource::class;
+
     public $allItems = ScriptTypeCategoryCollection::class;
 
     public function scriptTypes()

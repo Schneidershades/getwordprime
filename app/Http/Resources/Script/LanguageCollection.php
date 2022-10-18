@@ -24,12 +24,12 @@ class LanguageCollection extends ResourceCollection
     }
 
      public static function transformedAttribute($index)
-    {
-        $attribute = [
-            'id' => 'id',
-            'name' => 'name',
-        ];
+     {
+         $attribute = [
+             'id' => 'id',
+             'name' => 'name',
+         ];
 
-        return isset($attribute[$index]) ? $attribute[$index] : null;
-    }
+         return isset($attribute[$index]) ? $attribute[$index] : null;
+     }
 }

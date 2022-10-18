@@ -33,9 +33,4 @@ class PlanSubscriptionService
     {
         return Plan::find($this->transaction->transactionable_id);
     }
-
-    public function()
-    {
-        
-    }
 }

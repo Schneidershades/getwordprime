@@ -64,7 +64,7 @@ return [
     | scopes.
     |
     */
-    'scopes' => array(
+    'scopes' => [
         'account.read',
         'list.read',
         'list.write',
@@ -72,8 +72,8 @@ return [
         'subscriber.write',
         'email.read',
         'email.write',
-        'subscriber.read-extended'
-    ),
+        'subscriber.read-extended',
+    ],
 
     /*
     |--------------------------------------------------------------------------
@@ -96,5 +96,5 @@ return [
     | If true, no exception will be thrown when an Aweber response is empty
     |
      */
-    'allow_empty' => env('AWEBER_ALLOW_EMPTY', true)
+    'allow_empty' => env('AWEBER_ALLOW_EMPTY', true),
 ];

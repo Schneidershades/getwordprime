@@ -2,13 +2,11 @@
 
 namespace App\Models;
 
-use App\Traits\Uuids;
-use App\Models\User;
-use App\Models\Campaign;
-use Illuminate\Database\Eloquent\Model;
-use App\Http\Resources\Agency\AgencyResource;
 use App\Http\Resources\Agency\AgencyCollection;
+use App\Http\Resources\Agency\AgencyResource;
+use App\Traits\Uuids;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Model;
 
 class Agency extends Model
 {
@@ -17,6 +15,7 @@ class Agency extends Model
     protected $guarded = [];
 
     public $oneItem = AgencyResource::class;
+
     public $allItems = AgencyCollection::class;
 
     public function user()

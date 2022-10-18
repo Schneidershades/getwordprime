@@ -26,14 +26,14 @@ class AttributeCollection extends ResourceCollection
     }
 
      public static function transformedAttribute($index)
-    {
-        $attribute = [
-            'id' => 'id',
-            'name' => 'name',
-            'type' => 'type',
-            'default_value' => 'default_value',
-        ];
+     {
+         $attribute = [
+             'id' => 'id',
+             'name' => 'name',
+             'type' => 'type',
+             'default_value' => 'default_value',
+         ];
 
-        return isset($attribute[$index]) ? $attribute[$index] : null;
-    }
+         return isset($attribute[$index]) ? $attribute[$index] : null;
+     }
 }

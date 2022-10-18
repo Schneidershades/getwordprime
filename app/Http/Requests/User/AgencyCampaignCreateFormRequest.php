@@ -12,7 +12,6 @@ use Illuminate\Foundation\Http\FormRequest;
  *      required={"name"}
  * )
  */
-
 class AgencyCampaignCreateFormRequest extends FormRequest
 {
     /**
@@ -36,7 +35,6 @@ class AgencyCampaignCreateFormRequest extends FormRequest
      * @var int
      */
     public $campaign_id;
-
 
     /**
      * Determine if the user is authorized to make this request.

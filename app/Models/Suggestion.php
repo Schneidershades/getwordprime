@@ -2,19 +2,20 @@
 
 namespace App\Models;
 
+use App\Http\Resources\Suggestion\SuggestionCollection;
+use App\Http\Resources\Suggestion\SuggestionResource;
 use App\Traits\Uuids;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use App\Models\User;
-use App\Http\Resources\Suggestion\SuggestionResource;
-use App\Http\Resources\Suggestion\SuggestionCollection;
 
 class Suggestion extends Model
 {
     use Uuids, HasFactory;
+
     protected $guarded = [];
 
     public $oneItem = SuggestionResource::class;
+
     public $allItems = SuggestionCollection::class;
 
     public function user()

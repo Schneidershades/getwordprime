@@ -4,7 +4,6 @@ namespace App\Http\Requests\User;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-
 /**
 /**
  * @OA\Schema(
@@ -14,8 +13,6 @@ use Illuminate\Foundation\Http\FormRequest;
  *      required={"name"}
  * )
  */
-
-
 class StoreFlagScriptFormRequest extends FormRequest
 {
     /**
@@ -28,7 +25,6 @@ class StoreFlagScriptFormRequest extends FormRequest
      * @var int
      */
     public $script_response_id;
-    
 
     /**
      * Determine if the user is authorized to make this request.

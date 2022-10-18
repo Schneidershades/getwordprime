@@ -4,7 +4,6 @@ namespace App\Http\Requests\Admin;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-
 /**
  * @OA\Schema(
  *      title="Bonus Store Form Request Fields",
@@ -13,11 +12,8 @@ use Illuminate\Foundation\Http\FormRequest;
  *      required={"name"}
  * )
  */
-
- 
 class BonusStoreFormRequest extends FormRequest
 {
-
     /**
      * @OA\Property(
      *      title="name",
@@ -39,8 +35,6 @@ class BonusStoreFormRequest extends FormRequest
      * @var string
      */
     private $description;
-
-
 
     /**
      * @OA\Property(

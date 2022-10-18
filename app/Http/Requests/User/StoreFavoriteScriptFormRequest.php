@@ -13,7 +13,6 @@ use Illuminate\Foundation\Http\FormRequest;
  *      required={"name"}
  * )
  */
-
 class StoreFavoriteScriptFormRequest extends FormRequest
 {
     /**
@@ -26,7 +25,6 @@ class StoreFavoriteScriptFormRequest extends FormRequest
      * @var int
      */
     public $script_response_id;
-    
 
     /**
      * Determine if the user is authorized to make this request.

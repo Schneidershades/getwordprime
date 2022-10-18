@@ -3,8 +3,8 @@
 namespace App\Repositories\Models;
 
 use App\Models\User;
-use Illuminate\Database\Eloquent\Builder;
 use App\Repositories\ApplicationRepository;
+use Illuminate\Database\Eloquent\Builder;
 
 class UserRepository extends ApplicationRepository
 {
@@ -13,7 +13,7 @@ class UserRepository extends ApplicationRepository
         $search_query = request()->get('search') ? request()->get('search') : null;
 
         $sort = request()->get('sort_by') ? request()->get('sort_by') : null;
-        
+
         return User::query()
                 ->selectRaw('users.*')
                 ->selectRaw('wallets.balance AS balance')

@@ -14,7 +14,6 @@ use Illuminate\Foundation\Http\FormRequest;
  */
 class ScriptUpdateFormRequest extends FormRequest
 {
-    
     /**
      * @OA\Property(
      *      title="script text",

@@ -12,10 +12,9 @@ use Illuminate\Foundation\Http\FormRequest;
  *      required={"name"}
  * )
  */
-
 class StoreScriptTypeCategoryRequest extends FormRequest
 {
-     /**
+    /**
      * @OA\Property(
      *      title="script type category name",
      *      description="category of the script type",
@@ -25,7 +24,6 @@ class StoreScriptTypeCategoryRequest extends FormRequest
      * @var string
      */
     public $name;
-    
 
     /**
      * Determine if the user is authorized to make this request.
@@ -36,7 +34,7 @@ class StoreScriptTypeCategoryRequest extends FormRequest
     {
         return true;
     }
-    
+
     /**
      * Get the validation rules that apply to the request.
      *

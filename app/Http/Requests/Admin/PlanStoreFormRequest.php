@@ -4,7 +4,6 @@ namespace App\Http\Requests\Admin;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-
 /**
  * @OA\Schema(
  *      title="Plan Store Form Request Fields",
@@ -13,10 +12,8 @@ use Illuminate\Foundation\Http\FormRequest;
  *      required={"name"}
  * )
  */
-
 class PlanStoreFormRequest extends FormRequest
 {
-
     /**
      * @OA\Property(
      *      title="type",

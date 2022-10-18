@@ -12,8 +12,6 @@ use Illuminate\Foundation\Http\FormRequest;
  *      required={"name"}
  * )
  */
-
-
 class UpdateScriptTypeCategoryRequest extends FormRequest
 {
     /**
@@ -26,7 +24,6 @@ class UpdateScriptTypeCategoryRequest extends FormRequest
      * @var string
      */
     public $name;
-    
 
     /**
      * Determine if the user is authorized to make this request.
@@ -37,7 +34,7 @@ class UpdateScriptTypeCategoryRequest extends FormRequest
     {
         return true;
     }
-    
+
     /**
      * Get the validation rules that apply to the request.
      *
@@ -49,5 +46,4 @@ class UpdateScriptTypeCategoryRequest extends FormRequest
             'name' => 'required|string',
         ];
     }
-
 }

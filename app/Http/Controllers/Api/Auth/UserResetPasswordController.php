@@ -3,22 +3,23 @@
 namespace App\Http\Controllers\Api\Auth;
 
 use App\Http\Controllers\Controller;
-use Illuminate\Http\Request;
-use App\Models\User;
 use App\Mail\SendMailreset;
-use Illuminate\Support\Facades\Mail;
+use App\Models\User;
 use Carbon\Carbon;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Str;
 
 class UserResetPasswordController extends Controller
 {
     public function sendEmail(Request $request)
     {
-        if (!$this->validateEmail($request->email)) { 
+        if (! $this->validateEmail($request->email)) {
             return $this->errorResponse('Email not found in our database', 401);
         }
         $this->send($request->email);
+
         return $this->successResponse('Reset Email is send successfully, please check your inbox.', 200);
     }
 
@@ -32,12 +33,13 @@ class UserResetPasswordController extends Controller
 
         $token = Str::random(40);
         $this->saveToken($token, $email);
+
         return $token;
     }
 
     public function validateEmail($email)
     {
-        return !!User::where('email', $email)->first();
+        return (bool) User::where('email', $email)->first();
     }
 
     public function send($email)
@@ -51,7 +53,7 @@ class UserResetPasswordController extends Controller
         DB::table('password_resets')->insert([
             'email' => $email,
             'token' => $token,
-            'created_at' => Carbon::now()
+            'created_at' => Carbon::now(),
         ]);
     }
 }

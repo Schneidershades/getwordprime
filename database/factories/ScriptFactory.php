@@ -7,8 +7,8 @@ use Illuminate\Database\Eloquent\Factories\Factory;
 
 class ScriptFactory extends Factory
 {
-
     protected $model = Script::class;
+
     /**
      * Define the model's default state.
      *

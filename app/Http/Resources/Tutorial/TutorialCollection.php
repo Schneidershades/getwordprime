@@ -32,14 +32,14 @@ class TutorialCollection extends ResourceCollection
     }
 
      public static function transformedAttribute($index)
-    {
-        $attribute = [
-            'id' => 'id',
-            'title' => 'title',
-            'description' => 'description',
-            'link' => 'link',
-        ];
+     {
+         $attribute = [
+             'id' => 'id',
+             'title' => 'title',
+             'description' => 'description',
+             'link' => 'link',
+         ];
 
-        return isset($attribute[$index]) ? $attribute[$index] : null;
-    }
+         return isset($attribute[$index]) ? $attribute[$index] : null;
+     }
 }

@@ -16,9 +16,8 @@ class CampaignTableSeeder extends Seeder
     public function run()
     {
         Campaign::create([
-            'name'             => 'Time',
-            'user_id'         => User::first()->id,
+            'name' => 'Time',
+            'user_id' => User::first()->id,
         ]);
-
     }
 }

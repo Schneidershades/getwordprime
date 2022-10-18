@@ -14,7 +14,7 @@ class UserCollection extends ResourceCollection
     }
 
     public static function originalAttribute($index)
-    {        
+    {
         $attribute = [
             'name' => 'name',
             'email' => 'email',
@@ -26,14 +26,14 @@ class UserCollection extends ResourceCollection
     }
 
      public static function transformedAttribute($index)
-    {
-        $attribute = [
-            'name' => 'name',
-            'email' => 'email',
-            'role' => 'role',
-            'parent_id' => 'parent_id',
-        ];
+     {
+         $attribute = [
+             'name' => 'name',
+             'email' => 'email',
+             'role' => 'role',
+             'parent_id' => 'parent_id',
+         ];
 
-        return isset($attribute[$index]) ? $attribute[$index] : null;
-    }
+         return isset($attribute[$index]) ? $attribute[$index] : null;
+     }
 }

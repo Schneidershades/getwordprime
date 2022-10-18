@@ -3,7 +3,6 @@
 namespace App\Notifications\Auth;
 
 use Illuminate\Bus\Queueable;
-use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Notifications\Messages\MailMessage;
 use Illuminate\Notifications\Notification;
 use Illuminate\Support\Facades\Lang;
@@ -43,14 +42,14 @@ class PasswordResetNotification extends Notification
      */
     public function toMail($notifiable)
     {
-        $frontendURL = config('app.frontend_url') ."/reset-password-form/?token=". $this->token;
+        $frontendURL = config('app.frontend_url').'/reset-password-form/?token='.$this->token;
+
         return (new MailMessage)
             ->subject(Lang::get('Hey! Reset Password Notification'))
             ->line(Lang::get('You requested here you go!'))
             ->action(Lang::get('Reset Password'), $frontendURL)
             ->line(Lang::get('This password reset link will expire in :count minutes.', ['count' => config('auth.passwords.users.expire')]))
-            ->line(Lang::get('If you did not request a password reset, no further action is required. Token: ==>'. $this->token));
-
+            ->line(Lang::get('If you did not request a password reset, no further action is required. Token: ==>'.$this->token));
     }
 
     /**

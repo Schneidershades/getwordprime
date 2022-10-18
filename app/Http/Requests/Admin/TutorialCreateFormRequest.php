@@ -13,7 +13,6 @@ use Illuminate\Foundation\Http\FormRequest;
  *      required={"name"}
  * )
  */
-
 class TutorialCreateFormRequest extends FormRequest
 {
     /**
@@ -48,7 +47,7 @@ class TutorialCreateFormRequest extends FormRequest
      * @var string
      */
     private $link;
-    
+
     /**
      * Determine if the user is authorized to make this request.
      *

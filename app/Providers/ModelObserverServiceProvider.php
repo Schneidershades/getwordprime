@@ -2,10 +2,9 @@
 
 namespace App\Providers;
 
-use Illuminate\Support\ServiceProvider;
-
 use App\Models\User;
 use App\Observers\User\UserObserver;
+use Illuminate\Support\ServiceProvider;
 
 class ModelObserverServiceProvider extends ServiceProvider
 {

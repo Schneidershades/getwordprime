@@ -13,7 +13,6 @@ use Illuminate\Foundation\Http\FormRequest;
  *      required={"name"}
  * )
  */
-
 class ResellerCreateFormRequest extends FormRequest
 {
     /**
@@ -72,17 +71,15 @@ class ResellerCreateFormRequest extends FormRequest
     public $password;
 
     /**
-    *       @OA\Property(property="plans", type="object", type="array",
-    *            @OA\Items(
-    *                @OA\Property(property="plan_id", type="int", example="1"),
-    *            ),
-    *        ),
-    *    ),
-    */
-
+     *       @OA\Property(property="plans", type="object", type="array",
+     *            @OA\Items(
+     *                @OA\Property(property="plan_id", type="int", example="1"),
+     *            ),
+     *        ),
+     *    ),
+     */
     public $plans;
 
-    
     /**
      * Determine if the user is authorized to make this request.
      *
@@ -106,7 +103,7 @@ class ResellerCreateFormRequest extends FormRequest
             'email' => 'required|string|email|max:255|unique:users',
             'password' => 'required|string|min:8',
             'role' => 'required|string|max:255|in:User',
-            'plans' => 'array', 
+            'plans' => 'array',
             'plans.*.plan_id' => 'int|exists:plans,id',
         ];
     }

@@ -3,7 +3,6 @@
 namespace App\Http\Resources\Script;
 
 use Illuminate\Http\Resources\Json\JsonResource;
-use App\Http\Resources\Script\ScriptResponseResource;
 
 class ScriptResource extends JsonResource
 {

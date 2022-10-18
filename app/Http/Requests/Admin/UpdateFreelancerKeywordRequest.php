@@ -12,10 +12,8 @@ use Illuminate\Foundation\Http\FormRequest;
  *      required={"name"}
  * )
  */
-
 class UpdateFreelancerKeywordRequest extends FormRequest
 {
-
     /**
      * @OA\Property(
      *      title="words ",

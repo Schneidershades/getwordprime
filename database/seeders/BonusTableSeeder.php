@@ -15,15 +15,15 @@ class BonusTableSeeder extends Seeder
     public function run()
     {
         Bonus::create([
-            'name'             => 'loren',
-            'description'         => 'loren',
-            'url'         => 'https://lorem',
+            'name' => 'loren',
+            'description' => 'loren',
+            'url' => 'https://lorem',
         ]);
 
         Bonus::create([
-            'name'             => 'loren',
-            'description'         => 'loren',
-            'url'         => 'https://lorem',
+            'name' => 'loren',
+            'description' => 'loren',
+            'url' => 'https://lorem',
         ]);
     }
 }

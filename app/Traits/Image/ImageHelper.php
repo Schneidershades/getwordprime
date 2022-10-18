@@ -10,12 +10,12 @@ class ImageHelper
     public static function uploadAnything($file, $pathDirectory)
     {
         $image = $file;
-        $filename = rand (100000,9000000). '.' . $image->getClientOriginalExtension();
+        $filename = rand(100000, 9000000).'.'.$image->getClientOriginalExtension();
 
         $directory = $pathDirectory.'/';
-        $path = $directory . $filename;
+        $path = $directory.$filename;
 
-        if (!File::exists($directory)) {
+        if (! File::exists($directory)) {
             File::makeDirectory($directory, $mode = 0777, true, true);
         }
 

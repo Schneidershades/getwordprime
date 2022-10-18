@@ -13,22 +13,18 @@ use Illuminate\Foundation\Http\FormRequest;
  *      required={"name"}
  * )
  */
-
 class UpdatePermissionRequest extends FormRequest
 {
-    
     /**
-     
      * @OA\Property(
-     *      property="permissions", 
-     *      type="string", 
+     *      property="permissions",
+     *      type="string",
      *      example="['edit_user','create_user']",
      * ),
      *
      * @var string
      */
     public $permissions;
-
 
     /**
      * Determine if the user is authorized to make this request.

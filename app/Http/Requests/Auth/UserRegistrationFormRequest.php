@@ -13,7 +13,6 @@ use Illuminate\Foundation\Http\FormRequest;
  *      required={"name"}
  * )
  */
-
 class UserRegistrationFormRequest extends FormRequest
 {
     /**
@@ -49,16 +48,15 @@ class UserRegistrationFormRequest extends FormRequest
      */
     public $role;
 
-
     /**
-    * @OA\Property(
-    *      title="User Phone",
-    *      description="Phone of the user",
-    *      example="080222"
-    * )
-    *
-    * @var string
-    */
+     * @OA\Property(
+     *      title="User Phone",
+     *      description="Phone of the user",
+     *      example="080222"
+     * )
+     *
+     * @var string
+     */
     public $phone;
 
     /**
@@ -83,7 +81,6 @@ class UserRegistrationFormRequest extends FormRequest
      */
     public $password;
 
-    
     /**
      * Determine if the user is authorized to make this request.
      *

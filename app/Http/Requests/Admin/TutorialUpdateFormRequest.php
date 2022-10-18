@@ -3,6 +3,7 @@
 namespace App\Http\Requests\Admin;
 
 use Illuminate\Foundation\Http\FormRequest;
+
 /**
 /**
  * @OA\Schema(
@@ -12,8 +13,6 @@ use Illuminate\Foundation\Http\FormRequest;
  *      required={"name"}
  * )
  */
-
-
 class TutorialUpdateFormRequest extends FormRequest
 {
     /**
@@ -48,7 +47,7 @@ class TutorialUpdateFormRequest extends FormRequest
      * @var string
      */
     private $link;
-    
+
     /**
      * Determine if the user is authorized to make this request.
      *

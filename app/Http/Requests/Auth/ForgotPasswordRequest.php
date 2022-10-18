@@ -13,7 +13,6 @@ use Illuminate\Foundation\Http\FormRequest;
  *      required={"email"}
  * )
  */
-
 class ForgotPasswordRequest extends FormRequest
 {
     /**
@@ -26,7 +25,6 @@ class ForgotPasswordRequest extends FormRequest
      * @var string
      */
     private $email;
-
 
     /**
      * Determine if the user is authorized to make this request.

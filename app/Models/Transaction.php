@@ -2,13 +2,11 @@
 
 namespace App\Models;
 
-use App\Traits\Uuids;
-use App\Models\Plan;
-use App\Models\User;
-use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\Factories\HasFactory;
-use App\Http\Resources\Transaction\TransactionResource;
 use App\Http\Resources\Transaction\TransactionCollection;
+use App\Http\Resources\Transaction\TransactionResource;
+use App\Traits\Uuids;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Model;
 
 class Transaction extends Model
 {
@@ -17,6 +15,7 @@ class Transaction extends Model
     protected $guarded = [];
 
     public $oneItem = TransactionResource::class;
+
     public $allItems = TransactionCollection::class;
 
     public function user()

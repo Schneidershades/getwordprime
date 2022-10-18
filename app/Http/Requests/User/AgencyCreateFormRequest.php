@@ -13,7 +13,6 @@ use Illuminate\Foundation\Http\FormRequest;
  *      required={"name"}
  * )
  */
-
 class AgencyCreateFormRequest extends FormRequest
 {
     /**
@@ -27,7 +26,6 @@ class AgencyCreateFormRequest extends FormRequest
      */
     private $name;
 
-
     /**
      * @OA\Property(
      *      title="agency email",
@@ -40,14 +38,13 @@ class AgencyCreateFormRequest extends FormRequest
     private $email;
 
     /**
-    *       @OA\Property(property="campaigns", type="object", type="array",
-    *            @OA\Items(
-    *                @OA\Property(property="campaign_id", type="int", example="1"),
-    *            ),
-    *        ),
-    *    ),
-    */
-
+     *       @OA\Property(property="campaigns", type="object", type="array",
+     *            @OA\Items(
+     *                @OA\Property(property="campaign_id", type="int", example="1"),
+     *            ),
+     *        ),
+     *    ),
+     */
     public $campaigns;
 
     /**
@@ -65,7 +62,7 @@ class AgencyCreateFormRequest extends FormRequest
         return [
             'name' => 'required|string|unique:agencies,name',
             'email' => 'required|string|email|max:255|unique:agencies,email',
-            'campaigns' => 'array', 
+            'campaigns' => 'array',
             'campaigns.*.campaign_id' => 'int|exists:plans,id',
         ];
     }

@@ -9,13 +9,13 @@ use App\Models\UserScriptTypePreset;
 class UserSelectScriptTypeController extends Controller
 {
     /**
-    * @OA\Get(
-    *      path="/api/v1/user-select-script-type/{id}",
-    *      operationId="selectUserScriptType",
-    *      tags={"user"},
-    *      summary="select a user script type",
-    *      description="select a user script type",
-    *      
+     * @OA\Get(
+     *      path="/api/v1/user-select-script-type/{id}",
+     *      operationId="selectUserScriptType",
+     *      tags={"user"},
+     *      summary="select a user script type",
+     *      description="select a user script type",
+     *
      *      @OA\Parameter(
      *          name="id",
      *          description="ScriptType ID",
@@ -25,30 +25,29 @@ class UserSelectScriptTypeController extends Controller
      *              type="string"
      *          )
      *      ),
-     *      
-    *      @OA\Response(
-    *          response=200,
-    *          description="Successful signin",
-    *          @OA\MediaType(
-    *             mediaType="application/json",
-    *         ),
-    *       ),
-    *      @OA\Response(
-    *          response=400,
-    *          description="Bad Request"
-    *      ),
-    *      @OA\Response(
-    *          response=401,
-    *          description="unauthenticated",
-    *      ),
-    *      @OA\Response(
-    *          response=403,
-    *          description="Forbidden"
-    *      ),
-    *      security={ {"bearerAuth": {}} },
-    * )
-    */
-
+     *
+     *      @OA\Response(
+     *          response=200,
+     *          description="Successful signin",
+     *          @OA\MediaType(
+     *             mediaType="application/json",
+     *         ),
+     *       ),
+     *      @OA\Response(
+     *          response=400,
+     *          description="Bad Request"
+     *      ),
+     *      @OA\Response(
+     *          response=401,
+     *          description="unauthenticated",
+     *      ),
+     *      @OA\Response(
+     *          response=403,
+     *          description="Forbidden"
+     *      ),
+     *      security={ {"bearerAuth": {}} },
+     * )
+     */
     public function show($id)
     {
         $scriptType = ScriptType::find($id);
@@ -65,8 +64,7 @@ class UserSelectScriptTypeController extends Controller
         $questionDifferenceIds = array_diff($scriptTypeQuestions, $userExistingQuestions);
         $questionAddIds = array_unique(array_merge($scriptTypeQuestions, $userExistingQuestions));
 
-        foreach($questionDifferenceIds as $presetId)
-        {
+        foreach ($questionDifferenceIds as $presetId) {
             UserScriptTypePreset::create([
                 'script_type_id' => $scriptType->id,
                 'script_type_preset_id' => $presetId,
@@ -80,6 +78,5 @@ class UserSelectScriptTypeController extends Controller
                     ->latest()->get();
 
         return $this->showAll($findAllUserPresets);
-        
     }
 }

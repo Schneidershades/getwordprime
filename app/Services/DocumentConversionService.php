@@ -3,17 +3,15 @@
 namespace App\Services;
 
 use App\Models\Document;
-use Spatie\PdfToImage\Pdf;
+use App\Models\DocumentUpload;
 use App\Traits\Image\AwsS3;
 use Codedge\Fpdf\Fpdf\Fpdf;
-use Illuminate\Support\Str;
-use App\Models\DocumentUpload;
-use PhpOffice\PhpWord\Settings;
-use PhpOffice\PhpWord\IOFactory;
-use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\File;
+use Illuminate\Support\Str;
 use Lukaswhite\DocumentConverter\Converter;
-use NcJoes\OfficeConverter\OfficeConverter;
+use PhpOffice\PhpWord\IOFactory;
+use PhpOffice\PhpWord\Settings;
+use Spatie\PdfToImage\Pdf;
 
 class DocumentConversionService
 {

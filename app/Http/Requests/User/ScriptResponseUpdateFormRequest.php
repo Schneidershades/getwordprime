@@ -12,10 +12,8 @@ use Illuminate\Foundation\Http\FormRequest;
  *      required={"name"}
  * )
  */
-
 class ScriptResponseUpdateFormRequest extends FormRequest
 {
-
     /**
      * @OA\Property(
      *      title="user campaign id",
@@ -26,7 +24,6 @@ class ScriptResponseUpdateFormRequest extends FormRequest
      * @var int
      */
     public $campaign_id;
-
 
     /**
      * @OA\Property(

@@ -24,12 +24,12 @@ class FavoriteScriptCollection extends ResourceCollection
     }
 
      public static function transformedAttribute($index)
-    {
-        $attribute = [
-            'user_id' => 'user_id',
-            'script_response_id' => 'script_response_id',
-        ];
+     {
+         $attribute = [
+             'user_id' => 'user_id',
+             'script_response_id' => 'script_response_id',
+         ];
 
-        return isset($attribute[$index]) ? $attribute[$index] : null;
-    }
+         return isset($attribute[$index]) ? $attribute[$index] : null;
+     }
 }

@@ -13,10 +13,8 @@ use Illuminate\Foundation\Http\FormRequest;
  *      required={"name"}
  * )
  */
-
 class RoleUpdateFormRequest extends FormRequest
 {
-
     /**
      * @OA\Property(
      *      title="name",
@@ -28,13 +26,10 @@ class RoleUpdateFormRequest extends FormRequest
      */
     private $name;
 
-    
-
     /**
-     
      * @OA\Property(
-     *      property="permissions", 
-     *      type="string", 
+     *      property="permissions",
+     *      type="string",
      *      example="['edit_user','create_user']",
      * ),
      *

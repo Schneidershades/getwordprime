@@ -13,7 +13,6 @@ use Illuminate\Foundation\Http\FormRequest;
  *      required={"email"}
  * )
  */
-
 class UserLoginFormRequest extends FormRequest
 {
     /**
@@ -37,7 +36,7 @@ class UserLoginFormRequest extends FormRequest
      * @var string
      */
     private $password;
-    
+
     /**
      * Determine if the user is authorized to make this request.
      *

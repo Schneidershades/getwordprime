@@ -2,8 +2,8 @@
 
 namespace App\Traits\Notifications\Channels;
 
-use ReflectionClass;
 use App\Traits\Notifications\Notification;
+use ReflectionClass;
 
 class DatabaseChannel
 {
@@ -15,10 +15,9 @@ class DatabaseChannel
             'type_class' => get_class($notification),
             'data' => $notification->toArray($notifiable),
             'models' => json_encode($notification->models()),
-            'read_at' => null
+            'read_at' => null,
         ]);
     }
-
 
     protected function getType(Notification $notification)
     {

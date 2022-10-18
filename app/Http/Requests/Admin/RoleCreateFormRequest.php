@@ -12,10 +12,8 @@ use Illuminate\Foundation\Http\FormRequest;
  *      required={"name"}
  * )
  */
-
 class RoleCreateFormRequest extends FormRequest
 {
-
     /**
      * @OA\Property(
      *      title="name",
@@ -28,10 +26,9 @@ class RoleCreateFormRequest extends FormRequest
     private $name;
 
     /**
-     
      * @OA\Property(
-     *      property="permissions", 
-     *      type="string", 
+     *      property="permissions",
+     *      type="string",
      *      example="['edit_user','create_user']",
      * ),
      *
@@ -59,7 +56,7 @@ class RoleCreateFormRequest extends FormRequest
         return [
             'name' => 'required|string',
             'permissions' => 'nullable|array',
-            'permissions.*' => 'nullable|string', 
+            'permissions.*' => 'nullable|string',
         ];
     }
 }

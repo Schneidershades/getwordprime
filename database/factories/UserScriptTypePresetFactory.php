@@ -8,6 +8,7 @@ use Illuminate\Database\Eloquent\Factories\Factory;
 class UserScriptTypePresetFactory extends Factory
 {
     protected $model = UserScriptTypePreset::class;
+
     /**
      * Define the model's default state.
      *

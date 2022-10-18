@@ -2,10 +2,10 @@
 
 namespace Database\Seeders;
 
-use Illuminate\Database\Seeder;
-use App\Models\User;
-use App\Models\Role;
 use App\Models\Permission;
+use App\Models\Role;
+use App\Models\User;
+use Illuminate\Database\Seeder;
 
 class PermissionSeeder extends Seeder
 {
@@ -26,7 +26,6 @@ class PermissionSeeder extends Seeder
 
         // Confirm roles needed
         if ($this->command->confirm('Create Roles for user, default is admin and user? [y|N]', true)) {
-
             // Ask for roles from input
             $input_roles = $this->command->ask('Enter roles in comma separate format.', 'Admin,User');
 
@@ -34,16 +33,15 @@ class PermissionSeeder extends Seeder
             $roles_array = explode(',', $input_roles);
 
             // add roles
-            foreach($roles_array as $role) {
-
+            foreach ($roles_array as $role) {
                 $role = Role::Create(['name' => trim($role)]);
 
-                if( $role->name == 'Admin' ) {
+                if ($role->name == 'Admin') {
                     $role->syncPermissions(Permission::all());
                     $this->command->info('Super Admin granted all the permissions');
                 }
 
-                if($role->name == 'User'){
+                if ($role->name == 'User') {
                     $this->command->info('Admin granted permissions');
                 }
 
@@ -55,22 +53,22 @@ class PermissionSeeder extends Seeder
                 $this->createUser($role);
             }
 
-            $this->command->info('Roles ' . $input_roles . ' added successfully');
-
+            $this->command->info('Roles '.$input_roles.' added successfully');
         } else {
             Role::firstOrCreate(['name' => 'User']);
             $this->command->info('Added only default user role.');
         }
     }
+
     private function createUser($role)
     {
-        if( $role->name == 'Admin') {
+        if ($role->name == 'Admin') {
             $user = User::Create([
-                'first_name'                          => 'Admin',
-                'last_name'                          => 'Admin',
-                'email'                         => 'admin@getwordprime.com',
-                'password'                      => 'password',
-                'role'                          => $role->name,
+                'first_name' => 'Admin',
+                'last_name' => 'Admin',
+                'email' => 'admin@getwordprime.com',
+                'password' => 'password',
+                'role' => $role->name,
             ]);
             $user->assignRole($role->name);
             $this->command->info('Here is your admin details to login:');
@@ -78,13 +76,13 @@ class PermissionSeeder extends Seeder
             $this->command->warn('Password is "password"');
         }
 
-        if( $role->name == 'User') {
+        if ($role->name == 'User') {
             $user = User::Create([
-                'first_name'                          => 'Manuel',
-                'last_name'                          => 'Manuel',
-                'email'                         => 'user@getwordprime.com',
-                'password'                      => 'password',
-                'role'                          => $role->name,
+                'first_name' => 'Manuel',
+                'last_name' => 'Manuel',
+                'email' => 'user@getwordprime.com',
+                'password' => 'password',
+                'role' => $role->name,
             ]);
             $user->assignRole($role->name);
             $this->command->info('Here is your admin details to login:');

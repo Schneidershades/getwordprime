@@ -13,7 +13,6 @@ use Illuminate\Foundation\Http\FormRequest;
  *      required={"name"}
  * )
  */
-
 class AttributeCreateFormRequest extends FormRequest
 {
     /**

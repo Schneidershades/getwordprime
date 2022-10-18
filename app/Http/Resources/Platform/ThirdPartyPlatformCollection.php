@@ -29,13 +29,13 @@ class ThirdPartyPlatformCollection extends ResourceCollection
     }
 
      public static function transformedAttribute($index)
-    {
-        $attribute = [
-            'id' => 'id',
-            'name' => 'name',
-            'activate' => 'activate',
-        ];
+     {
+         $attribute = [
+             'id' => 'id',
+             'name' => 'name',
+             'activate' => 'activate',
+         ];
 
-        return isset($attribute[$index]) ? $attribute[$index] : null;
-    }
+         return isset($attribute[$index]) ? $attribute[$index] : null;
+     }
 }

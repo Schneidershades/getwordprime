@@ -7,8 +7,8 @@ use Illuminate\Database\Eloquent\Factories\Factory;
 
 class SuggestionFactory extends Factory
 {
-
     protected $model = Suggestion::class;
+
     /**
      * Define the model's default state.
      *

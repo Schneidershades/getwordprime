@@ -32,7 +32,8 @@ class ScheduleSessionService
         return ScheduleSession::find($this->transaction->transactionable_id);
     }
 
-    public function find($id){
+    public function find($id)
+    {
         return ScheduleSession::where('id', $id)
                                     ->first();
     }

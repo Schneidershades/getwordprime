@@ -7,8 +7,8 @@ use Illuminate\Database\Eloquent\Factories\Factory;
 
 class TutorialFactory extends Factory
 {
-
     protected $model = Tutorial::class;
+
     /**
      * Define the model's default state.
      *

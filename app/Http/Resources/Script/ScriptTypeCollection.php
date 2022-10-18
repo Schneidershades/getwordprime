@@ -30,18 +30,18 @@ class ScriptTypeCollection extends ResourceCollection
     }
 
      public static function transformedAttribute($index)
-    {
-        $attribute = [
-            'id' => 'id',
-            'name' => 'name',
-            'icon' => 'icon',
-            'description' => 'description',
-            'usage' => 'usage',
-            'activate' => 'activate',
-            'language' => 'language',
-            'tone' => 'tone',
-        ];
+     {
+         $attribute = [
+             'id' => 'id',
+             'name' => 'name',
+             'icon' => 'icon',
+             'description' => 'description',
+             'usage' => 'usage',
+             'activate' => 'activate',
+             'language' => 'language',
+             'tone' => 'tone',
+         ];
 
-        return isset($attribute[$index]) ? $attribute[$index] : null;
-    }
+         return isset($attribute[$index]) ? $attribute[$index] : null;
+     }
 }

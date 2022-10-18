@@ -13,7 +13,6 @@ use Illuminate\Foundation\Http\FormRequest;
  *      required={"email"}
  * )
  */
-
 class ResetPasswordRequest extends FormRequest
 {
     /**
@@ -38,8 +37,6 @@ class ResetPasswordRequest extends FormRequest
      */
     private $token;
 
-
-
     /**
      * @OA\Property(
      *      title="new user password",
@@ -51,7 +48,6 @@ class ResetPasswordRequest extends FormRequest
      */
     private $password;
 
-
     /**
      * @OA\Property(
      *      title="retype user password",
@@ -62,8 +58,6 @@ class ResetPasswordRequest extends FormRequest
      * @var string
      */
     private $password_confirmation;
-
-
 
     /**
      * Determine if the user is authorized to make this request.

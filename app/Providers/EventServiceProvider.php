@@ -23,7 +23,6 @@ class EventServiceProvider extends ServiceProvider
             \App\Listeners\ForgotPasswordListener::class,
         ],
 
-
         // user
         'App\Events\User\NewUserEvent' => [
             'App\Listeners\User\WelcomeMail',

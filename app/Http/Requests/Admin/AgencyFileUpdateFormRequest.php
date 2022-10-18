@@ -12,7 +12,6 @@ use Illuminate\Foundation\Http\FormRequest;
  *      required={"name"}
  * )
  */
-
 class AgencyFileUpdateFormRequest extends FormRequest
 {
     /**
@@ -36,8 +35,6 @@ class AgencyFileUpdateFormRequest extends FormRequest
      * @var string
      */
     private $description;
-
-
 
     /**
      * @OA\Property(

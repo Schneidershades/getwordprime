@@ -12,10 +12,8 @@ use Illuminate\Foundation\Http\FormRequest;
  *      required={"name"}
  * )
  */
-
 class StoreLanguageRequest extends FormRequest
 {
-
     /**
      * @OA\Property(
      *      title="language name",

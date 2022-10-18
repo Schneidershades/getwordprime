@@ -9,6 +9,6 @@ use LucasDotVin\Soulbscription\Models\FeatureConsumption as SoulFeatureConsumpti
 class FeatureConsumption extends SoulFeatureConsumption
 {
     use Uuids, HasFactory;
-    
+
     protected $guarded = [];
 }

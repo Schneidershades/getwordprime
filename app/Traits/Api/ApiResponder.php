@@ -2,10 +2,10 @@
 
 namespace App\Traits\Api;
 
+use Illuminate\Database\Eloquent\Model;
 use Illuminate\Pagination\LengthAwarePaginator;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\Cache;
-use Illuminate\Database\Eloquent\Model;
 
 trait ApiResponder
 {
@@ -25,18 +25,18 @@ trait ApiResponder
             return $this->successResponse(['data' => $collection], $code);
         }
 
-
         $transformer = $collection->first()->allItems;
 
         $collection = $this->filterData($collection, $transformer);
         $collection = $this->sortData($collection, $transformer);
 
-        if(request()->per_page > 0){
-            $collection = $this->paginate($collection);                     
+        if (request()->per_page > 0) {
+            $collection = $this->paginate($collection);
         }
 
         $collection = $this->transformData($collection, $transformer);
         $collection = $this->cacheResponse($collection);
+
         return $collection;
     }
 
@@ -44,6 +44,7 @@ trait ApiResponder
     {
         $transformer = $instance->oneItem;
         $instance = $this->transformData($instance, $transformer);
+
         return $instance;
     }
 
@@ -91,6 +92,7 @@ trait ApiResponder
 
             $collection = $collection->sortBy->{$attribute};
         }
+
         return $collection;
     }
 
@@ -127,7 +129,8 @@ trait ApiResponder
         ksort($queryParams);
         $queryString = http_build_query($queryParams);
         $fullUrl = "{$url}?{$queryString}";
-        return Cache::remember($fullUrl, 30/60, function () use ($data) {
+
+        return Cache::remember($fullUrl, 30 / 60, function () use ($data) {
             return $data;
         });
     }

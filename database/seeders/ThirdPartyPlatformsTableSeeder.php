@@ -15,15 +15,15 @@ class ThirdPartyPlatformsTableSeeder extends Seeder
     public function run()
     {
         ThirdPartyPlatform::create([
-            'name'             => 'Namecheap',
+            'name' => 'Namecheap',
         ]);
 
         ThirdPartyPlatform::create([
-            'name'             => 'awber',
+            'name' => 'awber',
         ]);
 
         ThirdPartyPlatform::create([
-            'name'             => 'sendgrid',
+            'name' => 'sendgrid',
         ]);
     }
 }

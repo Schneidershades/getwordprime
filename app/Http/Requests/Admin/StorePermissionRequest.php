@@ -4,7 +4,6 @@ namespace App\Http\Requests\Admin;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-
 /**
  * @OA\Schema(
  *      title="Store Permission Create Form Request Fields",
@@ -13,7 +12,6 @@ use Illuminate\Foundation\Http\FormRequest;
  *      required={"name"}
  * )
  */
-
 class StorePermissionRequest extends FormRequest
 {
     /**
@@ -26,7 +24,6 @@ class StorePermissionRequest extends FormRequest
      * @var string
      */
     public $name;
-
 
     /**
      * Determine if the user is authorized to make this request.

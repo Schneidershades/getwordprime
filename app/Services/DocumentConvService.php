@@ -8,11 +8,10 @@ use App\Traits\Image\AwsS3;
 use Codedge\Fpdf\Fpdf\Fpdf;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Str;
+use Lukaswhite\DocumentConverter\Converter;
 use PhpOffice\PhpWord\IOFactory;
 use PhpOffice\PhpWord\Settings;
 use Spatie\PdfToImage\Pdf;
-use Lukaswhite\DocumentConverter\Converter;
-use NcJoes\OfficeConverter\OfficeConverter;
 
 class DocumentConvService
 {

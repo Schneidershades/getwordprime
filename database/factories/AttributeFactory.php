@@ -8,6 +8,7 @@ use Illuminate\Database\Eloquent\Factories\Factory;
 class AttributeFactory extends Factory
 {
     protected $model = Attribute::class;
+
     /**
      * Define the model's default state.
      *

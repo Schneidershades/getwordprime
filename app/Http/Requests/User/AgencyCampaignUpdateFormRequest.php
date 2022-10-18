@@ -12,7 +12,6 @@ use Illuminate\Foundation\Http\FormRequest;
  *      required={"name"}
  * )
  */
-
 class AgencyCampaignUpdateFormRequest extends FormRequest
 {
     /**

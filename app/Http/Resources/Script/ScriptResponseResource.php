@@ -23,7 +23,7 @@ class ScriptResponseResource extends JsonResource
 
     public function findScriptType()
     {
-        if($this->script_type_name == null){
+        if ($this->script_type_name == null) {
             return $this->script?->scriptType?->name;
         }
 

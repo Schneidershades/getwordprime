@@ -12,11 +12,9 @@ use Illuminate\Foundation\Http\FormRequest;
  *      required={"first_name"}
  * )
  */
-
 class AuthUpdateFormRequest extends FormRequest
 {
-    
-     /**
+    /**
      * @OA\Property(
      *      title="User First Name",
      *      description="first name of the user",
@@ -28,29 +26,26 @@ class AuthUpdateFormRequest extends FormRequest
     public $first_name;
 
     /**
-    * @OA\Property(
-    *      title="User Last Name",
-    *      description="Last name of the user",
-    *      example="Schneider"
-    * )
-    *
-    * @var string
-    */
-   public $last_name;
-
+     * @OA\Property(
+     *      title="User Last Name",
+     *      description="Last name of the user",
+     *      example="Schneider"
+     * )
+     *
+     * @var string
+     */
+    public $last_name;
 
     /**
-    * @OA\Property(
-    *      title="User Phone",
-    *      description="Phone of the user",
-    *      example="080222"
-    * )
-    *
-    * @var string
-    */
+     * @OA\Property(
+     *      title="User Phone",
+     *      description="Phone of the user",
+     *      example="080222"
+     * )
+     *
+     * @var string
+     */
     public $phone;
-
-
 
     /**
      * Determine if the user is authorized to make this request.

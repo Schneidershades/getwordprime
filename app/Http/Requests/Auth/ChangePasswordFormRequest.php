@@ -2,8 +2,8 @@
 
 namespace App\Http\Requests\Auth;
 
-use Illuminate\Foundation\Http\FormRequest;
 use App\Rules\CurrentPassword;
+use Illuminate\Foundation\Http\FormRequest;
 
 /**
  * @OA\Schema(
@@ -13,7 +13,6 @@ use App\Rules\CurrentPassword;
  *      required={"name"}
  * )
  */
-
 class ChangePasswordFormRequest extends FormRequest
 {
     /**
@@ -43,7 +42,6 @@ class ChangePasswordFormRequest extends FormRequest
      *
      * @return bool
      */
-
     public function authorize()
     {
         return true;
@@ -57,7 +55,7 @@ class ChangePasswordFormRequest extends FormRequest
     public function rules()
     {
         return [
-            'current_password' => ['required', new CurrentPassword() ],
+            'current_password' => ['required', new CurrentPassword()],
             'password' => 'required|string|min:6',
         ];
     }

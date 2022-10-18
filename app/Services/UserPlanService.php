@@ -2,9 +2,9 @@
 
 namespace App\Services;
 
+use App\Events\Subscription\TrialPlanEvent;
 use App\Models\Plan;
 use App\Traits\Api\ApiResponder;
-use App\Events\Subscription\TrialPlanEvent;
 
 class UserPlanService
 {

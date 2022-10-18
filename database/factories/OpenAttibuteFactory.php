@@ -8,6 +8,7 @@ use Illuminate\Database\Eloquent\Factories\Factory;
 class OpenAttibuteFactory extends Factory
 {
     protected $model = OpenaiAttribute::class;
+
     /**
      * Define the model's default state.
      *

@@ -15,25 +15,25 @@ class TutorialTableSeeder extends Seeder
     public function run()
     {
         Tutorial::create([
-            'title'             => 'Title 1',
-            'description'      => 'description',
-            'link'             => 'https://www.youtube.com/watch?v=pRS9LRBgjYg',
+            'title' => 'Title 1',
+            'description' => 'description',
+            'link' => 'https://www.youtube.com/watch?v=pRS9LRBgjYg',
         ]);
 
         Tutorial::create([
-            'title'             => 'Title 1',
-            'description'      => 'description',
-            'link'             => 'https://www.youtube.com/watch?v=pRS9LRBgjYg',
+            'title' => 'Title 1',
+            'description' => 'description',
+            'link' => 'https://www.youtube.com/watch?v=pRS9LRBgjYg',
         ]);
         Tutorial::create([
-            'title'             => 'Title 1',
-            'description'      => 'description',
-            'link'             => 'https://www.youtube.com/watch?v=pRS9LRBgjYg',
+            'title' => 'Title 1',
+            'description' => 'description',
+            'link' => 'https://www.youtube.com/watch?v=pRS9LRBgjYg',
         ]);
         Tutorial::create([
-            'title'             => 'Title 1',
-            'description'      => 'description',
-            'link'             => 'https://www.youtube.com/watch?v=pRS9LRBgjYg',
+            'title' => 'Title 1',
+            'description' => 'description',
+            'link' => 'https://www.youtube.com/watch?v=pRS9LRBgjYg',
         ]);
     }
 }

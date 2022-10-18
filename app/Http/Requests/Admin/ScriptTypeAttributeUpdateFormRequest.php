@@ -13,8 +13,6 @@ use Illuminate\Foundation\Http\FormRequest;
  *      required={"name"}
  * )
  */
-
-
 class ScriptTypeAttributeUpdateFormRequest extends FormRequest
 {
     /**
@@ -38,7 +36,6 @@ class ScriptTypeAttributeUpdateFormRequest extends FormRequest
      * @var int
      */
     private $script_type_id;
-    
 
     /**
      * Determine if the user is authorized to make this request.

@@ -2,11 +2,10 @@
 
 namespace App\Http\Controllers\Api\Auth;
 
-use App\Models\User;
-use Illuminate\Http\Request;
-use App\Rules\CurrentPassword;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Auth\ChangePasswordFormRequest;
+use App\Models\User;
+use Illuminate\Http\Request;
 
 class ChangePasswordController extends Controller
 {
@@ -40,13 +39,13 @@ class ChangePasswordController extends Controller
      *          response=403,
      *          description="Forbidden"
      *      ),
-    *      security={ {"bearerAuth": {}} },
+     *      security={ {"bearerAuth": {}} },
      * )
      */
-
     public function __invoke(ChangePasswordFormRequest $request)
     {
-        User::find(auth()->user()->id)->update(['password'=> bcrypt($request->password)]);
+        User::find(auth()->user()->id)->update(['password' => bcrypt($request->password)]);
+
         return $this->showMessage('your password has been changed');
     }
 }

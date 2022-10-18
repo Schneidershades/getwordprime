@@ -17,8 +17,6 @@ class BonusCollection extends ResourceCollection
         return parent::toArray($request);
     }
 
-
-
     public static function originalAttribute($index)
     {
         $attribute = [
@@ -32,14 +30,14 @@ class BonusCollection extends ResourceCollection
     }
 
      public static function transformedAttribute($index)
-    {
-        $attribute = [
-            'id' => 'id',
-            'name' => 'name',
-            'description' => 'description',
-            'url' => 'url',
-        ];
+     {
+         $attribute = [
+             'id' => 'id',
+             'name' => 'name',
+             'description' => 'description',
+             'url' => 'url',
+         ];
 
-        return isset($attribute[$index]) ? $attribute[$index] : null;
-    }
+         return isset($attribute[$index]) ? $attribute[$index] : null;
+     }
 }

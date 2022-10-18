@@ -4,8 +4,6 @@ namespace App\Listeners\User;
 
 use App\Mail\User\UserWelcomeMail;
 use Illuminate\Support\Facades\Mail;
-use Illuminate\Queue\InteractsWithQueue;
-use Illuminate\Contracts\Queue\ShouldQueue;
 
 class WelcomeMail
 {

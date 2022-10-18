@@ -4,21 +4,21 @@ namespace App\Exports\Admin;
 
 use App\Models\User;
 use Maatwebsite\Excel\Concerns\Exportable;
-use Maatwebsite\Excel\Concerns\WithMapping;
-use Maatwebsite\Excel\Concerns\WithHeadings;
 use Maatwebsite\Excel\Concerns\FromCollection;
 use Maatwebsite\Excel\Concerns\ShouldAutoSize;
+use Maatwebsite\Excel\Concerns\WithHeadings;
+use Maatwebsite\Excel\Concerns\WithMapping;
 
 class UsersExport implements FromCollection, ShouldAutoSize, WithMapping, WithHeadings
 {
     use Exportable;
-    
+
     public function collection()
     {
         return User::all();
     }
 
-    public function map($user) : array
+    public function map($user): array
     {
         return [
             $user->first_name,

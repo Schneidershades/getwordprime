@@ -26,14 +26,14 @@ class ScriptResponseCollection extends ResourceCollection
     }
 
      public static function transformedAttribute($index)
-    {
-        $attribute = [
-            'id' => 'id',
-            'text' => 'text',
-            'script_content' => 'script_content',
-            'script_type_name' => 'script_type_name',
-        ];
+     {
+         $attribute = [
+             'id' => 'id',
+             'text' => 'text',
+             'script_content' => 'script_content',
+             'script_type_name' => 'script_type_name',
+         ];
 
-        return isset($attribute[$index]) ? $attribute[$index] : null;
-    }
+         return isset($attribute[$index]) ? $attribute[$index] : null;
+     }
 }

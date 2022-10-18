@@ -7,7 +7,6 @@ use Illuminate\Database\Eloquent\Factories\Factory;
 
 class CampaignFactory extends Factory
 {
-    
     protected $model = Campaign::class;
 
     /**

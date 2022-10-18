@@ -31,15 +31,15 @@ class PlatformIntegrationCollection extends ResourceCollection
     }
 
      public static function transformedAttribute($index)
-    {
-        $attribute = [
-            'id' => 'id',
-            'platform_integration_id' => 'platform_integration_id',
-            'user_id' => 'user_id',
-            'platform_keys' => 'platform_keys',
-            'activate' => 'activate',
-        ];
+     {
+         $attribute = [
+             'id' => 'id',
+             'platform_integration_id' => 'platform_integration_id',
+             'user_id' => 'user_id',
+             'platform_keys' => 'platform_keys',
+             'activate' => 'activate',
+         ];
 
-        return isset($attribute[$index]) ? $attribute[$index] : null;
-    }
+         return isset($attribute[$index]) ? $attribute[$index] : null;
+     }
 }

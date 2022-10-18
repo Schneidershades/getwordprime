@@ -4,7 +4,6 @@ namespace App\Http\Requests\Admin;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-
 /**
  * @OA\Schema(
  *      title="Bonus Update Form Request Fields",
@@ -13,12 +12,8 @@ use Illuminate\Foundation\Http\FormRequest;
  *      required={"name"}
  * )
  */
-
- 
-
 class BonusUpdateFormRequest extends FormRequest
 {
-
     /**
      * @OA\Property(
      *      title="name",
@@ -40,8 +35,6 @@ class BonusUpdateFormRequest extends FormRequest
      * @var string
      */
     private $description;
-
-
 
     /**
      * @OA\Property(

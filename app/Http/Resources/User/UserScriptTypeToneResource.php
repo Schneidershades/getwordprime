@@ -15,9 +15,9 @@ class UserScriptTypeToneResource extends JsonResource
     public function toArray($request)
     {
         return [
-            "script_type_allowed_tone" => $this->scriptType->tone ? true : false,
-            "script_type_tone_question" => 'Choose a tone (Optional)',
-            "tone" => $this->tone,
+            'script_type_allowed_tone' => $this->scriptType->tone ? true : false,
+            'script_type_tone_question' => 'Choose a tone (Optional)',
+            'tone' => $this->tone,
         ];
     }
 }

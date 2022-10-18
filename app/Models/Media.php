@@ -3,11 +3,11 @@
 namespace App\Models;
 
 use App\Traits\Uuids;
-use Illuminate\Support\Str;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Storage;
-use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Support\Facades\URL;
+use Illuminate\Support\Str;
 
 class Media extends Model
 {
@@ -34,6 +34,7 @@ class Media extends Model
             // return Storage::disk('s3')->url($this->file_path);
             return URL::to($this->file_path);
         }
+
         return null;
     }
 

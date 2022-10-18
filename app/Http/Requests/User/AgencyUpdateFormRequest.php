@@ -3,6 +3,7 @@
 namespace App\Http\Requests\User;
 
 use Illuminate\Foundation\Http\FormRequest;
+
 /**
 /**
  * @OA\Schema(
@@ -25,7 +26,6 @@ class AgencyUpdateFormRequest extends FormRequest
      */
     private $name;
 
-
     /**
      * @OA\Property(
      *      title="agency email",
@@ -38,14 +38,13 @@ class AgencyUpdateFormRequest extends FormRequest
     private $email;
 
     /**
-    *       @OA\Property(property="campaigns", type="object", type="array",
-    *            @OA\Items(
-    *                @OA\Property(property="campaign_id", type="int", example="1"),
-    *            ),
-    *        ),
-    *    ),
-    */
-
+     *       @OA\Property(property="campaigns", type="object", type="array",
+     *            @OA\Items(
+     *                @OA\Property(property="campaign_id", type="int", example="1"),
+     *            ),
+     *        ),
+     *    ),
+     */
     public $campaigns;
 
     /**
@@ -68,7 +67,7 @@ class AgencyUpdateFormRequest extends FormRequest
         return [
             'name' => 'required|string',
             'email' => 'required|email',
-            'campaigns' => 'array', 
+            'campaigns' => 'array',
             'campaigns.*.campaign_id' => 'int|exists:plans,id',
         ];
     }

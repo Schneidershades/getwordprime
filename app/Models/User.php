@@ -2,34 +2,27 @@
 
 namespace App\Models;
 
-use App\Traits\Uuids;
-use App\Models\Plan;
-use App\Models\FavoriteScript;
-use App\Models\FlaggedScript;
-use App\Models\Agency;
-use App\Models\Script;
-use App\Models\Campaign;
-use App\Models\Suggestion;
-use App\Models\PlatformIntegration;
-use Spatie\Permission\Traits\HasRoles;
-use Illuminate\Notifications\Notifiable;
-use App\Http\Resources\User\UserResource;
 use App\Http\Resources\User\UserCollection;
-use Illuminate\Contracts\Auth\MustVerifyEmail;
-use PHPOpenSourceSaver\JWTAuth\Contracts\JWTSubject;
+use App\Http\Resources\User\UserResource;
 use App\Notifications\Auth\PasswordResetNotification;
+use App\Traits\Uuids;
+use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
+use Illuminate\Notifications\Notifiable;
+use PHPOpenSourceSaver\JWTAuth\Contracts\JWTSubject;
+use Spatie\Permission\Traits\HasRoles;
 
-class User extends Authenticatable implements MustVerifyEmail, JWTSubject 
+class User extends Authenticatable implements MustVerifyEmail, JWTSubject
 {
     use HasFactory, Notifiable, HasRoles, Uuids;
 
     protected $guard_name = 'api';
-    
+
     protected $guarded = [];
 
     public $oneItem = UserResource::class;
+
     public $allItems = UserCollection::class;
 
     /**
@@ -111,7 +104,7 @@ class User extends Authenticatable implements MustVerifyEmail, JWTSubject
 
     public function plans()
     {
-    	return $this->belongsToMany(Plan::class, 'user_plans');
+        return $this->belongsToMany(Plan::class, 'user_plans');
     }
 
     public function platformIntegrations()

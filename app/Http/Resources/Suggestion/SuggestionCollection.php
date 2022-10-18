@@ -31,15 +31,15 @@ class SuggestionCollection extends ResourceCollection
     }
 
      public static function transformedAttribute($index)
-    {
-        $attribute = [
-            'id' => 'id',
-            'message' => 'message',
-            'user_id' => 'user_id',
-            'parent_id' => 'parent_id',
-            'status' => 'status',
-        ];
+     {
+         $attribute = [
+             'id' => 'id',
+             'message' => 'message',
+             'user_id' => 'user_id',
+             'parent_id' => 'parent_id',
+             'status' => 'status',
+         ];
 
-        return isset($attribute[$index]) ? $attribute[$index] : null;
-    }
+         return isset($attribute[$index]) ? $attribute[$index] : null;
+     }
 }

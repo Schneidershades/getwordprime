@@ -68,6 +68,7 @@ class UserService
                     ]
                 )
             );
+
         return $user;
     }
 

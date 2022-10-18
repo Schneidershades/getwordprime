@@ -3,8 +3,8 @@
 namespace Database\Seeders;
 
 use App\Models\ScriptType;
-use Illuminate\Database\Seeder;
 use App\Models\ScriptTypePreset;
+use Illuminate\Database\Seeder;
 
 class ScriptTypePresetTableSeeder extends Seeder
 {
@@ -16,13 +16,11 @@ class ScriptTypePresetTableSeeder extends Seeder
     public function run()
     {
         ScriptTypePreset::create([
-            'script_type_id'        => ScriptType::first()->id,
-            'question'              => 'The name of the product is ',
-            'field_type'            => 'text',
-            'label'                 => 'Product Name',
-            'placeholder'           => 'Maximilla hairoil',
+            'script_type_id' => ScriptType::first()->id,
+            'question' => 'The name of the product is ',
+            'field_type' => 'text',
+            'label' => 'Product Name',
+            'placeholder' => 'Maximilla hairoil',
         ]);
     }
 }
-
-

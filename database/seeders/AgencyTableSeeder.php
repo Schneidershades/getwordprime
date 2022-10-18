@@ -15,13 +15,13 @@ class AgencyTableSeeder extends Seeder
     public function run()
     {
         Agency::create([
-            'name'             => 'item matt',
-            'email'         => 'item@matt.com',
+            'name' => 'item matt',
+            'email' => 'item@matt.com',
         ]);
 
         Agency::create([
-            'name'             => 'info matt',
-            'email'         => 'info@matt.com',
+            'name' => 'info matt',
+            'email' => 'info@matt.com',
         ]);
     }
 }

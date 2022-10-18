@@ -28,7 +28,6 @@ class ForgotPasswordListener
         $details = $event->detail;
         $link = $event->link;
 
-
         Mail::to($details['email'])->send(new \App\Mail\ForgetPasswordEmail($details, $link));
     }
 }

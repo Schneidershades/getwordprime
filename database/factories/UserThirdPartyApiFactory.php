@@ -8,6 +8,7 @@ use Illuminate\Database\Eloquent\Factories\Factory;
 class UserThirdPartyApiFactory extends Factory
 {
     protected $model = UserThirdPartyApi::class;
+
     /**
      * Define the model's default state.
      *

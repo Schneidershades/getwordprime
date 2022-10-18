@@ -13,11 +13,8 @@ use Illuminate\Foundation\Http\FormRequest;
  *      required={"name"}
  * )
  */
-
-
 class UserCreateFormRequest extends FormRequest
 {
-    
     /**
      * @OA\Property(
      *      title="First Name",
@@ -39,7 +36,6 @@ class UserCreateFormRequest extends FormRequest
      * @var string
      */
     public $last_name;
-
 
     /**
      * @OA\Property(
@@ -63,7 +59,6 @@ class UserCreateFormRequest extends FormRequest
      */
     public $email;
 
-
     /**
      * @OA\Property(
      *      title="User password",
@@ -76,16 +71,15 @@ class UserCreateFormRequest extends FormRequest
     public $password;
 
     /**
-    *       @OA\Property(property="plans", type="object", type="array",
-    *            @OA\Items(
-    *                @OA\Property(property="plan_id", type="int", example="1"),
-    *            ),
-    *        ),
-    *    ),
-    */
-
+     *       @OA\Property(property="plans", type="object", type="array",
+     *            @OA\Items(
+     *                @OA\Property(property="plan_id", type="int", example="1"),
+     *            ),
+     *        ),
+     *    ),
+     */
     public $plans;
-    
+
     /**
      * Determine if the user is authorized to make this request.
      *
@@ -109,7 +103,7 @@ class UserCreateFormRequest extends FormRequest
             'password' => 'required|string|min:8',
             'email' => 'required|string|email|max:255|unique:users',
             'role' => 'required|string|max:255|in:Admin,User',
-            'plans' => 'array', 
+            'plans' => 'array',
             'plans.*.plan_id' => 'int|exists:plans,id',
         ];
     }

@@ -4,7 +4,6 @@ namespace App\Http\Requests\Admin;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-
 /**
  * @OA\Schema(
  *      title="ThirdPartyPlatform Store Form Request Fields",
@@ -13,8 +12,6 @@ use Illuminate\Foundation\Http\FormRequest;
  *      required={"name"}
  * )
  */
-
-
 class ThirdPartyPlatformStoreFormRequest extends FormRequest
 {
     /**

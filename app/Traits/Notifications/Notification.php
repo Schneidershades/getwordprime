@@ -2,9 +2,9 @@
 
 namespace App\Traits\Notifications;
 
-use ReflectionClass;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Notifications\Notification as BaseNotification;
+use ReflectionClass;
 
 class Notification extends BaseNotification
 {
@@ -17,13 +17,13 @@ class Notification extends BaseNotification
         return array_map(function ($param) {
             $class = $param->getClass();
 
-            if (!$class->isSubclassOf(Model::class)) {
+            if (! $class->isSubclassOf(Model::class)) {
                 return;
             }
 
             return [
                 'id' => $this->{$param->name}->id,
-                'class' => $class->name
+                'class' => $class->name,
             ];
         }, $params);
     }
