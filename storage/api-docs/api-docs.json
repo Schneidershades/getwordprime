@@ -10,8 +10,12 @@
     },
     "servers": [
         {
-            "url": "http://getwordprime.herokuapp.com/",
+            "url": "https://getwordprime.herokuapp.com/",
             "description": "Staging API server"
+        },
+        {
+            "url": "http://convertscript.test/",
+            "description": "Local API server"
         }
     ],
     "paths": {

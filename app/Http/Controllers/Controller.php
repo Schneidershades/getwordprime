@@ -22,8 +22,12 @@ use Illuminate\Support\Facades\Schema;
  *     @OA\Contact(email="schneidershades@gmail.com")
  * )
  * @OA\Server(
- *     url="http://getwordprime.herokuapp.com/",
+ *     url="https://getwordprime.herokuapp.com/",
  *     description="Staging API server"
+ * )
+ * @OA\Server(
+ *     url="http://convertscript.test/",
+ *     description="Local API server"
  * )
  *  @OA\SecurityScheme(
  *     securityScheme="bearerAuth",
