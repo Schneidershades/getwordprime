@@ -120,10 +120,10 @@ class ScriptController extends Controller
                             ->whereIn('script_type_preset_id', $presets)
                             ->get();
 
-        return [
-            "0" => $countPresets,
-            "1" => $userAnswers
-        ];
+        // return [
+        //     "0" => $countPresets,
+        //     "1" => $userAnswers
+        // ];
 
         if ($countPresets < $userAnswers->count()) {
             return $this->errorResponse('In other to generate a script kindly set all the answers in the script type questions', 422);
