@@ -234,6 +234,10 @@ class UserScriptTypePresetController extends Controller
             }
         }
 
+        foreach(auth()->user()->presets as $preset){
+            $preset->delete();
+        }
+
         foreach ($request['presets'] as $preset) {
             $userPreset = UserScriptTypePreset::find($preset['user_script_type_preset_id']);
 
