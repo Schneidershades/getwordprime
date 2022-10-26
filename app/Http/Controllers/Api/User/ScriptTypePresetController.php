@@ -44,7 +44,7 @@ class ScriptTypePresetController extends Controller
      /**
      * @OA\Get(
      *      path="/api/v1/script-type-presets/{id}",
-     *      operationId="showScriptTypeUserPromptAnswer",
+     *      operationId="showScriptTypePresets",
      *      tags={"user"},
      *      summary="Show an answer",
      *      description="Show an answer",
