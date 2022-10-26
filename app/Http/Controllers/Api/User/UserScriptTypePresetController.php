@@ -122,7 +122,7 @@ class UserScriptTypePresetController extends Controller
      *          required=true,
      *          in="path",
      *          @OA\Schema(
-     *              type="integer"
+     *              type="string"
      *          )
      *      ),
      *
@@ -167,7 +167,7 @@ class UserScriptTypePresetController extends Controller
      *          required=false,
      *          in="path",
      *          @OA\Schema(
-     *              type="integer"
+     *              type="string"
      *          )
      *     ),
      *      @OA\RequestBody(
@@ -276,7 +276,7 @@ class UserScriptTypePresetController extends Controller
      *          required=true,
      *          in="path",
      *          @OA\Schema(
-     *              type="integer"
+     *              type="string"
      *          )
      *      ),
      *      @OA\Response(

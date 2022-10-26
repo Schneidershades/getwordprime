@@ -120,7 +120,6 @@ class ScriptController extends Controller
                             ->whereIn('script_type_preset_id', $presets)
                             ->get();
 
-
         return $countPresets .' '. $userAnswers->count();
 
         if ($countPresets < $userAnswers->count()) {
@@ -200,7 +199,7 @@ class ScriptController extends Controller
      *          required=true,
      *          in="path",
      *          @OA\Schema(
-     *              type="integer"
+     *              type="string"
      *          )
      *      ),
      *
@@ -245,7 +244,7 @@ class ScriptController extends Controller
      *          required=true,
      *          in="path",
      *          @OA\Schema(
-     *              type="integer"
+     *              type="string"
      *          )
      *      ),
      *      @OA\RequestBody(
@@ -295,7 +294,7 @@ class ScriptController extends Controller
      *          required=true,
      *          in="path",
      *          @OA\Schema(
-     *              type="integer"
+     *              type="string"
      *          )
      *      ),
      *      @OA\Response(
