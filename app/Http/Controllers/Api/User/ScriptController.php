@@ -116,6 +116,8 @@ class ScriptController extends Controller
 
         $countPresets = $scriptType->presets->count();
 
+        return $countPresets .' '. $userAnswers->count();
+
         $userAnswers = UserScriptTypePreset::where('user_id', auth()->user()->id)
                             ->whereIn('script_type_preset_id', $presets)
                             ->get();
