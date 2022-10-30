@@ -93,30 +93,30 @@ class PlanTableSeeder extends Seeder
             'name' => 'SMS Notifications',
         ]);
 
-        $usersFeature = Feature::where('name', 'Number of Users')->first();
-        $envelopsFeature = Feature::where('name', 'Number of Envelops')->first();
-        $trailFeature = Feature::where('name', 'Access to audit trail')->first();
-        $sealFeature = Feature::where('name', 'Digitise, Signature, Stamp and Seal')->first();
-        $brandingFeature = Feature::where('name', 'Personal Branding')->first();
-        $smsFeature = Feature::where('name', 'SMS Notifications')->first();
+        // $usersFeature = Feature::where('name', 'Number of Users')->first();
+        // $envelopsFeature = Feature::where('name', 'Number of Envelops')->first();
+        // $trailFeature = Feature::where('name', 'Access to audit trail')->first();
+        // $sealFeature = Feature::where('name', 'Digitise, Signature, Stamp and Seal')->first();
+        // $brandingFeature = Feature::where('name', 'Personal Branding')->first();
+        // $smsFeature = Feature::where('name', 'SMS Notifications')->first();
 
-        $basic->features()->attach($usersFeature, ['charges' => 10]);
-        $pro->features()->attach($usersFeature, ['charges' => 500]);
-        $business->features()->attach($usersFeature, ['charges' => 1000]);
+        // $basic->features()->attach($usersFeature, ['charges' => 1]);
+        // $pro->features()->attach($usersFeature, ['charges' => 3]);
+        // $business->features()->attach($usersFeature, ['charges' => 10]);
 
-        $basic->features()->attach($envelopsFeature, ['charges' => 10]);
-        $pro->features()->attach($envelopsFeature, ['charges' => 500]);
-        $business->features()->attach($envelopsFeature, ['charges' => 1000]);
+        // $basic->features()->attach($envelopsFeature, ['charges' => 10]);
+        // $pro->features()->attach($envelopsFeature, ['charges' => 50]);
+        // $business->features()->attach($envelopsFeature, ['charges' => 100]);
 
-        $basic->features()->attach($trailFeature);
-        $pro->features()->attach($trailFeature);
-        $business->features()->attach($trailFeature);
+        // $basic->features()->attach($trailFeature);
+        // $pro->features()->attach($trailFeature);
+        // $business->features()->attach($trailFeature);
 
-        $basic->features()->attach($sealFeature);
-        $pro->features()->attach($sealFeature);
-        $business->features()->attach($sealFeature);
+        // $basic->features()->attach($sealFeature);
+        // $pro->features()->attach($sealFeature);
+        // $business->features()->attach($sealFeature);
 
-        $business->features()->attach($brandingFeature);
-        $business->features()->attach($smsFeature);
+        // $business->features()->attach($brandingFeature);
+        // $business->features()->attach($smsFeature);
     }
 }
