@@ -2,7 +2,9 @@
 
 namespace App\Http\Resources\Transaction;
 
-use App\Http\Resources\User\UserNameResource;
+use App\Models\Location\Country;
+use App\Models\PaymentGateway;
+use App\Services\PaymentChargeService;
 use Illuminate\Http\Resources\Json\JsonResource;
 
 class TransactionResource extends JsonResource
