@@ -4094,172 +4094,6 @@
                 ]
             }
         },
-        "/api/v1/transactions": {
-            "get": {
-                "tags": [
-                    "Transaction"
-                ],
-                "summary": "transactions",
-                "description": "transactions",
-                "operationId": "transactions",
-                "responses": {
-                    "200": {
-                        "description": "Successful signin",
-                        "content": {
-                            "application/json": {}
-                        }
-                    },
-                    "400": {
-                        "description": "Bad Request"
-                    },
-                    "401": {
-                        "description": "unauthenticated"
-                    },
-                    "403": {
-                        "description": "Forbidden"
-                    }
-                },
-                "security": [
-                    {
-                        "bearerAuth": []
-                    }
-                ]
-            },
-            "post": {
-                "tags": [
-                    "Transaction"
-                ],
-                "summary": "postTransactions",
-                "description": "postTransactions",
-                "operationId": "postTransactions",
-                "requestBody": {
-                    "required": true,
-                    "content": {
-                        "application/json": {
-                            "schema": {
-                                "$ref": "#/components/schemas/StoreTransactionFormRequest"
-                            }
-                        }
-                    }
-                },
-                "responses": {
-                    "200": {
-                        "description": "Successful signin",
-                        "content": {
-                            "application/json": {}
-                        }
-                    },
-                    "400": {
-                        "description": "Bad Request"
-                    },
-                    "401": {
-                        "description": "unauthenticated"
-                    },
-                    "403": {
-                        "description": "Forbidden"
-                    }
-                },
-                "security": [
-                    {
-                        "bearerAuth": []
-                    }
-                ]
-            }
-        },
-        "/api/v1/transactions/{id}": {
-            "get": {
-                "tags": [
-                    "Transaction"
-                ],
-                "summary": "showTransactions",
-                "description": "showTransactions",
-                "operationId": "showTransactions",
-                "parameters": [
-                    {
-                        "name": "id",
-                        "in": "path",
-                        "description": "Transaction ID",
-                        "required": true,
-                        "schema": {
-                            "type": "string"
-                        }
-                    }
-                ],
-                "responses": {
-                    "200": {
-                        "description": "Successful signin",
-                        "content": {
-                            "application/json": {}
-                        }
-                    },
-                    "400": {
-                        "description": "Bad Request"
-                    },
-                    "401": {
-                        "description": "unauthenticated"
-                    },
-                    "403": {
-                        "description": "Forbidden"
-                    }
-                },
-                "security": [
-                    {
-                        "bearerAuth": []
-                    }
-                ]
-            },
-            "put": {
-                "tags": [
-                    "Transaction"
-                ],
-                "summary": "updateTransactions",
-                "description": "updateTransactions",
-                "operationId": "updateTransactions",
-                "parameters": [
-                    {
-                        "name": "id",
-                        "in": "path",
-                        "description": "Transaction ID",
-                        "required": true,
-                        "schema": {
-                            "type": "string"
-                        }
-                    }
-                ],
-                "requestBody": {
-                    "required": true,
-                    "content": {
-                        "application/json": {
-                            "schema": {
-                                "$ref": "#/components/schemas/UpdateTransactionFormRequest"
-                            }
-                        }
-                    }
-                },
-                "responses": {
-                    "200": {
-                        "description": "Successful signin",
-                        "content": {
-                            "application/json": {}
-                        }
-                    },
-                    "400": {
-                        "description": "Bad Request"
-                    },
-                    "401": {
-                        "description": "unauthenticated"
-                    },
-                    "403": {
-                        "description": "Forbidden"
-                    }
-                },
-                "security": [
-                    {
-                        "bearerAuth": []
-                    }
-                ]
-            }
-        },
         "/api/v1/agency/{id}/campaign": {
             "get": {
                 "tags": [
@@ -6296,6 +6130,172 @@
                 "summary": "Get tones",
                 "description": "Get tones",
                 "operationId": "allUserTones",
+                "responses": {
+                    "200": {
+                        "description": "Successful signin",
+                        "content": {
+                            "application/json": {}
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    },
+                    "401": {
+                        "description": "unauthenticated"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        },
+        "/api/v1/transactions": {
+            "get": {
+                "tags": [
+                    "Transactions"
+                ],
+                "summary": "Get Transactions",
+                "description": "Get Transactions",
+                "operationId": "allUserTransactions",
+                "responses": {
+                    "200": {
+                        "description": "Successful signin",
+                        "content": {
+                            "application/json": {}
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    },
+                    "401": {
+                        "description": "unauthenticated"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            },
+            "post": {
+                "tags": [
+                    "Transaction"
+                ],
+                "summary": "postTransactions",
+                "description": "postTransactions",
+                "operationId": "postUserTransactions",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/StoreTransactionFormRequest"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Successful signin",
+                        "content": {
+                            "application/json": {}
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    },
+                    "401": {
+                        "description": "unauthenticated"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        },
+        "/api/v1/transactions/{id}": {
+            "get": {
+                "tags": [
+                    "Transaction"
+                ],
+                "summary": "showTransactions",
+                "description": "showTransactions",
+                "operationId": "showUserTransactions",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Transaction ID",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful signin",
+                        "content": {
+                            "application/json": {}
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    },
+                    "401": {
+                        "description": "unauthenticated"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            },
+            "put": {
+                "tags": [
+                    "Transaction"
+                ],
+                "summary": "updateTransactions",
+                "description": "updateTransactions",
+                "operationId": "updateUserTransactions",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Transaction ID",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/UpdateTransactionFormRequest"
+                            }
+                        }
+                    }
+                },
                 "responses": {
                     "200": {
                         "description": "Successful signin",
