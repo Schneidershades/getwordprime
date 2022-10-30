@@ -17,8 +17,8 @@ use Illuminate\Support\Facades\Schema;
  * )
  * @OA\Info(
  *     version="3.0",
- *     title="ToNote App OpenApi API Documentation",
- *     description="ToNote App Using L5 Swagger OpenApi description",
+ *     title="WordPrime App OpenApi API Documentation",
+ *     description="WordPrime App Using L5 Swagger OpenApi description",
  *     @OA\Contact(email="schneidershades@gmail.com")
  * )
  * @OA\Server(
