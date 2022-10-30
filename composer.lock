@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "89b39ef180e7f0d0b67ea9055ae61482",
+    "content-hash": "5a66d9449741a709a62a3848f883519b",
     "packages": [
         {
             "name": "arcanedev/log-viewer",
@@ -3444,16 +3444,16 @@
         },
         {
             "name": "lucasdotvin/laravel-soulbscription",
-            "version": "2.6",
+            "version": "3.0.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/lucasdotvin/laravel-soulbscription.git",
-                "reference": "632e46a271e08c5bfab75348d3b3621596eafacf"
+                "reference": "080fb17bef6a880a6728e36e7422772b866f8b32"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/lucasdotvin/laravel-soulbscription/zipball/632e46a271e08c5bfab75348d3b3621596eafacf",
-                "reference": "632e46a271e08c5bfab75348d3b3621596eafacf",
+                "url": "https://api.github.com/repos/lucasdotvin/laravel-soulbscription/zipball/080fb17bef6a880a6728e36e7422772b866f8b32",
+                "reference": "080fb17bef6a880a6728e36e7422772b866f8b32",
                 "shasum": ""
             },
             "require": {
@@ -3502,7 +3502,7 @@
             ],
             "support": {
                 "issues": "https://github.com/lucasdotvin/laravel-soulbscription/issues",
-                "source": "https://github.com/lucasdotvin/laravel-soulbscription/tree/2.6"
+                "source": "https://github.com/lucasdotvin/laravel-soulbscription/tree/3.0.1"
             },
             "funding": [
                 {
@@ -3510,7 +3510,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2022-10-11T00:33:46+00:00"
+            "time": "2022-10-12T16:57:50+00:00"
         },
         {
             "name": "maatwebsite/excel",

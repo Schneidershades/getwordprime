@@ -20,7 +20,7 @@
         "laravel/tinker": "^2.7",
         "laravel/ui": "^3.4",
         "league/flysystem-aws-s3-v3": "^3.0",
-        "lucasdotvin/laravel-soulbscription": "^2.2.1",
+        "lucasdotvin/laravel-soulbscription": "^3.0",
         "maatwebsite/excel": "^3.1",
         "owen-it/laravel-auditing": "^13.0",
         "php-open-source-saver/jwt-auth": "^1.4",
