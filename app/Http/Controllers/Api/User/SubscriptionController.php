@@ -42,8 +42,7 @@ class SubscriptionController extends Controller
                     ->where('type', 'Subscription')
                     ->where('name', '!=', 'Basic')
                     ->where('amount', '>', 0)
-                    ->orWhere('name', 'Custom')
-                    ->with('features')->get();
+                    ->orWhere('name', 'Custom')->get();
 
         return $this->showAll($plans);
     }

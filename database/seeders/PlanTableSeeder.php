@@ -100,13 +100,13 @@ class PlanTableSeeder extends Seeder
         $brandingFeature = Feature::where('name', 'Personal Branding')->first();
         $smsFeature = Feature::where('name', 'SMS Notifications')->first();
 
-        $basic->features()->attach($usersFeature, ['charges' => 1]);
-        $pro->features()->attach($usersFeature, ['charges' => 3]);
-        $business->features()->attach($usersFeature, ['charges' => 10]);
+        $basic->features()->attach($usersFeature, ['charges' => 10]);
+        $pro->features()->attach($usersFeature, ['charges' => 500]);
+        $business->features()->attach($usersFeature, ['charges' => 1000]);
 
         $basic->features()->attach($envelopsFeature, ['charges' => 10]);
-        $pro->features()->attach($envelopsFeature, ['charges' => 50]);
-        $business->features()->attach($envelopsFeature, ['charges' => 100]);
+        $pro->features()->attach($envelopsFeature, ['charges' => 500]);
+        $business->features()->attach($envelopsFeature, ['charges' => 1000]);
 
         $basic->features()->attach($trailFeature);
         $pro->features()->attach($trailFeature);
