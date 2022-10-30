@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\Api\Plan;
+namespace App\Http\Controllers\Api\User;
 
 use App\Http\Controllers\Controller;
 use App\Models\Plan;
@@ -10,7 +10,7 @@ class SubscriptionController extends Controller
     /**
      * @OA\Get(
      *      path="/api/v1/subscription-plans",
-     *      operationId="allPlans",
+     *      operationId="subPlans",
      *      tags={"Plans"},
      *      summary="All plans",
      *      description="All plans",

@@ -20,6 +20,7 @@ Route::prefix('v1')->group(function () {
     });
 
     Route::group(['middleware' => 'auth:api', 'namespace' => 'Api\User'], function () {
+        Route::resource('subscription-plans', APlanController::class);
         Route::resource('agencies', AgencyController::class);
         Route::resource('tones', ToneController::class);
         Route::resource('languages', LanguageController::class);
