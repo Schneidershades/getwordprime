@@ -19,14 +19,14 @@ class PlanSubscriptionService
 
     public function sendEmail()
     {
-        event(new PlanPaymentConfirmation($this->transaction));
+        // event(new PlanPaymentConfirmation($this->transaction));
     }
 
     public function processSubscriptionPlan()
     {
-        $this->transaction->user->activeTeam->team->switchTo($this->findPlan());
+        // $this->transaction->user->activeTeam->team->switchTo($this->findPlan());
 
-        $this->sendEmail();
+        // $this->sendEmail();
     }
 
     public function findPlan(): Plan
