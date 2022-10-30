@@ -40,9 +40,7 @@ class SubscriptionController extends Controller
     {
         $plans = Plan::where('periodicity_type', 'Month')
                     ->where('type', 'Subscription')
-                    ->where('name', '!=', 'Basic')
-                    ->where('amount', '>', 0)
-                    ->orWhere('name', 'Custom')->get();
+                    ->where('amount', '>', 0);
 
         return $this->showAll($plans);
     }
