@@ -19,7 +19,7 @@ class DatabaseSeeder extends Seeder
         $this->call(ScriptTypeCategorySeeder::class);
         $this->call(TutorialTableSeeder::class);
         $this->call(SuggestionTableSeeder::class);
-        // $this->call(PlansTableSeeder::class);
+        $this->call(PlanTableSeeder::class);
         // $this->call(ThirdPartyPlatformsTableSeeder::class);
         // $this->call(TransactionTableSeeder::class);
         $this->call(BonusTableSeeder::class);
