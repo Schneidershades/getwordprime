@@ -56,13 +56,13 @@ class DocumentResourceToolService
         // $this->sendSignedCompletedMail($document);
     }
 
-    public function checkIfToolIsSigned(DocumentResourceTool $documentResourceTool)
+    public function checkIfToolIsSigned(DocumentResourceTool $tool)
     {
-        if ($documentResourceTool->append_print_id != '') {
-            $this->sendSignerSignMail($documentResourceTool);
+        if ($tool->append_print_id != '') {
+            $this->sendSignerSignMail($tool);
         }
 
-        $documentResourceTool?->upload?->document ? $this->checkIfSignatureIsCompleted($documentResourceTool?->upload?->document) : null;
+        // $documentResourceTool?->upload?->document ? $this->checkIfSignatureIsCompleted($documentResourceTool?->upload?->document) : null;
     }
 
     public function userTools(Document $document, User $user)

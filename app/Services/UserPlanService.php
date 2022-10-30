@@ -73,6 +73,6 @@ class UserPlanService
 
     public function sendEmail($user)
     {
-        ($this->isTrialPlan($user)) ? event(new TrialPlanEvent($user)) : null;
+        // ($this->isTrialPlan($user)) ? event(new TrialPlanEvent($user)) : null;
     }
 }

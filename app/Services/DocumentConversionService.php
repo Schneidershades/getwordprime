@@ -2,16 +2,17 @@
 
 namespace App\Services;
 
+use App\Models\User;
 use App\Models\Document;
-use App\Models\DocumentUpload;
+use Spatie\PdfToImage\Pdf;
 use App\Traits\Image\AwsS3;
 use Codedge\Fpdf\Fpdf\Fpdf;
-use Illuminate\Support\Facades\File;
 use Illuminate\Support\Str;
-use Lukaswhite\DocumentConverter\Converter;
-use PhpOffice\PhpWord\IOFactory;
+use App\Models\DocumentUpload;
 use PhpOffice\PhpWord\Settings;
-use Spatie\PdfToImage\Pdf;
+use PhpOffice\PhpWord\IOFactory;
+use Illuminate\Support\Facades\File;
+use Lukaswhite\DocumentConverter\Converter;
 
 class DocumentConversionService
 {
@@ -176,24 +177,30 @@ class DocumentConversionService
         }
     }
 
-    public function uploadDocument($file, $document, $uploadType = null, $status = null)
+    public function uploadDocument($file, $document, $uploadType = null, $status = null, $count = null)
     {
-        $this->createUpload($file, $document, $uploadType, $status);
+        return $this->createUpload($file, $document, $uploadType, $status, $count);
     }
 
-    public function createUpload($file, Document $document, $uploadType = null, $status = null)
+    public function createUpload($file, Document $document, $uploadType = null, $status = null, $count = null)
     {
         $url = $file['storage'] ? $this->storeImage($file['storage']) : null;
 
-        return DocumentUpload::create([
+        $upload = DocumentUpload::create([
             'id' => Str::uuid()->toString(),
             'file_url' => $url ? $url : null,
+            'file' => $file['storage'],
             'base64_type' => $file ? $file['base64_type'] : null,
             'type' => $file ? $file['type'] : null,
             'document_id' => $document->id,
             'user_id' => auth('api')->user()->id,
-            'status' => $status ? strtoupper($status) : 'Processing',
+            'status' => $status ? ucfirst($status) : 'Processing',
+            'count' => $count,
         ]);
+
+        $document->touch();
+
+        return $upload;
     }
 
     public function convertUrlPdfToPng($outputName, $filename, $document)
@@ -222,13 +229,37 @@ class DocumentConversionService
         return $this->createUpload($item, $document);
     }
 
-    public function storeRequestUploadFiles($request, $document)
+    public function storeRequestUploadFiles($request, $document, $status = null)
     {
+        $count = 1;
+
         foreach ($request['files'] as $file) {
+            $count = $count + 1 ;
             $fileProperty = $this->fileStorage($file, $document);
 
-            $this->uploadDocument($fileProperty, $document, 'storage', $status = null);
+            $this->uploadDocument($fileProperty, $document, 'storage', $status, $count);
         }
+    }
+
+    public function storeRequestSingleUploadFiles($upload, Document $document, User $user, $status, $count)
+    {
+        $file = $this->fileStorage($upload, $document);
+
+        $url = $file['storage'] ? $this->storeImage($file['storage']) : null;
+
+        DocumentUpload::create([
+            'id' => Str::uuid()->toString(),
+            'file_url' => $url ? $url : null,
+            'file' => $file['storage'],
+            'base64_type' => $file ? $file['base64_type'] : null,
+            'type' => $file ? $file['type'] : null,
+            'document_id' => $document->id,
+            'user_id' => $user->id,
+            'status' => $status ? ucfirst($status) : 'Processing',
+            'count' => $count,
+        ]);
+
+        $document->touch();
     }
 
     public function folderPath($model)

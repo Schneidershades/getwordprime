@@ -9,18 +9,21 @@ class DocumentService
 {
     public function createDocument($userId, $title, $public = true)
     {
-        return auth('api')->user()->activeTeam->team->documents()->create([
+        $document = auth('api')->user()->activeTeam->team->documents()->create([
             'title' => $title,
             'user_id' => $userId,
             'public' => $public,
         ]);
+
+        (new AuditTrailService(auth('api')->user(), $document))->createDocumentLog($document);
+
+        return $document;
     }
 
     public function userDocuments()
     {
         return auth('api')->user()
                 ->activeTeam
-                // ->team->documents()->with('uploads', 'uploads.tools', 'uploads.tools.appendPrint', 'participants')
                 ->team->documents()->with('uploads', 'participants')
                 ->withCount('participants', 'tools', 'uploads')
                 ->latest()->get();
@@ -28,6 +31,12 @@ class DocumentService
 
     public function userDocumentsInShortDetails()
     {
+        // $documentIds = auth('api')->user()->documentParticipants->pluck('document_id')->toArray();
+
+        // return Document::whereIn('id', $documentIds)
+        //         ->withCount('participants', 'tools', 'uploads')
+        //         ->latest()->get();
+
         return auth('api')->user()
                 ->activeTeam
                 ->team->documents()
@@ -42,10 +51,9 @@ class DocumentService
                 ->find($id);
     }
 
-    public function DocumentPerticipantsById($id)
+    public function DocumentParticipantsById($id)
     {
-        return Document::with('participants', 'user')
-                ->find($id);
+        return Document::with('participants', 'user')->find($id);
     }
 
     public function userByDocumentIdAndEmail($email, $documentID)
@@ -54,4 +62,17 @@ class DocumentService
                                     ->where('document_id', $documentID)
                                     ->first();
     }
+
+    public function documentStatistics()
+    {
+        return [
+            'New' => auth('api')->user()->activeTeam->team->newDocuments->count(),
+            'Received' => Document::whereIn('id', auth('api')->user()->documentParticipants->where('who_added_id', '!=', auth('api')->user()->id)->pluck('document_id')->toArray())->count(),
+            'Deleted' => auth('api')->user()->activeTeam->team->deletedDocuments->count(),
+            'Completed' => auth('api')->user()->activeTeam->team->documents->where('status', 'Completed')->count(),
+            'Sent' => auth('api')->user()->activeTeam->team->envelopsSent->where('status', 'Sent')->count(),
+        ];
+    }
+
+    
 }

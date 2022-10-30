@@ -11,13 +11,16 @@ class UserService
     {
         $generatedPassword = $this->hashing();
 
-        return $this->find($data['email']) ? $this->find($data['email']) :
+        $email = strtolower($data['email']);
+        
+        return $this->find($email) ? $this->find($email) :
             User::create(
                 array_merge(
-                    Arr::only($data, ['first_name', 'last_name', 'email', 'phone']),
+                    Arr::only($data, ['first_name', 'last_name', 'phone']),
                     [
+                        'email' => $email,
                         'role' => 'User',
-                        'password' => $mode ? bcrypt($generatedPassword) : null,
+                        'password' => $mode ? $generatedPassword : null,
                         'user_access_code' => $mode ? $generatedPassword : null,
                         'user_access_code_counter' => 1,
                         'registration_mode' => $mode,
@@ -30,8 +33,9 @@ class UserService
 
     public function findUserRegistrationOutsideAuth($data, $mode = null)
     {
+        $email = strtolower($data['email']);
         return
-            optional($this->find($data['email']))->registration_mode == $mode && optional($this->find($data['email']))->user_access_code != null
+            optional($this->find($email))->registration_mode == $mode && optional($this->find($email))->user_access_code != null
                 ? $this->updateOutsideAuth($data, $mode)
                 : $this->createOrFindUserIfExist($data, $mode, false);
     }
@@ -40,26 +44,31 @@ class UserService
     {
         $generatedPassword = $this->hashing();
 
+        $email = strtolower($data['email']);
+
         return
-            $this->find($data['email'])->update([
-                'email' => $data['email'],
+            $this->find($email)->update([
+                'email' => $email,
                 'password' => $mode ? bcrypt($generatedPassword) : null,
                 'user_access_code' => $mode ? $generatedPassword : null,
-                'user_access_code_counter' => $this->find($data['email'])->user_access_code_counter + 1,
-            ]) ? $this->find($data['email']) : null;
+                'user_access_code_counter' => $this->find($email)->user_access_code_counter + 1,
+            ]) ? $this->find($email) : null;
     }
 
     public function updateOrCreateIfExist($data, $mode = null, $referral = false)
     {
         $generatedPassword = $this->hashing();
 
-        $user = $this->find($data['email']) ? ($this->update($data) ? $this->find($data['email']) : null)
+        $email = strtolower($data['email']);
+
+        $user = $this->find($email) ? ($this->update($data) ? $this->find($email) : null)
             : User::create(
                 array_merge(
-                    Arr::only($data, ['first_name', 'last_name', 'email', 'phone']),
+                    Arr::only($data, ['first_name', 'last_name', 'phone']),
                     [
+                        'email' => $email,
                         'role' => 'User',
-                        'password' => $mode ? bcrypt($generatedPassword) : null,
+                        'password' => $mode ? $generatedPassword : null,
                         'user_access_code' => $mode ? $generatedPassword : null,
                         'user_access_code_counter' => 1,
                         'registration_mode' => $mode,
@@ -79,8 +88,15 @@ class UserService
 
     public function update($data)
     {
-        return $this->find($data['email'])
-                ? $this->find($data['email'])->update(Arr::only($data, ['first_name', 'last_name', 'email', 'phone'])) : null;
+        $email = strtolower($data['email']);
+
+        return $this->find($email)
+                ? $this->find($email)->update([
+                'email' => $email,
+                'first_name' => $data['first_name'],
+                'last_name' => $data['last_name'],
+                'phone' => $data['phone'],
+            ]) : null;
     }
 
     public function userPropertyById($id)
@@ -122,5 +138,10 @@ class UserService
         $permitted_chars = '0123456789';
 
         return substr(str_shuffle($permitted_chars), 0, 6);
+    }
+
+    public function toLowerCase($email)
+    {
+        return strtolower($email);
     }
 }
