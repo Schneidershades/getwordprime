@@ -34,6 +34,7 @@ Route::prefix('v1')->group(function () {
         Route::resource('suggestions', SuggestionController::class);
         Route::resource('dashboard', DashboardController::class);
         Route::resource('script-types', ScriptTypeController::class);
+        Route::resource('transactions', TransactionController::class);
         Route::resource('script-responses', ScriptResponseController::class);
         Route::resource('favorite-script-responses', FavoriteScriptController::class);
         Route::resource('flagged-script-responses', FlaggedScriptController::class);
