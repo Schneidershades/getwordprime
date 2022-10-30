@@ -1,8 +1,8 @@
 {
     "openapi": "3.0.0",
     "info": {
-        "title": "ToNote App OpenApi API Documentation",
-        "description": "ToNote App Using L5 Swagger OpenApi description",
+        "title": "WordPrime App OpenApi API Documentation",
+        "description": "WordPrime App Using L5 Swagger OpenApi description",
         "contact": {
             "email": "schneidershades@gmail.com"
         },
@@ -2965,132 +2965,6 @@
                 ]
             }
         },
-        "/api/v1/admin/transactions": {
-            "get": {
-                "tags": [
-                    "Admin"
-                ],
-                "summary": "Get all transactions",
-                "description": "Get all transactions",
-                "operationId": "allTransactions",
-                "responses": {
-                    "200": {
-                        "description": "Successful signin",
-                        "content": {
-                            "application/json": {}
-                        }
-                    },
-                    "400": {
-                        "description": "Bad Request"
-                    },
-                    "401": {
-                        "description": "unauthenticated"
-                    },
-                    "403": {
-                        "description": "Forbidden"
-                    }
-                },
-                "security": [
-                    {
-                        "bearerAuth": []
-                    }
-                ]
-            }
-        },
-        "/api/v1/admin/transactions/{id}": {
-            "get": {
-                "tags": [
-                    "Admin"
-                ],
-                "summary": "Show an transaction",
-                "description": "Show an transaction",
-                "operationId": "showTransaction",
-                "parameters": [
-                    {
-                        "name": "id",
-                        "in": "path",
-                        "description": "Transaction ID",
-                        "required": true,
-                        "schema": {
-                            "type": "integer"
-                        }
-                    }
-                ],
-                "responses": {
-                    "200": {
-                        "description": "Successful signin",
-                        "content": {
-                            "application/json": {}
-                        }
-                    },
-                    "400": {
-                        "description": "Bad Request"
-                    },
-                    "401": {
-                        "description": "unauthenticated"
-                    },
-                    "403": {
-                        "description": "Forbidden"
-                    }
-                },
-                "security": [
-                    {
-                        "bearerAuth": []
-                    }
-                ]
-            },
-            "put": {
-                "tags": [
-                    "Admin"
-                ],
-                "summary": "Update an transactionsUpdate",
-                "description": "Update an transactionsUpdate",
-                "operationId": "transactionsUpdate",
-                "parameters": [
-                    {
-                        "name": "id",
-                        "in": "path",
-                        "description": "transactionsUpdate ID",
-                        "required": true,
-                        "schema": {
-                            "type": "integer"
-                        }
-                    }
-                ],
-                "requestBody": {
-                    "required": true,
-                    "content": {
-                        "application/json": {
-                            "schema": {
-                                "$ref": "#/components/schemas/UpdateTransactionFormRequest"
-                            }
-                        }
-                    }
-                },
-                "responses": {
-                    "200": {
-                        "description": "Successful signin",
-                        "content": {
-                            "application/json": {}
-                        }
-                    },
-                    "400": {
-                        "description": "Bad Request"
-                    },
-                    "401": {
-                        "description": "unauthenticated"
-                    },
-                    "403": {
-                        "description": "Forbidden"
-                    }
-                },
-                "security": [
-                    {
-                        "bearerAuth": []
-                    }
-                ]
-            }
-        },
         "/api/v1/admin/tutorials": {
             "get": {
                 "tags": [
@@ -4401,7 +4275,7 @@
                         "description": "Campaign ID",
                         "required": true,
                         "schema": {
-                            "type": "integer"
+                            "type": "string"
                         }
                     }
                 ],
@@ -4444,7 +4318,7 @@
                         "description": "Agency ID",
                         "required": true,
                         "schema": {
-                            "type": "integer"
+                            "type": "string"
                         }
                     }
                 ],
@@ -4485,7 +4359,7 @@
                         "description": "Agency ID",
                         "required": true,
                         "schema": {
-                            "type": "integer"
+                            "type": "string"
                         }
                     }
                 ],
@@ -4536,7 +4410,7 @@
                         "description": "Agency ID",
                         "required": true,
                         "schema": {
-                            "type": "integer"
+                            "type": "string"
                         }
                     }
                 ],
@@ -4589,7 +4463,7 @@
                         "description": "Agency ID",
                         "required": true,
                         "schema": {
-                            "type": "integer"
+                            "type": "string"
                         }
                     }
                 ],
@@ -4704,7 +4578,7 @@
                         "description": "Agency ID",
                         "required": true,
                         "schema": {
-                            "type": "integer"
+                            "type": "string"
                         }
                     }
                 ],
@@ -4745,7 +4619,7 @@
                         "description": "agency ID",
                         "required": true,
                         "schema": {
-                            "type": "integer"
+                            "type": "string"
                         }
                     }
                 ],
@@ -4796,7 +4670,7 @@
                         "description": "Agency ID",
                         "required": true,
                         "schema": {
-                            "type": "integer"
+                            "type": "string"
                         }
                     }
                 ],
@@ -4975,7 +4849,7 @@
                         "description": "Agency ID",
                         "required": true,
                         "schema": {
-                            "type": "integer"
+                            "type": "string"
                         }
                     }
                 ],
@@ -5016,7 +4890,7 @@
                         "description": "Agency ID",
                         "required": true,
                         "schema": {
-                            "type": "integer"
+                            "type": "string"
                         }
                     }
                 ],
@@ -5067,7 +4941,7 @@
                         "description": "Campaign ID",
                         "required": true,
                         "schema": {
-                            "type": "integer"
+                            "type": "string"
                         }
                     }
                 ],
@@ -5422,7 +5296,7 @@
                         "description": "marketplace ID",
                         "required": true,
                         "schema": {
-                            "type": "integer"
+                            "type": "string"
                         }
                     }
                 ],
@@ -5463,7 +5337,7 @@
                         "description": "marketplace ID",
                         "required": true,
                         "schema": {
-                            "type": "integer"
+                            "type": "string"
                         }
                     }
                 ],
@@ -5578,7 +5452,7 @@
                         "description": "Agency ID",
                         "required": true,
                         "schema": {
-                            "type": "integer"
+                            "type": "string"
                         }
                     }
                 ],
@@ -5619,7 +5493,7 @@
                         "description": "Agency ID",
                         "required": true,
                         "schema": {
-                            "type": "integer"
+                            "type": "string"
                         }
                     }
                 ],
@@ -5672,7 +5546,7 @@
                         "description": "Reseller ID",
                         "required": true,
                         "schema": {
-                            "type": "integer"
+                            "type": "string"
                         }
                     }
                 ],
@@ -5787,7 +5661,7 @@
                         "description": "Agency ID",
                         "required": true,
                         "schema": {
-                            "type": "integer"
+                            "type": "string"
                         }
                     }
                 ],
@@ -5828,7 +5702,7 @@
                         "description": "Agency ID",
                         "required": true,
                         "schema": {
-                            "type": "integer"
+                            "type": "string"
                         }
                     }
                 ],
@@ -5879,7 +5753,7 @@
                         "description": "Script ID",
                         "required": true,
                         "schema": {
-                            "type": "integer"
+                            "type": "string"
                         }
                     }
                 ],
@@ -5922,7 +5796,7 @@
                         "description": "Agency ID",
                         "required": true,
                         "schema": {
-                            "type": "integer"
+                            "type": "string"
                         }
                     }
                 ],
@@ -5963,7 +5837,7 @@
                         "description": "updateScriptResponses ID",
                         "required": true,
                         "schema": {
-                            "type": "integer"
+                            "type": "string"
                         }
                     }
                 ],
@@ -6014,7 +5888,7 @@
                         "description": "Script ID",
                         "required": true,
                         "schema": {
-                            "type": "integer"
+                            "type": "string"
                         }
                     }
                 ],
@@ -6089,7 +5963,7 @@
                         "description": "Script Type ID",
                         "required": true,
                         "schema": {
-                            "type": "integer"
+                            "type": "string"
                         }
                     }
                 ],
@@ -6164,7 +6038,7 @@
                         "description": "Script Type ID",
                         "required": true,
                         "schema": {
-                            "type": "integer"
+                            "type": "string"
                         }
                     }
                 ],
@@ -6212,6 +6086,81 @@
                     },
                     "401": {
                         "description": "unauthenticated"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        },
+        "/api/v1/script-type-presets/{id}": {
+            "get": {
+                "tags": [
+                    "user"
+                ],
+                "summary": "Show an answer",
+                "description": "Show an answer",
+                "operationId": "showScriptTypePresets",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Script type preset ID",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful signin",
+                        "content": {
+                            "application/json": {}
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    },
+                    "401": {
+                        "description": "unauthenticated"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        },
+        "/api/v1/subscription-plans": {
+            "get": {
+                "tags": [
+                    "Plans"
+                ],
+                "summary": "All plans",
+                "description": "All plans",
+                "operationId": "subPlans",
+                "responses": {
+                    "200": {
+                        "description": "Successful signin",
+                        "content": {
+                            "application/json": {}
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    },
+                    "401": {
+                        "description": "Unauthenticated"
                     },
                     "403": {
                         "description": "Forbidden"
@@ -6311,7 +6260,7 @@
                         "description": "Suggesstion ID",
                         "required": true,
                         "schema": {
-                            "type": "integer"
+                            "type": "string"
                         }
                     }
                 ],
@@ -6418,7 +6367,7 @@
                         "description": "Tutorials ID",
                         "required": true,
                         "schema": {
-                            "type": "integer"
+                            "type": "string"
                         }
                     }
                 ],
@@ -6533,7 +6482,7 @@
                         "description": "Script type prompt ID",
                         "required": true,
                         "schema": {
-                            "type": "integer"
+                            "type": "string"
                         }
                     }
                 ],
@@ -6574,7 +6523,7 @@
                         "description": "script-type-user-prompt-answers ID",
                         "required": true,
                         "schema": {
-                            "type": "integer"
+                            "type": "string"
                         }
                     }
                 ],
@@ -6617,7 +6566,7 @@
                         "description": "Script type prompt ID",
                         "required": false,
                         "schema": {
-                            "type": "integer"
+                            "type": "string"
                         }
                     }
                 ],

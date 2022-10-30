@@ -2,24 +2,25 @@
 
 namespace App\Http\Controllers\Api\User;
 
-use App\Models\Plan;
-use App\Models\Transaction;
-use App\Traits\Payments\Paystack;
 use App\Http\Controllers\Controller;
-use App\Traits\Payments\Flutterwave;
-use App\Services\PlanSubscriptionService;
 use App\Http\Requests\Transaction\StoreTransactionFormRequest;
 use App\Http\Requests\Transaction\UpdateTransactionFormRequest;
+use App\Models\Plan;
+use App\Models\Transaction;
+use App\Services\PlanSubscriptionService;
+use App\Traits\Payments\Credo;
+use App\Traits\Payments\Flutterwave;
+use App\Traits\Payments\Paystack;
 
 class TransactionController extends Controller
 {
-    /**
+   /**
      * @OA\Get(
      *      path="/api/v1/transactions",
-     *      operationId="transactions",
-     *      tags={"Transaction"},
-     *      summary="transactions",
-     *      description="transactions",
+     *      operationId="allUserTransactions",
+     *      tags={"Transactions"},
+     *      summary="Get Transactions",
+     *      description="Get Transactions",
      *      @OA\Response(
      *          response=200,
      *          description="Successful signin",
@@ -42,6 +43,7 @@ class TransactionController extends Controller
      *      security={ {"bearerAuth": {}} },
      * )
      */
+    
     public function index()
     {
         $transaction = Transaction::query()->where('user_id', auth('api')->user()->id)
@@ -55,7 +57,7 @@ class TransactionController extends Controller
     /**
      * @OA\Post(
      *      path="/api/v1/transactions",
-     *      operationId="postTransactions",
+     *      operationId="postUserTransactions",
      *      tags={"Transaction"},
      *      summary="postTransactions",
      *      description="postTransactions",
@@ -93,6 +95,8 @@ class TransactionController extends Controller
 
         $transaction = $paymentAction->transactions()->create([
             'title' => "Payment Subscription for $paymentAction->name Plan",
+            'actor_id' => auth('api')->user()->id,
+            'actor_type' => 'User',
             'user_id' => auth('api')->user()->id,
             'subtotal' => $paymentAction->amount,
             'total' => $paymentAction->amount,
@@ -105,7 +109,7 @@ class TransactionController extends Controller
     /**
      * @OA\Get(
      *      path="/api/v1/transactions/{id}",
-     *      operationId="showTransactions",
+     *      operationId="showUserTransactions",
      *      tags={"Transaction"},
      *      summary="showTransactions",
      *      description="showTransactions",
@@ -148,7 +152,7 @@ class TransactionController extends Controller
     /**
      * @OA\Put(
      *      path="/api/v1/transactions/{id}",
-     *      operationId="updateTransactions",
+     *      operationId="updateUserTransactions",
      *      tags={"Transaction"},
      *      summary="updateTransactions",
      *      description="updateTransactions",
@@ -221,6 +225,7 @@ class TransactionController extends Controller
         return match ($gateway) {
             'Paystack' => (new Paystack())->verify($id),
             'Flutterwave' => (new Flutterwave())->verify($id),
+            'Credo' => (new Credo())->verify($id),
             default => null
         };
     }
