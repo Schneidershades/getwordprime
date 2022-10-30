@@ -33,6 +33,7 @@ return new class extends Migration
             $table->float('discount_percentage')->default(0);
             $table->float('discount_amount')->default(0);
             $table->integer('grace_days')->default(0);
+            $table->timestamp('grace_days_ended_at')->nullable();
             $table->unsignedInteger('periodicity')->nullable(0);
             $table->string('periodicity_type');
             $table->softDeletes();
