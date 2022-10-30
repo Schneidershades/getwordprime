@@ -58,7 +58,7 @@ class TransactionController extends Controller
      * @OA\Post(
      *      path="/api/v1/transactions",
      *      operationId="postUserTransactions",
-     *      tags={"Transaction"},
+     *      tags={"Transactions"},
      *      summary="postTransactions",
      *      description="postTransactions",
      *      @OA\RequestBody(
@@ -110,7 +110,7 @@ class TransactionController extends Controller
      * @OA\Get(
      *      path="/api/v1/transactions/{id}",
      *      operationId="showUserTransactions",
-     *      tags={"Transaction"},
+     *      tags={"Transactions"},
      *      summary="showTransactions",
      *      description="showTransactions",
      *      @OA\Parameter(
@@ -153,7 +153,7 @@ class TransactionController extends Controller
      * @OA\Put(
      *      path="/api/v1/transactions/{id}",
      *      operationId="updateUserTransactions",
-     *      tags={"Transaction"},
+     *      tags={"Transactions"},
      *      summary="updateTransactions",
      *      description="updateTransactions",
      *      @OA\RequestBody(
