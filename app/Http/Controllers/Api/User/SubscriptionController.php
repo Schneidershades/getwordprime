@@ -38,9 +38,7 @@ class SubscriptionController extends Controller
      */
     public function index()
     {
-        $plans = Plan::where('periodicity_type', 'Month')
-                    ->where('type', 'Subscription')
-                    ->where('amount', '>', 0)->get();
+        $plans = Plan::all();
 
         return $this->showAll($plans);
     }
